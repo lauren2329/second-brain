@@ -1,0 +1,3222 @@
+.
+├── .claude
+│   ├── .DS_Store
+│   └── commands
+│       ├── ingest.md
+│       ├── lint.md
+│       ├── log.md
+│       └── query.md
+├── .DS_Store
+├── .obsidian 2
+│   ├── .DS_Store
+│   ├── app.json
+│   ├── appearance.json
+│   ├── backlink.json
+│   ├── canvas.json
+│   ├── community-plugins.json
+│   ├── core-plugins.json
+│   ├── daily-notes.json
+│   ├── graph.json
+│   ├── icons
+│   ├── note-composer.json
+│   ├── page-preview.json
+│   ├── plugins
+│   │   ├── .DS_Store
+│   │   ├── auto-card-link
+│   │   │   ├── data.json
+│   │   │   ├── main.js
+│   │   │   ├── manifest.json
+│   │   │   └── styles.css
+│   │   ├── bujo-bullets
+│   │   │   ├── data.json
+│   │   │   ├── main.js
+│   │   │   ├── manifest.json
+│   │   │   └── styles.css
+│   │   ├── calendar
+│   │   │   ├── main.js
+│   │   │   └── manifest.json
+│   │   ├── dataview
+│   │   │   ├── data.json
+│   │   │   ├── main.js
+│   │   │   ├── manifest.json
+│   │   │   └── styles.css
+│   │   ├── heatmap-calendar
+│   │   │   ├── data.json
+│   │   │   ├── main.js
+│   │   │   ├── manifest.json
+│   │   │   └── styles.css
+│   │   ├── homepage
+│   │   │   ├── data.json
+│   │   │   ├── main.js
+│   │   │   ├── manifest.json
+│   │   │   └── styles.css
+│   │   ├── large-language-models
+│   │   │   ├── main.js
+│   │   │   ├── manifest.json
+│   │   │   └── styles.css
+│   │   ├── local-backup
+│   │   │   ├── data.json
+│   │   │   ├── main.js
+│   │   │   └── manifest.json
+│   │   ├── note-toolbar
+│   │   │   ├── data.json
+│   │   │   ├── main.js
+│   │   │   ├── manifest.json
+│   │   │   └── styles.css
+│   │   ├── notebook-navigator
+│   │   │   ├── main.js
+│   │   │   ├── manifest.json
+│   │   │   └── styles.css
+│   │   ├── obligator
+│   │   │   ├── data.json
+│   │   │   ├── main.js
+│   │   │   └── manifest.json
+│   │   ├── obsidian-full-calendar
+│   │   │   ├── main.js
+│   │   │   ├── manifest.json
+│   │   │   └── styles.css
+│   │   ├── obsidian-icon-folder
+│   │   │   ├── data.json
+│   │   │   ├── main.js
+│   │   │   ├── manifest.json
+│   │   │   └── styles.css
+│   │   ├── obsidian-kanban
+│   │   │   ├── main.js
+│   │   │   ├── manifest.json
+│   │   │   └── styles.css
+│   │   ├── obsidian-style-settings
+│   │   │   ├── main.js
+│   │   │   ├── manifest.json
+│   │   │   └── styles.css
+│   │   ├── obsidian-tasks-plugin
+│   │   │   ├── data.json
+│   │   │   ├── main.js
+│   │   │   ├── manifest.json
+│   │   │   └── styles.css
+│   │   ├── omnisearch
+│   │   │   ├── main.js
+│   │   │   ├── manifest.json
+│   │   │   └── styles.css
+│   │   ├── print
+│   │   │   ├── main.js
+│   │   │   ├── manifest.json
+│   │   │   └── styles.css
+│   │   ├── progress-tracker
+│   │   │   ├── main.js
+│   │   │   ├── manifest.json
+│   │   │   └── styles.css
+│   │   ├── project-browser
+│   │   │   ├── data.json
+│   │   │   ├── main.js
+│   │   │   ├── manifest.json
+│   │   │   └── styles.css
+│   │   ├── rss-dashboard
+│   │   │   ├── main.js
+│   │   │   ├── manifest.json
+│   │   │   └── styles.css
+│   │   ├── settings-management
+│   │   │   ├── data.json
+│   │   │   ├── main.js
+│   │   │   ├── manifest.json
+│   │   │   └── styles.css
+│   │   ├── smart-templates
+│   │   │   ├── main.js
+│   │   │   ├── manifest.json
+│   │   │   └── styles.css
+│   │   ├── sync-google-calendar
+│   │   │   ├── data.json
+│   │   │   ├── main.js
+│   │   │   ├── manifest.json
+│   │   │   └── styles.css
+│   │   ├── table-checkbox-renderer
+│   │   │   ├── main.js
+│   │   │   └── manifest.json
+│   │   └── templify
+│   │       ├── data.json
+│   │       ├── main.js
+│   │       ├── manifest.json
+│   │       └── styles.css
+│   ├── switcher.json
+│   ├── templates.json
+│   ├── themes
+│   │   └── Blue Topaz
+│   │       ├── manifest.json
+│   │       └── theme.css
+│   ├── types.json
+│   ├── webviewer.json
+│   ├── workspace.json
+│   ├── workspaces.json
+│   └── zk-prefixer.json
+├── content
+│   ├── .DS_Store
+│   ├── drafts
+│   └── published
+├── knowledge
+│   ├── .DS_Store
+│   ├── raw
+│   │   ├── .DS_Store
+│   │   ├── ai
+│   │   │   └── README.md
+│   │   ├── books
+│   │   │   └── README.md
+│   │   ├── chat
+│   │   │   └── README.md
+│   │   ├── concepts
+│   │   │   └── _index.md
+│   │   ├── content
+│   │   │   └── _index.md
+│   │   ├── email
+│   │   │   └── README.md
+│   │   ├── index.md
+│   │   ├── journal
+│   │   │   └── _index.md
+│   │   ├── log.md
+│   │   ├── meetings
+│   │   │   └── README.md
+│   │   ├── people
+│   │   │   └── _index.md
+│   │   ├── projects
+│   │   │   └── _index.md
+│   │   ├── REVIEW
+│   │   │   ├── 🗓️ WEEKLY STAFF ASSIGNMENT (STARTING POINT).md
+│   │   │   ├── -.textClipping
+│   │   │   ├── .DS_Store
+│   │   │   ├── 00b581b50aba89d#file_000000000ae8722f8d5f40dfa7341589#p_3.04e429123e.jpg-p_3.04e429123e.jpg
+│   │   │   ├── 018dff22e37d513#file_000000002d9c722f901d57667e9a5a8d#p_9.jpg-p_9.jpg
+│   │   │   ├── 01b436671d60e8b#file_00000000dc3071f595458a478dad1e43#p_4.jpg-p_4.jpg
+│   │   │   ├── 0413e5a4c31a092#file_000000006ef471f590271fe8f7f1809d#p_0.jpg-p_0.jpg
+│   │   │   ├── 0be49a1c994a88f#file_000000000ae8722f8d5f40dfa7341589#p_28.jpg-p_28.jpg
+│   │   │   ├── 0d906719a259e76#file_000000006ef471f590271fe8f7f1809d#p_20.jpg-p_20.jpg
+│   │   │   ├── 1.png
+│   │   │   ├── 1402366b22f4096#file_000000006e30722fa44ab07d8b17f1d0#p_0.jpg-p_0.jpg
+│   │   │   ├── 14486d2ec765759#file_000000002d9c722f901d57667e9a5a8d#p_5.jpg-p_5.jpg
+│   │   │   ├── 17210e10ff1a9ad#file_00000000dc3071f595458a478dad1e43#p_15.jpg-p_15.jpg
+│   │   │   ├── 1d940f4294e16c4#file_000000000e2871f5a8b7826a9837e6ef#p_3.jpg-p_3.jpg
+│   │   │   ├── 1eb3ae4c873de92#file_000000002d9c722f901d57667e9a5a8d#p_3.jpg-p_3.jpg
+│   │   │   ├── 1f0c77b04b9f626#file_00000000dc3071f595458a478dad1e43#p_14.jpg-p_14.jpg
+│   │   │   ├── 1f34bf7e0d75c2c#file_000000006e30722fa44ab07d8b17f1d0#p_1.jpg-p_1.jpg
+│   │   │   ├── 2026_03_10_367397.pdf
+│   │   │   ├── 205_Broadway_Legal_Summary_to_Brad_Clark.pdf
+│   │   │   ├── 232f1402e2cd058#file_000000006ef471f590271fe8f7f1809d#p_27.jpg-p_27.jpg
+│   │   │   ├── 2df9b018892c744#file_000000000ae8722f8d5f40dfa7341589#p_20.jpg-p_20.jpg
+│   │   │   ├── 31c87373fecdb60#file_00000000cb88722fba795e54c9f86123#p_0.jpg-p_0.jpg
+│   │   │   ├── 33376 (4).html
+│   │   │   ├── 348s.jpg
+│   │   │   ├── 3861667e73736ea#file_000000000e2871f5a8b7826a9837e6ef#p_4.jpg-p_4.jpg
+│   │   │   ├── 3b9bf43e7080a25#file_000000000ae8722f8d5f40dfa7341589#p_2.991a2585c9.jpg-p_2.991a2585c9.jpg
+│   │   │   ├── 3fff7912291ef38#file_000000002d9c722f901d57667e9a5a8d#p_6.jpg-p_6.jpg
+│   │   │   ├── 403e58fcfdb5d11#file_00000000e53071f58e2284c994eac82e#p_0.jpg-p_0.jpg
+│   │   │   ├── 4131342e9ade87a#file_000000006ef471f590271fe8f7f1809d#p_28.jpg-p_28.jpg
+│   │   │   ├── 4cd862259a40dd7#file_000000002d9c722f901d57667e9a5a8d#p_4.jpg-p_4.jpg
+│   │   │   ├── 5d087232efc8c9b#file_000000000e2871f5a8b7826a9837e6ef#p_2.jpg-p_2.jpg
+│   │   │   ├── 6164999af1e1542#file_00000000dc3071f595458a478dad1e43#p_8.jpg-p_8.jpg
+│   │   │   ├── 64539b634d2ca0f#file_0000000058e4722fbd109cab7a545342#p_1.jpg-p_1.jpg
+│   │   │   ├── 64c3a75c319b772#file_00000000dc3071f595458a478dad1e43#p_16.jpg-p_16.jpg
+│   │   │   ├── 66cea262f2ce415#file_000000002d9c722f901d57667e9a5a8d#p_7.jpg-p_7.jpg
+│   │   │   ├── 68b0b408513e229bb0a3bdc8_gRoK0ezhIWEOuv_bpmwSkoASvSzHO8ZVm-QbWCLUYoM.pdf
+│   │   │   ├── 68b284a761dc2f49b83fdbb0_iEb_7Z4Ia-0y24ty516IHToSqzE4QVx6FwFVzc_HNNY.pdf
+│   │   │   ├── 6c70ea9bc4e9b2a#file_000000002d9c722f901d57667e9a5a8d#p_8.jpg-p_8.jpg
+│   │   │   ├── 6d083b4a001a27e#file_00000000dc3071f595458a478dad1e43#p_6.jpg-p_6.jpg
+│   │   │   ├── 6ee39e_f824008536b64543993fce2eb522bd77.pdf
+│   │   │   ├── 70dd8007e19ee20#file_00000000dc3071f595458a478dad1e43#p_5.jpg-p_5.jpg
+│   │   │   ├── 71tLsj96GlL._AC_UF894,1000_QL80_.jpg
+│   │   │   ├── 754d4503ac20227#file_000000002d9c722f901d57667e9a5a8d#p_1.jpg-p_1.jpg
+│   │   │   ├── 7b357ef20cc51c0#file_0000000014f8722f9c66dfb2a0f4f7ae#p_1.jpg-p_1.jpg
+│   │   │   ├── 820 KAR 1 025.pdf
+│   │   │   ├── 820 KAR 1 130.pdf
+│   │   │   ├── 87fb605c8b3bb02#file_00000000dc3071f595458a478dad1e43#p_9.jpg-p_9.jpg
+│   │   │   ├── 8ac7426ef33fac4#file_000000000e2871f5a8b7826a9837e6ef#p_7.jpg-p_7.jpg
+│   │   │   ├── 92df165b4435e45#file_00000000cb88722fba795e54c9f86123#p_1.jpg-p_1.jpg
+│   │   │   ├── 93d4204e4cd972b#file_0000000014f8722f9c66dfb2a0f4f7ae#p_0.jpg-p_0.jpg
+│   │   │   ├── 97dfd9a7f46cb78#file_000000000ae8722f8d5f40dfa7341589#p_5.e16b2f3aea.jpg-p_5.e16b2f3aea.jpg
+│   │   │   ├── 983822e2c21f01a#file_00000000dc3071f595458a478dad1e43#p_10.jpg-p_10.jpg
+│   │   │   ├── a1611eb1d8a0c35#file_00000000dc3071f595458a478dad1e43#p_7.jpg-p_7.jpg
+│   │   │   ├── a70c2279b9a7e51#file_00000000cc7071f5b91fef3a0281694b#p_3.jpg-p_3.jpg
+│   │   │   ├── ab0d578a5cbdd93#file_000000000ae8722f8d5f40dfa7341589#p_1.7e2880bcf8.jpg-p_1.7e2880bcf8.jpg
+│   │   │   ├── ac616724-378e-4d3e-b299-e2df71cb714f_Export-87fd7e21-9b26-4dd5-8b92-fa6d7ef7220d.zip
+│   │   │   ├── adfe93f482f7192#file_000000003d04720ca11bd56276f660d1#p_0.jpg-p_0.jpg
+│   │   │   ├── Application2023-A.pdf
+│   │   │   ├── b06372c6ae039d6#file_000000000ae8722f8d5f40dfa7341589#p_22.jpg-p_22.jpg
+│   │   │   ├── b22a30e79e93a00#file_00000000cc7071f5b91fef3a0281694b#p_6.jpg-p_6.jpg
+│   │   │   ├── b31cc42072bc30e#file_000000002d9c722f901d57667e9a5a8d#p_0.jpg-p_0.jpg
+│   │   │   ├── b7680412ce956c6#file_000000000ae8722f8d5f40dfa7341589#p_0.jpg-p_0.jpg
+│   │   │   ├── baf1b5c26471114#file_00000000cc7071f5b91fef3a0281694b#p_4.jpg-p_4.jpg
+│   │   │   ├── bdfce56e5eaedf9#file_00000000e53071f58e2284c994eac82e#p_1.jpg-p_1.jpg
+│   │   │   ├── bfe5c80f74ab4e5#file_0000000058e4722fbd109cab7a545342#p_0.jpg-p_0.jpg
+│   │   │   ├── Business management I.pdf
+│   │   │   ├── Business Structures.pdf
+│   │   │   ├── c4f2f9775182efb#file_00000000cc7071f5b91fef3a0281694b#p_7.jpg-p_7.jpg
+│   │   │   ├── ca6c12a644947fb#file_000000002d9c722f901d57667e9a5a8d#p_2.jpg-p_2.jpg
+│   │   │   ├── ced2b0b213a010b#file_000000000e2871f5a8b7826a9837e6ef#p_6.jpg-p_6.jpg
+│   │   │   ├── CGN Board and Gaming Center Staffing.md
+│   │   │   ├── Charitable Gaming Lounge – Pro Forma Financial & Compliance Model.md
+│   │   │   ├── Chart of accounts all.pdf
+│   │   │   ├── Chart of accounts.pdf
+│   │   │   ├── CLAUDE.md
+│   │   │   ├── Colin_Lee_No_Income_Statement.docx
+│   │   │   ├── Consent Document.pdf
+│   │   │   ├── CS202.doc
+│   │   │   ├── d2f5540748da9bc#file_000000006ef471f590271fe8f7f1809d#p_22.jpg-p_22.jpg
+│   │   │   ├── d64b55024d50e00#file_000000000ae8722f8d5f40dfa7341589#p_4.dc9cdc46f6.jpg-p_4.dc9cdc46f6.jpg
+│   │   │   ├── d84092ea355e993#file_000000000e2871f5a8b7826a9837e6ef#p_5.jpg-p_5.jpg
+│   │   │   ├── document (2).pdf
+│   │   │   ├── document (3).pdf
+│   │   │   ├── document (4).pdf
+│   │   │   ├── document (5).pdf
+│   │   │   ├── document.engrossed (1).pdf
+│   │   │   ├── document.engrossed (11).pdf
+│   │   │   ├── document.engrossed (2).pdf
+│   │   │   ├── document.engrossed (4).pdf
+│   │   │   ├── document.engrossed (5).pdf
+│   │   │   ├── document.engrossed (6).pdf
+│   │   │   ├── document.engrossed (7).pdf
+│   │   │   ├── document.engrossed (8).pdf
+│   │   │   ├── document.engrossed (9).pdf
+│   │   │   ├── document.engrossed.pdf
+│   │   │   ├── document.pdf
+│   │   │   ├── download (1).jpeg
+│   │   │   ├── Download (15).CSV
+│   │   │   ├── download (2).png
+│   │   │   ├── Download (4) (1).csv
+│   │   │   ├── Download (8).CSV
+│   │   │   ├── download.jpeg
+│   │   │   ├── download.pdf
+│   │   │   ├── download.png
+│   │   │   ├── drawings-2025-08-06-202451.png
+│   │   │   ├── drawings-2025-08-10-195919.png
+│   │   │   ├── drawings-2025-08-10-201014.png
+│   │   │   ├── drawings-2025-08-10-212157.png
+│   │   │   ├── economics.pdf
+│   │   │   ├── edit
+│   │   │   ├── Entity Mapping.md
+│   │   │   ├── EVS Can I use this Document.pdf
+│   │   │   ├── export_manifest.json
+│   │   │   ├── f8e403e3-e4f1-4954-a7c3-0374b55eead5 (1).html
+│   │   │   ├── f8e403e3-e4f1-4954-a7c3-0374b55eead5.html
+│   │   │   ├── file_00000000f7d071fdae339e8723bd6221-userworkspace74638604.json
+│   │   │   ├── files.zip
+│   │   │   ├── final llc trust structure.png
+│   │   │   ├── Frequently-Asked-Questions-2024.docx
+│   │   │   ├── Game 1.game
+│   │   │   ├── ghd logo.png
+│   │   │   ├── haos_generic-aarch64-17.2.vmdk
+│   │   │   ├── haos_generic-aarch64-17.2.vmdk 2
+│   │   │   ├── haos_generic-aarch64-17.2.vmdk 3
+│   │   │   ├── haos_generic-aarch64-17.2.vmdk.cpgz
+│   │   │   ├── haos_generic-aarch64-17.2.vmdk.zip
+│   │   │   ├── HMFAlOHk.pdf
+│   │   │   ├── How Bonton beat the odds .txt
+│   │   │   ├── image
+│   │   │   ├── image (1)
+│   │   │   ├── image (2)
+│   │   │   ├── image (3)
+│   │   │   ├── image (4)
+│   │   │   ├── image (5)
+│   │   │   ├── image (6)
+│   │   │   ├── image-from-rawpixel-id-26038990-png.png
+│   │   │   ├── image.png
+│   │   │   ├── image001.jpg
+│   │   │   ├── Irrevocable Family Trust .pdf
+│   │   │   ├── Irrevocable Family Trust 8-8-25.pdf
+│   │   │   ├── Irrevocable Family Trust klnln.pdf
+│   │   │   ├── j2orp32P.pdf
+│   │   │   ├── KEDFA Incentive Program.pdf
+│   │   │   ├── l.jpg
+│   │   │   ├── launch (1).jnlp
+│   │   │   ├── lcfhs_bulletin_1983_10 (1).pdf
+│   │   │   ├── lcfhs_bulletin_1983_10.pdf
+│   │   │   ├── Lease (1).pdf
+│   │   │   ├── Lease.pdf
+│   │   │   ├── list_upload_sample (1).csv
+│   │   │   ├── list_upload_sample.csv
+│   │   │   ├── Matplotlib Chart.png
+│   │   │   ├── message_feedback.json
+│   │   │   ├── MjAyNi0wMi0xOVRSMDAxMDAxOTAwMDc4MzEwOCwxLEVDRiw3MTEx.pdf
+│   │   │   ├── MP-000083.webp
+│   │   │   ├── Multiple Documents.pdf
+│   │   │   ├── Non Profit Structures.pdf
+│   │   │   ├── notice (1).pdf
+│   │   │   ├── notice.pdf
+│   │   │   ├── onerdguarantee.rss
+│   │   │   ├── package.zip
+│   │   │   ├── PAFS700.pdf
+│   │   │   ├── PAFS704.pdf
+│   │   │   ├── PAFS76.pdf
+│   │   │   ├── Pasted image 20260418225226.png
+│   │   │   ├── proof.pdf
+│   │   │   ├── README.md
+│   │   │   ├── s-l1600 (1).webp
+│   │   │   ├── s-l1600.webp
+│   │   │   ├── Scan.jpeg
+│   │   │   ├── Schedule a Redelivery _ USPS.pdf
+│   │   │   ├── SCN_20251102_1902.pdf
+│   │   │   ├── shared_conversations.json
+│   │   │   ├── tA0R3wWj.pdf
+│   │   │   ├── TC 94-192.pdf
+│   │   │   ├── TCGN_COA_QBO_import_full.csv
+│   │   │   ├── The Adolescent Psychotherapy TREATMENT PLANNER.pdf
+│   │   │   ├── The Family Therapy Treatment Planner.pdf
+│   │   │   ├── The Framework - Understanding and Reducing Stres.pdf
+│   │   │   ├── The Politics Book .pdf
+│   │   │   ├── The_Common_Good_Network_Chart_of_Accounts.csv
+│   │   │   ├── top-faq-7-26-10doc-56191.doc
+│   │   │   ├── trust structure plan.png
+│   │   │   ├── Understanding and Healing Trauma - 2nd Edition.pdf
+│   │   │   ├── Unit 2 Care of the Patient with Diabetes.pdf
+│   │   │   ├── unnamed
+│   │   │   ├── unnamed (1).jpg
+│   │   │   ├── unnamed (2).jpg
+│   │   │   ├── unnamed (3).jpg
+│   │   │   ├── unnamed.jpg
+│   │   │   ├── unnamed.webp
+│   │   │   ├── Untitled 1.base
+│   │   │   ├── Untitled design
+│   │   │   │   ├── 1.png
+│   │   │   │   ├── 2.png
+│   │   │   │   ├── 3.png
+│   │   │   │   ├── 4.png
+│   │   │   │   └── 5.png
+│   │   │   ├── Untitled design (1).png
+│   │   │   ├── Untitled design (2).png
+│   │   │   ├── Untitled design (3).png
+│   │   │   ├── Untitled design (4).png
+│   │   │   ├── Untitled design (5).png
+│   │   │   ├── Untitled design (6).png
+│   │   │   ├── Untitled design (7).png
+│   │   │   ├── Untitled design (8).png
+│   │   │   ├── Untitled design.pdf
+│   │   │   ├── Untitled design.png
+│   │   │   ├── Untitled design.zip
+│   │   │   ├── Untitled spreadsheet (3).xlsx
+│   │   │   ├── Untitled.base
+│   │   │   ├── Untitled.canvas
+│   │   │   ├── user_settings.json
+│   │   │   ├── user.json
+│   │   │   ├── userworkspace74638604.json
+│   │   │   ├── Vol00012_Efta02731082_Pdf.pdf
+│   │   │   ├── vudm5IMX.pdf
+│   │   │   ├── WSIN.pdf
+│   │   │   └── Your Recovery Journey (2).pdf
+│   │   ├── scan
+│   │   │   └── README.md
+│   │   ├── user-QPX4feLCoRmhgdmqJqA976SY
+│   │   │   ├── .DS_Store
+│   │   │   ├── 07d75461df1c4fb0a2c68f7e54fcab37
+│   │   │   │   ├── .DS_Store
+│   │   │   │   └── tmp
+│   │   │   │       ├── .DS_Store
+│   │   │   │       ├── granola_render_spreadsheet5ylg6lfv
+│   │   │   │       ├── granola_render_spreadsheetb77agn96
+│   │   │   │       └── granola_render_spreadsheetufps63ih
+│   │   │   ├── 84caa918d9ee4478bd319cee4700d4ec
+│   │   │   │   ├── .DS_Store
+│   │   │   │   └── mnt
+│   │   │   │       ├── .DS_Store
+│   │   │   │       └── data
+│   │   │   ├── 9864a91ef2604d1388fd70f5d3d0ed61
+│   │   │   │   └── mnt
+│   │   │   │       └── data
+│   │   │   ├── b6de68ac798d44b8908b7d434059f92a
+│   │   │   │   └── mnt
+│   │   │   │       └── data
+│   │   │   ├── dae01fcfe4f647919dccf3187e598ff5
+│   │   │   │   ├── .DS_Store
+│   │   │   │   └── mnt
+│   │   │   │       ├── .DS_Store
+│   │   │   │       └── data
+│   │   │   ├── e0840f4d47b24e45bf267bfeaf7c6ddd
+│   │   │   │   ├── .DS_Store
+│   │   │   │   └── mnt
+│   │   │   │       ├── .DS_Store
+│   │   │   │       └── data
+│   │   │   ├── file_0000000004b861f5a1f581749454b661-57e1048f-3aec-4177-972b-d569521f2948.png
+│   │   │   ├── file_000000001b406230bf681093dcfe1569-4a51edd0-3070-4f5d-8085-e6779a5bf048.png
+│   │   │   ├── file_0000000023605246ba5c13cd9a86c328-4795cb07-f9b4-4b47-95d7-4d673abcd329.png
+│   │   │   ├── file_000000002510622fa27fe7fc138975e0-79d2373a-fda3-490c-94f2-0eaeac6f5536.png
+│   │   │   ├── file_00000000269861f584a75717e4c4876c-93b08c52-5bb3-4df3-93a5-135f5a781cbe.png
+│   │   │   ├── file_0000000028e061f9bba840b8155113e7-2df61ca0-23be-4b97-9730-69bcfffbcd25.png
+│   │   │   ├── file_000000002cbc51f7a32fbe1c8e1f4c0c-e474c029-4b3c-4383-906a-ec06605da495.png
+│   │   │   ├── file_000000003d1c61f58337317372ac9ad2-5d1361c6-97d7-4bb1-b0ad-2d5b984ce12b.png
+│   │   │   ├── file_0000000041f8622fb347ec54bffdf308-e8d1da4b-8634-44d8-8f8e-91f13f1c53af.png
+│   │   │   ├── file_00000000485461fdaeb26cb5bd7c8785-e4cbbdcc-1dbc-4bdf-bf7a-2e52ac083732.png
+│   │   │   ├── file_000000004d1471f5a44b4b0354d4baf6-66d46a69-15ab-4f8d-bbfc-a078512c4759.png
+│   │   │   ├── file_0000000051fc61fdb950c22657bdc62f-92f6a463-26c5-446c-88c3-4efd04d90b52.png
+│   │   │   ├── file_000000005e8461fbb23628e9876899df-1a0403af-5c98-440a-be75-ae612e0f832c.png
+│   │   │   ├── file_000000005e9071f59efe55a994875410-032e7141-c19f-4833-ba0d-c42d9277dc12.png
+│   │   │   ├── file_0000000065906230a13fdd00c4ff82f4-2b90faec-9b04-4173-a8a3-f64fe47e490b.png
+│   │   │   ├── file_000000006ae461f9a714653fc848f92c-f6a44dcf-284c-4a9d-95c6-c24df2e4448b.png
+│   │   │   ├── file_000000006e08722fa5b2428474758b78-a6cf579a-1a9d-420e-bbe6-3b4677f2800f.png
+│   │   │   ├── file_000000007014520aa0a9176e774ac158-265e8e4e-f0a4-4ab0-80fa-d47153063a24.png
+│   │   │   ├── file_0000000070fc524694ab51bb3a303e47-58489571-c5e0-416d-9f6b-a14546df166f.png
+│   │   │   ├── file_000000008238620a8cba7cd49465cca5-d59e3acb-dc73-4f82-893d-89382e95b1c7.png
+│   │   │   ├── file_00000000868862308becb1e38355ab00-d680c9d6-82dc-4052-baaf-d943ba098bd9.png
+│   │   │   ├── file_0000000087886230be27838631dacc7d-219ab6d8-4b3a-45e9-b326-a6841351b34a.png
+│   │   │   ├── file_00000000925c722fb81beb6da1df8114-62cc1504-5984-4428-b6e7-95247fd9cca8.png
+│   │   │   ├── file_00000000972c622f886d6d4a9678c007-22f0690d-8dc4-4902-b86c-58d9d7e836c0.png
+│   │   │   ├── file_000000009b5061f7b95ef11f8b95bae2-d656a50f-5a7c-46bf-8273-10e5c482b1b9.png
+│   │   │   ├── file_00000000a04051f782f38d7d7c885ba1-2744a045-d189-45a7-8aa7-9f26e132e77c.png
+│   │   │   ├── file_00000000a2c861fbab65afcc08df73a1-f7c4c21b-e206-4adb-9454-8ac993e523d4.png
+│   │   │   ├── file_00000000a874623088efbd4a0a6271a2-93f5805b-8723-4513-94d3-390cd9596afb.png
+│   │   │   ├── file_00000000aec871fbb65d577851fc5fa5-2bda7093-4888-4e51-ad1e-a85333450125.png
+│   │   │   ├── file_00000000bd9c61f5bf691fb58e040ecf-106a53f3-83b9-4d6d-890c-5c9131d234d3.png
+│   │   │   ├── file_00000000beb461f7b29c1f132e5c2044-95306cff-8fa6-4309-b6eb-db2682072e14.png
+│   │   │   ├── file_00000000bf9c61f5bea11c129cedf5f3-ad23bc9c-8a62-42d5-a72f-b736775d7f18.png
+│   │   │   ├── file_00000000c7fc722fa61bc360032b4c5d-09e949db-265a-4247-baed-e229d42b673b.png
+│   │   │   ├── file_00000000ca4051f79b89cd28f14fd489-1cfa46c5-2c8d-4cb8-9af6-cf88c74c0203.png
+│   │   │   ├── file_00000000d2fc71f5af39c483544276f6-17642136-8b2b-4b62-8271-aad32b37e518.png
+│   │   │   ├── file_00000000d680723094cf97499ba549b7-55f91ed7-251a-4c9f-a708-a82be333fa8e.png
+│   │   │   ├── file_00000000d72471fd97255185c7a21a22-95670767-ab46-495d-bb77-254599ef68b6.png
+│   │   │   ├── file_00000000f1e861f9bc13a0152842d908-4bd7d165-2ebd-4552-8401-0ec44e48d257.png
+│   │   │   └── file_00000000ff5461f5967436429e074cf8-855a5347-d87c-41a9-9d53-f4835a8b4334.png
+│   │   ├── voice
+│   │   │   └── README.md
+│   │   └── web
+│   │       └── README.md
+│   └── wiki
+│       ├── .DS_Store
+│       ├── concepts
+│       ├── index.md
+│       ├── log.md
+│       ├── people
+│       └── projects
+│           ├── cannabis-events.md
+│           └── gaming-lounge.md
+├── life
+│   ├── .DS_Store
+│   ├── Council
+│   │   ├── .DS_Store
+│   │   ├── Ada
+│   │   │   └── CLAUDE.md
+│   │   ├── Annabel
+│   │   │   └── CLAUDE.md
+│   │   ├── CLAUDE.md
+│   │   ├── Cleo
+│   │   │   └── CLAUDE.md
+│   │   ├── Constance
+│   │   │   └── CLAUDE.md
+│   │   ├── Dolly
+│   │   │   └── CLAUDE.md
+│   │   ├── Dot
+│   │   │   └── CLAUDE.md
+│   │   ├── Fiona
+│   │   │   └── CLAUDE.md
+│   │   ├── Greta
+│   │   │   └── CLAUDE.md
+│   │   ├── Harriet
+│   │   │   └── CLAUDE.md
+│   │   ├── Imogen
+│   │   │   └── CLAUDE.md
+│   │   ├── Martha
+│   │   │   └── CLAUDE.md
+│   │   ├── Mary
+│   │   │   └── CLAUDE.md
+│   │   ├── Penny
+│   │   │   └── CLAUDE.md
+│   │   ├── Prudence
+│   │   │   └── CLAUDE.md
+│   │   ├── Roxanne
+│   │   │   └── CLAUDE.md
+│   │   ├── Sage
+│   │   │   └── CLAUDE.md
+│   │   ├── Sterling
+│   │   │   └── CLAUDE.md
+│   │   ├── Sylvia
+│   │   │   └── CLAUDE.md
+│   │   ├── Vera
+│   │   │   └── CLAUDE.md
+│   │   ├── Victoria
+│   │   │   └── CLAUDE.md
+│   │   └── Vivienne
+│   │       └── CLAUDE.md
+│   ├── Home
+│   │   ├── .DS_Store
+│   │   ├── 05_Personal
+│   │   │   ├── Benefits-Government
+│   │   │   │   ├── 021624-REAL_ID_FactSheet.pdf
+│   │   │   │   ├── adapting_motor_vehicles_brochure_810733.pdf
+│   │   │   │   ├── alk Re-entry Number, Identification, Step 1 of 4, Apply for Benefits, Social Security.pdf
+│   │   │   │   ├── benefit-verification-letter (1).pdf
+│   │   │   │   ├── benefit-verification-letter (2).pdf
+│   │   │   │   ├── benefit-verification-letter (3).pdf
+│   │   │   │   ├── benefit-verification-letter (4).pdf
+│   │   │   │   ├── benefit-verification-letter (5).pdf
+│   │   │   │   ├── benefit-verification-letter.pdf
+│   │   │   │   ├── Community-Resource-Guide (1).pdf
+│   │   │   │   ├── Community-Resource-Guide.pdf
+│   │   │   │   ├── DCBS1.pdf
+│   │   │   │   ├── DirectoryofServicesandProviders.pdf
+│   │   │   │   ├── DownloadMedicaidCard.pdf
+│   │   │   │   ├── EE_Community_Guide_f.pdf
+│   │   │   │   ├── EN-05-10026.pdf
+│   │   │   │   ├── EN-05-10029.pdf
+│   │   │   │   ├── EN-05-10085.pdf
+│   │   │   │   ├── EN-05-11005.pdf
+│   │   │   │   ├── EVS Documentation Requirements (1).pdf
+│   │   │   │   ├── EVS Documentation Requirements.pdf
+│   │   │   │   ├── HDI-KentuckyDisabilityResourceGuide-July-20-2021.pdf
+│   │   │   │   ├── KY_Caid_Prov_Community_Connections_Flyer_Eng_12_2021_R.pdf
+│   │   │   │   ├── KY_Caid_Prov_Diabetes_Educational_Resource_Flyer_Eng_05_2021_R.pdf
+│   │   │   │   ├── KY_Caid_Prov_Members_Empowered_To_Succeed_METS_Flyer_Eng_2021.pdf
+│   │   │   │   ├── KY_Caid_Prov_Pediatric_Oral_Health_2024.pdf
+│   │   │   │   ├── KY_Caid_Prov_Provider_Resource_Guide_Eng_2024_R.pdf
+│   │   │   │   ├── KY_Caid_Prov_Social_Determinants_of_Health_SDOH_Eng_2023_R.pdf
+│   │   │   │   ├── KY_Medicaid_Provider_Manual_2025_R.pdf
+│   │   │   │   ├── KY_Medicaid_Provider_Quick_Reference_Guide_2025_R.pdf
+│   │   │   │   ├── KY_Prov_CAHPS_Tip_Sheet_2025_R.pdf
+│   │   │   │   ├── Michelle-P-Waiver-APPLICATION-MAP-621.doc
+│   │   │   │   ├── MRT-15.pdf
+│   │   │   │   ├── Qualified-Disability-Trust.pdf
+│   │   │   │   ├── Re-entry Number, Identification, Step 1 of 4, Apply for Benefits, Social Security.pdf
+│   │   │   │   ├── RecoveryKentuckyAdminManual (1).pdf
+│   │   │   │   ├── RecoveryKentuckyAdminManual.pdf
+│   │   │   │   ├── SNA-Supplemental-Security-Income.pdf
+│   │   │   │   ├── social-security-statement.pdf
+│   │   │   │   ├── Supportive Services.pdf
+│   │   │   │   ├── UCP External_Experience_Application Preview 2026.pdf
+│   │   │   │   └── Your Social Security Statement.pdf
+│   │   │   ├── Education
+│   │   │   │   ├── 22-23-bs-busecon-as.pdf
+│   │   │   │   ├── AP_CAI_DC_IB_Postsecondary_Readiness_(Academic_and_Career)_Courses.xlsx
+│   │   │   │   ├── business-2016-17-revised.pdf
+│   │   │   │   ├── CopyofJacksonAcademyHandbook22-23.docx
+│   │   │   │   ├── DC_PathAlign-KCTCS (1).pdf
+│   │   │   │   ├── DC_PathAlign-KCTCS.pdf
+│   │   │   │   ├── Early_Graduation_Intent_Form.docx
+│   │   │   │   ├── guide_for_incoming_graduate_students_17-18.pdf
+│   │   │   │   ├── ILP_9-12_Playbook.pdf
+│   │   │   │   ├── ILP_Playbook_5-8.pdf
+│   │   │   │   ├── Kentucky_CTE_Program_Areas.jpg
+│   │   │   │   ├── MyStudentData.txt
+│   │   │   │   ├── Spalding-OT-students-9-6-19-final.pptx
+│   │   │   │   ├── spring 2026 transcript.pdf
+│   │   │   │   └── spring 2026 transcript.pdf.pdf
+│   │   │   ├── Family-Household
+│   │   │   │   ├── Adult Adoptee Application for Non Certified Copy of Original Birth Certificate VS-145_3.2024.pdf
+│   │   │   │   ├── Application for Identity of Court of Adoption VS-143_3.2024.pdf
+│   │   │   │   ├── Ben_Routine_Checklist.pdf
+│   │   │   │   ├── Christmas-Bins.jpg
+│   │   │   │   ├── Colin Wesley Lee Transcript - Sheet1.pdf
+│   │   │   │   ├── Colin_Lee_No_Income_Statement.docx
+│   │   │   │   ├── Court Ordered Open Sealed File VS-143.1_3.2024 Edits.pdf
+│   │   │   │   ├── DinusarNameTracingTemplate1Large.pdf
+│   │   │   │   ├── DRGR RHP Action Plan Download (2020-2022).docx
+│   │   │   │   ├── Happy Fathers Day Diamond.png
+│   │   │   │   ├── kentucky homeschool information packet.pdf
+│   │   │   │   ├── Lily_Routine_Checklist.pdf
+│   │   │   │   ├── Plumbing Technology.pdf
+│   │   │   │   ├── Shopping Cart at Menards®.pdf
+│   │   │   │   ├── Twin-Size-Daybed-Drawers-Bookcase-Storage-Corner-Bed-Frame-Desk-Charging-Station-Led-Lights-Twin-Metal-Platform-Bed-Frame-Open-Shelves-White_81e77de8-dee4-47de-b0a7-bd089cd63c3f.7c61b011b91deab1422d1d9ade156dc7.avif
+│   │   │   │   ├── Twin-Size-House-Bed-Frame-Storage-Drawers-Corner-Bed-Bookcase-Twin-Daybed-Upholstered-Headboard-House-Shaped-Metal-Beds-Charging-Station-LED-Light-Wh_0320630b-ed9e-4fba-a7f2-197697c9ee81.5a9fae460b7da1b06276951859e7177b (1).avif
+│   │   │   │   ├── Twin-Size-House-Bed-Frame-Storage-Drawers-Corner-Bed-Bookcase-Twin-Daybed-Upholstered-Headboard-House-Shaped-Metal-Beds-Charging-Station-LED-Light-Wh_0320630b-ed9e-4fba-a7f2-197697c9ee81.5a9fae460b7da1b06276951859e7177b.avif
+│   │   │   │   ├── WinterReadingLog_2023-24.pdf
+│   │   │   │   ├── Worldmap-EnchantedLearning.pdf
+│   │   │   │   ├── Yahtzee Scorecard.pdf
+│   │   │   │   ├── Yahtzee Scorecard.xlsx
+│   │   │   │   └── Yahtzee-Score-Card-2-per-page.jpg
+│   │   │   ├── Health-Medical
+│   │   │   │   ├── 2025_SNT_ABLE_comparison-FINAL-1-1.pdf
+│   │   │   │   ├── 6MostCommonMedicationstoTreatNeurologicalDisorders.png
+│   │   │   │   ├── A-Guide-To-Assistive-Technology-Funding16th-Edition-rev-3.pdf
+│   │   │   │   ├── ABLE-AgeAdjustmentFactSheet-2.pdf
+│   │   │   │   ├── ABLE-NRCOverviewFlyer2024.pdf
+│   │   │   │   ├── ABLEGuideSaveTodayEnjoyTomorrow.pdf
+│   │   │   │   ├── ABLEIntegratedSupportsStar2025.pdf
+│   │   │   │   ├── Benjamin Evaluation.pdf
+│   │   │   │   ├── Child Support SS 09.11.25.pdf
+│   │   │   │   ├── DisclosureStatement (1).pdf
+│   │   │   │   ├── DisclosureStatement (2).pdf
+│   │   │   │   ├── DisclosureStatement (3).pdf
+│   │   │   │   ├── DisclosureStatement.pdf
+│   │   │   │   ├── dprp-standards.pdf
+│   │   │   │   ├── economics.note
+│   │   │   │   ├── Fruit-and-vegetable-serving-sizes-infographic-pdf (1).pdf
+│   │   │   │   ├── Fruit-and-vegetable-serving-sizes-infographic-pdf.pdf
+│   │   │   │   ├── handout_therapy_increased_intestinal_permeability_clinician.pdf
+│   │   │   │   ├── HealthSummary080825.zip
+│   │   │   │   ├── Nursys-QuickConfirm-License-Verification-Report_2025_08_01.pdf
+│   │   │   │   ├── obsidian-recovery-codes.txt
+│   │   │   │   ├── Patient Portal.pdf
+│   │   │   │   ├── Provider Section.pdf
+│   │   │   │   ├── rxreport (1).pdf
+│   │   │   │   ├── rxreport.pdf
+│   │   │   │   ├── SNA_Disablilities_Handbook-2025-FINAL.pdf
+│   │   │   │   ├── SNA-2025-Handbook-FINAL.pdf
+│   │   │   │   ├── SNA-Brief-Guide-to-Special-Needs-Trusts-for-Families.pdf
+│   │   │   │   ├── SNA-Brief-Guide-to-Special-Needs-Trusts-for-Professionals.pdf
+│   │   │   │   ├── SNA-Buying-a-Home-for-a-Person-with-Disabilities.pdf
+│   │   │   │   ├── SNA-Estate-Planning-for-Parents-of-Children-with-Disabilities.pdf
+│   │   │   │   ├── SNA-MistakesInPlanning-FINAL.pdf
+│   │   │   │   ├── SNA-Selecting-the-Trustee-of-a-Special-Needs-Trust.pdf
+│   │   │   │   ├── SNA-Special-Needs-Trusts-for-Litigation-Proceeds.pdf
+│   │   │   │   ├── SNA-Striking-a-Balance-with-Structured-Settlements.pdf
+│   │   │   │   ├── SNA-We-Are-the-Special-Needs-Alliance.pdf
+│   │   │   │   ├── SNA-What-Happens-When-I-Turn-18.pdf
+│   │   │   │   ├── Surgeons_International Excision Surgeon Listing 1-5-26.pdf
+│   │   │   │   ├── The Adolescent Psychotherapy TREATMENT PLANNER.note
+│   │   │   │   ├── The Family Therapy Treatment Planner.note
+│   │   │   │   ├── The Framework - Understanding and Reducing Stres.note
+│   │   │   │   ├── The Politics Book .note
+│   │   │   │   ├── The Politics Book .pdf
+│   │   │   │   ├── tpd application w Provider Section (1).pdf
+│   │   │   │   ├── tpd application w Provider Section.pdf
+│   │   │   │   ├── tpd-application (1)-merged-compressed.pdf
+│   │   │   │   ├── tpd-application (1).pdf
+│   │   │   │   ├── tpd-application_unsigned (1).pdf
+│   │   │   │   ├── tpd-application_unsigned (2).pdf
+│   │   │   │   ├── tpd-application_unsigned (3).pdf
+│   │   │   │   ├── tpd-application_unsigned (4).pdf
+│   │   │   │   ├── tpd-application_unsigned.pdf
+│   │   │   │   ├── tpd-application.pdf
+│   │   │   │   ├── Understanding and Healing Trauma - 2nd Edition.note
+│   │   │   │   ├── Unit 2 Care of the Patient with Diabetes.note
+│   │   │   │   └── Your Recovery Journey.note
+│   │   │   └── Planning-Routines
+│   │   │       ├── 12_Week_Year_Planning_Template.docx
+│   │   │       ├── 2025 Yume Techo Planner (3).note
+│   │   │       ├── 2026 Yume Techo Planner (Garden cover, Monday start).pdf
+│   │   │       ├── 751343e72053b6704734bd16be1a2de5.ics
+│   │   │       ├── AppleNotes_Automation_Guide_With_Tasks.pdf
+│   │   │       ├── AppointmentCalendar.ics
+│   │   │       ├── basic.ics
+│   │   │       ├── Business management I.note
+│   │   │       ├── chatGPT-folders.json
+│   │   │       ├── FlyLady_Routines_Board.csv
+│   │   │       ├── GoodNotes_Daily_Workflow_Template.pdf
+│   │   │       ├── GoodNotes_Daily_Workflow_with_Tabs.pdf
+│   │   │       ├── GoodNotes_Shortcuts_Pack
+│   │   │       │   ├── Evening_Reflection.shortcut
+│   │   │       │   ├── Health_Quick_Log.shortcut
+│   │   │       │   ├── Morning_Start.shortcut
+│   │   │       │   ├── Start_Day.shortcut
+│   │   │       │   └── Work_Start.shortcut
+│   │   │       ├── GoodNotes_Shortcuts_Pack.zip
+│   │   │       ├── Lauren_Master_Routine.ics
+│   │   │       ├── Lauren_Weekly_and_Recurring_Events_Sep2025.ics
+│   │   │       ├── Live-Music-at-Iconic-Lobby-Bar.ics
+│   │   │       ├── Medical Patient Information Template.note
+│   │   │       ├── NN - Download Instruction and Tutorials.pdf
+│   │   │       ├── NN Yume Techo - Undated L V2.0 - Monday - L Garden.note
+│   │   │       ├── notion_life_system_template.json
+│   │   │       ├── notion_life_system_template.zip
+│   │   │       ├── Nozomunoto.shortcut
+│   │   │       ├── Printable Weekly Self Care Checklist.pdf
+│   │   │       ├── Self-Care Planner.note
+│   │   │       ├── SMARTWorksheet.pdf
+│   │   │       ├── UseMotion_Home_Routine.ics
+│   │   │       ├── UseMotion_Meeting_Windows.ics
+│   │   │       ├── UseMotion_Planning_WrapUp.ics
+│   │   │       └── UseMotion_Work_Routine.ics
+│   │   ├── Attachments
+│   │   │   ├── Finance
+│   │   │   │   ├── Banking
+│   │   │   │   ├── Banking-Transactions
+│   │   │   │   │   ├── (31) Quotes & Invoices - Invoice-37-26_1.pdf
+│   │   │   │   │   ├── (31) Quotes & Invoices - Invoice-37-26_2.pdf
+│   │   │   │   │   ├── (31) Quotes & Invoices - Invoice-37-26.pdf
+│   │   │   │   │   ├── 2025-10-09-paypal-for-review_1.csv
+│   │   │   │   │   ├── 2025-10-09-paypal-for-review_2.csv
+│   │   │   │   │   ├── 2025-10-09-paypal-for-review.csv
+│   │   │   │   │   ├── 2026_KY_CannaCon_Financials_with_LastYearPackages_1.xlsx
+│   │   │   │   │   ├── 2026_KY_CannaCon_Financials_with_LastYearPackages_2.xlsx
+│   │   │   │   │   ├── 2026_KY_CannaCon_Financials_with_LastYearPackages.xlsx
+│   │   │   │   │   ├── 67cf6e4b9309771d0a57e8b5_wcbgb-statement-export-250310_1.csv
+│   │   │   │   │   ├── 67cf6e4b9309771d0a57e8b5_wcbgb-statement-export-250310_2.csv
+│   │   │   │   │   ├── 67cf6e4b9309771d0a57e8b5_wcbgb-statement-export-250310.csv
+│   │   │   │   │   ├── Accounts _ Midland Credit Management_1.pdf
+│   │   │   │   │   ├── Accounts _ Midland Credit Management_2.pdf
+│   │   │   │   │   ├── Accounts _ Midland Credit Management.pdf
+│   │   │   │   │   ├── acct-aa-aug24_1.pdf
+│   │   │   │   │   ├── acct-aa-aug24_2.pdf
+│   │   │   │   │   ├── acct-aa-aug24.pdf
+│   │   │   │   │   ├── acct-as-aug24_1.pdf
+│   │   │   │   │   ├── acct-as-aug24_2.pdf
+│   │   │   │   │   ├── acct-as-aug24.pdf
+│   │   │   │   │   ├── BALANCE_REPORT (1)_1.xlsx
+│   │   │   │   │   ├── BALANCE_REPORT (1)_2.xlsx
+│   │   │   │   │   ├── BALANCE_REPORT (1).xlsx
+│   │   │   │   │   ├── BALANCE_REPORT_1.xlsx
+│   │   │   │   │   ├── BALANCE_REPORT_2.xlsx
+│   │   │   │   │   ├── BALANCE_REPORT.xlsx
+│   │   │   │   │   ├── BGMU E-bill - PAYMENT CONFIRMATION_1.pdf
+│   │   │   │   │   ├── BGMU E-bill - PAYMENT CONFIRMATION_2.pdf
+│   │   │   │   │   ├── BGMU E-bill - PAYMENT CONFIRMATION.pdf
+│   │   │   │   │   ├── BGPR Fees_1.pdf
+│   │   │   │   │   ├── BGPR Fees_2.pdf
+│   │   │   │   │   ├── BGPR Fees.pdf
+│   │   │   │   │   ├── Bratcher Family Financials_1.pdf
+│   │   │   │   │   ├── Bratcher Family Financials_2.pdf
+│   │   │   │   │   ├── Bratcher Family Financials.pdf
+│   │   │   │   │   ├── Deals_1768597181_1.xlsx
+│   │   │   │   │   ├── Deals_1768597181_2.xlsx
+│   │   │   │   │   ├── Deals_1768597181.xlsx
+│   │   │   │   │   ├── Invoice - 0016_1.pdf
+│   │   │   │   │   ├── Invoice - 0016_2.pdf
+│   │   │   │   │   ├── Invoice - 0016.pdf
+│   │   │   │   │   ├── KY NORML Transactions 2018- 2025.xlsx - 4-Column Upload Format_1.csv
+│   │   │   │   │   ├── KY NORML Transactions 2018- 2025.xlsx - 4-Column Upload Format_2.csv
+│   │   │   │   │   ├── KY NORML Transactions 2018- 2025.xlsx - 4-Column Upload Format.csv
+│   │   │   │   │   ├── Payment - Confirmation 2_1.pdf
+│   │   │   │   │   ├── Payment - Confirmation 2_2.pdf
+│   │   │   │   │   ├── Payment - Confirmation 2.pdf
+│   │   │   │   │   ├── Payment - Confirmation_1.pdf
+│   │   │   │   │   ├── Payment - Confirmation_2.pdf
+│   │   │   │   │   ├── Payment - Confirmation.pdf
+│   │   │   │   │   ├── paypal all transactions - All Transactions_1.csv
+│   │   │   │   │   ├── paypal all transactions - All Transactions_2.csv
+│   │   │   │   │   ├── paypal all transactions - All Transactions.csv
+│   │   │   │   │   ├── paypal transactions  - Sheet4_1.csv
+│   │   │   │   │   ├── paypal transactions  - Sheet4_2.csv
+│   │   │   │   │   ├── paypal transactions  - Sheet4.csv
+│   │   │   │   │   ├── Progressive Auto Insurance Payment History-20250911T184108Z-1-001_1.zip
+│   │   │   │   │   ├── Progressive Auto Insurance Payment History-20250911T184108Z-1-001_2.zip
+│   │   │   │   │   ├── Progressive Auto Insurance Payment History-20250911T184108Z-1-001.zip
+│   │   │   │   │   ├── Sales_Operations_Outreach_System_1764869755_1.xlsx
+│   │   │   │   │   ├── Sales_Operations_Outreach_System_1764869755_2.xlsx
+│   │   │   │   │   ├── Sales_Operations_Outreach_System_1764869755.xlsx
+│   │   │   │   │   ├── Settled-in-Full Notice (1)_1.pdf
+│   │   │   │   │   ├── Settled-in-Full Notice (1)_2.pdf
+│   │   │   │   │   ├── Settled-in-Full Notice (1).pdf
+│   │   │   │   │   ├── Settled-in-Full Notice_1.pdf
+│   │   │   │   │   ├── Settled-in-Full Notice_2.pdf
+│   │   │   │   │   ├── Settled-in-Full Notice.pdf
+│   │   │   │   │   ├── smallbusiness.experian.com - 561698087 - Y Allternative Events LTD Liability Co_1.pdf
+│   │   │   │   │   ├── smallbusiness.experian.com - 561698087 - Y Allternative Events LTD Liability Co_2.pdf
+│   │   │   │   │   ├── smallbusiness.experian.com - 561698087 - Y Allternative Events LTD Liability Co.pdf
+│   │   │   │   │   ├── SNK9SAYH69VC2-CSR-20230930000000-20251014235959-20251014110906_1.CSV
+│   │   │   │   │   ├── SNK9SAYH69VC2-CSR-20230930000000-20251014235959-20251014110906_2.CSV
+│   │   │   │   │   ├── SNK9SAYH69VC2-CSR-20230930000000-20251014235959-20251014110906.CSV
+│   │   │   │   │   ├── SNK9SAYH69VC2-MSR-20250801000000-20250831235959_1.PDF
+│   │   │   │   │   ├── SNK9SAYH69VC2-MSR-20250801000000-20250831235959_2.PDF
+│   │   │   │   │   ├── SNK9SAYH69VC2-MSR-20250801000000-20250831235959.PDF
+│   │   │   │   │   ├── SNK9SAYH69VC2-MSR-20250901000000-20250930235959_1.PDF
+│   │   │   │   │   ├── SNK9SAYH69VC2-MSR-20250901000000-20250930235959_2.PDF
+│   │   │   │   │   ├── SNK9SAYH69VC2-MSR-20250901000000-20250930235959.PDF
+│   │   │   │   │   ├── this campaign_10-14-2025_1.xlsx
+│   │   │   │   │   ├── this campaign_10-14-2025_2.xlsx
+│   │   │   │   │   ├── this campaign_10-14-2025.xlsx
+│   │   │   │   │   ├── this campaign_12-5-2025 (1)_1.xlsx
+│   │   │   │   │   ├── this campaign_12-5-2025 (1)_2.xlsx
+│   │   │   │   │   ├── this campaign_12-5-2025 (1).xlsx
+│   │   │   │   │   ├── this campaign_12-5-2025_1.xlsx
+│   │   │   │   │   ├── this campaign_12-5-2025_2.xlsx
+│   │   │   │   │   ├── this campaign_12-5-2025.xlsx
+│   │   │   │   │   ├── Transactions-7050-2025-10-14_1.csv
+│   │   │   │   │   ├── Transactions-7050-2025-10-14_2.csv
+│   │   │   │   │   ├── Transactions-7050-2025-10-14.csv
+│   │   │   │   │   ├── Wave-Transaction-Import-Template (1)_1.xlsx
+│   │   │   │   │   ├── Wave-Transaction-Import-Template (1)_2.xlsx
+│   │   │   │   │   ├── Wave-Transaction-Import-Template (1).xlsx
+│   │   │   │   │   ├── Wave-Transaction-Import-Template_1.xlsx
+│   │   │   │   │   ├── Wave-Transaction-Import-Template_2.xlsx
+│   │   │   │   │   ├── Wave-Transaction-Import-Template.xlsx
+│   │   │   │   │   ├── Zeffy-export-1755912761964_1.xlsx
+│   │   │   │   │   ├── Zeffy-export-1755912761964_2.xlsx
+│   │   │   │   │   ├── Zeffy-export-1755912761964.xlsx
+│   │   │   │   │   ├── Zeffy-export-1757622620375_1.xlsx
+│   │   │   │   │   ├── Zeffy-export-1757622620375_2.xlsx
+│   │   │   │   │   ├── Zeffy-export-1757622620375.xlsx
+│   │   │   │   │   ├── Zeffy-export-1759783327714_1.xlsx
+│   │   │   │   │   ├── Zeffy-export-1759783327714_2.xlsx
+│   │   │   │   │   ├── Zeffy-export-1759783327714.xlsx
+│   │   │   │   │   ├── Zeffy-export-1760460168191_1.xlsx
+│   │   │   │   │   ├── Zeffy-export-1760460168191_2.xlsx
+│   │   │   │   │   ├── Zeffy-export-1760460168191.xlsx
+│   │   │   │   │   ├── Zeffy-transactions-1760460197547_1.xlsx
+│   │   │   │   │   ├── Zeffy-transactions-1760460197547_2.xlsx
+│   │   │   │   │   ├── Zeffy-transactions-1760460197547.xlsx
+│   │   │   │   │   ├── Zeffy-transactions-1760463991342_1.xlsx
+│   │   │   │   │   ├── Zeffy-transactions-1760463991342_2.xlsx
+│   │   │   │   │   └── Zeffy-transactions-1760463991342.xlsx
+│   │   │   │   ├── Business-Entities
+│   │   │   │   │   ├── 2025 Duncan Hines Days Community & Economic Impact Report_1.pdf
+│   │   │   │   │   ├── 2025 Duncan Hines Days Community & Economic Impact Report_2.pdf
+│   │   │   │   │   ├── 2025 Duncan Hines Days Community & Economic Impact Report.pdf
+│   │   │   │   │   ├── 45Fest_Sponsorship_Overview_August_1.pdf
+│   │   │   │   │   ├── 45Fest_Sponsorship_Overview_August_2.pdf
+│   │   │   │   │   ├── 45Fest_Sponsorship_Overview_August.pdf
+│   │   │   │   │   ├── BlueGrass Elevated - Daily schedule_1.pdf
+│   │   │   │   │   ├── BlueGrass Elevated - Daily schedule_2.pdf
+│   │   │   │   │   ├── BlueGrass Elevated - Daily schedule.pdf
+│   │   │   │   │   ├── Bluegrass Elevated at Barren River Magic_1.pdf
+│   │   │   │   │   ├── Bluegrass Elevated at Barren River Magic_2.pdf
+│   │   │   │   │   ├── Bluegrass Elevated at Barren River Magic.pdf
+│   │   │   │   │   ├── Bluegrass_Elev8d_Bank_Business_Plan_1.docx
+│   │   │   │   │   ├── Bluegrass_Elev8d_Bank_Business_Plan_2.docx
+│   │   │   │   │   ├── Bluegrass_Elev8d_Bank_Business_Plan.docx
+│   │   │   │   │   ├── Bluegrass_Elev8d_Financial_Model_1.xlsx
+│   │   │   │   │   ├── Bluegrass_Elev8d_Financial_Model_2.xlsx
+│   │   │   │   │   ├── Bluegrass_Elev8d_Financial_Model.xlsx
+│   │   │   │   │   ├── Bluegrass_Elevated_at_Barren_River_Magic_Council_Friendly_1.docx
+│   │   │   │   │   ├── Bluegrass_Elevated_at_Barren_River_Magic_Council_Friendly_2.docx
+│   │   │   │   │   ├── Bluegrass_Elevated_at_Barren_River_Magic_Council_Friendly.docx
+│   │   │   │   │   ├── Bluegrass_Elevated_Master_Document.docx_1.pdf
+│   │   │   │   │   ├── Bluegrass_Elevated_Master_Document.docx_2.pdf
+│   │   │   │   │   ├── Bluegrass_Elevated_Master_Document.docx.pdf
+│   │   │   │   │   ├── Bluegrass_Elevated_Venue_Proposal_Updated_1.docx
+│   │   │   │   │   ├── Bluegrass_Elevated_Venue_Proposal_Updated_2.docx
+│   │   │   │   │   ├── Bluegrass_Elevated_Venue_Proposal_Updated.docx
+│   │   │   │   │   ├── Bluegrass_Elevated_Venue_Proposal.docx_1.pdf
+│   │   │   │   │   ├── Bluegrass_Elevated_Venue_Proposal.docx_2.pdf
+│   │   │   │   │   ├── Bluegrass_Elevated_Venue_Proposal.docx.pdf
+│   │   │   │   │   ├── Business_File_Cover_Sheet_1.pdf
+│   │   │   │   │   ├── Business_File_Cover_Sheet_2.pdf
+│   │   │   │   │   ├── Business_File_Cover_Sheet.pdf
+│   │   │   │   │   ├── business_readiness_4_entities_1.pdf
+│   │   │   │   │   ├── business_readiness_4_entities_2.pdf
+│   │   │   │   │   ├── business_readiness_4_entities.pdf
+│   │   │   │   │   ├── business_readiness_dashboard_refreshed_1.pdf
+│   │   │   │   │   ├── business_readiness_dashboard_refreshed_2.pdf
+│   │   │   │   │   ├── business_readiness_dashboard_refreshed.pdf
+│   │   │   │   │   ├── CG-APP-EXE- License App to Qualify for Exempt Charitable Gaming CLEAN_1.pdf
+│   │   │   │   │   ├── CG-APP-EXE- License App to Qualify for Exempt Charitable Gaming CLEAN_2.pdf
+│   │   │   │   │   ├── CG-APP-EXE- License App to Qualify for Exempt Charitable Gaming CLEAN.pdf
+│   │   │   │   │   ├── CG-APP-ORG Fillable Form (1)_1.pdf
+│   │   │   │   │   ├── CG-APP-ORG Fillable Form (1)_2.pdf
+│   │   │   │   │   ├── CG-APP-ORG Fillable Form (1).pdf
+│   │   │   │   │   ├── CG-APP-ORG Fillable Form_1.pdf
+│   │   │   │   │   ├── CG-APP-ORG Fillable Form_2.pdf
+│   │   │   │   │   ├── CG-APP-ORG Fillable Form.pdf
+│   │   │   │   │   ├── CG-APP-ORG- License Application for Organizations CLEAN_1.pdf
+│   │   │   │   │   ├── CG-APP-ORG- License Application for Organizations CLEAN_2.pdf
+│   │   │   │   │   ├── CG-APP-ORG- License Application for Organizations CLEAN.pdf
+│   │   │   │   │   ├── CG-APP-ORG-CFE- Application for Charity Fundraising Event CLEAN_1.pdf
+│   │   │   │   │   ├── CG-APP-ORG-CFE- Application for Charity Fundraising Event CLEAN_2.pdf
+│   │   │   │   │   ├── CG-APP-ORG-CFE- Application for Charity Fundraising Event CLEAN.pdf
+│   │   │   │   │   ├── CG-APP-SER- Application for Special Event Raffle CLEAN_1.pdf
+│   │   │   │   │   ├── CG-APP-SER- Application for Special Event Raffle CLEAN_2.pdf
+│   │   │   │   │   ├── CG-APP-SER- Application for Special Event Raffle CLEAN.pdf
+│   │   │   │   │   ├── Charitable Gaming Lounge Bowling Green, KY (1) (1)_1.pdf
+│   │   │   │   │   ├── Charitable Gaming Lounge Bowling Green, KY (1) (1)_2.pdf
+│   │   │   │   │   ├── Charitable Gaming Lounge Bowling Green, KY (1) (1).pdf
+│   │   │   │   │   ├── Charitable Gaming Lounge Bowling Green, KY (1)_1.docx
+│   │   │   │   │   ├── Charitable Gaming Lounge Bowling Green, KY (1)_1.pdf
+│   │   │   │   │   ├── Charitable Gaming Lounge Bowling Green, KY (1)_2.docx
+│   │   │   │   │   ├── Charitable Gaming Lounge Bowling Green, KY (1)_2.pdf
+│   │   │   │   │   ├── Charitable Gaming Lounge Bowling Green, KY (1).docx
+│   │   │   │   │   ├── Charitable Gaming Lounge Bowling Green, KY (1).pdf
+│   │   │   │   │   ├── Charitable Gaming Lounge Bowling Green, KY_1.docx
+│   │   │   │   │   ├── Charitable Gaming Lounge Bowling Green, KY_1.pdf
+│   │   │   │   │   ├── Charitable Gaming Lounge Bowling Green, KY_2.docx
+│   │   │   │   │   ├── Charitable Gaming Lounge Bowling Green, KY_2.pdf
+│   │   │   │   │   ├── Charitable Gaming Lounge Bowling Green, KY.docx
+│   │   │   │   │   ├── Charitable Gaming Lounge Bowling Green, KY.pdf
+│   │   │   │   │   ├── Charitable Gaming Project Planning Doc_1.pdf
+│   │   │   │   │   ├── Charitable Gaming Project Planning Doc_2.pdf
+│   │   │   │   │   ├── Charitable Gaming Project Planning Doc.pdf
+│   │   │   │   │   ├── Charitable_Gaming_Pro_Forma_1.docx
+│   │   │   │   │   ├── Charitable_Gaming_Pro_Forma_2.docx
+│   │   │   │   │   ├── Charitable_Gaming_Pro_Forma.docx
+│   │   │   │   │   ├── Clean_Business_File_Cover_Sheet_NEW_1.pdf
+│   │   │   │   │   ├── Clean_Business_File_Cover_Sheet_NEW_2.pdf
+│   │   │   │   │   ├── Clean_Business_File_Cover_Sheet_NEW.pdf
+│   │   │   │   │   ├── copy of new form cg-eprp 2018 (1)_1.xlsx
+│   │   │   │   │   ├── copy of new form cg-eprp 2018 (1)_2.xlsx
+│   │   │   │   │   ├── copy of new form cg-eprp 2018 (1).xlsx
+│   │   │   │   │   ├── copy of new form cg-eprp 2018 (2)_1.xlsx
+│   │   │   │   │   ├── copy of new form cg-eprp 2018 (2)_2.xlsx
+│   │   │   │   │   ├── copy of new form cg-eprp 2018 (2).xlsx
+│   │   │   │   │   ├── copy of new form cg-eprp 2018_1.xlsx
+│   │   │   │   │   ├── copy of new form cg-eprp 2018_2.xlsx
+│   │   │   │   │   ├── copy of new form cg-eprp 2018.xlsx
+│   │   │   │   │   ├── ED-WOSB SBA Certification Checklist_1.pdf
+│   │   │   │   │   ├── ED-WOSB SBA Certification Checklist_2.pdf
+│   │   │   │   │   ├── ED-WOSB SBA Certification Checklist.pdf
+│   │   │   │   │   ├── Entity Registration Checklist_1.pdf
+│   │   │   │   │   ├── Entity Registration Checklist_2.pdf
+│   │   │   │   │   ├── Entity Registration Checklist.pdf
+│   │   │   │   │   ├── Event_Planning_1761496708_1.xlsx
+│   │   │   │   │   ├── Event_Planning_1761496708_2.xlsx
+│   │   │   │   │   ├── Event_Planning_1761496708.xlsx
+│   │   │   │   │   ├── Event-Specification-Worksheet_1.pdf
+│   │   │   │   │   ├── Event-Specification-Worksheet_2.pdf
+│   │   │   │   │   ├── Event-Specification-Worksheet.pdf
+│   │   │   │   │   ├── Festival-Event-Plan-Free-PDF-Template-Download_1.pdf
+│   │   │   │   │   ├── Festival-Event-Plan-Free-PDF-Template-Download_2.pdf
+│   │   │   │   │   ├── Festival-Event-Plan-Free-PDF-Template-Download.pdf
+│   │   │   │   │   ├── Festival-planning-checklist (1)_1.pdf
+│   │   │   │   │   ├── Festival-planning-checklist (1)_2.pdf
+│   │   │   │   │   ├── Festival-planning-checklist (1).pdf
+│   │   │   │   │   ├── festival-planning-checklist_1.pdf
+│   │   │   │   │   ├── festival-planning-checklist_2.pdf
+│   │   │   │   │   ├── festival-planning-checklist.pdf
+│   │   │   │   │   ├── Festivals-Events-Planning-Guide_1.pdf
+│   │   │   │   │   ├── Festivals-Events-Planning-Guide_2.pdf
+│   │   │   │   │   ├── Festivals-Events-Planning-Guide.pdf
+│   │   │   │   │   ├── final_monarch_festival_planning_guide_1.pdf
+│   │   │   │   │   ├── final_monarch_festival_planning_guide_2.pdf
+│   │   │   │   │   ├── final_monarch_festival_planning_guide.pdf
+│   │   │   │   │   ├── Final_Pro_Forma_1.docx
+│   │   │   │   │   ├── Final_Pro_Forma_2.docx
+│   │   │   │   │   ├── Final_Pro_Forma.docx
+│   │   │   │   │   ├── KY_Charitable_Gaming_Startup_Bundle_1.zip
+│   │   │   │   │   ├── KY_Charitable_Gaming_Startup_Bundle_2.zip
+│   │   │   │   │   ├── KY_Charitable_Gaming_Startup_Bundle.zip
+│   │   │   │   │   ├── KY_Charitable_Gaming_Startup_Workbook_1.xlsx
+│   │   │   │   │   ├── KY_Charitable_Gaming_Startup_Workbook_2.xlsx
+│   │   │   │   │   ├── KY_Charitable_Gaming_Startup_Workbook.xlsx
+│   │   │   │   │   ├── LLA-Articles of Amendment for a Limited Liability Company_1.pdf
+│   │   │   │   │   ├── LLA-Articles of Amendment for a Limited Liability Company_2.pdf
+│   │   │   │   │   ├── LLA-Articles of Amendment for a Limited Liability Company.pdf
+│   │   │   │   │   ├── naics_fillable_per_business_1.pdf
+│   │   │   │   │   ├── naics_fillable_per_business_2.pdf
+│   │   │   │   │   ├── naics_fillable_per_business.pdf
+│   │   │   │   │   ├── nwboc_wosbedwosb_application-2023_1.pdf
+│   │   │   │   │   ├── nwboc_wosbedwosb_application-2023_2.pdf
+│   │   │   │   │   ├── nwboc_wosbedwosb_application-2023.pdf
+│   │   │   │   │   ├── Verdant_Business_Credit_Funding_Goals_2025_2026_1.docx
+│   │   │   │   │   ├── Verdant_Business_Credit_Funding_Goals_2025_2026_1.pdf
+│   │   │   │   │   ├── Verdant_Business_Credit_Funding_Goals_2025_2026_2.docx
+│   │   │   │   │   ├── Verdant_Business_Credit_Funding_Goals_2025_2026_2.pdf
+│   │   │   │   │   ├── Verdant_Business_Credit_Funding_Goals_2025_2026.docx
+│   │   │   │   │   ├── Verdant_Business_Credit_Funding_Goals_2025_2026.pdf
+│   │   │   │   │   ├── Verdant_Mind_Map_1.pptx
+│   │   │   │   │   ├── Verdant_Mind_Map_2.pptx
+│   │   │   │   │   ├── Verdant_Mind_Map.pptx
+│   │   │   │   │   ├── Verdant_Operations_Model_v1_1.docx
+│   │   │   │   │   ├── Verdant_Operations_Model_v1_2.docx
+│   │   │   │   │   └── Verdant_Operations_Model_v1.docx
+│   │   │   │   ├── QuickBooks
+│   │   │   │   │   ├── 30_Day_Family_Wealth_Management_Checklist_1.pdf
+│   │   │   │   │   ├── 30_Day_Family_Wealth_Management_Checklist_2.pdf
+│   │   │   │   │   ├── 30_Day_Family_Wealth_Management_Checklist.pdf
+│   │   │   │   │   ├── 30_Day_Family_Wealth_Weekly_Checklist_1.pdf
+│   │   │   │   │   ├── 30_Day_Family_Wealth_Weekly_Checklist_2.pdf
+│   │   │   │   │   ├── 30_Day_Family_Wealth_Weekly_Checklist.pdf
+│   │   │   │   │   ├── Bookkeeping_and_Reporting_System_Map_1.pdf
+│   │   │   │   │   ├── Bookkeeping_and_Reporting_System_Map_2.pdf
+│   │   │   │   │   ├── Bookkeeping_and_Reporting_System_Map.pdf
+│   │   │   │   │   ├── Budget_System_MultiEntity_1.xlsx
+│   │   │   │   │   ├── Budget_System_MultiEntity_2.xlsx
+│   │   │   │   │   ├── Budget_System_MultiEntity.xlsx
+│   │   │   │   │   ├── BudgetWorksheet (1)_1.xls
+│   │   │   │   │   ├── BudgetWorksheet (1)_2.xls
+│   │   │   │   │   ├── BudgetWorksheet (1).xls
+│   │   │   │   │   ├── BudgetWorksheet_1.xls
+│   │   │   │   │   ├── BudgetWorksheet_2.xls
+│   │   │   │   │   ├── BudgetWorksheet.xls
+│   │   │   │   │   ├── Bulletproof_Business_Admin_Financial_Readiness_Template_with_Roadmap_1.docx
+│   │   │   │   │   ├── Bulletproof_Business_Admin_Financial_Readiness_Template_with_Roadmap_2.docx
+│   │   │   │   │   ├── Bulletproof_Business_Admin_Financial_Readiness_Template_with_Roadmap.docx
+│   │   │   │   │   ├── Business Admin & Financial Readiness Template_1.docx
+│   │   │   │   │   ├── Business Admin & Financial Readiness Template_2.docx
+│   │   │   │   │   ├── Business Admin & Financial Readiness Template.docx
+│   │   │   │   │   ├── Business_Accounting_Template_1.xlsx
+│   │   │   │   │   ├── Business_Accounting_Template_2.xlsx
+│   │   │   │   │   ├── Business_Accounting_Template_v2_1.xlsx
+│   │   │   │   │   ├── Business_Accounting_Template_v2_2.xlsx
+│   │   │   │   │   ├── Business_Accounting_Template_v2.xlsx
+│   │   │   │   │   ├── Business_Accounting_Template_v3_1.xlsx
+│   │   │   │   │   ├── Business_Accounting_Template_v3_2.xlsx
+│   │   │   │   │   ├── Business_Accounting_Template_v3.xlsx
+│   │   │   │   │   ├── Business_Accounting_Template.xlsx
+│   │   │   │   │   ├── business_admin_financial_template_1.docx
+│   │   │   │   │   ├── business_admin_financial_template_1.pdf
+│   │   │   │   │   ├── business_admin_financial_template_2.docx
+│   │   │   │   │   ├── business_admin_financial_template_2.pdf
+│   │   │   │   │   ├── business_admin_financial_template.docx
+│   │   │   │   │   ├── business_admin_financial_template.pdf
+│   │   │   │   │   ├── business_financial_health_checklist_1.pdf
+│   │   │   │   │   ├── business_financial_health_checklist_2.pdf
+│   │   │   │   │   ├── business_financial_health_checklist.pdf
+│   │   │   │   │   ├── Cash Flow Forecast Template - WAVE_1.xlsx
+│   │   │   │   │   ├── Cash Flow Forecast Template - WAVE_2.xlsx
+│   │   │   │   │   ├── Cash Flow Forecast Template - WAVE.xlsx
+│   │   │   │   │   ├── Fillable_Daily_Weekly_Planner_1.xlsx
+│   │   │   │   │   ├── Fillable_Daily_Weekly_Planner_2.xlsx
+│   │   │   │   │   ├── Fillable_Daily_Weekly_Planner.xlsx
+│   │   │   │   │   ├── Integration_Guide_1.txt
+│   │   │   │   │   ├── Integration_Guide_2.txt
+│   │   │   │   │   ├── Integration_Guide.txt
+│   │   │   │   │   ├── MonthlySpendingPlan (1)_1.doc
+│   │   │   │   │   ├── MonthlySpendingPlan (1)_2.doc
+│   │   │   │   │   ├── MonthlySpendingPlan (1).doc
+│   │   │   │   │   ├── MonthlySpendingPlan_1.doc
+│   │   │   │   │   ├── MonthlySpendingPlan_2.doc
+│   │   │   │   │   ├── MonthlySpendingPlan.doc
+│   │   │   │   │   ├── PCOS_Gut_Macro_Meal_Planner_AutoTotals_1.xlsx
+│   │   │   │   │   ├── PCOS_Gut_Macro_Meal_Planner_AutoTotals_2.xlsx
+│   │   │   │   │   ├── PCOS_Gut_Macro_Meal_Planner_AutoTotals.xlsx
+│   │   │   │   │   ├── Products ad services - QuickBooks_Online_PnS_Sample_File (1)_1.csv
+│   │   │   │   │   ├── Products ad services - QuickBooks_Online_PnS_Sample_File (1)_2.csv
+│   │   │   │   │   ├── Products ad services - QuickBooks_Online_PnS_Sample_File (1).csv
+│   │   │   │   │   ├── QuickBooks_Online_COA_Sample_File (1)_1.xls
+│   │   │   │   │   ├── QuickBooks_Online_COA_Sample_File (1)_2.xls
+│   │   │   │   │   ├── QuickBooks_Online_COA_Sample_File (1).xls
+│   │   │   │   │   ├── QuickBooks_Online_COA_Sample_File_1.xls
+│   │   │   │   │   ├── QuickBooks_Online_COA_Sample_File_2.xls
+│   │   │   │   │   ├── QuickBooks_Online_COA_Sample_File.xls
+│   │   │   │   │   ├── QuickBooks_Online_PnS_Sample_File (1)_1.csv
+│   │   │   │   │   ├── QuickBooks_Online_PnS_Sample_File (1)_2.csv
+│   │   │   │   │   ├── QuickBooks_Online_PnS_Sample_File (1).csv
+│   │   │   │   │   ├── QuickBooks_Online_PnS_Sample_File_1.csv
+│   │   │   │   │   ├── QuickBooks_Online_PnS_Sample_File_2.csv
+│   │   │   │   │   ├── QuickBooks_Online_PnS_Sample_File.csv
+│   │   │   │   │   ├── Secure_Reference_Sheet_1.docx
+│   │   │   │   │   ├── Secure_Reference_Sheet_1.pdf
+│   │   │   │   │   ├── Secure_Reference_Sheet_2.docx
+│   │   │   │   │   ├── Secure_Reference_Sheet_2.pdf
+│   │   │   │   │   ├── Secure_Reference_Sheet.docx
+│   │   │   │   │   ├── Secure_Reference_Sheet.pdf
+│   │   │   │   │   ├── Verdant_Ventures_Workspace_1.xlsx
+│   │   │   │   │   ├── Verdant_Ventures_Workspace_2.xlsx
+│   │   │   │   │   └── Verdant_Ventures_Workspace.xlsx
+│   │   │   │   └── Tax-Returns
+│   │   │   │       ├── 2023 Tax Returns_1.pdf
+│   │   │   │       ├── 2023 Tax Returns_2.pdf
+│   │   │   │       ├── 2023 Tax Returns.pdf
+│   │   │   │       ├── 2024 Tax Returns_1.pdf
+│   │   │   │       ├── 2024 Tax Returns_2.pdf
+│   │   │   │       ├── 2024 Tax Returns.pdf
+│   │   │   │       ├── Federal 2025 Tax return_1.pdf
+│   │   │   │       ├── Federal 2025 Tax return_2.pdf
+│   │   │   │       ├── Federal 2025 Tax return.pdf
+│   │   │   │       ├── FY25 Schedule A_1.xlsx
+│   │   │   │       ├── FY25 Schedule A_2.xlsx
+│   │   │   │       └── FY25 Schedule A.xlsx
+│   │   │   ├── Personal
+│   │   │   │   ├── Benefits-Government
+│   │   │   │   │   ├── 021624-REAL_ID_FactSheet_1.pdf
+│   │   │   │   │   ├── 021624-REAL_ID_FactSheet_2.pdf
+│   │   │   │   │   ├── 021624-REAL_ID_FactSheet.pdf
+│   │   │   │   │   ├── adapting_motor_vehicles_brochure_810733_1.pdf
+│   │   │   │   │   ├── adapting_motor_vehicles_brochure_810733_2.pdf
+│   │   │   │   │   ├── adapting_motor_vehicles_brochure_810733.pdf
+│   │   │   │   │   ├── alk Re-entry Number, Identification, Step 1 of 4, Apply for Benefits, Social Security_1.pdf
+│   │   │   │   │   ├── alk Re-entry Number, Identification, Step 1 of 4, Apply for Benefits, Social Security_2.pdf
+│   │   │   │   │   ├── alk Re-entry Number, Identification, Step 1 of 4, Apply for Benefits, Social Security.pdf
+│   │   │   │   │   ├── benefit-verification-letter (1)_1.pdf
+│   │   │   │   │   ├── benefit-verification-letter (1)_2.pdf
+│   │   │   │   │   ├── benefit-verification-letter (1).pdf
+│   │   │   │   │   ├── benefit-verification-letter (2)_1.pdf
+│   │   │   │   │   ├── benefit-verification-letter (2)_2.pdf
+│   │   │   │   │   ├── benefit-verification-letter (2).pdf
+│   │   │   │   │   ├── benefit-verification-letter (3)_1.pdf
+│   │   │   │   │   ├── benefit-verification-letter (3)_2.pdf
+│   │   │   │   │   ├── benefit-verification-letter (3).pdf
+│   │   │   │   │   ├── benefit-verification-letter (4)_1.pdf
+│   │   │   │   │   ├── benefit-verification-letter (4)_2.pdf
+│   │   │   │   │   ├── benefit-verification-letter (4).pdf
+│   │   │   │   │   ├── benefit-verification-letter (5)_1.pdf
+│   │   │   │   │   ├── benefit-verification-letter (5)_2.pdf
+│   │   │   │   │   ├── benefit-verification-letter (5).pdf
+│   │   │   │   │   ├── benefit-verification-letter_1.pdf
+│   │   │   │   │   ├── benefit-verification-letter_2.pdf
+│   │   │   │   │   ├── benefit-verification-letter.pdf
+│   │   │   │   │   ├── Community-Resource-Guide (1)_1.pdf
+│   │   │   │   │   ├── Community-Resource-Guide (1)_2.pdf
+│   │   │   │   │   ├── Community-Resource-Guide (1).pdf
+│   │   │   │   │   ├── Community-Resource-Guide_1.pdf
+│   │   │   │   │   ├── Community-Resource-Guide_2.pdf
+│   │   │   │   │   ├── Community-Resource-Guide.pdf
+│   │   │   │   │   ├── DCBS1_1.pdf
+│   │   │   │   │   ├── DCBS1_2.pdf
+│   │   │   │   │   ├── DCBS1.pdf
+│   │   │   │   │   ├── DirectoryofServicesandProviders_1.pdf
+│   │   │   │   │   ├── DirectoryofServicesandProviders_2.pdf
+│   │   │   │   │   ├── DirectoryofServicesandProviders.pdf
+│   │   │   │   │   ├── DownloadMedicaidCard_1.pdf
+│   │   │   │   │   ├── DownloadMedicaidCard_2.pdf
+│   │   │   │   │   ├── DownloadMedicaidCard.pdf
+│   │   │   │   │   ├── EE_Community_Guide_f_1.pdf
+│   │   │   │   │   ├── EE_Community_Guide_f_2.pdf
+│   │   │   │   │   ├── EE_Community_Guide_f.pdf
+│   │   │   │   │   ├── EN-05-10026_1.pdf
+│   │   │   │   │   ├── EN-05-10026_2.pdf
+│   │   │   │   │   ├── EN-05-10026.pdf
+│   │   │   │   │   ├── EN-05-10029_1.pdf
+│   │   │   │   │   ├── EN-05-10029_2.pdf
+│   │   │   │   │   ├── EN-05-10029.pdf
+│   │   │   │   │   ├── EN-05-10085_1.pdf
+│   │   │   │   │   ├── EN-05-10085_2.pdf
+│   │   │   │   │   ├── EN-05-10085.pdf
+│   │   │   │   │   ├── EN-05-11005_1.pdf
+│   │   │   │   │   ├── EN-05-11005_2.pdf
+│   │   │   │   │   ├── EN-05-11005.pdf
+│   │   │   │   │   ├── EVS Documentation Requirements (1)_1.pdf
+│   │   │   │   │   ├── EVS Documentation Requirements (1)_2.pdf
+│   │   │   │   │   ├── EVS Documentation Requirements (1).pdf
+│   │   │   │   │   ├── EVS Documentation Requirements_1.pdf
+│   │   │   │   │   ├── EVS Documentation Requirements_2.pdf
+│   │   │   │   │   ├── EVS Documentation Requirements.pdf
+│   │   │   │   │   ├── HDI-KentuckyDisabilityResourceGuide-July-20-2021_1.pdf
+│   │   │   │   │   ├── HDI-KentuckyDisabilityResourceGuide-July-20-2021_2.pdf
+│   │   │   │   │   ├── HDI-KentuckyDisabilityResourceGuide-July-20-2021.pdf
+│   │   │   │   │   ├── KY_Caid_Prov_Community_Connections_Flyer_Eng_12_2021_R_1.pdf
+│   │   │   │   │   ├── KY_Caid_Prov_Community_Connections_Flyer_Eng_12_2021_R_2.pdf
+│   │   │   │   │   ├── KY_Caid_Prov_Community_Connections_Flyer_Eng_12_2021_R.pdf
+│   │   │   │   │   ├── KY_Caid_Prov_Diabetes_Educational_Resource_Flyer_Eng_05_2021_R_1.pdf
+│   │   │   │   │   ├── KY_Caid_Prov_Diabetes_Educational_Resource_Flyer_Eng_05_2021_R_2.pdf
+│   │   │   │   │   ├── KY_Caid_Prov_Diabetes_Educational_Resource_Flyer_Eng_05_2021_R.pdf
+│   │   │   │   │   ├── KY_Caid_Prov_Members_Empowered_To_Succeed_METS_Flyer_Eng_2021_1.pdf
+│   │   │   │   │   ├── KY_Caid_Prov_Members_Empowered_To_Succeed_METS_Flyer_Eng_2021_2.pdf
+│   │   │   │   │   ├── KY_Caid_Prov_Members_Empowered_To_Succeed_METS_Flyer_Eng_2021.pdf
+│   │   │   │   │   ├── KY_Caid_Prov_Pediatric_Oral_Health_2024_1.pdf
+│   │   │   │   │   ├── KY_Caid_Prov_Pediatric_Oral_Health_2024_2.pdf
+│   │   │   │   │   ├── KY_Caid_Prov_Pediatric_Oral_Health_2024.pdf
+│   │   │   │   │   ├── KY_Caid_Prov_Provider_Resource_Guide_Eng_2024_R_1.pdf
+│   │   │   │   │   ├── KY_Caid_Prov_Provider_Resource_Guide_Eng_2024_R_2.pdf
+│   │   │   │   │   ├── KY_Caid_Prov_Provider_Resource_Guide_Eng_2024_R.pdf
+│   │   │   │   │   ├── KY_Caid_Prov_Social_Determinants_of_Health_SDOH_Eng_2023_R_1.pdf
+│   │   │   │   │   ├── KY_Caid_Prov_Social_Determinants_of_Health_SDOH_Eng_2023_R_2.pdf
+│   │   │   │   │   ├── KY_Caid_Prov_Social_Determinants_of_Health_SDOH_Eng_2023_R.pdf
+│   │   │   │   │   ├── KY_Medicaid_Provider_Manual_2025_R_1.pdf
+│   │   │   │   │   ├── KY_Medicaid_Provider_Manual_2025_R_2.pdf
+│   │   │   │   │   ├── KY_Medicaid_Provider_Manual_2025_R.pdf
+│   │   │   │   │   ├── KY_Medicaid_Provider_Quick_Reference_Guide_2025_R_1.pdf
+│   │   │   │   │   ├── KY_Medicaid_Provider_Quick_Reference_Guide_2025_R_2.pdf
+│   │   │   │   │   ├── KY_Medicaid_Provider_Quick_Reference_Guide_2025_R.pdf
+│   │   │   │   │   ├── KY_Prov_CAHPS_Tip_Sheet_2025_R_1.pdf
+│   │   │   │   │   ├── KY_Prov_CAHPS_Tip_Sheet_2025_R_2.pdf
+│   │   │   │   │   ├── KY_Prov_CAHPS_Tip_Sheet_2025_R.pdf
+│   │   │   │   │   ├── Michelle-P-Waiver-APPLICATION-MAP-621_1.doc
+│   │   │   │   │   ├── Michelle-P-Waiver-APPLICATION-MAP-621_2.doc
+│   │   │   │   │   ├── Michelle-P-Waiver-APPLICATION-MAP-621.doc
+│   │   │   │   │   ├── MRT-15_1.pdf
+│   │   │   │   │   ├── MRT-15_2.pdf
+│   │   │   │   │   ├── MRT-15.pdf
+│   │   │   │   │   ├── Qualified-Disability-Trust_1.pdf
+│   │   │   │   │   ├── Qualified-Disability-Trust_2.pdf
+│   │   │   │   │   ├── Qualified-Disability-Trust.pdf
+│   │   │   │   │   ├── Re-entry Number, Identification, Step 1 of 4, Apply for Benefits, Social Security_1.pdf
+│   │   │   │   │   ├── Re-entry Number, Identification, Step 1 of 4, Apply for Benefits, Social Security_2.pdf
+│   │   │   │   │   ├── Re-entry Number, Identification, Step 1 of 4, Apply for Benefits, Social Security.pdf
+│   │   │   │   │   ├── RecoveryKentuckyAdminManual (1)_1.pdf
+│   │   │   │   │   ├── RecoveryKentuckyAdminManual (1)_2.pdf
+│   │   │   │   │   ├── RecoveryKentuckyAdminManual (1).pdf
+│   │   │   │   │   ├── RecoveryKentuckyAdminManual_1.pdf
+│   │   │   │   │   ├── RecoveryKentuckyAdminManual_2.pdf
+│   │   │   │   │   ├── RecoveryKentuckyAdminManual.pdf
+│   │   │   │   │   ├── SNA-Supplemental-Security-Income_1.pdf
+│   │   │   │   │   ├── SNA-Supplemental-Security-Income_2.pdf
+│   │   │   │   │   ├── SNA-Supplemental-Security-Income.pdf
+│   │   │   │   │   ├── social-security-statement_1.pdf
+│   │   │   │   │   ├── social-security-statement_2.pdf
+│   │   │   │   │   ├── social-security-statement.pdf
+│   │   │   │   │   ├── Supportive Services_1.pdf
+│   │   │   │   │   ├── Supportive Services_2.pdf
+│   │   │   │   │   ├── Supportive Services.pdf
+│   │   │   │   │   ├── UCP External_Experience_Application Preview 2026_1.pdf
+│   │   │   │   │   ├── UCP External_Experience_Application Preview 2026_2.pdf
+│   │   │   │   │   ├── UCP External_Experience_Application Preview 2026.pdf
+│   │   │   │   │   ├── Your Social Security Statement_1.pdf
+│   │   │   │   │   ├── Your Social Security Statement_2.pdf
+│   │   │   │   │   └── Your Social Security Statement.pdf
+│   │   │   │   ├── Education
+│   │   │   │   │   ├── 22-23-bs-busecon-as_1.pdf
+│   │   │   │   │   ├── 22-23-bs-busecon-as_2.pdf
+│   │   │   │   │   ├── 22-23-bs-busecon-as.pdf
+│   │   │   │   │   ├── AP_CAI_DC_IB_Postsecondary_Readiness_(Academic_and_Career)_Courses_1.xlsx
+│   │   │   │   │   ├── AP_CAI_DC_IB_Postsecondary_Readiness_(Academic_and_Career)_Courses_2.xlsx
+│   │   │   │   │   ├── AP_CAI_DC_IB_Postsecondary_Readiness_(Academic_and_Career)_Courses.xlsx
+│   │   │   │   │   ├── business-2016-17-revised_1.pdf
+│   │   │   │   │   ├── business-2016-17-revised_2.pdf
+│   │   │   │   │   ├── business-2016-17-revised.pdf
+│   │   │   │   │   ├── CopyofJacksonAcademyHandbook22-23_1.docx
+│   │   │   │   │   ├── CopyofJacksonAcademyHandbook22-23_2.docx
+│   │   │   │   │   ├── CopyofJacksonAcademyHandbook22-23.docx
+│   │   │   │   │   ├── DC_PathAlign-KCTCS (1)_1.pdf
+│   │   │   │   │   ├── DC_PathAlign-KCTCS (1)_2.pdf
+│   │   │   │   │   ├── DC_PathAlign-KCTCS (1).pdf
+│   │   │   │   │   ├── DC_PathAlign-KCTCS_1.pdf
+│   │   │   │   │   ├── DC_PathAlign-KCTCS_2.pdf
+│   │   │   │   │   ├── DC_PathAlign-KCTCS.pdf
+│   │   │   │   │   ├── Early_Graduation_Intent_Form_1.docx
+│   │   │   │   │   ├── Early_Graduation_Intent_Form_2.docx
+│   │   │   │   │   ├── Early_Graduation_Intent_Form.docx
+│   │   │   │   │   ├── guide_for_incoming_graduate_students_17-18_1.pdf
+│   │   │   │   │   ├── guide_for_incoming_graduate_students_17-18_2.pdf
+│   │   │   │   │   ├── guide_for_incoming_graduate_students_17-18.pdf
+│   │   │   │   │   ├── ILP_9-12_Playbook_1.pdf
+│   │   │   │   │   ├── ILP_9-12_Playbook_2.pdf
+│   │   │   │   │   ├── ILP_9-12_Playbook.pdf
+│   │   │   │   │   ├── ILP_Playbook_5-8_1.pdf
+│   │   │   │   │   ├── ILP_Playbook_5-8_2.pdf
+│   │   │   │   │   ├── ILP_Playbook_5-8.pdf
+│   │   │   │   │   ├── MyStudentData_1.txt
+│   │   │   │   │   ├── MyStudentData_2.txt
+│   │   │   │   │   ├── MyStudentData.txt
+│   │   │   │   │   ├── Spalding-OT-students-9-6-19-final_1.pptx
+│   │   │   │   │   ├── Spalding-OT-students-9-6-19-final_2.pptx
+│   │   │   │   │   ├── Spalding-OT-students-9-6-19-final.pptx
+│   │   │   │   │   ├── spring 2026 transcript_1.pdf
+│   │   │   │   │   ├── spring 2026 transcript_2.pdf
+│   │   │   │   │   ├── spring 2026 transcript.pdf
+│   │   │   │   │   ├── spring 2026 transcript.pdf_1.pdf
+│   │   │   │   │   ├── spring 2026 transcript.pdf_2.pdf
+│   │   │   │   │   └── spring 2026 transcript.pdf.pdf
+│   │   │   │   ├── Family
+│   │   │   │   ├── Family-Household
+│   │   │   │   │   ├── Adult Adoptee Application for Non Certified Copy of Original Birth Certificate VS-145_3.2024_1.pdf
+│   │   │   │   │   ├── Adult Adoptee Application for Non Certified Copy of Original Birth Certificate VS-145_3.2024_2.pdf
+│   │   │   │   │   ├── Adult Adoptee Application for Non Certified Copy of Original Birth Certificate VS-145_3.2024.pdf
+│   │   │   │   │   ├── Application for Identity of Court of Adoption VS-143_3.2024_1.pdf
+│   │   │   │   │   ├── Application for Identity of Court of Adoption VS-143_3.2024_2.pdf
+│   │   │   │   │   ├── Application for Identity of Court of Adoption VS-143_3.2024.pdf
+│   │   │   │   │   ├── Ben_Routine_Checklist_1.pdf
+│   │   │   │   │   ├── Ben_Routine_Checklist_2.pdf
+│   │   │   │   │   ├── Ben_Routine_Checklist.pdf
+│   │   │   │   │   ├── Colin Wesley Lee Transcript - Sheet1_1.pdf
+│   │   │   │   │   ├── Colin Wesley Lee Transcript - Sheet1_2.pdf
+│   │   │   │   │   ├── Colin Wesley Lee Transcript - Sheet1.pdf
+│   │   │   │   │   ├── Colin_Lee_No_Income_Statement_1.docx
+│   │   │   │   │   ├── Colin_Lee_No_Income_Statement_2.docx
+│   │   │   │   │   ├── Colin_Lee_No_Income_Statement.docx
+│   │   │   │   │   ├── Court Ordered Open Sealed File VS-143.1_3.2024 Edits_1.pdf
+│   │   │   │   │   ├── Court Ordered Open Sealed File VS-143.1_3.2024 Edits_2.pdf
+│   │   │   │   │   ├── Court Ordered Open Sealed File VS-143.1_3.2024 Edits.pdf
+│   │   │   │   │   ├── DinusarNameTracingTemplate1Large_1.pdf
+│   │   │   │   │   ├── DinusarNameTracingTemplate1Large_2.pdf
+│   │   │   │   │   ├── DinusarNameTracingTemplate1Large.pdf
+│   │   │   │   │   ├── DRGR RHP Action Plan Download (2020-2022)_1.docx
+│   │   │   │   │   ├── DRGR RHP Action Plan Download (2020-2022)_2.docx
+│   │   │   │   │   ├── DRGR RHP Action Plan Download (2020-2022).docx
+│   │   │   │   │   ├── kentucky homeschool information packet_1.pdf
+│   │   │   │   │   ├── kentucky homeschool information packet_2.pdf
+│   │   │   │   │   ├── kentucky homeschool information packet.pdf
+│   │   │   │   │   ├── Lily_Routine_Checklist_1.pdf
+│   │   │   │   │   ├── Lily_Routine_Checklist_2.pdf
+│   │   │   │   │   ├── Lily_Routine_Checklist.pdf
+│   │   │   │   │   ├── Plumbing Technology_1.pdf
+│   │   │   │   │   ├── Plumbing Technology_2.pdf
+│   │   │   │   │   ├── Plumbing Technology.pdf
+│   │   │   │   │   ├── Shopping Cart at Menards®_1.pdf
+│   │   │   │   │   ├── Shopping Cart at Menards®_2.pdf
+│   │   │   │   │   ├── Shopping Cart at Menards®.pdf
+│   │   │   │   │   ├── WinterReadingLog_2023-24_1.pdf
+│   │   │   │   │   ├── WinterReadingLog_2023-24_2.pdf
+│   │   │   │   │   ├── WinterReadingLog_2023-24.pdf
+│   │   │   │   │   ├── Worldmap-EnchantedLearning_1.pdf
+│   │   │   │   │   ├── Worldmap-EnchantedLearning_2.pdf
+│   │   │   │   │   ├── Worldmap-EnchantedLearning.pdf
+│   │   │   │   │   ├── Yahtzee Scorecard_1.pdf
+│   │   │   │   │   ├── Yahtzee Scorecard_1.xlsx
+│   │   │   │   │   ├── Yahtzee Scorecard_2.pdf
+│   │   │   │   │   ├── Yahtzee Scorecard_2.xlsx
+│   │   │   │   │   ├── Yahtzee Scorecard.pdf
+│   │   │   │   │   └── Yahtzee Scorecard.xlsx
+│   │   │   │   └── Health-Medical
+│   │   │   │       ├── 2025_SNT_ABLE_comparison-FINAL-1-1_1.pdf
+│   │   │   │       ├── 2025_SNT_ABLE_comparison-FINAL-1-1_2.pdf
+│   │   │   │       ├── 2025_SNT_ABLE_comparison-FINAL-1-1.pdf
+│   │   │   │       ├── A-Guide-To-Assistive-Technology-Funding16th-Edition-rev-3_1.pdf
+│   │   │   │       ├── A-Guide-To-Assistive-Technology-Funding16th-Edition-rev-3_2.pdf
+│   │   │   │       ├── A-Guide-To-Assistive-Technology-Funding16th-Edition-rev-3.pdf
+│   │   │   │       ├── ABLE-AgeAdjustmentFactSheet-2_1.pdf
+│   │   │   │       ├── ABLE-AgeAdjustmentFactSheet-2_2.pdf
+│   │   │   │       ├── ABLE-AgeAdjustmentFactSheet-2.pdf
+│   │   │   │       ├── ABLE-NRCOverviewFlyer2024_1.pdf
+│   │   │   │       ├── ABLE-NRCOverviewFlyer2024_2.pdf
+│   │   │   │       ├── ABLE-NRCOverviewFlyer2024.pdf
+│   │   │   │       ├── ABLEGuideSaveTodayEnjoyTomorrow_1.pdf
+│   │   │   │       ├── ABLEGuideSaveTodayEnjoyTomorrow_2.pdf
+│   │   │   │       ├── ABLEGuideSaveTodayEnjoyTomorrow.pdf
+│   │   │   │       ├── ABLEIntegratedSupportsStar2025_1.pdf
+│   │   │   │       ├── ABLEIntegratedSupportsStar2025_2.pdf
+│   │   │   │       ├── ABLEIntegratedSupportsStar2025.pdf
+│   │   │   │       ├── Benjamin Evaluation_1.pdf
+│   │   │   │       ├── Benjamin Evaluation_2.pdf
+│   │   │   │       ├── Benjamin Evaluation.pdf
+│   │   │   │       ├── Child Support SS 09.11.25_1.pdf
+│   │   │   │       ├── Child Support SS 09.11.25_2.pdf
+│   │   │   │       ├── Child Support SS 09.11.25.pdf
+│   │   │   │       ├── DisclosureStatement (1)_1.pdf
+│   │   │   │       ├── DisclosureStatement (1)_2.pdf
+│   │   │   │       ├── DisclosureStatement (1).pdf
+│   │   │   │       ├── DisclosureStatement (2)_1.pdf
+│   │   │   │       ├── DisclosureStatement (2)_2.pdf
+│   │   │   │       ├── DisclosureStatement (2).pdf
+│   │   │   │       ├── DisclosureStatement (3)_1.pdf
+│   │   │   │       ├── DisclosureStatement (3)_2.pdf
+│   │   │   │       ├── DisclosureStatement (3).pdf
+│   │   │   │       ├── DisclosureStatement_1.pdf
+│   │   │   │       ├── DisclosureStatement_2.pdf
+│   │   │   │       ├── DisclosureStatement.pdf
+│   │   │   │       ├── dprp-standards_1.pdf
+│   │   │   │       ├── dprp-standards_2.pdf
+│   │   │   │       ├── dprp-standards.pdf
+│   │   │   │       ├── Fruit-and-vegetable-serving-sizes-infographic-pdf (1)_1.pdf
+│   │   │   │       ├── Fruit-and-vegetable-serving-sizes-infographic-pdf (1)_2.pdf
+│   │   │   │       ├── Fruit-and-vegetable-serving-sizes-infographic-pdf (1).pdf
+│   │   │   │       ├── Fruit-and-vegetable-serving-sizes-infographic-pdf_1.pdf
+│   │   │   │       ├── Fruit-and-vegetable-serving-sizes-infographic-pdf_2.pdf
+│   │   │   │       ├── Fruit-and-vegetable-serving-sizes-infographic-pdf.pdf
+│   │   │   │       ├── handout_therapy_increased_intestinal_permeability_clinician_1.pdf
+│   │   │   │       ├── handout_therapy_increased_intestinal_permeability_clinician_2.pdf
+│   │   │   │       ├── handout_therapy_increased_intestinal_permeability_clinician.pdf
+│   │   │   │       ├── HealthSummary080825_1.zip
+│   │   │   │       ├── HealthSummary080825_2.zip
+│   │   │   │       ├── HealthSummary080825.zip
+│   │   │   │       ├── Nursys-QuickConfirm-License-Verification-Report_2025_08_01_1.pdf
+│   │   │   │       ├── Nursys-QuickConfirm-License-Verification-Report_2025_08_01_2.pdf
+│   │   │   │       ├── Nursys-QuickConfirm-License-Verification-Report_2025_08_01.pdf
+│   │   │   │       ├── obsidian-recovery-codes_1.txt
+│   │   │   │       ├── obsidian-recovery-codes_2.txt
+│   │   │   │       ├── obsidian-recovery-codes.txt
+│   │   │   │       ├── Patient Portal_1.pdf
+│   │   │   │       ├── Patient Portal_2.pdf
+│   │   │   │       ├── Patient Portal.pdf
+│   │   │   │       ├── Provider Section_1.pdf
+│   │   │   │       ├── Provider Section_2.pdf
+│   │   │   │       ├── Provider Section.pdf
+│   │   │   │       ├── rxreport (1)_1.pdf
+│   │   │   │       ├── rxreport (1)_2.pdf
+│   │   │   │       ├── rxreport (1).pdf
+│   │   │   │       ├── rxreport_1.pdf
+│   │   │   │       ├── rxreport_2.pdf
+│   │   │   │       ├── rxreport.pdf
+│   │   │   │       ├── SNA_Disablilities_Handbook-2025-FINAL_1.pdf
+│   │   │   │       ├── SNA_Disablilities_Handbook-2025-FINAL_2.pdf
+│   │   │   │       ├── SNA_Disablilities_Handbook-2025-FINAL.pdf
+│   │   │   │       ├── SNA-2025-Handbook-FINAL_1.pdf
+│   │   │   │       ├── SNA-2025-Handbook-FINAL_2.pdf
+│   │   │   │       ├── SNA-2025-Handbook-FINAL.pdf
+│   │   │   │       ├── SNA-Brief-Guide-to-Special-Needs-Trusts-for-Families_1.pdf
+│   │   │   │       ├── SNA-Brief-Guide-to-Special-Needs-Trusts-for-Families_2.pdf
+│   │   │   │       ├── SNA-Brief-Guide-to-Special-Needs-Trusts-for-Families.pdf
+│   │   │   │       ├── SNA-Brief-Guide-to-Special-Needs-Trusts-for-Professionals_1.pdf
+│   │   │   │       ├── SNA-Brief-Guide-to-Special-Needs-Trusts-for-Professionals_2.pdf
+│   │   │   │       ├── SNA-Brief-Guide-to-Special-Needs-Trusts-for-Professionals.pdf
+│   │   │   │       ├── SNA-Buying-a-Home-for-a-Person-with-Disabilities_1.pdf
+│   │   │   │       ├── SNA-Buying-a-Home-for-a-Person-with-Disabilities_2.pdf
+│   │   │   │       ├── SNA-Buying-a-Home-for-a-Person-with-Disabilities.pdf
+│   │   │   │       ├── SNA-Estate-Planning-for-Parents-of-Children-with-Disabilities_1.pdf
+│   │   │   │       ├── SNA-Estate-Planning-for-Parents-of-Children-with-Disabilities_2.pdf
+│   │   │   │       ├── SNA-Estate-Planning-for-Parents-of-Children-with-Disabilities.pdf
+│   │   │   │       ├── SNA-MistakesInPlanning-FINAL_1.pdf
+│   │   │   │       ├── SNA-MistakesInPlanning-FINAL_2.pdf
+│   │   │   │       ├── SNA-MistakesInPlanning-FINAL.pdf
+│   │   │   │       ├── SNA-Selecting-the-Trustee-of-a-Special-Needs-Trust_1.pdf
+│   │   │   │       ├── SNA-Selecting-the-Trustee-of-a-Special-Needs-Trust_2.pdf
+│   │   │   │       ├── SNA-Selecting-the-Trustee-of-a-Special-Needs-Trust.pdf
+│   │   │   │       ├── SNA-Special-Needs-Trusts-for-Litigation-Proceeds_1.pdf
+│   │   │   │       ├── SNA-Special-Needs-Trusts-for-Litigation-Proceeds_2.pdf
+│   │   │   │       ├── SNA-Special-Needs-Trusts-for-Litigation-Proceeds.pdf
+│   │   │   │       ├── SNA-Striking-a-Balance-with-Structured-Settlements_1.pdf
+│   │   │   │       ├── SNA-Striking-a-Balance-with-Structured-Settlements_2.pdf
+│   │   │   │       ├── SNA-Striking-a-Balance-with-Structured-Settlements.pdf
+│   │   │   │       ├── SNA-We-Are-the-Special-Needs-Alliance_1.pdf
+│   │   │   │       ├── SNA-We-Are-the-Special-Needs-Alliance_2.pdf
+│   │   │   │       ├── SNA-We-Are-the-Special-Needs-Alliance.pdf
+│   │   │   │       ├── SNA-What-Happens-When-I-Turn-18_1.pdf
+│   │   │   │       ├── SNA-What-Happens-When-I-Turn-18_2.pdf
+│   │   │   │       ├── SNA-What-Happens-When-I-Turn-18.pdf
+│   │   │   │       ├── Surgeons_International Excision Surgeon Listing 1-5-26_1.pdf
+│   │   │   │       ├── Surgeons_International Excision Surgeon Listing 1-5-26_2.pdf
+│   │   │   │       ├── Surgeons_International Excision Surgeon Listing 1-5-26.pdf
+│   │   │   │       ├── The Politics Book _1.pdf
+│   │   │   │       ├── The Politics Book _2.pdf
+│   │   │   │       ├── The Politics Book .pdf
+│   │   │   │       ├── tpd application w Provider Section (1)_1.pdf
+│   │   │   │       ├── tpd application w Provider Section (1)_2.pdf
+│   │   │   │       ├── tpd application w Provider Section (1).pdf
+│   │   │   │       ├── tpd application w Provider Section_1.pdf
+│   │   │   │       ├── tpd application w Provider Section_2.pdf
+│   │   │   │       ├── tpd application w Provider Section.pdf
+│   │   │   │       ├── tpd-application (1)_1.pdf
+│   │   │   │       ├── tpd-application (1)_2.pdf
+│   │   │   │       ├── tpd-application (1)-merged-compressed_1.pdf
+│   │   │   │       ├── tpd-application (1)-merged-compressed_2.pdf
+│   │   │   │       ├── tpd-application (1)-merged-compressed.pdf
+│   │   │   │       ├── tpd-application (1).pdf
+│   │   │   │       ├── tpd-application_1.pdf
+│   │   │   │       ├── tpd-application_2.pdf
+│   │   │   │       ├── tpd-application_unsigned (1)_1.pdf
+│   │   │   │       ├── tpd-application_unsigned (1)_2.pdf
+│   │   │   │       ├── tpd-application_unsigned (1).pdf
+│   │   │   │       ├── tpd-application_unsigned (2)_1.pdf
+│   │   │   │       ├── tpd-application_unsigned (2)_2.pdf
+│   │   │   │       ├── tpd-application_unsigned (2).pdf
+│   │   │   │       ├── tpd-application_unsigned (3)_1.pdf
+│   │   │   │       ├── tpd-application_unsigned (3)_2.pdf
+│   │   │   │       ├── tpd-application_unsigned (3).pdf
+│   │   │   │       ├── tpd-application_unsigned (4)_1.pdf
+│   │   │   │       ├── tpd-application_unsigned (4)_2.pdf
+│   │   │   │       ├── tpd-application_unsigned (4).pdf
+│   │   │   │       ├── tpd-application_unsigned_1.pdf
+│   │   │   │       ├── tpd-application_unsigned_2.pdf
+│   │   │   │       ├── tpd-application_unsigned.pdf
+│   │   │   │       └── tpd-application.pdf
+│   │   │   └── Real-Estate
+│   │   │       ├── 600-Kirtley-Way
+│   │   │       │   ├── 2025 August Statement - Annabel Kie_1.pdf
+│   │   │       │   ├── 2025 August Statement - Annabel Kie_2.pdf
+│   │   │       │   ├── 2025 August Statement - Annabel Kie.pdf
+│   │   │       │   ├── 2025 Oct Statement - Annabel Kie (1)_1.pdf
+│   │   │       │   ├── 2025 Oct Statement - Annabel Kie (1)_2.pdf
+│   │   │       │   ├── 2025 Oct Statement - Annabel Kie (1).pdf
+│   │   │       │   ├── 2025 Oct Statement - Annabel Kie_1.pdf
+│   │   │       │   ├── 2025 Oct Statement - Annabel Kie_2.pdf
+│   │   │       │   ├── 2025 Oct Statement - Annabel Kie.pdf
+│   │   │       │   ├── 2025 September Statement - Annabel Kie_1.pdf
+│   │   │       │   ├── 2025 September Statement - Annabel Kie_2.pdf
+│   │   │       │   ├── 2025 September Statement - Annabel Kie.pdf
+│   │   │       │   ├── 600 Kirtley Way Lease - Annabel Kie -  Page 1_1.pdf
+│   │   │       │   ├── 600 Kirtley Way Lease - Annabel Kie -  Page 1_2.pdf
+│   │   │       │   ├── 600 Kirtley Way Lease - Annabel Kie -  Page 1.pdf
+│   │   │       │   ├── 600 Kirtley Way Lease - Annabel Kie (1)_1.pdf
+│   │   │       │   ├── 600 Kirtley Way Lease - Annabel Kie (1)_2.pdf
+│   │   │       │   ├── 600 Kirtley Way Lease - Annabel Kie (1).pdf
+│   │   │       │   ├── 600 Kirtley Way Lease - Annabel Kie (2)_1.pdf
+│   │   │       │   ├── 600 Kirtley Way Lease - Annabel Kie (2)_2.pdf
+│   │   │       │   ├── 600 Kirtley Way Lease - Annabel Kie (2).pdf
+│   │   │       │   ├── 600 Kirtley Way Lease - Annabel Kie (3)_1.pdf
+│   │   │       │   ├── 600 Kirtley Way Lease - Annabel Kie (3)_2.pdf
+│   │   │       │   ├── 600 Kirtley Way Lease - Annabel Kie (3).pdf
+│   │   │       │   ├── 600 Kirtley Way Lease - Annabel Kie_1.pdf
+│   │   │       │   ├── 600 Kirtley Way Lease - Annabel Kie_1.zip
+│   │   │       │   ├── 600 Kirtley Way Lease - Annabel Kie_2.pdf
+│   │   │       │   ├── 600 Kirtley Way Lease - Annabel Kie_2.zip
+│   │   │       │   ├── 600 Kirtley Way Lease - Annabel Kie.pdf
+│   │   │       │   ├── 600 Kirtley Way Lease - Annabel Kie.zip
+│   │   │       │   ├── AK PAPERWORK (1)_1.pdf
+│   │   │       │   ├── AK PAPERWORK (1)_2.pdf
+│   │   │       │   ├── AK PAPERWORK (1).pdf
+│   │   │       │   ├── AK PAPERWORK_1.pdf
+│   │   │       │   ├── AK PAPERWORK_2.pdf
+│   │   │       │   ├── AK PAPERWORK.pdf
+│   │   │       │   ├── Annabel Kie tpd-application_unsigned_1.pdf
+│   │   │       │   ├── Annabel Kie tpd-application_unsigned_2.pdf
+│   │   │       │   ├── Annabel Kie tpd-application_unsigned.pdf
+│   │   │       │   ├── Fully executed lease_1.pdf
+│   │   │       │   ├── Fully executed lease_2.pdf
+│   │   │       │   ├── Fully executed lease.pdf
+│   │   │       │   ├── KIE_LILLIAN-66272904193403231_1.zip
+│   │   │       │   ├── KIE_LILLIAN-66272904193403231_2.zip
+│   │   │       │   ├── KIE_LILLIAN-66272904193403231.zip
+│   │   │       │   ├── L. Kie Addendum (1)_1.pdf
+│   │   │       │   ├── L. Kie Addendum (1)_2.pdf
+│   │   │       │   ├── L. Kie Addendum (1).pdf
+│   │   │       │   ├── L. Kie Addendum (2)_1.pdf
+│   │   │       │   ├── L. Kie Addendum (2)_2.pdf
+│   │   │       │   ├── L. Kie Addendum (2).pdf
+│   │   │       │   ├── L. Kie Addendum_1.pdf
+│   │   │       │   ├── L. Kie Addendum_2.pdf
+│   │   │       │   ├── L. Kie Addendum.pdf
+│   │   │       │   ├── Notice to Correct Lease Violations or Vacate rental Unit (1)_1.pdf
+│   │   │       │   ├── Notice to Correct Lease Violations or Vacate rental Unit (1)_2.pdf
+│   │   │       │   ├── Notice to Correct Lease Violations or Vacate rental Unit (1).pdf
+│   │   │       │   ├── Notice to Correct Lease Violations or Vacate rental Unit_1.pdf
+│   │   │       │   ├── Notice to Correct Lease Violations or Vacate rental Unit_2.pdf
+│   │   │       │   ├── Notice to Correct Lease Violations or Vacate rental Unit.pdf
+│   │   │       │   ├── winter_weather_preparation_preventing_frozen_pipes_annabel_l_kie_012226_1.pdf
+│   │   │       │   ├── winter_weather_preparation_preventing_frozen_pipes_annabel_l_kie_012226_2.pdf
+│   │   │       │   └── winter_weather_preparation_preventing_frozen_pipes_annabel_l_kie_012226.pdf
+│   │   │       └── USDA-502-Loan
+│   │   │           ├── 454531879M11G05271999_1.pdf
+│   │   │           ├── 454531879M11G05271999_2.pdf
+│   │   │           ├── 454531879M11G05271999.pdf
+│   │   │           ├── Single Family Housing - 502 Application Package_1.pdf
+│   │   │           ├── Single Family Housing - 502 Application Package_2.pdf
+│   │   │           ├── Single Family Housing - 502 Application Package.pdf
+│   │   │           ├── USDA_502_Direct_Packet_Checklist_Bratcher_LargePrint_2025-09-04_1.docx
+│   │   │           ├── USDA_502_Direct_Packet_Checklist_Bratcher_LargePrint_2025-09-04_2.docx
+│   │   │           ├── USDA_502_Direct_Packet_Checklist_Bratcher_LargePrint_2025-09-04.docx
+│   │   │           ├── USDA_502_Direct_Packet_Checklist_FILLABLE_Bratcher_2025-08-28_1.pdf
+│   │   │           ├── USDA_502_Direct_Packet_Checklist_FILLABLE_Bratcher_2025-08-28_2.pdf
+│   │   │           ├── USDA_502_Direct_Packet_Checklist_FILLABLE_Bratcher_2025-08-28.pdf
+│   │   │           ├── USDA_502_Direct_Packet_Checklist_FILLABLE_Bratcher_v2_2025-09-04_1.pdf
+│   │   │           ├── USDA_502_Direct_Packet_Checklist_FILLABLE_Bratcher_v2_2025-09-04_2.pdf
+│   │   │           ├── USDA_502_Direct_Packet_Checklist_FILLABLE_Bratcher_v2_2025-09-04.pdf
+│   │   │           ├── USDA_502_Direct_Packet_Checklist_FILLABLE_Bratcher_v3_LargePrint_2025-09-04_R3_1.pdf
+│   │   │           ├── USDA_502_Direct_Packet_Checklist_FILLABLE_Bratcher_v3_LargePrint_2025-09-04_R3_2.pdf
+│   │   │           └── USDA_502_Direct_Packet_Checklist_FILLABLE_Bratcher_v3_LargePrint_2025-09-04_R3.pdf
+│   │   ├── Household Needs & Setup.md
+│   │   ├── Kids Health & Therapies.md
+│   │   ├── Lauren Health & Wellness.md
+│   │   ├── Pets.md
+│   │   └── Transportation & Finances.md
+│   ├── Office
+│   │   ├── .DS_Store
+│   │   ├── 03_Finance-Admin
+│   │   │   ├── .DS_Store
+│   │   │   ├── Banking-Transactions
+│   │   │   │   ├── (31) Quotes & Invoices - Invoice-37-26.pdf
+│   │   │   │   ├── 2025-10-09-paypal-for-review.csv
+│   │   │   │   ├── 2026_KY_CannaCon_Financials_with_LastYearPackages.xlsx
+│   │   │   │   ├── 67cf6e4b9309771d0a57e8b5_wcbgb-statement-export-250310.csv
+│   │   │   │   ├── Accounts _ Midland Credit Management.pdf
+│   │   │   │   ├── acct-aa-aug24.pdf
+│   │   │   │   ├── acct-as-aug24.pdf
+│   │   │   │   ├── BALANCE_REPORT (1).xlsx
+│   │   │   │   ├── BALANCE_REPORT.xlsx
+│   │   │   │   ├── BGMU E-bill - PAYMENT CONFIRMATION.pdf
+│   │   │   │   ├── BGPR Fees.pdf
+│   │   │   │   ├── Bratcher Family Financials.pdf
+│   │   │   │   ├── Deals_1768597181.xlsx
+│   │   │   │   ├── Invoice - 0016.pdf
+│   │   │   │   ├── KY NORML Transactions 2018- 2025.xlsx - 4-Column Upload Format.csv
+│   │   │   │   ├── Payment - Confirmation 2.pdf
+│   │   │   │   ├── Payment - Confirmation.pdf
+│   │   │   │   ├── paypal all transactions - All Transactions.csv
+│   │   │   │   ├── paypal transactions  - Sheet4.csv
+│   │   │   │   ├── Progressive Auto Insurance Payment History-20250911T184108Z-1-001.zip
+│   │   │   │   ├── Sales_Operations_Outreach_System_1764869755.xlsx
+│   │   │   │   ├── Settled-in-Full Notice (1).pdf
+│   │   │   │   ├── Settled-in-Full Notice.pdf
+│   │   │   │   ├── smallbusiness.experian.com - 561698087 - Y Allternative Events LTD Liability Co.pdf
+│   │   │   │   ├── SNK9SAYH69VC2-CSR-20230930000000-20251014235959-20251014110906.CSV
+│   │   │   │   ├── SNK9SAYH69VC2-MSR-20250801000000-20250831235959.PDF
+│   │   │   │   ├── SNK9SAYH69VC2-MSR-20250901000000-20250930235959.PDF
+│   │   │   │   ├── this campaign_10-14-2025.xlsx
+│   │   │   │   ├── this campaign_12-5-2025 (1).xlsx
+│   │   │   │   ├── this campaign_12-5-2025.xlsx
+│   │   │   │   ├── Transactions-7050-2025-10-14.csv
+│   │   │   │   ├── Wave-Transaction-Import-Template (1).xlsx
+│   │   │   │   ├── Wave-Transaction-Import-Template.xlsx
+│   │   │   │   ├── Zeffy-export-1755912761964.xlsx
+│   │   │   │   ├── Zeffy-export-1757622620375.xlsx
+│   │   │   │   ├── Zeffy-export-1759783327714.xlsx
+│   │   │   │   ├── Zeffy-export-1760460168191.xlsx
+│   │   │   │   ├── Zeffy-transactions-1760460197547.xlsx
+│   │   │   │   └── Zeffy-transactions-1760463991342.xlsx
+│   │   │   ├── Business-Entities
+│   │   │   │   ├── 2025 Duncan Hines Days Community & Economic Impact Report.pdf
+│   │   │   │   ├── 45Fest_Sponsorship_Overview_August.pdf
+│   │   │   │   ├── BlueGrass Elevated - Daily schedule.pdf
+│   │   │   │   ├── Bluegrass Elevated at Barren River Magic.pdf
+│   │   │   │   ├── Bluegrass_Elev8d_Bank_Business_Plan.docx
+│   │   │   │   ├── Bluegrass_Elev8d_Financial_Model.xlsx
+│   │   │   │   ├── Bluegrass_Elevated_at_Barren_River_Magic_Council_Friendly.docx
+│   │   │   │   ├── Bluegrass_Elevated_Master_Document.docx.pdf
+│   │   │   │   ├── Bluegrass_Elevated_Venue_Proposal_Updated.docx
+│   │   │   │   ├── Bluegrass_Elevated_Venue_Proposal.docx.pdf
+│   │   │   │   ├── Business_File_Cover_Sheet.pdf
+│   │   │   │   ├── business_readiness_4_entities.pdf
+│   │   │   │   ├── business_readiness_dashboard_refreshed.pdf
+│   │   │   │   ├── CG-APP-EXE- License App to Qualify for Exempt Charitable Gaming CLEAN.pdf
+│   │   │   │   ├── CG-APP-ORG Fillable Form (1).pdf
+│   │   │   │   ├── CG-APP-ORG Fillable Form.pdf
+│   │   │   │   ├── CG-APP-ORG- License Application for Organizations CLEAN.pdf
+│   │   │   │   ├── CG-APP-ORG-CFE- Application for Charity Fundraising Event CLEAN.pdf
+│   │   │   │   ├── CG-APP-SER- Application for Special Event Raffle CLEAN.pdf
+│   │   │   │   ├── Charitable Gaming Lounge Bowling Green, KY (1) (1).pdf
+│   │   │   │   ├── Charitable Gaming Lounge Bowling Green, KY (1).docx
+│   │   │   │   ├── Charitable Gaming Lounge Bowling Green, KY (1).pdf
+│   │   │   │   ├── Charitable Gaming Lounge Bowling Green, KY.docx
+│   │   │   │   ├── Charitable Gaming Lounge Bowling Green, KY.pdf
+│   │   │   │   ├── Charitable Gaming Project Planning Doc.pdf
+│   │   │   │   ├── Charitable_Gaming_Pro_Forma.docx
+│   │   │   │   ├── Clean_Business_File_Cover_Sheet_NEW.pdf
+│   │   │   │   ├── copy of new form cg-eprp 2018 (1).xlsx
+│   │   │   │   ├── copy of new form cg-eprp 2018 (2).xlsx
+│   │   │   │   ├── copy of new form cg-eprp 2018.xlsx
+│   │   │   │   ├── ED-WOSB SBA Certification Checklist.pdf
+│   │   │   │   ├── Entity Registration Checklist.pdf
+│   │   │   │   ├── Event_Planning_1761496708.xlsx
+│   │   │   │   ├── Event-Specification-Worksheet.pdf
+│   │   │   │   ├── Festival-Event-Plan-Free-PDF-Template-Download.pdf
+│   │   │   │   ├── Festival-planning-checklist (1).pdf
+│   │   │   │   ├── festival-planning-checklist.pdf
+│   │   │   │   ├── Festivals-Events-Planning-Guide.pdf
+│   │   │   │   ├── final_monarch_festival_planning_guide.pdf
+│   │   │   │   ├── Final_Pro_Forma.docx
+│   │   │   │   ├── KY_Charitable_Gaming_Startup_Bundle
+│   │   │   │   │   ├── charitable_gaming_staffing.docx
+│   │   │   │   │   ├── charitable_gaming_staffing.pdf
+│   │   │   │   │   ├── Kentucky_Charitable_Gaming_Startup_Packet.docx
+│   │   │   │   │   └── KY_Charitable_Gaming_Startup_Workbook.xlsx
+│   │   │   │   ├── KY_Charitable_Gaming_Startup_Bundle.zip
+│   │   │   │   ├── KY_Charitable_Gaming_Startup_Workbook.xlsx
+│   │   │   │   ├── LLA-Articles of Amendment for a Limited Liability Company.pdf
+│   │   │   │   ├── naics_fillable_per_business.pdf
+│   │   │   │   ├── nwboc_wosbedwosb_application-2023.pdf
+│   │   │   │   ├── Verdant_Business_Credit_Funding_Goals_2025_2026.docx
+│   │   │   │   ├── Verdant_Business_Credit_Funding_Goals_2025_2026.pdf
+│   │   │   │   ├── Verdant_Mind_Map.pptx
+│   │   │   │   ├── Verdant_Operations_Model_v1.docx
+│   │   │   │   └── Verdant_Structure_2025_2026_Flowchart.png
+│   │   │   ├── QuickBooks
+│   │   │   │   ├── 30_Day_Family_Wealth_Management_Checklist.pdf
+│   │   │   │   ├── 30_Day_Family_Wealth_Weekly_Checklist.pdf
+│   │   │   │   ├── account_portfolio_tracker.svg
+│   │   │   │   ├── Bookkeeping_and_Reporting_System_Map.pdf
+│   │   │   │   ├── Budget_System_MultiEntity.xlsx
+│   │   │   │   ├── BudgetWorksheet (1).xls
+│   │   │   │   ├── BudgetWorksheet.xls
+│   │   │   │   ├── Bulletproof_Business_Admin_Financial_Readiness_Template_with_Roadmap.docx
+│   │   │   │   ├── Business Admin & Financial Readiness Template.docx
+│   │   │   │   ├── Business_Accounting_Template_v2.xlsx
+│   │   │   │   ├── Business_Accounting_Template_v3.xlsx
+│   │   │   │   ├── Business_Accounting_Template.xlsx
+│   │   │   │   ├── business_admin_financial_template.docx
+│   │   │   │   ├── business_admin_financial_template.pdf
+│   │   │   │   ├── business_financial_health_checklist.pdf
+│   │   │   │   ├── Cash Flow Forecast Template - WAVE.xlsx
+│   │   │   │   ├── Fillable_Daily_Weekly_Planner.xlsx
+│   │   │   │   ├── Integration_Guide.txt
+│   │   │   │   ├── MonthlySpendingPlan (1).doc
+│   │   │   │   ├── MonthlySpendingPlan.doc
+│   │   │   │   ├── PCOS_Gut_Macro_Meal_Planner_AutoTotals.xlsx
+│   │   │   │   ├── Products ad services - QuickBooks_Online_PnS_Sample_File (1).csv
+│   │   │   │   ├── QuickBooks_Online_COA_Sample_File (1).xls
+│   │   │   │   ├── QuickBooks_Online_COA_Sample_File.xls
+│   │   │   │   ├── QuickBooks_Online_PnS_Sample_File (1).csv
+│   │   │   │   ├── QuickBooks_Online_PnS_Sample_File.csv
+│   │   │   │   ├── Secure_Reference_Sheet.docx
+│   │   │   │   ├── Secure_Reference_Sheet.pdf
+│   │   │   │   └── Verdant_Ventures_Workspace.xlsx
+│   │   │   └── Tax-Returns
+│   │   │       ├── 1099 form 2025
+│   │   │       ├── 1099 form 2025 (1)
+│   │   │       ├── 1099 form 2025 (2)
+│   │   │       ├── 2023 Tax Returns.pdf
+│   │   │       ├── 2024 Tax Returns.pdf
+│   │   │       ├── Federal 2025 Tax return.pdf
+│   │   │       └── FY25 Schedule A.xlsx
+│   │   ├── 04_Real-Estate
+│   │   │   ├── 205-Broadway-CaveCity
+│   │   │   │   ├── 20256 KCIA Founders Party Sponsorship (2).pdf
+│   │   │   │   ├── 205-Broadway-St-Cave-City-KY-Aerial-3-LargeHighDefinition.jpg
+│   │   │   │   ├── 205-Broadway-St-Cave-City-KY-Building-Photo-1-LargeHighDefinition.jpg
+│   │   │   │   ├── 205-Broadway-St-Cave-City-KY-Building-Photo-2-LargeHighDefinition.jpg
+│   │   │   │   ├── 205-Broadway-St-Cave-City-KY-Building-Photo-7-LargeHighDefinition.jpg
+│   │   │   │   ├── 218 mammoth cave (1).pdf
+│   │   │   │   ├── 218 mammoth cave.pdf
+│   │   │   │   ├── Approximate Distances from Cave City, KY.png
+│   │   │   │   ├── Ariel Veiw CCW.jpg
+│   │   │   │   ├── Arrow_Etab-e1755019176419-1000x600.jpg
+│   │   │   │   ├── attractions oage.pdf
+│   │   │   │   ├── Barren-River-Magic.jpg
+│   │   │   │   ├── Bluegrass Elevated (Your Story) (1200 x 1200 px) (1)
+│   │   │   │   │   ├── 1.png
+│   │   │   │   │   ├── 2.png
+│   │   │   │   │   ├── 3.png
+│   │   │   │   │   ├── 4.png
+│   │   │   │   │   ├── 5.png
+│   │   │   │   │   ├── 6.png
+│   │   │   │   │   └── 7.png
+│   │   │   │   ├── Bluegrass Elevated (Your Story) (1200 x 1200 px) (1).png
+│   │   │   │   ├── Bluegrass Elevated (Your Story) (1200 x 1200 px) (1).zip
+│   │   │   │   ├── Bluegrass Elevated (Your Story) (1200 x 1200 px).png
+│   │   │   │   ├── Bluegrass Elevated (Your Story) (1200 x 1200 px).zip
+│   │   │   │   ├── Bluegrass Elevated (Your Story) (1920 x 1080 px) (1).png
+│   │   │   │   ├── Bluegrass Elevated (Your Story) (1920 x 1080 px).png
+│   │   │   │   ├── Bluegrass Elevated (Your Story).png
+│   │   │   │   ├── Bluegrass Elevated (Your Story).zip
+│   │   │   │   ├── BlueGrass Elevated.zip
+│   │   │   │   ├── Bluegrass_Elev8d_Sponsorship_Proposal.docx
+│   │   │   │   ├── Bluegrass_Elevated_Sponsorship_Packages.pdf
+│   │   │   │   ├── calcmaps-map-radius-191849-25022026.png
+│   │   │   │   ├── cave-city-tourist-grant-2024-3.docx
+│   │   │   │   ├── Cave-City-Zoning-Map_2025.pdf
+│   │   │   │   ├── Cave-City-Zoning-Map-2018.pdf
+│   │   │   │   ├── CCW_4color_Stacked_logo April 21.ai
+│   │   │   │   ├── Ceiling 2.jpg
+│   │   │   │   ├── Cities with (and without) Licensed Dispensaries Distances from Cave City, KY.png
+│   │   │   │   ├── Coral Cove Lagoon.jpg
+│   │   │   │   ├── coral-cove-wellness-resort.jpeg
+│   │   │   │   ├── Corl Cove Welcome Garden.png
+│   │   │   │   ├── Derby-City-Gaming-Downtown-D2-December-21-20232831a_1120x610-1024x558.jpg
+│   │   │   │   ├── Derby-City-Gaming-Downtown-D2-December-21-20232883b_1120x610-1024x558.jpg
+│   │   │   │   ├── Derby-City-Gaming-Downtown-D2-December-21-20232934b_1120x610.jpg
+│   │   │   │   ├── Derby-City-Gaming-Downtown-D2-December-21-20232947b_1120x610.jpg
+│   │   │   │   ├── Derby-City-Gaming-Downtown-D2-December-21-20233172b_1120x610.jpg
+│   │   │   │   ├── Derby-City-Gaming-Downtown-Outdoor_Patio_inset_1120x610-1024x558.jpg
+│   │   │   │   ├── Downtown_live_music_1120x610.jpg
+│   │   │   │   ├── Exterior-Night-Shot-1.jpg
+│   │   │   │   ├── Exterior-Profile-Shot-2-1920x1080-1.jpg
+│   │   │   │   ├── Fascinator_wine_bar_room_1120x610.jpg
+│   │   │   │   ├── First_Turn_Sports_Bar_TV_1120x610.jpg
+│   │   │   │   ├── kpeiryvcffrkpge9qcj2.webp
+│   │   │   │   ├── layout eaxmple for 933 Fields.jpg
+│   │   │   │   ├── Lease_Timeline_205_Broadway.pdf
+│   │   │   │   ├── LOI - KYNOMRL (1) (1).pdf
+│   │   │   │   ├── LOI - KYNOMRL (1).pdf
+│   │   │   │   ├── LOI - KYNOMRL (2).pdf
+│   │   │   │   ├── LOI - KYNOMRL.pdf
+│   │   │   │   ├── Pool Coral.jpg
+│   │   │   │   ├── Retreat+package-10.webp
+│   │   │   │   ├── Retreat+package-12 (1).webp
+│   │   │   │   ├── Retreat+package-12.webp
+│   │   │   │   ├── Retreat+package-15.webp
+│   │   │   │   ├── Retreat+package-18.webp
+│   │   │   │   ├── Retreat+package-24.webp
+│   │   │   │   ├── Retreat+package-25.webp
+│   │   │   │   ├── Retreat+package-3.webp
+│   │   │   │   ├── sdflm-lobby-0078-hor-clsc.avif
+│   │   │   │   ├── sdflm-porch-0074-hor-feat (1).webp
+│   │   │   │   ├── sdflm-porch-0074-hor-feat.webp
+│   │   │   │   ├── Second Addendum - KYNORML (1).pdf
+│   │   │   │   ├── Second Addendum - KYNORML (2).pdf
+│   │   │   │   ├── Second Addendum - KYNORML.pdf
+│   │   │   │   ├── stargazer.png
+│   │   │   │   ├── Starlight.jpg
+│   │   │   │   ├── Tavern_on_4th_Private_Events_Menu_2024_updated_(1).pdf
+│   │   │   │   ├── Trophy_bar_bourbon_1120x610.jpg
+│   │   │   │   ├── Trophy_bar_cigars_1120x610.jpg
+│   │   │   │   ├── Trophy_bar_cigars_closeup_1120x610.jpg
+│   │   │   │   ├── Trophy_Bar_guys_1120x610.jpg
+│   │   │   │   ├── trophy_bar_wide_angle_1120x610.jpg
+│   │   │   │   └── Turtle Villa View.jpg
+│   │   │   ├── 600-Kirtley-Way
+│   │   │   │   ├── 2025 August Statement - Annabel Kie.pdf
+│   │   │   │   ├── 2025 Oct Statement - Annabel Kie (1).pdf
+│   │   │   │   ├── 2025 Oct Statement - Annabel Kie.pdf
+│   │   │   │   ├── 2025 September Statement - Annabel Kie.pdf
+│   │   │   │   ├── 600 Kirtley Way Lease - Annabel Kie
+│   │   │   │   │   ├── 1.jpg
+│   │   │   │   │   ├── 10.jpg
+│   │   │   │   │   ├── 11.jpg
+│   │   │   │   │   ├── 12.jpg
+│   │   │   │   │   ├── 13.jpg
+│   │   │   │   │   ├── 14.jpg
+│   │   │   │   │   ├── 15.jpg
+│   │   │   │   │   ├── 16.jpg
+│   │   │   │   │   ├── 17.jpg
+│   │   │   │   │   ├── 18.jpg
+│   │   │   │   │   ├── 19.jpg
+│   │   │   │   │   ├── 2.jpg
+│   │   │   │   │   ├── 20.jpg
+│   │   │   │   │   ├── 21.jpg
+│   │   │   │   │   ├── 3.jpg
+│   │   │   │   │   ├── 4.jpg
+│   │   │   │   │   ├── 5.jpg
+│   │   │   │   │   ├── 6.jpg
+│   │   │   │   │   ├── 7.jpg
+│   │   │   │   │   ├── 8.jpg
+│   │   │   │   │   └── 9.jpg
+│   │   │   │   ├── 600 Kirtley Way Lease - Annabel Kie -  Page 1.pdf
+│   │   │   │   ├── 600 Kirtley Way Lease - Annabel Kie (1).pdf
+│   │   │   │   ├── 600 Kirtley Way Lease - Annabel Kie (2).pdf
+│   │   │   │   ├── 600 Kirtley Way Lease - Annabel Kie (3).pdf
+│   │   │   │   ├── 600 Kirtley Way Lease - Annabel Kie.pdf
+│   │   │   │   ├── 600 Kirtley Way Lease - Annabel Kie.zip
+│   │   │   │   ├── AK PAPERWORK (1).pdf
+│   │   │   │   ├── AK PAPERWORK.pdf
+│   │   │   │   ├── Annabel Kie tpd-application_unsigned.pdf
+│   │   │   │   ├── Fully executed lease.pdf
+│   │   │   │   ├── KIE_LILLIAN-66272904193403231.zip
+│   │   │   │   ├── L. Kie Addendum (1).pdf
+│   │   │   │   ├── L. Kie Addendum (2).pdf
+│   │   │   │   ├── L. Kie Addendum.pdf
+│   │   │   │   ├── Notice to Correct Lease Violations or Vacate rental Unit (1).pdf
+│   │   │   │   ├── Notice to Correct Lease Violations or Vacate rental Unit.pdf
+│   │   │   │   └── winter_weather_preparation_preventing_frozen_pipes_annabel_l_kie_012226.pdf
+│   │   │   └── USDA-502-Loan
+│   │   │       ├── 454531879M11G05271999.pdf
+│   │   │       ├── Single Family Housing - 502 Application Package.pdf
+│   │   │       ├── USDA_502_Direct_Packet_Checklist_Bratcher_LargePrint_2025-09-04.docx
+│   │   │       ├── USDA_502_Direct_Packet_Checklist_FILLABLE_Bratcher_2025-08-28.pdf
+│   │   │       ├── USDA_502_Direct_Packet_Checklist_FILLABLE_Bratcher_v2_2025-09-04.pdf
+│   │   │       └── USDA_502_Direct_Packet_Checklist_FILLABLE_Bratcher_v3_LargePrint_2025-09-04_R3.pdf
+│   │   ├── 06_Assets-Media
+│   │   │   ├── Infographics-Templates
+│   │   │   │   ├── 10-Fruit-Veggie-Forward-School-Breakfast-Recipes-Foundation-for-Fresh-Produce.pdf
+│   │   │   │   ├── 4WaysToGetGoodFats.pdf
+│   │   │   │   ├── AHA_Adult_Physical_Activity_Rec_Infographic_English.pdf
+│   │   │   │   ├── BANT-Eat-a-RAINBOW-every-day-030322.jpg
+│   │   │   │   ├── Build-a-Healthier-Salad-infographic-pdf.pdf
+│   │   │   │   ├── chla-portion-size-smart-bites.png
+│   │   │   │   ├── cnpp-costfood-tfp-feb2026.pdf
+│   │   │   │   ├── cnpp-thriftyplan-june2021-present.xlsx
+│   │   │   │   ├── Color_Chart_Nutrients_Infographic.webp
+│   │   │   │   ├── Color-Chart.png
+│   │   │   │   ├── Deliciously_Balanced_Plate_Infographic.pdf
+│   │   │   │   ├── DiabetesPlate_FullPlate.png
+│   │   │   │   ├── Eat_More_Color_infographic.pdf
+│   │   │   │   ├── Eat-a-Rainbow-1024x673.webp
+│   │   │   │   ├── eat-a-rainbow-chart.jpg
+│   │   │   │   ├── Eat-A-Rainbow.webp
+│   │   │   │   ├── Eat-the-rainbow-LYG-blog.png
+│   │   │   │   ├── EatTheRainbow-tmt-1.webp
+│   │   │   │   ├── energybalance_portionsize_chart.jpg
+│   │   │   │   ├── FOOD+VARIETY+(1).webp
+│   │   │   │   ├── Fruit-Storage-Guide-English.jpg
+│   │   │   │   ├── Go-to-Choices-on-the-Go-infographic.pdf
+│   │   │   │   ├── Hacks-for-Healthy-BTS-Habits-Activation-Guide.pdf
+│   │   │   │   ├── Have-A-Plant-Consumer-Marketing-Toolkit-Spring-2024.pdf
+│   │   │   │   ├── Have-A-Plant-diabetes-brochure-2025.pdf
+│   │   │   │   ├── Have-A-Plant-Fruit-Spice-Pairing-Infographic-1.jpg
+│   │   │   │   ├── Have-A-Plant-Influencer-Toolkit-2025-Seasonality.pdf
+│   │   │   │   ├── Have-A-Plant-Influencer-Toolkit-Fall-2024.pdf
+│   │   │   │   ├── Have-A-Plant-Influencer-Toolkit-Q1-2024-Food-Rooted-In-Better-Health.pdf
+│   │   │   │   ├── Have-A-Plant-Plant-Forward-Eating-Guide.pdf
+│   │   │   │   ├── Have-A-Plant-Veggie-Herbs-Pairing-Infographic-1.jpg
+│   │   │   │   ├── Healthy-Foods_370046063.webp
+│   │   │   │   ├── hierarchyofneeds7-2010 (1).gif
+│   │   │   │   ├── hierarchyofneeds7-2010.gif
+│   │   │   │   ├── how-much-clothing-do-you-need-as-an-adult.jpeg
+│   │   │   │   ├── Is-your-workout-working.pdf
+│   │   │   │   ├── Its-Great-to-Hydrate-Infographic.pdf
+│   │   │   │   ├── Life_is_Sweet_Sugar_Swap_infographic.pdf
+│   │   │   │   ├── Local_Food_Fact_Sheet_20150401.pdf
+│   │   │   │   ├── maslow_original.webp
+│   │   │   │   ├── My+Daily+Food+Plan+from+ChooseMyPlate.webp
+│   │   │   │   ├── no-to-alcohol-drinking.webp
+│   │   │   │   ├── Pantry_Basics_for_Cooking_Heart_Healthy_Meals_English.pdf
+│   │   │   │   ├── PBH-Influencer-Toolkit-Summer-2023-Celebrating-The-Roots-Of-Our-Food.pdf
+│   │   │   │   ├── pipe_drapeangle4.jpg
+│   │   │   │   ├── Plant_based_protein_sources_infographic.pdf
+│   │   │   │   ├── Protein_infographic.pdf
+│   │   │   │   ├── r4ZFTqg8 - meal-planner.csv
+│   │   │   │   ├── seasons_of_eating_seasonal_produce_infographic.pdf
+│   │   │   │   ├── Shop_Smart_and_Save_-infographic_English.pdf
+│   │   │   │   ├── Sip-Smart-Infographic-ENG.pdf
+│   │   │   │   ├── Tasty_Recipes_for_People_with_Diabetes-508.pdf
+│   │   │   │   ├── the-ultimate-capsule-wardrobe-a-year-in-europe-v0-yly4xzd5meeg1.webp
+│   │   │   │   ├── Thrifty_Mainland_June2021-present.zip
+│   │   │   │   ├── veg-serves.jpg
+│   │   │   │   ├── VOL 74 WEEKLY ZINE.pdf
+│   │   │   │   ├── Whats_in_Your_Kids_Lunchbox_Infographic.pdf
+│   │   │   │   ├── WhatsInAHalfCupGuide_Veggies-pdf.webp
+│   │   │   │   └── Whole_Grains_infographic.pdf
+│   │   │   ├── Logos-Branding
+│   │   │   │   ├── capitol 1.png
+│   │   │   │   ├── capitol blk.png
+│   │   │   │   ├── capitol outline.png
+│   │   │   │   ├── capitol white.png
+│   │   │   │   ├── captiol.png
+│   │   │   │   ├── channels4_profile.jpg
+│   │   │   │   ├── crm_flows.png
+│   │   │   │   ├── crown.png
+│   │   │   │   ├── DarkHorse_Logo_02.webp
+│   │   │   │   ├── Full+Dark+Horse+Logo+Green.webp
+│   │   │   │   ├── Green and White Corporate Business Card
+│   │   │   │   │   ├── 1.png
+│   │   │   │   │   └── 2.png
+│   │   │   │   ├── Green and White Corporate Business Card.pdf
+│   │   │   │   ├── Green and White Corporate Business Card.png
+│   │   │   │   ├── Green and White Corporate Business Card.zip
+│   │   │   │   ├── ky capitol white background.png
+│   │   │   │   ├── ky-gov-logo-wide.png
+│   │   │   │   ├── logo-background-svg (1).svg
+│   │   │   │   ├── logo-background-svg.svg
+│   │   │   │   ├── long logo.png
+│   │   │   │   ├── New_Project-removebg-preview+(1)-288w.png
+│   │   │   │   ├── NM_Logos_2024-08-2048x688.png
+│   │   │   │   ├── panacea_color.jpg
+│   │   │   │   ├── Qq3fkibWvX0zpnm.png
+│   │   │   │   ├── Qq3ggkHJBCp7qOu (1).png
+│   │   │   │   ├── Qq3ggkHJBCp7qOu.png
+│   │   │   │   ├── qr-code.png
+│   │   │   │   ├── qr-codes
+│   │   │   │   │   ├── 1.png
+│   │   │   │   │   ├── 10.png
+│   │   │   │   │   ├── 2.png
+│   │   │   │   │   ├── 3.png
+│   │   │   │   │   ├── 4.png
+│   │   │   │   │   ├── 5.png
+│   │   │   │   │   ├── 6.png
+│   │   │   │   │   ├── 7.png
+│   │   │   │   │   ├── 8.png
+│   │   │   │   │   └── 9.png
+│   │   │   │   ├── qr-codes.zip
+│   │   │   │   ├── rack-locations-web-9-1-23.doc
+│   │   │   │   ├── school Background.png
+│   │   │   │   ├── school board.png
+│   │   │   │   ├── Stacy Litke - Insta.png
+│   │   │   │   ├── state-kentucky-capitol-building-frankfort-600nw-1110321548.webp
+│   │   │   │   ├── subjects stickers
+│   │   │   │   │   ├── art and music.png
+│   │   │   │   │   ├── history.png
+│   │   │   │   │   ├── math.png
+│   │   │   │   │   ├── reading.png
+│   │   │   │   │   └── Science.png
+│   │   │   │   ├── subjects stickers.zip
+│   │   │   │   ├── subjects.png
+│   │   │   │   ├── Top-Social-media-platform-in-2023-by-number-of-users-1024x538.png
+│   │   │   │   ├── Untitled diagram-2025-11-06-182414.png
+│   │   │   │   └── Your-Logo-here-300x193-1.png
+│   │   │   ├── Photos-Events
+│   │   │   │   ├── 0cf97528-523e-44e9-8fda-9ea691615472.jpeg
+│   │   │   │   ├── 104483788_1116010705421142_28962431608804685_n.jpg
+│   │   │   │   ├── 1200x900.jpeg
+│   │   │   │   ├── 1224df493c894db9a654aae85b8cfb09_3000x2000_resize.jpg
+│   │   │   │   ├── 1361682208_rsodosingchart.png.3ca6a17d5437a5787396f528ad044727.jpg
+│   │   │   │   ├── 158612127_255053136277452_6116408667550939822_n.webp
+│   │   │   │   ├── 1672768553-primary_lockup_no_tagline.png
+│   │   │   │   ├── 1761658540955.jpeg
+│   │   │   │   ├── 1762469107198.jpeg
+│   │   │   │   ├── 1764774879463.jpeg
+│   │   │   │   ├── 1767540624328.jpeg
+│   │   │   │   ├── 191230579_6202024726489658_7910987447850617216_n.jpg
+│   │   │   │   ├── 1E1A1166.jpg
+│   │   │   │   ├── 1E1A1326.jpg
+│   │   │   │   ├── 1E1A1384.jpg
+│   │   │   │   ├── 1E1A1434.jpg
+│   │   │   │   ├── 1E1A1524.jpg
+│   │   │   │   ├── 1E1A1709.jpg
+│   │   │   │   ├── 1E1A1794.jpg
+│   │   │   │   ├── 1E1A1845.jpg
+│   │   │   │   ├── 1E1A2076.jpg
+│   │   │   │   ├── 2-2-1024x683.png
+│   │   │   │   ├── 20230331_104737.jpg
+│   │   │   │   ├── 27544560_1566299170072967_5195797936225075204_n (1).jpg
+│   │   │   │   ├── 27544560_1566299170072967_5195797936225075204_n.jpg
+│   │   │   │   ├── 2880ca4b562d49b68cbb47d25dfab0c5_3000x2000_resize.jpg
+│   │   │   │   ├── 2ac3cd3c0009fc89698a98f214bf5c0f.jpg
+│   │   │   │   ├── 308967503bba477c815f3b0aa9cbfc53_3000x2000_resize.jpg
+│   │   │   │   ├── 37fb529bf7370935fc1a8cf64972b0c9-uncropped_scaled_within_1536_1152.webp
+│   │   │   │   ├── 39899650-9311939-World_Cancer_Research_Fund-a-12_1614597584020 (1).jpg
+│   │   │   │   ├── 39899650-9311939-World_Cancer_Research_Fund-a-12_1614597584020.jpg
+│   │   │   │   ├── 410811891_820277416774613_3748395742521253686_n.png
+│   │   │   │   ├── 467749925_10162433685526096_3104794575045511116_n.jpg
+│   │   │   │   ├── 468179325_10162433683121096_3456235998417062063_n.jpg
+│   │   │   │   ├── 468200249_10162433683126096_6447089754067413215_n.jpg
+│   │   │   │   ├── 468288178_10162432652091096_3557212589905941239_n.jpg
+│   │   │   │   ├── 468294920_10162406252966096_5845548697590859853_n.jpg
+│   │   │   │   ├── 468295049_10162433687761096_8067744276856103241_n.jpg
+│   │   │   │   ├── 468406839_10162433685516096_7656891663305871455_n.jpg
+│   │   │   │   ├── 468421524_10162478275526096_273396362553718735_n.jpg
+│   │   │   │   ├── 468459669_10162433685511096_740434640322426161_n.jpg
+│   │   │   │   ├── 468525058_10162478277126096_5114245375334480075_n.jpg
+│   │   │   │   ├── 470506433_10162748156096096_2996818478745280151_n.jpg
+│   │   │   │   ├── 471566316_10162741807286096_399959349581477554_n.jpg
+│   │   │   │   ├── 475817655_1157025083094879_4140169510874582344_n.jpg
+│   │   │   │   ├── 479547966_122199485102140859_2484428008033331642_n.jpg
+│   │   │   │   ├── 498636125_18071475272303099_1756493362150485668_n (1).jpg
+│   │   │   │   ├── 498636125_18071475272303099_1756493362150485668_n.jpg
+│   │   │   │   ├── 499358055_18071781785303099_3520402525773228139_n.webp
+│   │   │   │   ├── 502590984_18071781821303099_2350075093483362082_n.jpg
+│   │   │   │   ├── 502590984_18071781821303099_2350075093483362082_n.webp
+│   │   │   │   ├── 505348468_1311896487606716_8523592951762295216_n.webp
+│   │   │   │   ├── 512e434b261c4e89818c286558cf50c9_3000x2000_resize.jpg
+│   │   │   │   ├── 515499775_605269545994153_9009219354409499564_n.jpg
+│   │   │   │   ├── 515505912_10163537044101096_3676580109279214081_n.jpg
+│   │   │   │   ├── 524694927_1894643317761747_3402237767486187341_n.jpg
+│   │   │   │   ├── 580969934_1140x641.jpg
+│   │   │   │   ├── 581687735_1282711773884295_7690587384917221600_n.jpg
+│   │   │   │   ├── 609200753_1453369916793726_2763591660265313362_n.jpg
+│   │   │   │   ├── 610620951_1453369556793762_6609701653466369178_n.jpg
+│   │   │   │   ├── 610781394_1453369900127061_6496565319509816018_n.jpg
+│   │   │   │   ├── 611257453_1453369800127071_8846267013080296377_n.jpg
+│   │   │   │   ├── 616046876_1201490828804058_5294439798960195898_n.jpg
+│   │   │   │   ├── 617100400_26506981458902880_5783555837013725872_n.jpg
+│   │   │   │   ├── 618560367_1297573389075355_7929346555958367000_n.jpg
+│   │   │   │   ├── 619276493_1216473097242128_1672773391247283221_n.jpg
+│   │   │   │   ├── 624505737_25925130017099579_68430414099498522_n.jpg
+│   │   │   │   ├── 632-E-Market-St-Louisville-KY-Primary-Photo-1-LargeHighDefinition.jpg
+│   │   │   │   ├── 63e0cee5-dc28-41f6-9784-e826a2afc904.jpeg
+│   │   │   │   ├── 64085616_74f43cf4-f9f0-4bdc-880f-addf396e0177.jpeg
+│   │   │   │   ├── 642840705_1458966785785799_8537525376355694790_n.jpg
+│   │   │   │   ├── 643417044_1338456524974538_5434606437907951128_n.jpg
+│   │   │   │   ├── 646648386_909023385317353_9181214909095086147_n.jpg
+│   │   │   │   ├── 648883428_1248179627461698_8231842932209650417_n.jpg
+│   │   │   │   ├── 651310744_1920112752200692_1545640781470124567_n.jpg
+│   │   │   │   ├── 668963523_771130689267278_186445252175140776_n (1).jpg
+│   │   │   │   ├── 67172383-0-image-a-8_1675246621614.avif
+│   │   │   │   ├── 6cbbd924c5bf438196e0f4911b63328e_3000x2000_resize.jpg
+│   │   │   │   ├── 6f15b354861e427190ae21e7280aeda0_3000x2000_resize.jpg
+│   │   │   │   ├── 7400a327-ef6e-471a-9038-19fb1213fb7c.jpeg
+│   │   │   │   ├── 7719e329ab67a6a76057d8413a51fa9f.jpg
+│   │   │   │   ├── 80abdd588a77ad673b28380ec90b0492.jpg
+│   │   │   │   ├── 888f4c60238c46d0b97ed3a3c88bf48d_3000x2000_resize.jpg
+│   │   │   │   ├── 9498dd7b3492464696ee6d9670a3c911_3000x2000_resize.jpg
+│   │   │   │   ├── a473og4vwy941.webp
+│   │   │   │   ├── aa5839d244284c2f85592f1bbcb24ec0_3000x2000_resize.jpg
+│   │   │   │   ├── b7cf4e65253b4facbfe52c70f43bf22b_3000x2000_resize.jpg
+│   │   │   │   ├── c406a37b76ad4b5ba17e58c0f669c351_3000x2000_resize.jpg
+│   │   │   │   ├── c406a37b76ad4b5ba17e58c0f669c351_716x444.jpg
+│   │   │   │   ├── cbaf8fb834c04ebca66b4501a9fecdc0_3000x2000_resize.jpg
+│   │   │   │   ├── DCG-63476_Website_Social_Photos_Resizes_DCG_1120x610_10-768x418.jpg
+│   │   │   │   ├── DCG-63476_Website_Social_Photos_Resizes_DCG_1120x610_11.jpg
+│   │   │   │   ├── depositphotos_626754468-stock-illustration-your-logo-here-placeholder-symbol.jpg
+│   │   │   │   ├── downtown louisville.webp
+│   │   │   │   ├── DSC06452.webp
+│   │   │   │   ├── DSC06455.webp
+│   │   │   │   ├── ee7dbf573de4495bbcd05885b7553568_3000x2000_resize.jpg
+│   │   │   │   ├── eface7ce_965b_4906_9f09_8b4706ccd15e_92135f52-00ce-429f-9456-23a8bdb77646.jpg
+│   │   │   │   ├── espy-jobs.1.0.14.zip
+│   │   │   │   ├── FB_IMG_1517532362010.jpg
+│   │   │   │   ├── FB_IMG_1521081805687.jpg
+│   │   │   │   ├── FB_IMG_1584031562812.jpg
+│   │   │   │   ├── FB_IMG_1672259161934.jpg
+│   │   │   │   ├── FB_IMG_1672889320496.jpg
+│   │   │   │   ├── FB_IMG_1680308151420.jpg
+│   │   │   │   ├── FB_IMG_1749754234824.jpg
+│   │   │   │   ├── FB_IMG_1749754237452.jpg
+│   │   │   │   ├── FB_IMG_1749754250018.jpg
+│   │   │   │   ├── GvsQmkQbgAAtOhn.jpg
+│   │   │   │   ├── image-from-rawpixel-id-26038990-png.png
+│   │   │   │   ├── images (1).jpeg
+│   │   │   │   ├── images (2).jpeg
+│   │   │   │   ├── images (3).jpeg
+│   │   │   │   ├── images.jpeg
+│   │   │   │   ├── images.png
+│   │   │   │   ├── IMG_2344.jpg
+│   │   │   │   ├── IMG_4583 (1).jpeg
+│   │   │   │   ├── IMG_4583 (2).jpeg
+│   │   │   │   ├── IMG_4583.jpeg
+│   │   │   │   ├── IMG_4586.jpeg
+│   │   │   │   ├── IMG_4587 (1).jpeg
+│   │   │   │   ├── IMG_4587.jpeg
+│   │   │   │   ├── IMG_5647_8ab89243-17f3-4fa7-892b-276218965f55.jpg
+│   │   │   │   ├── IMG_7770_2FABC43E-5056-BF65-D60FA4306F9C66E9-2fabb6fe5056bf6_2fabcd51-5056-bf65-d6c60d5e2dca4bc4_26e0b9aeeaf756a39a565edb1a58484e.jpg
+│   │   │   │   ├── Johnny Blue Skies - (2026) Mutiny After Midnight [CD-FLAC]-20260422T233545Z-3-001.zip
+│   │   │   │   ├── kcia 2nd founders party.jpeg
+│   │   │   │   ├── kentucky capitol.png
+│   │   │   │   ├── kentucky-state-capitol-located-frankfort-600nw-1719462847.webp
+│   │   │   │   ├── main_2018CP14-PRELIM.433.jpg
+│   │   │   │   ├── MLDZSZZR2NFCDPX7LTXN6UXSJQ.jpg
+│   │   │   │   ├── Outlook-shiyscoj.png
+│   │   │   │   ├── Photos-3-001
+│   │   │   │   │   ├── image.png
+│   │   │   │   │   ├── image(1).png
+│   │   │   │   │   ├── image(2).png
+│   │   │   │   │   ├── image(3).png
+│   │   │   │   │   └── image(4).png
+│   │   │   │   ├── Photos-3-001.zip
+│   │   │   │   ├── premium_photo-1682126157704-beacbab4906f.avif
+│   │   │   │   ├── r1337241-gqnjfp-v9ecnkkx2m.png
+│   │   │   │   ├── r1337241-qvuyud-ogio00ae4x.png
+│   │   │   │   ├── S435_FF_720x480.png
+│   │   │   │   ├── street-view-in-louisville-kentucky-louisville-usa-june-14-2019-W39GFP.jpg
+│   │   │   │   ├── tempImageKS40i5.webp
+│   │   │   │   └── WhatsApp+Image+2025-02-10+at+06.58.08+(3).jpeg
+│   │   │   └── Screenshots
+│   │   │       ├── LWScreenShot 2025-10-08 at 7.34.10 PM.png
+│   │   │       ├── Screenshot 2025-10-09 at 2.50.23 PM.png
+│   │   │       ├── Screenshot 2025-10-10 at 5.27.24 PM.png
+│   │   │       ├── Screenshot 2025-10-13 at 8.15.39 PM.png
+│   │   │       ├── Screenshot 2025-10-13 at 8.22.53 PM.png
+│   │   │       ├── Screenshot 2025-10-13 at 8.23.13 PM.png
+│   │   │       ├── Screenshot 2025-10-13 at 8.26.17 PM.png
+│   │   │       ├── Screenshot 2025-10-15 at 10.07.37 AM.png
+│   │   │       ├── Screenshot 2025-10-15 at 10.07.57 AM.png
+│   │   │       ├── Screenshot 2025-10-15 at 10.08.29 AM.png
+│   │   │       ├── Screenshot 2025-10-17 at 4.20.51 PM.png
+│   │   │       ├── Screenshot 2025-10-17 at 5.38.26 PM.png
+│   │   │       ├── Screenshot 2025-10-17 at 5.41.17 PM.png
+│   │   │       ├── Screenshot 2025-10-17 at 5.41.31 PM.png
+│   │   │       ├── Screenshot 2025-10-17 at 5.41.40 PM.png
+│   │   │       ├── Screenshot 2025-10-21 092638 (1).png
+│   │   │       ├── Screenshot 2025-10-21 092638.png
+│   │   │       ├── Screenshot 2025-10-21 at 2.32.04 PM.png
+│   │   │       ├── Screenshot 2025-10-22 at 6.36.29 PM.png
+│   │   │       ├── Screenshot 2025-10-22 at 6.48.20 PM.png
+│   │   │       ├── Screenshot 2025-10-31 at 12.43.57 PM.png
+│   │   │       ├── Screenshot 2025-10-31 at 12.44.04 PM.png
+│   │   │       ├── Screenshot 2025-10-31 at 12.44.14 PM.png
+│   │   │       ├── Screenshot 2025-11-03 at 3.10.50 PM.png
+│   │   │       ├── Screenshot 2025-11-04 at 9.23.43 AM.png
+│   │   │       ├── Screenshot 2025-11-06 at 1.01.34 PM.png
+│   │   │       ├── Screenshot 2025-11-06 at 1.03.22 PM.png
+│   │   │       ├── Screenshot 2025-11-06 at 1.03.37 PM.png
+│   │   │       ├── Screenshot 2025-11-06 at 1.04.17 PM.png
+│   │   │       ├── Screenshot 2025-11-06 at 1.04.37 PM.png
+│   │   │       ├── Screenshot 2025-11-06 at 1.04.55 PM.png
+│   │   │       ├── Screenshot 2025-11-06 at 1.05.51 PM.png
+│   │   │       ├── Screenshot 2025-11-06 at 1.06.03 PM.png
+│   │   │       ├── Screenshot 2025-11-06 at 1.07.24 PM.png
+│   │   │       ├── Screenshot 2025-11-06 at 1.07.52 PM.png
+│   │   │       ├── Screenshot 2025-11-06 at 1.09.15 PM.png
+│   │   │       ├── Screenshot 2025-11-06 at 1.10.10 PM.png
+│   │   │       ├── Screenshot 2025-11-06 at 1.10.28 PM.png
+│   │   │       ├── Screenshot 2025-11-06 at 1.12.31 PM.png
+│   │   │       ├── Screenshot 2025-11-06 at 1.30.21 PM.png
+│   │   │       ├── Screenshot 2025-11-06 at 1.30.33 PM.png
+│   │   │       ├── Screenshot 2025-11-06 at 1.30.43 PM.png
+│   │   │       ├── Screenshot 2025-11-06 at 1.30.50 PM.png
+│   │   │       ├── Screenshot 2025-11-06 at 1.31.27 PM.png
+│   │   │       ├── Screenshot 2025-11-06 at 1.31.40 PM.png
+│   │   │       ├── Screenshot 2025-11-06 at 12.12.39 PM.png
+│   │   │       ├── Screenshot 2025-11-06 at 2.19.54 PM.png
+│   │   │       ├── Screenshot 2025-11-06 at 2.20.03 PM.png
+│   │   │       ├── Screenshot 2025-11-06 at 2.31.30 PM.png
+│   │   │       ├── Screenshot 2025-11-06 at 2.33.07 PM.png
+│   │   │       ├── Screenshot 2025-11-06 at 2.50.49 PM.png
+│   │   │       ├── Screenshot 2025-11-06 at 2.50.59 PM.png
+│   │   │       ├── Screenshot 2025-11-08 at 11.59.42 AM.png
+│   │   │       ├── Screenshot 2025-11-08 at 3.41.31 PM.png
+│   │   │       ├── Screenshot 2025-11-10 at 3.24.01 PM.png
+│   │   │       ├── Screenshot 2025-11-10 at 3.24.34 PM.png
+│   │   │       ├── Screenshot 2025-11-10 at 3.28.03 PM.png
+│   │   │       ├── Screenshot 2025-11-10 at 3.28.14 PM.png
+│   │   │       ├── Screenshot 2025-11-11 at 10.14.17 PM.png
+│   │   │       ├── Screenshot 2025-11-11 at 10.14.55 PM.png
+│   │   │       ├── Screenshot 2025-11-11 at 10.15.11 PM.png
+│   │   │       ├── Screenshot 2025-11-11 at 10.15.37 PM.png
+│   │   │       ├── Screenshot 2025-11-11 at 10.20.02 PM.png
+│   │   │       ├── Screenshot 2025-11-13 at 12.31.20 PM.png
+│   │   │       ├── Screenshot 2025-11-15 at 7.05.52 PM.png
+│   │   │       ├── Screenshot 2025-11-15 at 7.06.09 PM.png
+│   │   │       ├── Screenshot 2025-11-15 at 7.06.30 PM.png
+│   │   │       ├── Screenshot 2025-11-15 at 7.06.51 PM.png
+│   │   │       ├── Screenshot 2025-11-15 at 7.30.48 PM.png
+│   │   │       ├── Screenshot 2025-11-16 at 6.11.52 PM.png
+│   │   │       ├── Screenshot 2025-11-16 at 6.38.45 PM.png
+│   │   │       ├── Screenshot 2025-11-17 at 10.40.42 PM.png
+│   │   │       ├── Screenshot 2025-11-18 at 12.07.42 PM.png
+│   │   │       ├── Screenshot 2025-11-18 at 6.49.12 PM.png
+│   │   │       ├── Screenshot 2025-11-18 at 7.29.52 PM.png
+│   │   │       ├── Screenshot 2025-11-18 at 7.44.32 PM.png
+│   │   │       ├── Screenshot 2025-11-20 at 11.55.50 AM.png
+│   │   │       ├── Screenshot 2025-11-21 at 11.21.22 AM.png
+│   │   │       ├── Screenshot 2025-11-21 at 12.50.13 PM.png
+│   │   │       ├── Screenshot 2025-11-30 at 3.05.06 PM.png
+│   │   │       ├── Screenshot 2025-11-30 at 3.05.19 PM.png
+│   │   │       ├── Screenshot 2025-11-30 at 3.05.30 PM.png
+│   │   │       ├── Screenshot 2025-11-30 at 3.05.36 PM.png
+│   │   │       ├── Screenshot 2025-11-30 at 3.05.42 PM.png
+│   │   │       ├── Screenshot 2025-11-30 at 3.05.47 PM.png
+│   │   │       ├── Screenshot 2025-11-30 at 3.05.53 PM.png
+│   │   │       ├── Screenshot 2025-11-30 at 3.05.57 PM.png
+│   │   │       ├── Screenshot 2025-12-01 at 11.27.29 AM.png
+│   │   │       ├── Screenshot 2025-12-04 at 5.57.11 PM.png
+│   │   │       ├── Screenshot 2025-12-04 at 6.02.27 PM.png
+│   │   │       ├── Screenshot 2025-12-04 at 6.04.40 PM.png
+│   │   │       ├── Screenshot 2025-12-04 at 6.05.00 PM.png
+│   │   │       ├── Screenshot 2025-12-04 at 6.20.13 PM.png
+│   │   │       ├── Screenshot 2025-12-04 at 6.35.11 PM.png
+│   │   │       ├── Screenshot 2025-12-04 at 6.35.56 PM.png
+│   │   │       ├── Screenshot 2025-12-04 at 7.23.47 PM.png
+│   │   │       ├── Screenshot 2025-12-04 at 7.27.35 PM.png
+│   │   │       ├── Screenshot 2025-12-04 at 7.34.33 PM.png
+│   │   │       ├── Screenshot 2025-12-04 at 7.34.59 PM.png
+│   │   │       ├── Screenshot 2025-12-04 at 7.35.23 PM.png
+│   │   │       ├── Screenshot 2025-12-04 at 7.59.53 PM.png
+│   │   │       ├── Screenshot 2025-12-05 at 2.03.02 PM.png
+│   │   │       ├── Screenshot 2025-12-07 at 11.53.33 AM.png
+│   │   │       ├── Screenshot 2025-12-10 at 11.23.35 AM.png
+│   │   │       ├── Screenshot 2025-12-10 at 12.19.07 PM.png
+│   │   │       ├── Screenshot 2025-12-10 at 12.19.17 PM.png
+│   │   │       ├── Screenshot 2025-12-10 at 12.20.06 PM.png
+│   │   │       ├── Screenshot 2025-12-17 at 11.12.21 AM.png
+│   │   │       ├── Screenshot 2025-12-17 at 12.41.35 PM.png
+│   │   │       ├── Screenshot 2025-12-18 at 10.47.05 AM.png
+│   │   │       ├── Screenshot 2025-12-18 at 4.34.47 PM.png
+│   │   │       ├── Screenshot 2025-12-18 at 5.39.17 PM.png
+│   │   │       ├── Screenshot 2025-12-23 at 5.08.25 PM.png
+│   │   │       ├── Screenshot 2025-12-23 at 5.08.40 PM.png
+│   │   │       ├── Screenshot 2025-12-23 at 5.25.23 PM.png
+│   │   │       ├── Screenshot 2025-12-23 at 9.55.26 PM.png
+│   │   │       ├── Screenshot 2025-12-29 at 1.56.58 PM.png
+│   │   │       ├── Screenshot 2026-01-03 at 12.33.43 PM.png
+│   │   │       ├── Screenshot 2026-01-03 at 12.36.08 PM.png
+│   │   │       ├── Screenshot 2026-01-03 at 12.37.22 PM.png
+│   │   │       ├── Screenshot 2026-01-03 at 12.37.33 PM.png
+│   │   │       ├── Screenshot 2026-01-03 at 12.38.11 PM.png
+│   │   │       ├── Screenshot 2026-01-03 at 12.39.21 PM.png
+│   │   │       ├── Screenshot 2026-01-04 at 3.56.21 PM.png
+│   │   │       ├── Screenshot 2026-01-04 at 3.56.39 PM.png
+│   │   │       ├── Screenshot 2026-01-04 at 3.57.02 PM.png
+│   │   │       ├── Screenshot 2026-01-04 at 4.53.31 PM.png
+│   │   │       ├── Screenshot 2026-01-04 at 4.54.13 PM.png
+│   │   │       ├── Screenshot 2026-01-04 at 4.57.37 PM.png
+│   │   │       ├── Screenshot 2026-01-08 at 8.07.54 PM.png
+│   │   │       ├── Screenshot 2026-01-10 at 1.48.26 PM.png
+│   │   │       ├── Screenshot 2026-01-10 at 3.26.42 PM.png
+│   │   │       ├── Screenshot 2026-01-10 at 3.27.06 PM.png
+│   │   │       ├── Screenshot 2026-01-10 at 3.27.19 PM.png
+│   │   │       ├── Screenshot 2026-01-10 at 4.53.03 PM.png
+│   │   │       ├── Screenshot 2026-01-10 at 4.54.10 PM.png
+│   │   │       ├── Screenshot 2026-01-10 at 4.55.08 PM.png
+│   │   │       ├── Screenshot 2026-01-10 at 4.55.29 PM.png
+│   │   │       ├── Screenshot 2026-01-10 at 4.58.40 PM.png
+│   │   │       ├── Screenshot 2026-01-11 at 5.05.12 PM.png
+│   │   │       ├── Screenshot 2026-01-11 at 7.32.44 PM.png
+│   │   │       ├── Screenshot 2026-01-11 at 7.33.13 PM.png
+│   │   │       ├── Screenshot 2026-01-11 at 7.33.20 PM.png
+│   │   │       ├── Screenshot 2026-01-11 at 7.47.20 PM.png
+│   │   │       ├── Screenshot 2026-01-11 at 7.55.14 PM.png
+│   │   │       ├── Screenshot 2026-01-11 at 7.55.58 PM.png
+│   │   │       ├── Screenshot 2026-01-11 at 8.11.50 PM.png
+│   │   │       ├── Screenshot 2026-01-11 at 8.12.23 PM.png
+│   │   │       ├── Screenshot 2026-01-11 at 8.37.27 PM.png
+│   │   │       ├── Screenshot 2026-01-11 at 9.27.27 PM.png
+│   │   │       ├── Screenshot 2026-01-12 at 10.00.19 AM.png
+│   │   │       ├── Screenshot 2026-01-12 at 12.17.58 PM.png
+│   │   │       ├── Screenshot 2026-01-12 at 12.18.06 PM.png
+│   │   │       ├── Screenshot 2026-01-12 at 9.28.35 PM.png
+│   │   │       ├── Screenshot 2026-01-12 at 9.28.49 PM.png
+│   │   │       ├── Screenshot 2026-01-12 at 9.39.30 AM.png
+│   │   │       ├── Screenshot 2026-01-12 at 9.39.41 AM.png
+│   │   │       ├── Screenshot 2026-01-12 at 9.39.55 AM.png
+│   │   │       ├── Screenshot 2026-01-13 at 4.05.06 PM.png
+│   │   │       ├── Screenshot 2026-01-14 at 1.01.04 PM.png
+│   │   │       ├── Screenshot 2026-01-14 at 11.53.58 AM.png
+│   │   │       ├── Screenshot 2026-01-14 at 11.54.15 AM.png
+│   │   │       ├── Screenshot 2026-01-14 at 3.16.23 PM.png
+│   │   │       ├── Screenshot 2026-01-14 at 3.47.34 PM.png
+│   │   │       ├── Screenshot 2026-01-16 at 10.00.12 AM.png
+│   │   │       ├── Screenshot 2026-01-16 at 10.00.41 AM.png
+│   │   │       ├── Screenshot 2026-01-16 at 12.49.08 PM.png
+│   │   │       ├── Screenshot 2026-01-16 at 12.59.14 PM.png
+│   │   │       ├── Screenshot 2026-01-16 at 12.59.20 PM.png
+│   │   │       ├── Screenshot 2026-01-17 at 2.05.36 PM.png
+│   │   │       ├── Screenshot 2026-01-18 at 8.51.58 PM.png
+│   │   │       ├── Screenshot 2026-01-18 at 8.52.16 PM.png
+│   │   │       ├── Screenshot 2026-01-18 at 8.52.29 PM.png
+│   │   │       ├── Screenshot 2026-01-19 at 10.46.38 AM.png
+│   │   │       └── screenshots
+│   │   │           ├── Screenshot 2026-02-12 at 2.47.05 PM.png
+│   │   │           ├── Screenshot 2026-02-13 at 4.47.40 PM.png
+│   │   │           ├── Screenshot 2026-02-14 at 3.20.35 PM.png
+│   │   │           ├── Screenshot 2026-02-14 at 3.20.49 PM.png
+│   │   │           ├── Screenshot 2026-02-14 at 3.20.59 PM.png
+│   │   │           ├── Screenshot 2026-02-14 at 3.21.12 PM.png
+│   │   │           ├── Screenshot 2026-02-14 at 3.21.23 PM.png
+│   │   │           ├── Screenshot 2026-02-14 at 3.21.39 PM.png
+│   │   │           ├── Screenshot 2026-02-14 at 3.21.52 PM.png
+│   │   │           ├── Screenshot 2026-02-14 at 3.22.09 PM.png
+│   │   │           ├── Screenshot 2026-02-14 at 3.22.26 PM.png
+│   │   │           ├── Screenshot 2026-02-14 at 3.22.43 PM.png
+│   │   │           ├── Screenshot 2026-02-14 at 3.22.54 PM.png
+│   │   │           ├── Screenshot 2026-02-14 at 3.23.10 PM.png
+│   │   │           ├── Screenshot 2026-02-14 at 3.23.25 PM.png
+│   │   │           ├── Screenshot 2026-02-14 at 4.30.46 PM.png
+│   │   │           ├── Screenshot 2026-02-14 at 4.31.24 PM.png
+│   │   │           ├── Screenshot 2026-02-14 at 4.31.35 PM.png
+│   │   │           ├── Screenshot 2026-02-14 at 4.31.48 PM.png
+│   │   │           ├── Screenshot 2026-02-15 at 11.11.34 PM.png
+│   │   │           ├── Screenshot 2026-02-15 at 11.11.45 PM.png
+│   │   │           ├── Screenshot 2026-02-17 at 2.22.53 PM.png
+│   │   │           ├── Screenshot 2026-02-17 at 2.23.13 PM.png
+│   │   │           ├── Screenshot 2026-02-19 at 2.25.06 PM.png
+│   │   │           ├── Screenshot 2026-02-19 at 2.26.35 PM.png
+│   │   │           ├── Screenshot 2026-02-20 at 3.22.35 PM.png
+│   │   │           ├── Screenshot 2026-02-20 at 3.22.41 PM.png
+│   │   │           ├── Screenshot 2026-02-20 at 3.22.46 PM.png
+│   │   │           ├── Screenshot 2026-02-22 at 3.15.12 PM.png
+│   │   │           ├── Screenshot 2026-02-22 at 3.15.28 PM.png
+│   │   │           ├── Screenshot 2026-02-22 at 3.43.50 PM.png
+│   │   │           ├── Screenshot 2026-02-22 at 3.44.30 PM.png
+│   │   │           ├── Screenshot 2026-02-22 at 3.54.02 PM.png
+│   │   │           ├── Screenshot 2026-02-22 at 7.33.44 PM.png
+│   │   │           ├── Screenshot 2026-02-23 at 1.35.01 PM.png
+│   │   │           ├── Screenshot 2026-02-23 at 1.35.23 PM.png
+│   │   │           ├── Screenshot 2026-02-23 at 10.19.56 PM.png
+│   │   │           ├── Screenshot 2026-02-23 at 10.35.20 PM.png
+│   │   │           ├── Screenshot 2026-02-23 at 10.59.20 PM.png
+│   │   │           ├── Screenshot 2026-02-23 at 2.02.57 PM.png
+│   │   │           ├── Screenshot 2026-02-23 at 2.03.10 PM.png
+│   │   │           ├── Screenshot 2026-02-23 at 9.26.05 PM.png
+│   │   │           ├── Screenshot 2026-02-23 at 9.27.40 PM.png
+│   │   │           ├── Screenshot 2026-02-23 at 9.32.29 PM.png
+│   │   │           ├── Screenshot 2026-02-23 at 9.33.20 PM.png
+│   │   │           ├── Screenshot 2026-02-23 at 9.34.02 PM.png
+│   │   │           ├── Screenshot 2026-02-23 at 9.34.19 PM.png
+│   │   │           ├── Screenshot 2026-02-23 at 9.34.56 PM.png
+│   │   │           ├── Screenshot 2026-02-23 at 9.35.07 PM.png
+│   │   │           ├── Screenshot 2026-02-23 at 9.35.30 PM.png
+│   │   │           ├── Screenshot 2026-02-25 at 2.24.09 PM.png
+│   │   │           ├── Screenshot 2026-02-25 at 3.03.48 PM.png
+│   │   │           ├── Screenshot 2026-02-25 at 3.04.24 PM.png
+│   │   │           ├── Screenshot 2026-02-25 at 9.40.47 AM.png
+│   │   │           ├── Screenshot 2026-02-27 at 10.56.47 PM.png
+│   │   │           ├── Screenshot 2026-02-27 at 11.52.06 AM.png
+│   │   │           ├── Screenshot 2026-02-27 at 11.52.18 AM.png
+│   │   │           ├── Screenshot 2026-02-27 at 11.52.37 AM.png
+│   │   │           ├── Screenshot 2026-02-27 at 9.07.42 PM.png
+│   │   │           ├── Screenshot 2026-03-03 at 1.53.44 PM.png
+│   │   │           ├── Screenshot 2026-03-03 at 8.50.10 PM.png
+│   │   │           ├── Screenshot 2026-03-08 at 1.05.53 PM.png
+│   │   │           ├── Screenshot 2026-03-08 at 1.25.53 PM.png
+│   │   │           ├── Screenshot 2026-03-08 at 1.27.00 PM.png
+│   │   │           ├── Screenshot 2026-03-09 at 1.05.32 PM.png
+│   │   │           ├── Screenshot 2026-03-09 at 1.05.52 PM.png
+│   │   │           ├── Screenshot 2026-03-11 at 4.18.53 PM.png
+│   │   │           ├── Screenshot 2026-03-11 at 4.38.32 PM.png
+│   │   │           ├── Screenshot 2026-03-15 at 5.18.32 PM.png
+│   │   │           ├── Screenshot 2026-03-17 at 4.35.44 PM.png
+│   │   │           ├── Screenshot 2026-03-17 at 4.38.57 PM.png
+│   │   │           ├── Screenshot 2026-03-17 at 5.32.27 PM.png
+│   │   │           ├── Screenshot 2026-03-17 at 6.21.48 PM.png
+│   │   │           ├── Screenshot 2026-03-18 at 1.39.08 PM.png
+│   │   │           ├── Screenshot 2026-03-24 at 12.28.51 PM.png
+│   │   │           └── Screenshot 20260317.png
+│   │   ├── Attachments
+│   │   │   └── Real-Estate
+│   │   │       └── 205-Broadway
+│   │   │           ├── 20256 KCIA Founders Party Sponsorship (2)_1.pdf
+│   │   │           ├── 20256 KCIA Founders Party Sponsorship (2)_2.pdf
+│   │   │           ├── 20256 KCIA Founders Party Sponsorship (2).pdf
+│   │   │           ├── 218 mammoth cave (1)_1.pdf
+│   │   │           ├── 218 mammoth cave (1)_2.pdf
+│   │   │           ├── 218 mammoth cave (1).pdf
+│   │   │           ├── 218 mammoth cave_1.pdf
+│   │   │           ├── 218 mammoth cave_2.pdf
+│   │   │           ├── 218 mammoth cave.pdf
+│   │   │           ├── attractions oage_1.pdf
+│   │   │           ├── attractions oage_2.pdf
+│   │   │           ├── attractions oage.pdf
+│   │   │           ├── Bluegrass Elevated (Your Story) (1200 x 1200 px) (1)_1.zip
+│   │   │           ├── Bluegrass Elevated (Your Story) (1200 x 1200 px) (1)_2.zip
+│   │   │           ├── Bluegrass Elevated (Your Story) (1200 x 1200 px) (1).zip
+│   │   │           ├── Bluegrass Elevated (Your Story) (1200 x 1200 px)_1.zip
+│   │   │           ├── Bluegrass Elevated (Your Story) (1200 x 1200 px)_2.zip
+│   │   │           ├── Bluegrass Elevated (Your Story) (1200 x 1200 px).zip
+│   │   │           ├── Bluegrass Elevated (Your Story)_1.zip
+│   │   │           ├── Bluegrass Elevated (Your Story)_2.zip
+│   │   │           ├── Bluegrass Elevated (Your Story).zip
+│   │   │           ├── BlueGrass Elevated_1.zip
+│   │   │           ├── BlueGrass Elevated_2.zip
+│   │   │           ├── BlueGrass Elevated.zip
+│   │   │           ├── Bluegrass_Elev8d_Sponsorship_Proposal_1.docx
+│   │   │           ├── Bluegrass_Elev8d_Sponsorship_Proposal_2.docx
+│   │   │           ├── Bluegrass_Elev8d_Sponsorship_Proposal.docx
+│   │   │           ├── Bluegrass_Elevated_Sponsorship_Packages_1.pdf
+│   │   │           ├── Bluegrass_Elevated_Sponsorship_Packages_2.pdf
+│   │   │           ├── Bluegrass_Elevated_Sponsorship_Packages.pdf
+│   │   │           ├── cave-city-tourist-grant-2024-3_1.docx
+│   │   │           ├── cave-city-tourist-grant-2024-3_2.docx
+│   │   │           ├── cave-city-tourist-grant-2024-3.docx
+│   │   │           ├── Cave-City-Zoning-Map_2025_1.pdf
+│   │   │           ├── Cave-City-Zoning-Map_2025_2.pdf
+│   │   │           ├── Cave-City-Zoning-Map_2025.pdf
+│   │   │           ├── Cave-City-Zoning-Map-2018_1.pdf
+│   │   │           ├── Cave-City-Zoning-Map-2018_2.pdf
+│   │   │           ├── Cave-City-Zoning-Map-2018.pdf
+│   │   │           ├── Lease_Timeline_205_Broadway_1.pdf
+│   │   │           ├── Lease_Timeline_205_Broadway_2.pdf
+│   │   │           ├── Lease_Timeline_205_Broadway.pdf
+│   │   │           ├── LOI - KYNOMRL (1) (1)_1.pdf
+│   │   │           ├── LOI - KYNOMRL (1) (1)_2.pdf
+│   │   │           ├── LOI - KYNOMRL (1) (1).pdf
+│   │   │           ├── LOI - KYNOMRL (1)_1.pdf
+│   │   │           ├── LOI - KYNOMRL (1)_2.pdf
+│   │   │           ├── LOI - KYNOMRL (1).pdf
+│   │   │           ├── LOI - KYNOMRL (2)_1.pdf
+│   │   │           ├── LOI - KYNOMRL (2)_2.pdf
+│   │   │           ├── LOI - KYNOMRL (2).pdf
+│   │   │           ├── LOI - KYNOMRL_1.pdf
+│   │   │           ├── LOI - KYNOMRL_2.pdf
+│   │   │           ├── LOI - KYNOMRL.pdf
+│   │   │           ├── Second Addendum - KYNORML (1)_1.pdf
+│   │   │           ├── Second Addendum - KYNORML (1)_2.pdf
+│   │   │           ├── Second Addendum - KYNORML (1).pdf
+│   │   │           ├── Second Addendum - KYNORML (2)_1.pdf
+│   │   │           ├── Second Addendum - KYNORML (2)_2.pdf
+│   │   │           ├── Second Addendum - KYNORML (2).pdf
+│   │   │           ├── Second Addendum - KYNORML_1.pdf
+│   │   │           ├── Second Addendum - KYNORML_2.pdf
+│   │   │           ├── Second Addendum - KYNORML.pdf
+│   │   │           ├── Tavern_on_4th_Private_Events_Menu_2024_updated_(1)_1.pdf
+│   │   │           ├── Tavern_on_4th_Private_Events_Menu_2024_updated_(1)_2.pdf
+│   │   │           └── Tavern_on_4th_Private_Events_Menu_2024_updated_(1).pdf
+│   │   ├── Desk
+│   │   ├── Entities
+│   │   │   ├── .DS_Store
+│   │   │   ├── 02_KY-NORML
+│   │   │   │   ├── Advocacy-Legislation
+│   │   │   │   │   ├── 1-s2.0-S0735109723083171-ga1.jpg
+│   │   │   │   │   ├── 1-s2.0-S0735109723083171-gr1.jpg
+│   │   │   │   │   ├── 1-s2.0-S0735109723083171-gr2.jpg
+│   │   │   │   │   ├── 1-s2.0-S0735109723083171-gr3.jpg
+│   │   │   │   │   ├── 1-s2.0-S0735109723083171-gr5.jpg
+│   │   │   │   │   ├── 1-s2.0-S0735109723083171-gr6.jpg
+│   │   │   │   │   ├── 1-s2.0-S2666379125003180-main.pdf
+│   │   │   │   │   ├── 2023 Carjacking Count by Month.xlsx
+│   │   │   │   │   ├── 2023 Robbery Count by Month.xlsx
+│   │   │   │   │   ├── 2024-06-10 Medical Cannabis Dispensary Licensing Regions Map.png
+│   │   │   │   │   ├── 2025 MedCan Patient Registration Fairs (4 Locations across Kentucky)_9-24-2025.xlsx
+│   │   │   │   │   ├── 2025-04-02 Qualified Patient & Designated Caregiver Guide v.4.pdf
+│   │   │   │   │   ├── adult-cannabis-consumer-joint.webp
+│   │   │   │   │   ├── Cannabis_Industry_Partner_Questionnaire_Fillable_Centered.pdf
+│   │   │   │   │   ├── cannabis-consumer-joint-work-relief.webp
+│   │   │   │   │   ├── cannabis-research-science.webp
+│   │   │   │   │   ├── CBD_5_Stick_Batch_Base_and_EO_Recipes.pdf
+│   │   │   │   │   ├── CBD_5_Stick_Batch_Updated_Volume_Liquids.pdf
+│   │   │   │   │   ├── CBD_5_Stick_One_Page_QC_Fixed.pdf
+│   │   │   │   │   ├── CBD_5_Stick_One_Page_Recipe.pdf
+│   │   │   │   │   ├── DCG_LicensingHelpfulHints07_09.pdf
+│   │   │   │   │   ├── file stamped 820 KAR 1 032.pdf
+│   │   │   │   │   ├── fpsyt-16-1516351.xml
+│   │   │   │   │   ├── HB+198.webp
+│   │   │   │   │   ├── HB+199.webp
+│   │   │   │   │   ├── HB+401+.webp
+│   │   │   │   │   ├── HB+403.webp
+│   │   │   │   │   ├── HB904_VO.pdf
+│   │   │   │   │   ├── Hemp_for_victory_1942.mpeg
+│   │   │   │   │   ├── HEMP_OV_Processor_List.pdf
+│   │   │   │   │   ├── Indian Hemp or gunjah.pdf
+│   │   │   │   │   ├── jpet.124.002204.pdf
+│   │   │   │   │   ├── KID013B.pdf
+│   │   │   │   │   ├── KRS218B_010(K).pdf
+│   │   │   │   │   ├── KRS218B_130(K).pdf
+│   │   │   │   │   ├── KRS218B_135(K) (1).pdf
+│   │   │   │   │   ├── KRS218B_135(K).pdf
+│   │   │   │   │   ├── KRS238_525(K).pdf
+│   │   │   │   │   ├── KRS238_535(K).pdf
+│   │   │   │   │   ├── KRS238_536(K).pdf
+│   │   │   │   │   ├── KRS238_538(K).pdf
+│   │   │   │   │   ├── KRS238_540(K).pdf
+│   │   │   │   │   ├── KRS238_545(K).pdf
+│   │   │   │   │   ├── KRS238_547(K).pdf
+│   │   │   │   │   ├── KRS238_550(K).pdf
+│   │   │   │   │   ├── KRS238_560(K).pdf
+│   │   │   │   │   ├── KRS238_565(K).pdf
+│   │   │   │   │   ├── KRS238_570(K).pdf
+│   │   │   │   │   ├── KRS238_995(K).pdf
+│   │   │   │   │   ├── KY WEST 502 Application Package (rev 2.26.25) (1).pdf
+│   │   │   │   │   ├── KY WEST 502 Application Package (rev 2.26.25) (2).pdf
+│   │   │   │   │   ├── KY WEST 502 Application Package (rev 2.26.25) (3).pdf
+│   │   │   │   │   ├── KY WEST 502 Application Package (rev 2.26.25).pdf
+│   │   │   │   │   ├── KY_dispensary_county_coverage_with_distances.docx
+│   │   │   │   │   ├── KY_dispensary_licensees_with_distances.xlsx
+│   │   │   │   │   ├── KY_MEDCAN_Clinic_Comms_Pack_Sept13_2025.pdf
+│   │   │   │   │   ├── ky_overview.xls
+│   │   │   │   │   ├── KY0477R03.zip
+│   │   │   │   │   ├── KYMEDCANPatientRegistrationClinicsAndResourceFairs.jpg
+│   │   │   │   │   ├── KYNORMLCLINIC.jpg
+│   │   │   │   │   ├── Legislation & Policy -> /Users/laurenbratcher/Library/CloudStorage/GoogleDrive-lauren@kynorml.org/.shortcut-targets-by-id/1WpFZmrVgCdURzTtl2yFGCdxMY5AyAVdY/Legislation & Policy
+│   │   │   │   │   ├── London  - Med Fair.png
+│   │   │   │   │   ├── marijuana-and-driving-key.webp
+│   │   │   │   │   ├── NORML-Fact-Sheet-Relationship-Between-Marijuana-and-Opioids.pdf
+│   │   │   │   │   ├── Parke-Davis-1908_Cannabis-Americana-Booklet_text.pdf
+│   │   │   │   │   ├── Post_Dispensary_Ky_1030.jpeg
+│   │   │   │   │   ├── RSO-dosage_1024x1024.jpg
+│   │   │   │   │   ├── RSO-Dosage-Chart-1.png
+│   │   │   │   │   ├── SB80_GA.pdf
+│   │   │   │   │   ├── Scientific_American_Production_Pulque_Mexico_1896_text (1).pdf
+│   │   │   │   │   ├── Scientific_American_Production_Pulque_Mexico_1896_text.pdf
+│   │   │   │   │   ├── senior-cannabis-consumer-smoking-joint.webp
+│   │   │   │   │   ├── State-of-Ohio-v-Ascend-Wellness-et-al.pdf
+│   │   │   │   │   ├── The Hasheesh Eater.pdf
+│   │   │   │   │   ├── The+One+Plant+Alliance_+A+New+Way+Forward.pdf
+│   │   │   │   │   ├── www.dubermedical.comkentucky-mmj-card.png
+│   │   │   │   │   └── YEET - Sativa.jpeg
+│   │   │   │   ├── Grants-Funding
+│   │   │   │   │   ├── 11869_GRANT_Program_County_Population_Ranking.pdf
+│   │   │   │   │   ├── 2019 Application for FFM Grant.docx
+│   │   │   │   │   ├── 2024-RISE-Application-Template.docx
+│   │   │   │   │   ├── 2025-KHC-Rural-Housing-Trust-Fund-NOFA (1).pdf
+│   │   │   │   │   ├── 2025-KHC-Rural-Housing-Trust-Fund-NOFA.pdf
+│   │   │   │   │   ├── 2025-RHTF-Application-Scoresheet.pdf
+│   │   │   │   │   ├── 508_RD_FS_RBS_BIGuarantee (1).pdf
+│   │   │   │   │   ├── 508_RD_FS_RBS_BIGuarantee.pdf
+│   │   │   │   │   ├── 508_RD_FS_RBS_RMAP.pdf
+│   │   │   │   │   ├── 508_RD_FS_RHS_CFDirect.pdf
+│   │   │   │   │   ├── 508_rd_rhs_commfactechassttraingrant.pdf
+│   │   │   │   │   ├── Application Closed (1).pdf
+│   │   │   │   │   ├── Application Closed.pdf
+│   │   │   │   │   ├── BYCP 2025 (1).pdf
+│   │   │   │   │   ├── CGN_FREE_III_Grant_Proposal_HYBRID.docx
+│   │   │   │   │   ├── CGN_FREE_III_Grant_Proposal.docx
+│   │   │   │   │   ├── CGN_FREEIII_Compliance_Inserted.docx
+│   │   │   │   │   ├── CGN_Workspace.xlsx
+│   │   │   │   │   ├── EmergencySolutionsGrantsProgramFactSheet (1).pdf
+│   │   │   │   │   ├── EmergencySolutionsGrantsProgramFactSheet.pdf
+│   │   │   │   │   ├── FINAL 2026 NOFO Prevention.pdf
+│   │   │   │   │   ├── FINAL 2026 NOFO Treatment Recovery.pdf
+│   │   │   │   │   ├── FREE+III+Application-+FINAL.docx
+│   │   │   │   │   ├── Funding_Roadmap_Flowchart.pdf
+│   │   │   │   │   ├── Google Workspace Offers for Nonprofits - Google for Nonprofits.pdf
+│   │   │   │   │   ├── HUD Brochure (URA).doc
+│   │   │   │   │   ├── Kentucky_OffRamp_Grant_Complete_v2 fresh.docx
+│   │   │   │   │   ├── Kentucky_OffRamp_Grant_Complete_v2.docx
+│   │   │   │   │   ├── Kentucky_OffRamp_Grant_Complete_v2.docx.zip
+│   │   │   │   │   ├── Kentucky’s Off-Ramp from Opioids_ Medical Cannabis for Pain Recovery and Resilience (1).docx
+│   │   │   │   │   ├── Kentucky’s Off-Ramp from Opioids_ Medical Cannabis for Pain Recovery and Resilience (2).docx
+│   │   │   │   │   ├── Kentucky’s Off-Ramp from Opioids_ Medical Cannabis for Pain Recovery and Resilience (3).docx
+│   │   │   │   │   ├── Kentucky’s Off-Ramp from Opioids_ Medical Cannabis for Pain Recovery and Resilience (4).docx
+│   │   │   │   │   ├── Kentucky’s Off-Ramp from Opioids_ Medical Cannabis for Pain Recovery and Resilience (5).docx
+│   │   │   │   │   ├── Kentucky’s Off-Ramp from Opioids_ Medical Cannabis for Pain Recovery and Resilience.docx
+│   │   │   │   │   ├── Kentucky’s Off-Ramp from Opioids_ Medical Cannabis for Pain Recovery and Resilience.docx.pdf
+│   │   │   │   │   ├── Kentucky’s Off-Ramp from Opioids.pdf
+│   │   │   │   │   ├── KHC-Rural-HTF-Income-Limits-eff.-2025-6-1.pdf
+│   │   │   │   │   ├── NAEH_RapidRehousingToolkit.pdf
+│   │   │   │   │   ├── notice_please_read_prior_to_filing_rise.docx
+│   │   │   │   │   ├── Oaksterdam_CourseCatalog_2026.zip
+│   │   │   │   │   ├── OPA+Pledge+of+Support.docx
+│   │   │   │   │   ├── opioid abatement grant prevention.pdf
+│   │   │   │   │   ├── opioid abatement grant.pdf
+│   │   │   │   │   ├── privatefoundations.pdf
+│   │   │   │   │   ├── RD_RHS_CF_Direct-Loan-Guidance-Book-FY-22 (1).pdf
+│   │   │   │   │   ├── RD_RHS_CF_Direct-Loan-Guidance-Book-FY-22.pdf
+│   │   │   │   │   ├── RD-RBCS-508-RBDG_FactSheet.pdf
+│   │   │   │   │   ├── RD1942-39 (1).pdf
+│   │   │   │   │   ├── RD1942-39.pdf
+│   │   │   │   │   ├── RD1942-40 (1).pdf
+│   │   │   │   │   ├── RD1942-40.pdf
+│   │   │   │   │   ├── State-and-Local-Officials-Quick-Guide-to-HUD-Programs-3.0.pdf
+│   │   │   │   │   ├── usbank grant.pdf
+│   │   │   │   │   ├── usda-rd-rbcs-fs-vapg-10022024.pdf
+│   │   │   │   │   ├── usda-rd-RCDI-FS-2025 (1).pdf
+│   │   │   │   │   └── usda-rd-RCDI-FS-2025.pdf
+│   │   │   │   ├── Marketing-Comms
+│   │   │   │   │   ├── Bowling_Green___Paducah_Media_Nonprofit_Contact_List.csv
+│   │   │   │   │   ├── contact_potvalet01.vcf
+│   │   │   │   │   ├── contacts - kentucky_media_contacts (1).csv
+│   │   │   │   │   ├── contacts - kentucky_media_contacts.csv
+│   │   │   │   │   ├── contacts 1_7_26 - contacts (1).csv
+│   │   │   │   │   ├── contacts 1_7_26 - contacts.csv
+│   │   │   │   │   ├── contacts_-_kentucky_media_contacts_(1) (1).csv
+│   │   │   │   │   ├── contacts_-_kentucky_media_contacts_(1).csv
+│   │   │   │   │   ├── contacts.csv
+│   │   │   │   │   ├── customconesusa_contacts.csv
+│   │   │   │   │   ├── Kentucky NORML Mail - Coordination of Communications and Access Requests – 205 Broadway.pdf
+│   │   │   │   │   ├── Kentucky NORML Mail - Fwd_ 24 Hour Notice.pdf
+│   │   │   │   │   ├── Kentucky NORML Mail - Fwd_ Broadway Street.pdf
+│   │   │   │   │   ├── Kentucky NORML Mail - Lease Follow-Up and Intent to Purchase – 205 Broadway.pdf
+│   │   │   │   │   ├── Kentucky NORML Mail - Reply for inspection.pdf
+│   │   │   │   │   ├── Kentucky NORML Mail - UnDesked Events — $1–3M ARR Vertical with Zero CAC Entry.pdf
+│   │   │   │   │   ├── Kentucky NORML Mail - Urgent_ Payment Portal Issue and Lack of Response.pdf
+│   │   │   │   │   ├── Kentucky_Cannabis_Hemp_Alternative_Event_Submission_URLs.csv
+│   │   │   │   │   ├── kentucky_media_contacts.csv
+│   │   │   │   │   ├── Kentucky_Media_List__Standardized_Headers_.csv
+│   │   │   │   │   ├── Kentucky_NORML_Marketing_Master_Document_2025-2026.docx
+│   │   │   │   │   ├── KY_NORML_12_Month_Newsletter.csv
+│   │   │   │   │   ├── KY_NORML_Content_Creation_Tasks_FULL_YEAR.csv
+│   │   │   │   │   ├── KY_NORML_Content_Creation_Tasks_Template.csv
+│   │   │   │   │   ├── KY_NORML_Lean_Site_Map.pdf
+│   │   │   │   │   ├── KY_NORML_Lean_Website_FINAL.docx
+│   │   │   │   │   ├── Lean_Website_Implementation_Packet.docx
+│   │   │   │   │   ├── london-ky-media-60mi.csv
+│   │   │   │   │   ├── london-ky-media-60mi.xlsx
+│   │   │   │   │   ├── Marketing_Campaign_Launch_Readiness_Guide_FULL (1).docx
+│   │   │   │   │   ├── Marketing_Campaign_Launch_Readiness_Guide_FULL.docx
+│   │   │   │   │   ├── Marketing_Campaign_Launch_Readiness_Guide.docx
+│   │   │   │   │   ├── Newsletter_Assembly_Board.csv
+│   │   │   │   │   ├── Newsletter_Template_Visual_Reference.pdf
+│   │   │   │   │   ├── Parent_Child_Content_Board.csv
+│   │   │   │   │   ├── Revenue_Attribution_Board.csv
+│   │   │   │   │   ├── Social_Media_Calendar_Template.csv
+│   │   │   │   │   ├── Squarespace-Wordpress-Export-02-14-2026 (1).xml
+│   │   │   │   │   ├── Squarespace-Wordpress-Export-02-14-2026.xml
+│   │   │   │   │   ├── the-council_1.html
+│   │   │   │   │   └── the-council.html
+│   │   │   │   └── Org-Admin
+│   │   │   │       ├── 2024-12-10 Meeting Minutes - Approved.pdf
+│   │   │   │       ├── 2024-2025 KY NORML - Board Applications - Advisory and Directors.gform
+│   │   │   │       ├── 2025-04-22 Meeting Minutes Approved.pdf
+│   │   │   │       ├── 2025-non-member-list-6-10-25-web.xls
+│   │   │   │       ├── Assets_Library_Tracker.csv
+│   │   │   │       ├── Automated_Reporting_Templates.csv
+│   │   │   │       ├── Automated_Reporting_Templates.pdf
+│   │   │   │       ├── BULLETIN 404_text.pdf
+│   │   │   │       ├── Clean_Business_Nonprofit_File_Cover_Sheet.pdf
+│   │   │   │       ├── Clean_Nonprofit_File_Cover_Sheet_NEW.pdf
+│   │   │   │       ├── Copy of IRS Kentucky NORML EIN Letter.pdf
+│   │   │   │       ├── Credential_Pricing.jpg
+│   │   │   │       ├── FINAL KHRGC meeting minutes 2 11 25 (1).pdf
+│   │   │   │       ├── FinalLetter_92-2612845_KENTUCKYCANNABISFOUNDATIONINC_03222023_00.pdf
+│   │   │   │       ├── Full_Workspace_Map.pdf
+│   │   │   │       ├── Kentucky NORML (1).pdf
+│   │   │   │       ├── Kentucky NORML logo.png
+│   │   │   │       ├── Kentucky NORML.pdf
+│   │   │   │       ├── Kentucky_ Secretary of State - Online Services.pdf
+│   │   │   │       ├── Kentucky+NORML+Logo+(1).webp
+│   │   │   │       ├── KY NORML Board of Directors and Advisory Board 2018.gdoc
+│   │   │   │       ├── KY NORML RELGIOUS GUY.gdoc
+│   │   │   │       ├── KY_NORML_CGN_Board_Structure.pdf
+│   │   │   │       ├── KY_NORML_Department_OrgChart.png
+│   │   │   │       ├── KY_NORML_Department_Overview.pdf
+│   │   │   │       ├── KY_NORML_Workspace.xlsx
+│   │   │   │       ├── KYNORML_Chart_of_Accounts.csv
+│   │   │   │       ├── KYNORML_QB_COA_Import.xlsx
+│   │   │   │       ├── MASTER Full Public Notice FINAL PUBLISHED UPDATED 5.23.25 (1).pdf
+│   │   │   │       ├── MASTER Full Public Notice FINAL PUBLISHED UPDATED 5.23.25 (2).pdf
+│   │   │   │       ├── MASTER Full Public Notice FINAL PUBLISHED UPDATED 5.23.25.pdf
+│   │   │   │       ├── Master_Automation_Document.pdf
+│   │   │   │       ├── Master_Dashboard_DataPack.csv
+│   │   │   │       ├── Master_Dashboard_Template.xlsx
+│   │   │   │       ├── Monday_Automations_Recipes.json
+│   │   │   │       ├── Monday_CRM_Objects_One_Pager.pdf
+│   │   │   │       ├── Monday_Service_OptionB_PortalBoard_Template.csv
+│   │   │   │       ├── Monthly_KPI_Reporting_Board.csv
+│   │   │   │       ├── Nonprofit_File_Cover_Sheet.pdf
+│   │   │   │       ├── nonprofit_name_change_checklist_print.pdf
+│   │   │   │       ├── nri-national-register-listed20250624.csv
+│   │   │   │       ├── Participant_Portal_Template_v2_CheckboxRoles.csv
+│   │   │   │       ├── Participant_Portal_Template.csv
+│   │   │   │       ├── Products ad services (1).xlsx
+│   │   │   │       ├── Products ad services.xlsx
+│   │   │   │       ├── Products and Services - KYCC.csv
+│   │   │   │       ├── Products_Services_1762558382.xlsx
+│   │   │   │       ├── Products_Services_1769804427.xlsx
+│   │   │   │       ├── Products_Services_1769969142.xlsx
+│   │   │   │       ├── ProductsServicesList_KY_NORML_Inc_2_1_2026.csv
+│   │   │   │       ├── System_SOP_Manual.pdf
+│   │   │   │       ├── Task_Generator_Board.csv
+│   │   │   │       ├── Team_Onboarding_Training_SOP.pdf
+│   │   │   │       ├── Weekly_Administrative_Ops.csv
+│   │   │   │       └── Workspace_Master_Index.pdf
+│   │   │   ├── 26 RS HB 904.md
+│   │   │   ├── Attachments
+│   │   │   │   ├── Business-Entities
+│   │   │   │   └── KY-NORML
+│   │   │   │       ├── Admin
+│   │   │   │       ├── Advocacy-Legislation
+│   │   │   │       ├── Grants
+│   │   │   │       ├── Grants-Funding
+│   │   │   │       ├── Legislation
+│   │   │   │       ├── Marketing
+│   │   │   │       ├── Marketing-Comms
+│   │   │   │       └── Org-Admin
+│   │   │   ├── Common Good Network
+│   │   │   │   └── Grants
+│   │   │   │       ├── 2025-KHC-Rural-Housing-Trust-Fund-NOFA.pdf
+│   │   │   │       ├── 2025-RHTF-Application-Scoresheet.pdf
+│   │   │   │       ├── Community-Resource-Guide.pdf
+│   │   │   │       ├── EmergencySolutionsGrantsProgramFactSheet.pdf
+│   │   │   │       ├── KHC-Rural-HTF-Income-Limits-eff.-2025-6-1.pdf
+│   │   │   │       ├── NAEH_RapidRehousingToolkit.pdf
+│   │   │   │       ├── RecoveryKentuckyAdminManual.pdf
+│   │   │   │       ├── State-and-Local-Officials-Quick-Guide-to-HUD-Programs-3.0.pdf
+│   │   │   │       └── Supportive Services.pdf
+│   │   │   ├── Common Good Network 501c3.md
+│   │   │   ├── KYNORML, INC 501c4.md
+│   │   │   └── Verdant Ventures LLC.md
+│   │   ├── Meetings
+│   │   │   └── Zoom
+│   │   │       ├── .DS_Store
+│   │   │       ├── 2025-08-05 16.02.52 Finance Meeting with Josh
+│   │   │       │   ├── audio1887210705.m4a
+│   │   │       │   ├── chat.txt
+│   │   │       │   ├── client_config.json
+│   │   │       │   ├── recording.conf
+│   │   │       │   └── video1887210705.mp4
+│   │   │       ├── 2025-08-06 13.00.58 Finance Meeting with Josh
+│   │   │       │   ├── audio1681950012.m4a
+│   │   │       │   ├── recording.conf
+│   │   │       │   └── video1681950012.mp4
+│   │   │       └── 2025-08-06 13.41.58 Finance Meeting with Josh
+│   │   │           ├── audio1521594607.m4a
+│   │   │           ├── recording.conf
+│   │   │           └── video1521594607.mp4
+│   │   ├── People and Partnerships
+│   │   │   ├── Ashley.md
+│   │   │   ├── Harry.md
+│   │   │   ├── James.md
+│   │   │   ├── Mandy.md
+│   │   │   ├── Maurice.md
+│   │   │   ├── People and Partnerships.md
+│   │   │   ├── Shealonda.md
+│   │   │   ├── Support Team Overview.md
+│   │   │   └── Wonderland Wellness World.md
+│   │   ├── Revenue Engines
+│   │   │   ├── ! Revenue Engine List.md
+│   │   │   ├── .DS_Store
+│   │   │   ├── 01_KYCannaCon-2026
+│   │   │   │   ├── .DS_Store
+│   │   │   │   ├── Expo-Booths
+│   │   │   │   │   ├── ExhibitorList.pdf
+│   │   │   │   │   ├── ExpoFP Sales Brochure (1).pdf
+│   │   │   │   │   ├── ExpoFP Sales Brochure (2).pdf
+│   │   │   │   │   ├── ExpoFP Sales Brochure.pdf
+│   │   │   │   │   ├── FloorPlanBook2021_sm.pdf
+│   │   │   │   │   ├── Hall_A_Booth_Setup_Visual.png
+│   │   │   │   │   ├── HallA_Door_Registration_Visual.png
+│   │   │   │   │   ├── import_exhibitors (1).xlsx
+│   │   │   │   │   ├── import_exhibitors_template (1).xlsx
+│   │   │   │   │   ├── import_exhibitors_template (2).xlsx
+│   │   │   │   │   ├── import_exhibitors_template (3).xlsx
+│   │   │   │   │   ├── import_exhibitors_template (4).xlsx
+│   │   │   │   │   ├── import_exhibitors_template (5).xlsx
+│   │   │   │   │   ├── import_exhibitors_template.xlsx
+│   │   │   │   │   └── import_exhibitors.xlsx
+│   │   │   │   ├── Marketing-Assets
+│   │   │   │   │   ├── .DS_Store
+│   │   │   │   │   ├── 2026 Conference Badges (1).pdf
+│   │   │   │   │   ├── 2026 Conference Badges (2).pdf
+│   │   │   │   │   ├── 2026 Conference Badges.pdf
+│   │   │   │   │   ├── 2026 Conference Planning Packet - Google Docs.pdf
+│   │   │   │   │   ├── 2026 Conference Planning Packet (1).pdf
+│   │   │   │   │   ├── 2026 Conference Planning Packet (2).pdf
+│   │   │   │   │   ├── 2026 Conference Planning Packet.pdf
+│   │   │   │   │   ├── 2026 Conference Proposal
+│   │   │   │   │   ├── 2026 Conference Proposal.zip
+│   │   │   │   │   ├── 2026 The State of Cannabis in Kentucky.pdf
+│   │   │   │   │   ├── 2026_KY_Canna_Con_Blog_First_Social_Command - Blog-First Social (Assets Mapped).csv
+│   │   │   │   │   ├── 2026_KY_Canna_Con_Blog_First_Social_Command.xlsx
+│   │   │   │   │   ├── 2026_KY_Canna_Con_Blog_Master_PREPPED.xlsx
+│   │   │   │   │   ├── 2026_KY_Canna_Con_FINAL_Social_Command.xlsx
+│   │   │   │   │   ├── 2026_KY_Canna_Con_FULL_BLAST_Blog_First.xlsx
+│   │   │   │   │   ├── 2026_KY_Canna_Con_Social_Assets_Mapped_WITH_HOOKS.xlsx
+│   │   │   │   │   ├── 2026_KY_Canna_Con_Social_Assets_Mapped.xlsx
+│   │   │   │   │   ├── 2026-kcc-ad.png
+│   │   │   │   │   ├── Blue Modern Business Conference Flyer (LinkedIn Post).png
+│   │   │   │   │   ├── Conference 2026 Square (Instagram Post (45)).png
+│   │   │   │   │   ├── Conference 2026 Square 1200x1200.png
+│   │   │   │   │   ├── Conference 2026 Square.png
+│   │   │   │   │   ├── conference badge back.png
+│   │   │   │   │   ├── conference badge front.png
+│   │   │   │   │   ├── Conference Press Release.pdf
+│   │   │   │   │   ├── Copy of Conference 2026 Square.png
+│   │   │   │   │   ├── Hosted by.png
+│   │   │   │   │   ├── Illustrative Minimal Camping Festival Poster.png
+│   │   │   │   │   ├── Kentucky Cannabis Conference Pitch Deck (1).pptx
+│   │   │   │   │   ├── Kentucky Cannabis Conference Pitch Deck.pptx
+│   │   │   │   │   ├── KY Canna Con Logo (2000 × 800 Px) - 1.png
+│   │   │   │   │   ├── KY Canna Conference Logo - KY Canna Conference Logo (Rectangle).png
+│   │   │   │   │   ├── KY Canna Conference Logo - KY Canna Conference Logo (Square) (1).png
+│   │   │   │   │   ├── KY Canna Conference Logo - KY Canna Conference Logo (Square).png
+│   │   │   │   │   ├── KYCannaCon (Banner) (1200 X 1200 Px) - 1 (1).png
+│   │   │   │   │   ├── KYCannaCon (Banner) (1200 X 1200 Px) - 1 (2).png
+│   │   │   │   │   ├── KYCannaCon (Banner) (1200 X 1200 Px) - 1.png
+│   │   │   │   │   ├── kycannacon-2026_qrr.pdf
+│   │   │   │   │   ├── kycannacon2026 (1).pdf
+│   │   │   │   │   ├── kycannacon2026_qrr.bmp
+│   │   │   │   │   ├── kycannacon2026_qrr.pdf
+│   │   │   │   │   ├── kycannacon2026.pdf
+│   │   │   │   │   ├── kycc-320-26 (1).pdf
+│   │   │   │   │   ├── kycc-320-26.pdf
+│   │   │   │   │   ├── kycc-331-26.pdf
+│   │   │   │   │   ├── Kynorml Square Lol - 1.png
+│   │   │   │   │   ├── LEO Large Mobile Banner Ad 300x100 (640 x 640 px) (8.5 x 5.5 in).png
+│   │   │   │   │   ├── LEO Weekly Ads for Registration Fairs
+│   │   │   │   │   ├── mar 20-21 Conference 2026 Square (300 x 250 px).png
+│   │   │   │   │   ├── mar 20-21 Conference Speaker Posts
+│   │   │   │   │   ├── mar 20-21 Conference Speaker Posts.zip
+│   │   │   │   │   ├── March 13-14 Conference 2026 Square.png
+│   │   │   │   │   ├── March 20-21, 2026 KyCannaCon.png
+│   │   │   │   │   ├── march rect.png
+│   │   │   │   │   ├── Speaker Cutout  (1).png
+│   │   │   │   │   ├── Speaker Cutout .png
+│   │   │   │   │   ├── Spring-CC-Pack.pdf
+│   │   │   │   │   └── Ticket Purchases.png
+│   │   │   │   ├── Operations
+│   │   │   │   │   ├── 2026 Kentucky Cannabis Conference Attendee Registration_3-17-2026.xlsx
+│   │   │   │   │   ├── 2026 Kentucky Cannabis Conference Attendee Registration_3-20-2026.xlsx
+│   │   │   │   │   ├── badges.xlsx
+│   │   │   │   │   ├── board_automations_8544676328 (1).csv
+│   │   │   │   │   ├── board_automations_8544676328 (2).csv
+│   │   │   │   │   ├── board_automations_8544676328 (3).csv
+│   │   │   │   │   ├── board_automations_8544676328.csv
+│   │   │   │   │   ├── board_automations_8544676333 (1).csv
+│   │   │   │   │   ├── board_automations_8544676333 (2).csv
+│   │   │   │   │   ├── board_automations_8544676333.csv
+│   │   │   │   │   ├── Booth_Assignments_2026_Template.csv
+│   │   │   │   │   ├── Booth_Assignments_2026_Zoned.csv
+│   │   │   │   │   ├── comm-ops.csv
+│   │   │   │   │   ├── conference deliverables - Google Docs.pdf
+│   │   │   │   │   ├── conference_closet_audit_worksheet.pdf
+│   │   │   │   │   ├── Contacts_1757632279 (1).xlsx
+│   │   │   │   │   ├── Contacts_1757632279.xlsx
+│   │   │   │   │   ├── Contacts_1765407557.xlsx
+│   │   │   │   │   ├── Contacts_1769455693.xlsx
+│   │   │   │   │   ├── Contacts_1769729449.xlsx
+│   │   │   │   │   ├── Contacts_Inbox_New_Replies_1769478870.xlsx
+│   │   │   │   │   ├── Content_QA_Approval_Pipeline.csv
+│   │   │   │   │   ├── Do502MOREGuestList2026KentuckyCannabisConferenceExpoOnlyPass20260321.csv
+│   │   │   │   │   ├── Event_Promo_Pipeline.csv
+│   │   │   │   │   ├── Expo_Zones_2026_Filled.csv
+│   │   │   │   │   ├── Expo_Zones_2026_Template.csv
+│   │   │   │   │   ├── General_Business_Interest_Submissions_1772644208.xlsx
+│   │   │   │   │   ├── husband_conference_closet_audit.pdf
+│   │   │   │   │   ├── KY_CannaCon_Monday_Master_Control.csv
+│   │   │   │   │   ├── KY_CannaCon_Monday_Operations.csv
+│   │   │   │   │   ├── KY_CannaCon_Monday_Program.csv
+│   │   │   │   │   ├── KY_CannaCon_Monday_Revenue_Relationships.csv
+│   │   │   │   │   ├── KY_CannaCon_Monday_Risk_Control.csv
+│   │   │   │   │   ├── kycannacon_deliverables_master.csv
+│   │   │   │   │   ├── kycannacon_deliverables_precuts.csv
+│   │   │   │   │   ├── kycannacon_zones_updated.csv
+│   │   │   │   │   ├── KYCC_Products_Purpose_Deliverables.csv
+│   │   │   │   │   ├── KYCC_Products_Services_CLEAN.csv
+│   │   │   │   │   ├── Leads_1762565629.xlsx
+│   │   │   │   │   ├── Leads_1769452160.xlsx
+│   │   │   │   │   ├── Leads_Empty_or_Unnamed_1767633787.xlsx
+│   │   │   │   │   ├── Leads_Form_Answers_1769478811.xlsx
+│   │   │   │   │   ├── Marketing_Communications_Calendar.csv
+│   │   │   │   │   ├── Sponsor_Exhibitor_Form_1772130900.xlsx
+│   │   │   │   │   ├── Sponsor_Exhibitor_Form_1772646580.xlsx
+│   │   │   │   │   └── Sponsorship_Directory_Sales_Pipeline.csv
+│   │   │   │   ├── Speakers-Sessions
+│   │   │   │   │   ├── _Speaker_Agenda_1773077906.xlsx
+│   │   │   │   │   ├── _Speaker_Agenda_1773077986.xlsx
+│   │   │   │   │   ├── 2026_Speakers_Logistics_Assets_1771368499.xlsx
+│   │   │   │   │   ├── 2026_Speakers_Logistics_Assets_1772130883.xlsx
+│   │   │   │   │   ├── Accepted_Speakers_Logistics_and_Assets.csv
+│   │   │   │   │   ├── import_sessions_template (1).xlsx
+│   │   │   │   │   ├── import_sessions_template (2).xlsx
+│   │   │   │   │   ├── import_sessions_template (3).xlsx
+│   │   │   │   │   ├── import_sessions_template (4).xlsx
+│   │   │   │   │   ├── import_sessions_template.xlsx
+│   │   │   │   │   ├── Sessions_kycannacon-2026_2026-03-17T18-17-14.xlsx
+│   │   │   │   │   └── speaker sessions agenda.pdf
+│   │   │   │   ├── Sponsorship
+│   │   │   │   │   ├── 2026 Conference Sponsor Packet.pdf
+│   │   │   │   │   ├── 2026 KY Canna Con Sponsorships_3-17-2026.xlsx
+│   │   │   │   │   ├── 2026 KYCannaCon -  Sponsor _ Exhibitor Proposal.pdf
+│   │   │   │   │   ├── 2026 KYCannaCon -  Sponsor : Exhibitor Proposal.pdf
+│   │   │   │   │   ├── 2026 Sponsorship and support email.pdf
+│   │   │   │   │   ├── 2026_Kentucky_Cannabis_Conference_Sponsorship_Packet.docx
+│   │   │   │   │   ├── 2026_MJBizCon_-Prospectus.pdf
+│   │   │   │   │   ├── Conference Sponsorship At A Glance.pdf
+│   │   │   │   │   ├── INTERNAL SPONSORSHIP CHECKLIST & PRICING MATRIX.docx
+│   │   │   │   │   ├── INTERNAL SPONSORSHIP CHECKLIST & PRICING MATRIX.pdf
+│   │   │   │   │   ├── Kentucky_Cannabis_Conference_2026_Sponsor_Packet.docx
+│   │   │   │   │   ├── Kentucky_Cannabis_Conference_2026_Sponsor_Packet.docx (1).pdf
+│   │   │   │   │   ├── Kentucky_Cannabis_Conference_2026_Sponsor_Packet.docx.pdf
+│   │   │   │   │   ├── Kentucky_Cannabis_Conference_2026_Updated_Sponsor_Packet.docx
+│   │   │   │   │   ├── KYCC_2026_Executive_Sponsor_Summary.docx
+│   │   │   │   │   ├── KYCC_2026_Sponsorship_Matrix.docx
+│   │   │   │   │   ├── KYCC_Full_Packet_With_Pricing_Summary.docx
+│   │   │   │   │   ├── KYCC_Pricing_Summary_One_Pager.docx
+│   │   │   │   │   ├── KYCC_Short_Sponsor_Packet.docx
+│   │   │   │   │   └── KYCC_Vendor_Only_Packet.docx
+│   │   │   │   └── Venue-KICC
+│   │   │   │       ├── 008e465a-0cef-498b-b599-970fe98796aa-KICC_MSC_09.webp
+│   │   │   │       ├── 08f7799b-91a3-4b25-a002-421036ad4f7f-KICC_MSC_08.webp
+│   │   │   │       ├── 0dbf4ea3-f63d-4048-b9c7-5ddf4929be12-KICC_MSC_10.webp
+│   │   │   │       ├── 1b1e3da6-afe4-4411-b559-9df59f74bc79-kicc_conventioncenter_strupp_at9i4926.webp
+│   │   │   │       ├── 32e5eebc-1863-4533-8a2e-5b80603589e5-KICC_MSC_11.webp
+│   │   │   │       ├── 494c2bd3-67ea-4d20-a8a1-d44691b39298-kicc_conventioncenter_strupp_at9i4594.webp
+│   │   │   │       ├── 52e8d39e-3b97-46ac-a5bd-32b984ca2f7e-kicc_conventioncenter_strupp_at9i4616.webp
+│   │   │   │       ├── 57806d7a-74ae-4281-80b0-ec41e14c0c8f-kicc_conventioncenter_strupp_at9i4613.webp
+│   │   │   │       ├── 80fe2da9-2d66-4b94-9975-2d3871a5022d-kicc_conventioncenter_strupp_at9i4580.webp
+│   │   │   │       ├── 843566ad-34f5-4c88-b573-1e243481033a-kicc_conventioncenter_strupp_at9i4606.webp
+│   │   │   │       ├── 9188eae7-bd0f-4e58-b867-db50b9ea16c4-kicc_conventioncenter_strupp_at9i4588.webp
+│   │   │   │       ├── a9aa1971-a6b4-497d-a372-1e0dcb74dab3-kicc_conventioncenter_strupp_at9i4559.webp
+│   │   │   │       ├── b95b9e46-7d07-4b9c-8e89-32070df3522e-KICC_MSC_15.webp
+│   │   │   │       ├── Ballroom.jpg
+│   │   │   │       ├── convention-center-hallway-1.jpg
+│   │   │   │       ├── ef31bb9d-afcc-49c8-8e8d-daa0991329d0-KICC_MSC_17.webp
+│   │   │   │       ├── Facilities-1024x684.jpg
+│   │   │   │       ├── Kentucky International Convention Center Downtown, Louisville, Kentucky.pdf
+│   │   │   │       ├── kentucky-international-convention-center
+│   │   │   │       ├── kentucky-international-convention-center (1)
+│   │   │   │       ├── Kentucky-International-Convention-Center-Interior-1-1900-1600x1069.jpg
+│   │   │   │       ├── KICC_CustomerInfo_Form.pdf
+│   │   │   │       ├── KICC_Exhibit-AV-Form-2023_FILLABLE.pdf
+│   │   │   │       ├── KICC_HangingSign_Form.pdf
+│   │   │   │       ├── KICC-Catering-Flyer.pdf
+│   │   │   │       ├── KICC-DigitalBrochure-2025.pdf
+│   │   │   │       ├── KICC-ElectricService.pdf
+│   │   │   │       ├── KICC-Facilities.avif
+│   │   │   │       ├── KICC-Map.pdf
+│   │   │   │       ├── KICC-StreetMap.png
+│   │   │   │       ├── Lower Concourse Pre-Function 1 (1).jpg
+│   │   │   │       ├── Lower Concourse Pre-Function 1.jpg
+│   │   │   │       ├── Lower Concourse Pre-Function 2.jpg
+│   │   │   │       ├── Lower Concourse.png
+│   │   │   │       ├── Lower-Concourse-Master-with-Scale.pdf
+│   │   │   │       ├── Main Concourse Grand Staircase 2.jpg
+│   │   │   │       ├── Main Concourse Grand Staircase 3.jpg
+│   │   │   │       ├── Main Concourse Pre-Function 2.jpg
+│   │   │   │       ├── Main Concourse Pre-Function 3.jpg
+│   │   │   │       ├── Main Concourse Pre-Function.jpg
+│   │   │   │       ├── main-concourse-master-scale-2.png
+│   │   │   │       ├── Main-Concourse-Master-with-Scale.pdf
+│   │   │   │       ├── Marlin Room.jpg
+│   │   │   │       ├── Proposal - Networking Event attached to a Conference at KICC - The Sports  Social Club_original.pdf
+│   │   │   │       ├── Upper Concourse 2.jpg
+│   │   │   │       ├── Upper Concourse 3.jpg
+│   │   │   │       ├── Upper Concourse 4.JPG
+│   │   │   │       ├── Upper Concourse 5.jpg
+│   │   │   │       ├── Upper Concourse Pre-Function.jpg
+│   │   │   │       ├── Upper-Concourse-Master-with-Scale.png
+│   │   │   │       └── XjDqRKV2-SmallMeetingRoom-Hero.jpg
+│   │   │   ├── Attachments
+│   │   │   │   └── KYCannaCon-2026
+│   │   │   │       ├── Expo-Booths
+│   │   │   │       ├── Marketing-Assets
+│   │   │   │       ├── Operations
+│   │   │   │       ├── Speakers-Sessions
+│   │   │   │       ├── Sponsorship
+│   │   │   │       └── Venue-KICC
+│   │   │   ├── Gaming Lounge.md
+│   │   │   └── Portal to Wellness.md
+│   │   └── Whiteboard
+│   │       ├── .DS_Store
+│   │       ├── Brain Dump
+│   │       │   └── 2026-04-23 Brain Dump.md
+│   │       ├── Ideas
+│   │       └── Meetings
+│   └── Planner
+│       ├── .DS_Store
+│       ├── Attachments
+│       │   └── Routines
+│       │       ├── 12_Week_Year_Planning_Template_1.docx
+│       │       ├── 12_Week_Year_Planning_Template_2.docx
+│       │       ├── 12_Week_Year_Planning_Template.docx
+│       │       ├── 2026 Yume Techo Planner (Garden cover, Monday start)_1.pdf
+│       │       ├── 2026 Yume Techo Planner (Garden cover, Monday start)_2.pdf
+│       │       ├── 2026 Yume Techo Planner (Garden cover, Monday start).pdf
+│       │       ├── AppleNotes_Automation_Guide_With_Tasks_1.pdf
+│       │       ├── AppleNotes_Automation_Guide_With_Tasks_2.pdf
+│       │       ├── AppleNotes_Automation_Guide_With_Tasks.pdf
+│       │       ├── chatGPT-folders_1.json
+│       │       ├── chatGPT-folders_2.json
+│       │       ├── chatGPT-folders.json
+│       │       ├── FlyLady_Routines_Board_1.csv
+│       │       ├── FlyLady_Routines_Board_2.csv
+│       │       ├── FlyLady_Routines_Board.csv
+│       │       ├── GoodNotes_Daily_Workflow_Template_1.pdf
+│       │       ├── GoodNotes_Daily_Workflow_Template_2.pdf
+│       │       ├── GoodNotes_Daily_Workflow_Template.pdf
+│       │       ├── GoodNotes_Daily_Workflow_with_Tabs_1.pdf
+│       │       ├── GoodNotes_Daily_Workflow_with_Tabs_2.pdf
+│       │       ├── GoodNotes_Daily_Workflow_with_Tabs.pdf
+│       │       ├── GoodNotes_Shortcuts_Pack_1.zip
+│       │       ├── GoodNotes_Shortcuts_Pack_2.zip
+│       │       ├── GoodNotes_Shortcuts_Pack.zip
+│       │       ├── NN - Download Instruction and Tutorials_1.pdf
+│       │       ├── NN - Download Instruction and Tutorials_2.pdf
+│       │       ├── NN - Download Instruction and Tutorials.pdf
+│       │       ├── notion_life_system_template_1.json
+│       │       ├── notion_life_system_template_1.zip
+│       │       ├── notion_life_system_template_2.json
+│       │       ├── notion_life_system_template_2.zip
+│       │       ├── notion_life_system_template.json
+│       │       ├── notion_life_system_template.zip
+│       │       ├── Printable Weekly Self Care Checklist_1.pdf
+│       │       ├── Printable Weekly Self Care Checklist_2.pdf
+│       │       ├── Printable Weekly Self Care Checklist.pdf
+│       │       ├── SMARTWorksheet_1.pdf
+│       │       ├── SMARTWorksheet_2.pdf
+│       │       └── SMARTWorksheet.pdf
+│       ├── Collections
+│       └── Daily Journal Notes
+│           ├── 2026-04-23.md
+│           └── 2026-04-25.md
+├── priorities.md
+├── second-brain-structure.txt
+└── System
+    ├── .DS_Store
+    ├── Assets
+    │   ├── .DS_Store
+    │   └── the-council.html
+    ├── Automation
+    │   ├── .DS_Store
+    │   └── Apple Shortcuts Setup.md
+    ├── BackUps
+    ├── Dashboards
+    │   ├── Home Dashboard.md
+    │   └── Work Dashboard.md
+    ├── MOCs
+    │   ├── Entities MOC.md
+    │   ├── People MOC.md
+    │   └── Revenue Engines MOC.md
+    ├── Software-Plugins
+    │   ├── .DS_Store
+    │   ├── Apps-DMG
+    │   │   ├── .DS_Store
+    │   │   ├── Camper Van Make it Home.app
+    │   │   │   └── Contents
+    │   │   │       ├── Info.plist
+    │   │   │       ├── MacOS
+    │   │   │       └── Resources
+    │   │   ├── ChatGPT_Atlas.dmg
+    │   │   ├── Claude.dmg
+    │   │   ├── Flow-v1.5.55.dmg
+    │   │   ├── GatherV2-0.41.0-universal.dmg
+    │   │   ├── GeForceNOW-release.dmg
+    │   │   ├── GoogleDrive (1).dmg
+    │   │   ├── GoogleDrive.dmg
+    │   │   ├── motion-0.108.0-mac-aarch64.zip
+    │   │   ├── motion-0.113.0-mac-aarch64.zip
+    │   │   ├── Notion-4.16.2-arm64.dmg
+    │   │   ├── Obsidian-1.12.7.dmg
+    │   │   ├── Plant Therapy.app
+    │   │   │   └── Contents
+    │   │   │       ├── Info.plist
+    │   │   │       ├── MacOS
+    │   │   │       └── Resources
+    │   │   ├── QuickBooks Online (1).dmg
+    │   │   ├── QuickBooks Online.dmg
+    │   │   ├── Spirit City Lofi Sessions.app
+    │   │   │   └── Contents
+    │   │   │       ├── Info.plist
+    │   │   │       ├── MacOS
+    │   │   │       └── Resources
+    │   │   ├── studio-darwin-arm64-v1.7.3.dmg
+    │   │   ├── templify-demo.mp4
+    │   │   ├── tiktok_live_studio_mac_arm-v0.8.0-wid-91eThXJ3SG2.dmg
+    │   │   ├── Twinkleby.app
+    │   │   │   └── Contents
+    │   │   │       ├── Info.plist
+    │   │   │       ├── MacOS
+    │   │   │       └── Resources
+    │   │   ├── Whisky.app
+    │   │   │   └── Contents
+    │   │   │       ├── _CodeSignature
+    │   │   │       ├── CodeResources
+    │   │   │       ├── embedded.provisionprofile
+    │   │   │       ├── Frameworks
+    │   │   │       ├── Info.plist
+    │   │   │       ├── MacOS
+    │   │   │       ├── PkgInfo
+    │   │   │       ├── PlugIns
+    │   │   │       └── Resources
+    │   │   ├── Whisky.zip
+    │   │   ├── wordpress.com-macos-dmg-8.0.4-arm64.dmg
+    │   │   └── Zoom.pkg
+    │   └── WordPress-Plugins
+    │       ├── .DS_Store
+    │       ├── colormag
+    │       │   ├── 404.php
+    │       │   ├── archive.php
+    │       │   ├── assets
+    │       │   │   ├── build
+    │       │   │   ├── css
+    │       │   │   ├── fonts
+    │       │   │   ├── img
+    │       │   │   ├── js
+    │       │   │   └── library
+    │       │   ├── breadcrumb.css
+    │       │   ├── changelog.txt
+    │       │   ├── comments.php
+    │       │   ├── composer.json
+    │       │   ├── composer.lock
+    │       │   ├── dark.css
+    │       │   ├── embed-content.php
+    │       │   ├── footer.php
+    │       │   ├── front-page.php
+    │       │   ├── functions.php
+    │       │   ├── gulpfile.mjs
+    │       │   ├── header.php
+    │       │   ├── inc
+    │       │   │   ├── admin
+    │       │   │   ├── ajax.php
+    │       │   │   ├── base
+    │       │   │   ├── builder-template-tags.php
+    │       │   │   ├── class-breadcrumb-trail.php
+    │       │   │   ├── class-colormag-starter-content.php
+    │       │   │   ├── class-colormag-svg-icons.php
+    │       │   │   ├── class-colormag-walker-page.php
+    │       │   │   ├── colormag-setup.php
+    │       │   │   ├── colormag-wp-query.php
+    │       │   │   ├── compatibility
+    │       │   │   ├── core
+    │       │   │   ├── customizer
+    │       │   │   ├── deprecated
+    │       │   │   ├── helper
+    │       │   │   ├── meta-boxes
+    │       │   │   ├── migration
+    │       │   │   ├── template-functions.php
+    │       │   │   ├── template-tags.php
+    │       │   │   └── widgets
+    │       │   ├── index.php
+    │       │   ├── languages
+    │       │   │   ├── bg_BG.mo
+    │       │   │   ├── bg_BG.po
+    │       │   │   ├── colormag.pot
+    │       │   │   ├── cs_CZ.mo
+    │       │   │   ├── cs_CZ.po
+    │       │   │   ├── da_DK.mo
+    │       │   │   ├── da_DK.po
+    │       │   │   ├── de_DE.mo
+    │       │   │   ├── de_DE.po
+    │       │   │   ├── el.mo
+    │       │   │   ├── el.po
+    │       │   │   ├── en_CA.mo
+    │       │   │   ├── en_CA.po
+    │       │   │   ├── en_GB.mo
+    │       │   │   ├── en_GB.po
+    │       │   │   ├── es_ES.mo
+    │       │   │   ├── es_ES.po
+    │       │   │   ├── fa_IR.mo
+    │       │   │   ├── fa_IR.po
+    │       │   │   ├── fr_BE.mo
+    │       │   │   ├── fr_BE.po
+    │       │   │   ├── fr_FR.mo
+    │       │   │   ├── fr_FR.po
+    │       │   │   ├── id_ID.mo
+    │       │   │   ├── id_ID.po
+    │       │   │   ├── it_IT.mo
+    │       │   │   ├── it_IT.po
+    │       │   │   ├── ko_KR.mo
+    │       │   │   ├── ko_KR.po
+    │       │   │   ├── nb_NO.mo
+    │       │   │   ├── nb_NO.po
+    │       │   │   ├── nl_BE.mo
+    │       │   │   ├── nl_BE.po
+    │       │   │   ├── nl_NL.mo
+    │       │   │   ├── nl_NL.po
+    │       │   │   ├── pl_PL.mo
+    │       │   │   ├── pl_PL.po
+    │       │   │   ├── pt_BR.mo
+    │       │   │   ├── pt_BR.po
+    │       │   │   ├── ro_RO.mo
+    │       │   │   ├── ro_RO.po
+    │       │   │   ├── ru_RU.mo
+    │       │   │   ├── ru_RU.po
+    │       │   │   ├── sl_SI.mo
+    │       │   │   ├── sl_SI.po
+    │       │   │   ├── sv_SE.mo
+    │       │   │   ├── sv_SE.po
+    │       │   │   ├── tr_TR.mo
+    │       │   │   ├── tr_TR.po
+    │       │   │   ├── uk.mo
+    │       │   │   └── uk.po
+    │       │   ├── navigation.php
+    │       │   ├── no-results.php
+    │       │   ├── page-templates
+    │       │   │   ├── contact.php
+    │       │   │   ├── magazine.php
+    │       │   │   └── page-builder.php
+    │       │   ├── page.php
+    │       │   ├── pnpm-lock.yaml
+    │       │   ├── readme.txt
+    │       │   ├── screenshot.jpg
+    │       │   ├── search.php
+    │       │   ├── searchform.php
+    │       │   ├── sidebar-footer.php
+    │       │   ├── sidebar-left.php
+    │       │   ├── sidebar-two.php
+    │       │   ├── sidebar-woocommerce-left.php
+    │       │   ├── sidebar-woocommerce-right.php
+    │       │   ├── sidebar.php
+    │       │   ├── single.php
+    │       │   ├── src
+    │       │   │   └── meta
+    │       │   ├── style-editor-block-rtl.css
+    │       │   ├── style-editor-block.css
+    │       │   ├── style-rtl.css
+    │       │   ├── style.css
+    │       │   ├── tailwind.config.js
+    │       │   ├── template-parts
+    │       │   │   ├── content
+    │       │   │   ├── content-page.php
+    │       │   │   ├── content-single.php
+    │       │   │   ├── content.php
+    │       │   │   ├── entry
+    │       │   │   ├── footer-builder-elements
+    │       │   │   ├── header
+    │       │   │   ├── header-builder-elements
+    │       │   │   └── hooks
+    │       │   ├── theme.json
+    │       │   ├── tsconfig.json
+    │       │   ├── webpack.config.js
+    │       │   └── woocommerce.css
+    │       ├── colormag-pro-latest.zip
+    │       ├── colormag.4.1.2 (1).zip
+    │       ├── colormag.4.1.2.zip
+    │       ├── cp-events-calendar-modules-for-divi-pro
+    │       │   ├── admin
+    │       │   │   ├── admin-helper
+    │       │   │   ├── events-addon-page
+    │       │   │   ├── feedback
+    │       │   │   └── license
+    │       │   ├── assets
+    │       │   │   ├── css
+    │       │   │   ├── font
+    │       │   │   ├── images
+    │       │   │   └── js
+    │       │   ├── cp-events-calendar-modules-for-divi-pro.php
+    │       │   ├── divi-5
+    │       │   │   ├── divi-5.php
+    │       │   │   ├── server
+    │       │   │   ├── vendor
+    │       │   │   └── visual-builder
+    │       │   ├── includes
+    │       │   │   ├── EventsCalendarModulesForDiviPro.php
+    │       │   │   ├── loader.php
+    │       │   │   └── modules
+    │       │   ├── readme.txt
+    │       │   ├── scripts
+    │       │   │   ├── builder-bundle.min.js
+    │       │   │   └── frontend-bundle.min.js
+    │       │   └── styles
+    │       │       ├── style-dbp.min.css
+    │       │       └── style.min.css
+    │       ├── cp-events-calendar-modules-for-divi-pro-v2.1.2-w8logb (1).zip
+    │       ├── cp-events-calendar-modules-for-divi-pro-v2.1.2-w8logb.zip
+    │       ├── event-single-page-builder-pro-V2.1.2-olx51l.zip
+    │       ├── events-speakers-and-sponsors-v1.2.2-wy4now.zip
+    │       ├── events-widgets-pro-v3.1.2-ik2osp.zip
+    │       ├── go-fetch-jobs-wp-job-manager.1.8.5.2.zip
+    │       ├── pojo-accessibility.4.1.0 (1).zip
+    │       ├── pojo-accessibility.4.1.0.zip
+    │       ├── the-events-calendar-community-events.5.0.14 (1).zip
+    │       ├── the-events-calendar-community-events.5.0.14.zip
+    │       ├── the-events-calendar-templates-and-shortcode-v4.1.3-8xzilq.zip
+    │       ├── the-events-calendar.6.15.17.zip
+    │       ├── ultimate-member-job-manager.1.0.1.2.zip
+    │       ├── um-jobboardwp.1.0.9.zip
+    │       ├── wp-job-manager-companies.1.8.zip
+    │       ├── wp-job-manager-contact-listing.1.4.5.zip
+    │       └── zakra.4.2.0.zip
+    └── Templates
+        ├── Daily Note Template.md
+        ├── Daily Template.md
+        ├── Entity Template.md
+        ├── Idea Template.md
+        ├── Meeting Template.md
+        ├── Person Template.md
+        └── Project Template.md
+
+289 directories, 2931 files

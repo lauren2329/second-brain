@@ -1,0 +1,25 @@
+# Obsidian
+.obsidian/workspace.json
+.obsidian/cache
+.obsidian/plugins/*/data.json
+
+# System
+.DS_Store
+
+# Claude
+.claude/
+
+# Large files
+*.pdf
+*.mp4
+*.mov
+*.zip
+*.tar
+*.gz
+*.dmg
+*.sqlite
+
+# Optional: ignore heavy folders (recommended)
+knowledge/
+life/
+System/
