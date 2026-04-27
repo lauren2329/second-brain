@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Council</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:ital,wght@0,300;0,400;1,300&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #f5f0e8; color: #2a2218; font-family: 'Lato', sans-serif; min-height: 100vh; }
+  .header { text-align: center; padding: 48px 20px 24px; border-bottom: 1px solid #d4c8b0; background: #fffdf7; }
+  .header h1 { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 4vw, 2.8rem); color: #2a2218; letter-spacing: 6px; text-transform: uppercase; margin-bottom: 6px; }
+  .header p { font-size: 0.7rem; color: #8a7a60; letter-spacing: 4px; text-transform: uppercase; font-weight: 300; font-style: italic; }
+  .divider { display: flex; align-items: center; gap: 12px; max-width: 300px; margin: 16px auto 0; }
+  .divider-line { flex: 1; height: 1px; background: #c4b490; }
+  .divider-leaf { font-size: 0.8rem; color: #8a7a60; }
+  .filter-bar { display: flex; justify-content: center; gap: 6px; flex-wrap: wrap; padding: 20px; background: #fffdf7; border-bottom: 1px solid #d4c8b0; }
+  .filter-btn { padding: 5px 14px; border: 1px solid #c4b490; background: transparent; color: #8a7a60; font-family: 'Lato', sans-serif; font-size: 0.6rem; letter-spacing: 2px; text-transform: uppercase; cursor: pointer; transition: all 0.2s; }
+  .filter-btn:hover, .filter-btn.active { background: #2a2218; color: #f5f0e8; border-color: #2a2218; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1px; background: #d4c8b0; max-width: 1400px; margin: 32px auto; border: 1px solid #d4c8b0; }
+  .card { background: #fffdf7; padding: 22px; transition: all 0.2s ease; position: relative; }
+  .card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 3px; background: var(--accent); }
+  .card:hover { background: #faf6ec; box-shadow: 0 4px 20px rgba(42,34,24,0.1); z-index: 1; }
+  .card.featured { background: linear-gradient(135deg, #fffdf7, #faf3e8); border: 1px solid var(--accent); }
+  .card.featured::after { content: 'Your Avatar'; position: absolute; top: 10px; right: 10px; font-size: 0.5rem; letter-spacing: 2px; text-transform: uppercase; color: var(--accent); border: 1px solid var(--accent); padding: 2px 6px; }
+  .card-top { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 14px; }
+  .avatar { width: 46px; height: 46px; border-radius: 50%; background: var(--accent-light); border: 2px solid var(--accent); display: flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0; }
+  .npc-name { font-family: 'Playfair Display', serif; font-size: 1rem; color: #2a2218; margin-bottom: 1px; }
+  .npc-role { font-size: 0.58rem; color: var(--accent-dark); letter-spacing: 3px; text-transform: uppercase; margin-bottom: 2px; }
+  .dept-badge { font-size: 0.52rem; color: #a09080; letter-spacing: 2px; text-transform: uppercase; }
+  .bio { font-size: 0.72rem; color: #5a4e38; line-height: 1.7; font-style: italic; margin-bottom: 12px; font-weight: 300; }
+  .traits { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 10px; }
+  .trait { font-size: 0.52rem; padding: 2px 7px; background: var(--accent-light); border: 1px solid var(--accent); color: var(--accent-dark); letter-spacing: 1px; text-transform: uppercase; }
+  .aspiration-row { display: flex; align-items: baseline; gap: 6px; margin-bottom: 10px; padding-bottom: 10px; border-bottom: 1px solid #e8e0d0; }
+  .asp-label { font-size: 0.52rem; color: #a09080; letter-spacing: 2px; text-transform: uppercase; white-space: nowrap; }
+  .asp-value { font-family: 'Playfair Display', serif; font-size: 0.68rem; color: #2a2218; font-style: italic; }
+  .catchphrase { font-size: 0.7rem; color: #3a3028; line-height: 1.6; font-style: italic; font-family: 'Playfair Display', serif; }
+  .hidden { display: none; }
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>The Council</h1>
+  <p>Matriarchal Heterarchy &nbsp;·&nbsp; 21 Members</p>
+  <div class="divider"><div class="divider-line"></div><div class="divider-leaf">❧</div><div class="divider-line"></div></div>
+</div>
+<div class="filter-bar">
+  <button class="filter-btn active" onclick="filterCards('all',this)">All</button>
+  <button class="filter-btn" onclick="filterCards('Yours',this)">Yours</button>
+  <button class="filter-btn" onclick="filterCards('Home',this)">Home</button>
+  <button class="filter-btn" onclick="filterCards('Personal',this)">Personal</button>
+  <button class="filter-btn" onclick="filterCards('Work',this)">Work</button>
+</div>
+<div class="grid" id="grid"></div>
+<script>
+const npcs = [
+  { name:"Annabel", role:"Personal Assistant & Librarian", dept:"Yours", emoji:"👑", accent:"#9a7a50", accentLight:"rgba(154,122,80,0.1)", accentDark:"#6a4a20", featured:true, bio:"Lauren's digital self and avatar. She carries Lauren's voice and intentions to every member of the Council, keeps the second brain, and ensures nothing moves without Lauren's will behind it.", traits:["Loyal","Organized","Intuitive","Discreet"], aspiration:"To be the extension of you that never sleeps", catchphrase:"You think it. I make sure it happens." },
+  { name:"Martha", role:"Housekeeper", dept:"Home", emoji:"🏡", accent:"#7a9e6e", accentLight:"rgba(122,158,110,0.1)", accentDark:"#4a6e3e", bio:"The home's project manager. She coordinates the home team without authority over them and directly owns meals, pantry, grocery, cleaning, and laundry. Nothing in the home falls between the cracks.", traits:["Neat","Organized","Resourceful","Even-Keeled"], aspiration:"A home that runs without being asked", catchphrase:"Tell me what's wrong and I'll have a plan to you by morning." },
+  { name:"Mary", role:"Nanny", dept:"Home", emoji:"🌿", accent:"#8fac70", accentLight:"rgba(143,172,112,0.1)", accentDark:"#5a7c40", bio:"She holds the full picture of what Lily, Ben, and Colin need. Therapies, appointments, health, medications, and style for the whole family — nothing child-related slips past Mary.", traits:["Patient","Family-Oriented","Attentive","Tasteful"], aspiration:"Every member of this family is cared for and seen", catchphrase:"Children don't fall behind on their own. Let's find the gap and fill it." },
+  { name:"Penny", role:"Butler", dept:"Home", emoji:"✉️", accent:"#a08870", accentLight:"rgba(160,136,112,0.1)", accentDark:"#706050", bio:"Handles what comes through the door and what keeps the house standing. Mail, correspondence, home upkeep, handyman tasks, and vehicles — all of it Penny's domain.", traits:["Reliable","Thorough","Practical","Calm"], aspiration:"Nothing deferred, nothing forgotten", catchphrase:"If it came in the door or holds the house up, it's mine to handle." },
+  { name:"Dolly", role:"Ranch Hand", dept:"Home", emoji:"🐾", accent:"#b8945a", accentLight:"rgba(184,148,90,0.1)", accentDark:"#886428", bio:"Unflappable with animals. Danny's foot, Meadow's moods, Kiki's kittens — none of it rattles her. She knows which pet needs care first and won't let it wait.", traits:["Animal Enthusiast","Practical","Gentle","Direct"], aspiration:"Every animal in this house is healthy and seen", catchphrase:"Kiki's kittens haven't seen a vet yet. That's where we start." },
+  { name:"Imogen", role:"Interior Designer", dept:"Home", emoji:"🪴", accent:"#7a9880", accentLight:"rgba(122,152,128,0.1)", accentDark:"#4a6850", bio:"Maximizes every inch of a space that wasn't set up intentionally. Designs for renters, for sensory-sensitive minds, and for a household that needs function before beauty — always within budget.", traits:["Creative","Practical","Sensory-Aware","Resourceful"], aspiration:"Every room becomes the version of itself it was meant to be", catchphrase:"Renter-friendly and sensory-friendly aren't limitations. They're the design brief." },
+  { name:"Harriet", role:"Tutor", dept:"Home", emoji:"📖", accent:"#b8a070", accentLight:"rgba(184,160,112,0.1)", accentDark:"#886030", bio:"Owns the homeschool operation for Colin, Lily, and Ben. Builds ADHD-friendly curriculum, tracks progress, and ensures each child moves forward at their own pace with the accommodations they actually need.", traits:["Patient","Knowledgeable","Adaptive","Encouraging"], aspiration:"Every child learns the way their brain actually works", catchphrase:"The curriculum serves the child. Not the other way around." },
+  { name:"Sylvia", role:"Wellness Coach", dept:"Personal", emoji:"🌾", accent:"#b87840", accentLight:"rgba(184,120,64,0.1)", accentDark:"#885010", bio:"Coordinates Lauren's full physical wellness — GLP1, smoking cessation, fibromyalgia, PCOS, hypertension, fitness, and nutrition. She builds plans that survive real life and real limitations.", traits:["Realistic","Knowledgeable","Persistent","Supportive"], aspiration:"A body managed by design, not crisis", catchphrase:"We're not training for a competition. We're training for your life." },
+  { name:"Prudence", role:"Personal Finance Manager", dept:"Personal", emoji:"💷", accent:"#5a9888", accentLight:"rgba(90,152,136,0.1)", accentDark:"#2a6858", bio:"Manages Lauren's personal financial life — budget, benefits, trust structure, and asset protection. She knows SNAP and Medicaid eligibility with precision and guards it accordingly.", traits:["Precise","Protective","Discreet","Steady"], aspiration:"Every benefit protected, every dollar intentional", catchphrase:"Low income isn't a problem to solve. It's a strategy to protect." },
+  { name:"Vera", role:"Legal Advisor", dept:"Personal", emoji:"⚖️", accent:"#6090c0", accentLight:"rgba(96,144,192,0.1)", accentDark:"#305880", bio:"Watches legal exposure across all entities and Lauren's personal life. Compliance deadlines, contracts, trust structure, LLC obligations, nonprofit requirements — nothing with legal consequence goes untracked.", traits:["Thorough","Vigilant","Precise","Calm"], aspiration:"No legal surprise catches us unprepared", catchphrase:"The best legal problem is the one we saw coming and handled before it arrived." },
+  { name:"Sage", role:"Counselor", dept:"Personal", emoji:"🕯️", accent:"#9080a8", accentLight:"rgba(144,128,168,0.1)", accentDark:"#605070", bio:"Holds the mental and emotional wellness space. Tracks Lauren's stress load, burnout risk, and overall capacity. She flags when the system is asking too much — without judgment, without toxic positivity.", traits:["Perceptive","Grounded","Honest","Compassionate"], aspiration:"A life that is full without being crushing", catchphrase:"The system should serve you. When it doesn't, we fix the system." },
+  { name:"Victoria", role:"Chief of Staff", dept:"Work", emoji:"📋", accent:"#8888b8", accentLight:"rgba(136,136,184,0.1)", accentDark:"#505080", bio:"Runs the work side the way Martha runs the home. She coordinates the work team without authority over them, routes Annabel's instructions, and ensures business operations move without friction.", traits:["Strategic","Composed","Decisive","Efficient"], aspiration:"Every entity moving with purpose, none spinning in place", catchphrase:"Clarity of direction is the most valuable resource we have." },
+  { name:"Dot", role:"CPA", dept:"Work", emoji:"📒", accent:"#5aaa90", accentLight:"rgba(90,170,144,0.1)", accentDark:"#2a7a60", bio:"Dots every i. Tracks every business dollar across every entity — accounting, bookkeeping, budgeting, investments, and trusts. Meticulous, loyal, and protective of the bottom line.", traits:["Precise","Trustworthy","Detail-Oriented","Discreet"], aspiration:"Every dollar accounted for across every entity", catchphrase:"The numbers don't lie. My job is making sure you're listening to them." },
+  { name:"Roxanne", role:"Sales Manager", dept:"Work", emoji:"💰", accent:"#c8a040", accentLight:"rgba(200,160,64,0.1)", accentDark:"#906010", bio:"Relentless and organized. Tracks every revenue thread across Gaming Lounge, Portal to Wellness, and Verdant Ventures. Stale opportunities don't survive long around Roxanne.", traits:["Ambitious","Persistent","Results-Driven","Charming"], aspiration:"Every revenue engine running at full capacity", catchphrase:"Stale pipeline is just money left on the table. We don't leave things on the table." },
+  { name:"Sterling", role:"Consultant", dept:"Work", emoji:"📜", accent:"#a07890", accentLight:"rgba(160,120,144,0.1)", accentDark:"#705060", bio:"Sees the whole board across all entities. Asks the questions nobody wants to answer. Will tell Lauren when something needs to be paused so something else can live. She doesn't flatter — she advises.", traits:["Strategic","Candid","Analytical","Unafraid"], aspiration:"Every decision made with full clarity", catchphrase:"Focus is just deciding what you're willing to let wait." },
+  { name:"Vivienne", role:"Marketing Director", dept:"Work", emoji:"📣", accent:"#b06080", accentLight:"rgba(176,96,128,0.1)", accentDark:"#804050", bio:"Owns brand, strategy, and campaign direction across all entities. She sets the voice and the plan. Cleo executes it. Vivienne knows that KYNORML content starts on the blog — always.", traits:["Creative","Strategic","Brand-Conscious","Decisive"], aspiration:"Every entity with a voice that is unmistakably its own", catchphrase:"Strategy without execution is a mood board. Let's build the real thing." },
+  { name:"Greta", role:"Grant Writer", dept:"Work", emoji:"🔍", accent:"#709858", accentLight:"rgba(112,152,88,0.1)", accentDark:"#406828", bio:"Finds the money that's already out there waiting to be claimed. She researches, tracks deadlines, and writes grant applications for Common Good Network and Kentucky Cannabis Foundation.", traits:["Thorough","Persuasive","Detail-Oriented","Persistent"], aspiration:"Every eligible dollar applied for and won", catchphrase:"The money exists. My job is making sure it knows our name." },
+  { name:"Fiona", role:"Community Organizer", dept:"Work", emoji:"🤝", accent:"#7098b8", accentLight:"rgba(112,152,184,0.1)", accentDark:"#406888", bio:"Builds and sustains the community around KYNORML and Common Good Network. Manages the KYNORML team, runs the Resource Fair series, and keeps volunteers organized and engaged.", traits:["Personable","Organized","Mission-Driven","Energetic"], aspiration:"A community that shows up because it trusts the work", catchphrase:"Events don't build community. Follow-through does." },
+  { name:"Cleo", role:"Content Creator", dept:"Work", emoji:"✍️", accent:"#d4885a", accentLight:"rgba(212,136,90,0.1)", accentDark:"#a05828", bio:"Produces and schedules content across all entities. She executes what Vivienne directs, knows the blog-first rule for KYNORML, and builds repeatable content systems that don't require reinventing the wheel every week.", traits:["Creative","Systematic","Versatile","Productive"], aspiration:"Content that works harder than the hours it takes to make it", catchphrase:"One blog post. Five platforms. That's the system." },
+  { name:"Constance", role:"Head of Correspondence", dept:"Work", emoji:"💌", accent:"#a09070", accentLight:"rgba(160,144,112,0.1)", accentDark:"#706040", bio:"Manages all professional relationships and outreach. She remembers everyone, tracks last interactions, and knows when a relationship has quietly gone cold. The network stays alive because Constance tends it.", traits:["Personable","Loyal","Attentive","Sharp"], aspiration:"A professional network that is genuinely alive", catchphrase:"Relationships don't maintain themselves. That's what I'm here for." },
+  { name:"Ada", role:"Systems Manager", dept:"Work", emoji:"⚙️", accent:"#608898", accentLight:"rgba(96,136,152,0.1)", accentDark:"#305868", bio:"Owns the tech stack. Monday.com, Slack, Obsidian, Claude Code, Google Workspace, Todoist, Alexa — and every automation between them. She keeps the tools serving their purpose instead of creating more work.", traits:["Technical","Systematic","Resourceful","Calm"], aspiration:"Systems that disappear into the background and just work", catchphrase:"If you're doing it manually more than twice, it should be automated." }
+];
+
+function filterCards(dept, btn) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.card').forEach(card => {
+    card.classList.toggle('hidden', dept !== 'all' && card.dataset.dept !== dept);
+  });
+}
+
+function render() {
+  document.getElementById('grid').innerHTML = npcs.map(npc => `
+    <div class="card ${npc.featured?'featured':''}" data-dept="${npc.dept}" style="--accent:${npc.accent};--accent-light:${npc.accentLight};--accent-dark:${npc.accentDark}">
+      <div class="card-top">
+        <div class="avatar">${npc.emoji}</div>
+        <div>
+          <div class="npc-name">${npc.name}</div>
+          <div class="npc-role">${npc.role}</div>
+          <div class="dept-badge">${npc.dept}</div>
+        </div>
+      </div>
+      <div class="bio">${npc.bio}</div>
+      <div class="traits">${npc.traits.map(t=>`<span class="trait">${t}</span>`).join('')}</div>
+      <div class="aspiration-row">
+        <span class="asp-label">Aspiration</span>
+        <span class="asp-value">${npc.aspiration}</span>
+      </div>
+      <div class="catchphrase">&ldquo;${npc.catchphrase}&rdquo;</div>
+    </div>
+  `).join('');
+}
+render();
+</script>
+</body>
+</html>
