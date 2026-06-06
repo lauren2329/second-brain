@@ -53,6 +53,7 @@ VMP handles setup. Chapters operate.
 | [[Crisis Communications Box]] | Bad news response, holding statements, media protocol |
 | [[Chapter Health Dashboard]] | KPIs, monthly tracking, annual review |
 | [[New Chapter Startup Guide]] | First 30 and 90 days, common mistakes |
+| [[501c3 Setup Guide]] | 501(c)(3) arm setup — Candid, TechSoup, Google Ad Grants, platform registrations |
 | [[KYNORML Revenue and Marketing System]] | Revenue streams, marketing machine, matching layer |
 | [[KYCannaCon Conference Playbook]] | Annual conference production — full cycle |
 | [[National NORML Resources Integration]] | National content, tech stack, action alerts, Smoke the Vote |
