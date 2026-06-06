@@ -18,7 +18,15 @@ Where [[Verdant Ventures LLC]] handles internal operations and management suppor
 
 ---
 
-## Core Services
+## Structure
+
+VMP is the client-facing professional services entity. It contracts with external clients (National NORML, state chapters, other organizations) and engages [[Verdant Ventures LLC]] as a third-party vendor to deliver services.
+
+**Lauren's income flows through VV** — VV bills VMP for the work it performs. VMP collects client revenue and pays VV as a vendor.
+
+This keeps Lauren's personal entity clean and separate from VMP's client relationships and any future partners or investors VMP may involve.
+
+---
 
 ### 1. Conference Production
 Full-cycle event management for cannabis, advocacy, and nonprofit conferences.

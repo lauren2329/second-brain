@@ -13,8 +13,8 @@ tags: [moc, entities]
 - [[KYNORML INC 501c4]]
 
 ### LLC
-- [[Verdant Ventures LLC]] — internal operations and management support
-- [[Verdant Management Partners]] — external professional services, conference production, chapter consulting
+- [[Verdant Ventures LLC]] — Lauren's sole-ownership LLC; third-party vendor to VMP and other entities
+- [[Verdant Management Partners]] — external professional services, conference production, chapter consulting; VV is its primary vendor
 
 ### Legislative
 - [[26 RS HB 904]]
