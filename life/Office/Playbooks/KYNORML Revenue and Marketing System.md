@@ -218,6 +218,12 @@ Once this system is running for KYNORML, it is packaged as a consulting delivera
 
 ---
 
+## National Resources
+
+- [[National NORML Resources Integration]] — content repurposing, donation distinction, action alerts, Smoke the Vote, press release exchange, weekly rhythm
+
+---
+
 ## Conference
 
 - [[KYCannaCon Conference Playbook]] — full production cycle, revenue model, 90-day timeline, sponsorship system, vendor system, speaker system, day-of run sheet, chapter box
