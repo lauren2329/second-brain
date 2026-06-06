@@ -250,7 +250,120 @@ People are paying for content and professional access, not just to be in a room.
 
 ---
 
-## Pre-Production — 9 Months Out (June–November)
+## Venue
+
+### Right-Size First
+
+The #1 venue mistake is booking too much space. An overfilled room feels like a sellout. An underfilled room feels like a failure — even if the attendance is identical. Year 3's venue was too big. Year 4 should feel full.
+
+**Conservative Year 4 target:** 150–200 paid attendees.
+
+Size the venue for 175. If you sell out and have to cap tickets, that is a good problem. If you book for 400 and 175 show up, it looks empty regardless of the content.
+
+---
+
+### What the Conference Needs
+
+| Space | Setup | Capacity Target |
+|---|---|---|
+| Main plenary room | Theater or classroom | 175–225 seats — no bigger |
+| Breakout room 1 | Classroom or rounds | 40–60 |
+| Breakout room 2 (optional) | Classroom or rounds | 40–60 |
+| Registration / lobby area | Standing, exhibitor tables | Enough for 10–15 exhibitor spots + check-in flow |
+| Networking reception area | Standing reception | 150–200 — can be the main room flipped after sessions |
+
+A hotel conference center with a mid-size ballroom and 2–3 breakout rooms covers all of this in one footprint. That is the cleanest setup.
+
+---
+
+### Venue Type Options
+
+**Hotel conference center (recommended)**
+- All-in-one: rooms, lobby, catering, A/V, parking
+- Familiar and accessible for out-of-town speakers and sponsors
+- Can negotiate a room block for speakers and VIP guests
+- Catering is captive but negotiable — get itemized pricing before signing
+
+**University or civic conference facilities**
+- Often significantly cheaper
+- Professional-looking, accessible
+- May require more A/V coordination
+- Less convenient for out-of-town attendees (no attached hotel)
+
+**Independent event venue (converted warehouse, arts space, etc.)**
+- Can work if the space has the right room configuration
+- Usually requires bringing in all A/V, catering, and staffing
+- More logistically complex but can create a memorable atmosphere
+
+**Avoid:**
+- Convention center sections — they're designed for expos, not conferences, and the per-square-foot cost is high
+- Anything with a fixed banquet layout that can't be reconfigured
+- Venues that won't provide a room breakdown with separate spaces — one big room with dividers is not the same as separate rooms
+
+---
+
+### What to Negotiate
+
+Conference venues expect to negotiate. Start here:
+
+**Room rental:**
+- Ask for a reduced or waived room rental fee in exchange for committing to a food and beverage minimum
+- F&B minimums are how venues actually make money — room rental is a negotiating chip
+- Get the F&B minimum in writing and understand what counts toward it (lunch, reception, breaks)
+
+**A/V:**
+- In-house A/V is usually overpriced — ask if outside A/V vendors are permitted
+- At minimum, get an itemized A/V quote before signing so there are no surprises
+- Microphones, projector/screen, and a confidence monitor for speakers are the minimum
+
+**Room setup:**
+- Confirm the venue sets and strikes the room — you should not be moving chairs
+- Confirm setup is complete before load-in time
+
+**Contract terms:**
+- Cancellation policy — what is the penalty at 90 days, 60 days, 30 days?
+- Attrition clause — if you commit to an F&B minimum and fall short, what's the penalty? Negotiate this down.
+- Payment schedule — deposit upfront, remainder 30 days before event or at completion
+
+**Rate:**
+- Non-nonprofit rate still applies (KYNORML is a 501(c)(4) — some venues extend nonprofit pricing, some don't)
+- Ask about off-peak discounts — Saturday is often lower than Friday
+
+---
+
+### Questions to Ask Every Venue
+
+Before committing to a site visit:
+1. What is the maximum theater-style capacity of the main room?
+2. How many breakout rooms do you have, and what are their capacities?
+3. Is there a lobby or pre-function space usable for registration and exhibitor tables?
+4. Do you have in-house A/V, and is outside A/V permitted?
+5. What is the room rental fee, and what F&B minimum would waive or reduce it?
+6. What are your cancellation and attrition terms?
+7. Is the venue available the first and second weekends of March 2027?
+
+---
+
+### Venue Sourcing — Where to Start
+
+- LinkedIn: search "[city] event venues" or contact hotel sales managers directly
+- CVB (Convention and Visitors Bureau) for Louisville or Lexington — they have venue lists and sometimes facilitate introductions at no cost
+- Past venues from other cannabis or nonprofit events in the state (ask in NORML and hemp community contacts)
+- Hotel sales teams will come to you — if you reach out to a Marriott or Hilton regional sales contact with a date and headcount, they will send a proposal within 48 hours
+
+**Target cities:** Louisville or Lexington. Louisville has more options and easier access from out of state. Lexington is closer to Frankfort (symbolic weight during the legislative session).
+
+---
+
+### Venue Decision Timeline
+
+- **July:** Site visits and proposals in hand
+- **August:** Venue selected and contract signed
+- **August:** Deposit paid — date locked
+
+Do not announce publicly until the venue contract is signed. Date without venue is not a locked date.
+
+---
 
 **June–July:**
 - [ ] Lock the specific date
