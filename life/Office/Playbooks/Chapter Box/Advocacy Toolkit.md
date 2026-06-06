@@ -32,6 +32,186 @@ This is the most important compliance issue for NORML chapters.
 
 ---
 
+## The Core Principle: Public Record Only
+
+Words that aren't recorded mean nothing.
+
+Closed-door meetings, phone conversations, informal chats in the hallway — none of it counts. If it isn't in writing, it didn't happen. If it isn't public, it can't be held to account.
+
+Every meaningful communication with a legislator should be:
+- **Written** — email, formal letter, or documented correspondence
+- **On the record** — submitted as official testimony, press-released, or publicly posted
+- **Traceable** — the chapter has a copy, the legislator has a copy, and the public has access
+
+This is not paranoia. It is strategic. A legislator who tells you privately they support cannabis reform but votes against it in committee cannot claim ignorance of the evidence if you have sent them 52 weekly emails with fact sheets. The paper trail is your leverage. The public record is your protection.
+
+---
+
+## Remote Advocacy — You Do Not Need to Be at the Capitol
+
+Physical presence at the capitol is optional, not required. Chapters with limited capacity, health constraints, or geographic barriers can run a full legislative campaign from a laptop.
+
+What matters is consistency, documentation, and public visibility — not showing up in person.
+
+---
+
+## The Weekly Legislator Email
+
+**The most underused tool in state advocacy.**
+
+Every week during the legislative session, every targeted legislator receives an email from the chapter with cannabis-relevant stats, research, or fact sheets — specifically tied to the committees they sit on.
+
+### Why It Works
+
+- It builds a documented record that the legislator received the information
+- It eliminates the "I didn't have the data" and "I need to see more research" excuses — they are on the record receiving it
+- It keeps the chapter top of mind throughout the session without requiring a single in-person meeting
+- When a legislator later claims ignorance, the chapter has 12 or 16 weeks of email receipts
+
+### How to Do It
+
+**Step 1 — Map legislators to committees**
+Use BillTrack50 or your state legislature's website to identify which legislators sit on which committees. Relevant committees for cannabis: judiciary, health and human services, agriculture, finance/appropriations.
+
+**Step 2 — Match fact sheets to committee focus**
+
+| Committee | Relevant Fact Sheets |
+|---|---|
+| Judiciary | Cannabis arrests and racial disparity data, expungement stats, cost of enforcement |
+| Health and Human Services | Medical efficacy research, opioid substitution data, patient access stats |
+| Agriculture | Hemp industry data, farm revenue potential, state comparisons |
+| Finance / Appropriations | Tax revenue data from legal states, cost savings from reform, economic impact |
+
+**Step 3 — Build your fact sheet library**
+National NORML provides research, fact sheets, and data at norml.org — free to use. Download the relevant ones. Keep them organized by topic in Google Drive.
+
+**Step 4 — Send every week**
+
+Format:
+> Subject: [Committee Name] Cannabis Data — Week [X] of [Session Year]
+>
+> [Legislator name],
+>
+> [Chapter Name] continues to provide [state] legislators with current cannabis research as you consider policy this session.
+>
+> This week, relevant to the [Committee Name] committee:
+>
+> **[Fact or stat 1]** — [one sentence of context, source cited]
+> **[Fact or stat 2]** — [one sentence of context, source cited]
+> **[Fact or stat 3]** — [one sentence of context, source cited]
+>
+> Full research available at norml.org. We are available to answer questions or provide additional data at any time.
+>
+> [Name, title, chapter, email, phone]
+
+Keep it short. No ask. No pressure. Just data, week after week.
+
+**Step 5 — Log every send**
+Date sent, legislator name, committee, topic. In Google Sheets. This is your evidence file.
+
+---
+
+## The Session Kickoff Fact Sheet Book
+
+At the start of every legislative session — before any cannabis bill is introduced — the chapter mails a physical book of fact sheets to every targeted legislator.
+
+### Why Physical Mail
+
+- It cannot be filtered by a spam folder
+- It sits on a desk — visible, tangible, harder to ignore than an email
+- It signals seriousness and preparation
+- It establishes the chapter's presence before the legislative battle begins
+
+### What Goes In the Book
+
+| Section | Content |
+|---|---|
+| Cover letter | One page — who the chapter is, what the book contains, and a direct request: "Please review this research before any cannabis bill reaches your committee." |
+| State data | Cannabis-specific stats for your state — arrests, patients, economic data |
+| Medical research | National NORML medical fact sheets — efficacy, safety, patient outcomes |
+| Economic data | Tax revenue and economic impact from legal states |
+| Public opinion | Polling data showing constituent support for reform in your state |
+| Racial equity | Arrest disparity data — particularly powerful for judiciary committees |
+| National NORML research | Curated from norml.org — cite sources throughout |
+| Contact page | Chapter name, website, email, phone, social handles |
+
+**Production:** Print and bind at a local print shop or FedEx Office. Professional presentation matters — a binder with a cover page is the minimum. A spiral-bound booklet with a printed cover is better.
+
+**Addressing:** Address to the legislator directly, not the office. Mail to their capitol address and their district office.
+
+### The Press Release
+
+The same week the books are mailed, the chapter issues a press release.
+
+**Subject:** [Chapter Name] Delivers Cannabis Research to [X] [State] Legislators Ahead of [Year] Session
+
+**Body:**
+> [Chapter Name] has mailed a comprehensive cannabis research package to [X] members of the [State] legislature ahead of the [Year] legislative session.
+>
+> The package, which includes medical research, economic data, public safety statistics, and constituent polling, was sent to legislators serving on the [list committees] committees — those most likely to consider cannabis legislation this session.
+>
+> "There is no shortage of evidence that cannabis reform benefits patients, communities, and state economies," said [Director Name], [Title] of [Chapter Name]. "We want every legislator to have that evidence in hand before any vote is taken. We will not accept 'I didn't have the information' as a reason to vote against patients."
+>
+> The research package is available publicly at [chapter website].
+>
+> [Chapter Name] will continue sending weekly research updates to [state] legislators throughout the [Year] session.
+>
+> **About [Chapter Name]:** [One sentence mission and founding year.] A NORML chapter.
+>
+> **###**
+
+Distribute the press release to every cannabis and political reporter in the state. Post it on the chapter website and social media. Send it to the 8k email list (or chapter list equivalent).
+
+**The dual purpose:** The press release puts legislators on notice that the public knows they received the information. Voting against reform after receiving documented evidence is now a much harder position to hold publicly.
+
+---
+
+## Monitoring — Watch Everything Remotely
+
+Chapters do not need to physically attend hearings or session days. Everything can be monitored online.
+
+### How to Watch Hearings and Votes
+
+**State legislature website:**
+Most state legislatures stream committee hearings and floor sessions live. Find the streaming page for your state and bookmark it.
+
+Set a reminder in Google Calendar for any hearing involving a committee that touches cannabis.
+
+**BillTrack50:**
+Sends alerts when a bill moves — introduced, assigned to committee, hearing scheduled, vote taken, passed, failed. This is your early warning system.
+
+**Google Alerts:**
+Set these alerts (already in [[Track 4 - PR Response System]] — mirror them here):
+- `[State] cannabis legislature`
+- `[State] cannabis bill`
+- `[State] cannabis hearing`
+- `[State] marijuana`
+- `[State] hemp`
+- `[Bill number]` — once a specific bill is introduced
+
+**YouTube and Facebook Live:**
+Many legislators and legislative bodies stream hearings on social media. Follow your targeted legislators on Facebook — you'll often get a notification when they go live at a committee hearing.
+
+### When a Hearing Is Scheduled
+
+1. BillTrack50 or Google Alert fires
+2. Find the streaming link on your state legislature's website
+3. Watch or record (screen record if you can — create a local record)
+4. Note: who testified, what was said, how members responded
+5. Post a social update during or immediately after: "The [committee] just heard testimony on [bill]. Here's what happened."
+6. Send a follow-up email to targeted legislators within 24 hours
+
+### When a Vote Is Taken
+
+1. Document the vote immediately — who voted yes, who voted no
+2. Post publicly within the hour: "Today, [legislators who voted against] voted against cannabis patients in [state]."
+3. Send to email list if it's significant
+4. Update the legislator tracker
+
+**Public accountability is the chapter's most powerful tool.** Votes are public record. Use them.
+
+---
+
 ## Building Legislative Relationships
 
 The biggest mistake chapters make: only contacting legislators when a bill is moving. By then it's too late.
