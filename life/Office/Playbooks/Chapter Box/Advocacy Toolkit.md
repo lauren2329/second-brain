@@ -6,6 +6,33 @@ status: active
 tags: [chapter-box, advocacy, legislative, norml]
 ---
 
+## What NORML Is
+
+**NORML is a consumer protection and advocacy organization.**
+
+That is the lane. Stay in it.
+
+Cannabis consumers — patients, recreational users, people affected by cannabis laws — have rights. The right to safe, legal access. The right to accurate information. The right to be free from unjust prosecution and criminalization. NORML exists to protect and expand those rights through public education and policy advocacy.
+
+**What chapters do:**
+- Advocate for cannabis consumers' rights at the state and federal level
+- Educate the public on cannabis policy, patient rights, and reform
+- Organize constituents to engage the legislative process
+- Hold legislators accountable through public record
+
+**What chapters do not do:**
+- Provide legal defense or represent individuals in legal matters
+- Offer medical advice or clinical guidance
+- Operate, endorse, or consult for cannabis businesses
+- Act as a regulatory body or certifying organization
+- Engage in activity that is primarily commercial rather than advocacy-driven
+
+Every program, campaign, event, and communication should be answerable to one question: **does this protect or advance the rights of cannabis consumers in our state?** If not, it is outside the lane.
+
+This is not a limitation — it is a focus. Chapters that stay in their lane build credibility, legal clarity, and trust with the public and with legislators. Chapters that drift lose all three.
+
+---
+
 ## Overview
 
 Advocacy is NORML's core mission. This toolkit gives every chapter a process for building legislative relationships, responding to bills, writing testimony, and engaging coalitions — before there's a crisis, not after.

@@ -6,6 +6,20 @@ status: active
 tags: [chapter-box, vmp, norml, index]
 ---
 
+## What NORML Is — Read This First
+
+**NORML is a consumer protection and advocacy organization.**
+
+Cannabis consumers have rights. The right to safe, legal access. The right to accurate information. The right to be free from unjust prosecution. NORML exists to protect and advance those rights through education and policy advocacy.
+
+Every chapter program, campaign, event, and communication must answer one question: **does this protect or advance the rights of cannabis consumers in our state?**
+
+If not, it is outside the lane. Stay in the lane.
+
+See [[Advocacy Toolkit]] for the full mission framework.
+
+---
+
 ## Overview
 
 The NORML Chapter Box is the complete done-for-you operating system for state NORML chapters, delivered by [[Verdant Management Partners]].
