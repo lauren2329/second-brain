@@ -102,22 +102,62 @@ Send as soon as Year 4 has a date.
 
 ---
 
-## Campaign 4 — Featured Directory Listing Offer
+## Campaign 4 — Directory Featured Listing Offer
 
-Target: businesses already in the directory.
+> **NOTE:** Send to every business currently in the KYNORML directory. Personalize [business name]. Do not mass blast — send individually or in small batches of 10–15 at a time.
 
-**Segment:** Directory business contacts only (not full list)
-
-**Subject:** `Your KYNORML directory listing — upgrade available`
+**Subject line options (A/B test these):**
+- `[Business name] — upgrade your KYNORML listing`
+- `Get found by more Kentucky cannabis customers`
+- `Your KYNORML directory listing — one upgrade available`
 
 **Body:**
-> You're already listed in the KYNORML directory — thank you for being part of the Kentucky cannabis community.
+
+> Hi [first name or business name],
 >
-> We're now offering featured listings: top placement, your logo, direct link, and highlighted profile — seen by [X] monthly visitors who are actively looking for cannabis businesses and resources.
+> You're already in the KYNORML directory — which means customers are already finding you there. A featured listing puts you at the top, adds your logo, your direct link, and a social mention to our 8,000-subscriber list.
 >
-> Featured listing: $[75]/month or $[750]/year.
+> More visibility. More customers finding you first.
 >
-> **[Upgrade My Listing — link]**
+> Featured listing: **$75/month or $750/year** (two months free on annual). Reply to this email or click below to upgrade.
+>
+> **[Upgrade My Listing — Zeffy link]**
+>
+> Thanks for being part of the Kentucky cannabis community.
+> Lauren Bratcher
+> Executive Director, KYNORML
+
+---
+
+## Campaign 5 — Membership Drive
+
+> **NOTE:** Send after Zeffy membership tiers are live and tested. Do not send before the Zeffy page is confirmed working. See [[Zeffy Membership Setup Guide]] for pre-send checklist.
+
+**Subject line options (A/B test these):**
+- `KYNORML membership is open — here's what you get`
+- `Join KYNORML as a member — $25/month`
+- `Become a KYNORML member today`
+
+**Body:**
+
+> We just launched KYNORML membership — and we want you in.
+>
+> As a member, you get: community recognition, member-only legislative updates during the General Assembly session, early access to KYCannaCon tickets before they go public, and your name on the KYNORML website supporter list.
+>
+> This is not a donation. It's a membership — $25/month or $250/year. You're joining something.
+>
+> **[Become a Member — Zeffy link]**
+>
+> Kentucky cannabis patients need an organized community behind them. Membership makes that real.
+>
+> Lauren Bratcher
+> Executive Director, KYNORML
+
+**Follow-up (non-openers):**
+- Trigger: did not open original email
+- Delay: 5 days
+- Subject: `Membership is open — don't miss it`
+- Body: "KYNORML membership launched this week — $25/month, member-only updates, early KYCannaCon access. Join here: [link]"
 
 ---
 

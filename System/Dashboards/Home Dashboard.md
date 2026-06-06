@@ -13,6 +13,7 @@ tags: [dashboard]
 
 ## Daily
 - [[Planner/Daily Journal Notes/]] — daily notes
+- [[System/Dashboards/Weekly Action Plan]] — **what to do this week**
 - [[System/Dashboards/Work Dashboard]] — work priorities
 
 ## Entities
