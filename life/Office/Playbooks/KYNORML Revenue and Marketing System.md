@@ -218,6 +218,15 @@ Once this system is running for KYNORML, it is packaged as a consulting delivera
 
 ---
 
+## Marketing Tracks
+
+- [[Track 1 - Email Campaign System]] — donation asks, matching campaigns, KYCannaCon presales, automations
+- [[Track 2 - Social Media System]] — batch workflow, content pillars, 2-week template, national NORML repurposing
+- [[Track 3 - Google Ads Playbook]] — $10k/month activation, campaign structure, keyword lists, compliance
+- [[Track 4 - PR Response System]] — news monitoring, press release template, 20-minute response workflow
+
+---
+
 ## Related Files
 
 - [[KYNORML, INC 501c4]]
