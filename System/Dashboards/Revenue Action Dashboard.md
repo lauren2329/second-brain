@@ -21,12 +21,12 @@ The 8,000-person list skews advocates — people who believe in the cause but do
 
 | Action | What It Takes | Expected Return |
 |---|---|---|
-| **Set KYCannaCon Year 4 date** | Decision only — takes 5 minutes | Unlocks every other item below |
-| Email past KYCannaCon sponsors — "Year 4 is locked in, early hold available" | Pull past sponsor list, send one-pager from [[KYCannaCon Conference Playbook]] | $500–$5,000 per sponsor, paid upfront to confirm |
-| Direct outreach to cannabis businesses for featured directory listings | Pull business contacts, send offer — template in [[Track 1 - Email Campaign System]] | $75–$150/month per listing, recurring from day one |
-| Email KYCannaCon vendor table spots | Same list as sponsors — vendors want tables | $150–$500 per vendor, paid upfront |
+| ~~**Set KYCannaCon Year 4 date**~~ | ~~Decision only~~ | **DONE — Early March 2027** |
+| **Email past KYCannaCon sponsors** — "Year 4 is locked in, early March — you're getting first call" | Pull past sponsor list, send one-pager from [[KYCannaCon Conference Playbook]] | $500–$5,000 per sponsor, paid upfront to confirm |
+| **Direct outreach to cannabis businesses for directory listings** | Pull business contacts, send offer — template in [[Track 1 - Email Campaign System]] | $75–$150/month per listing, recurring from day one |
+| **Email past KYCannaCon vendors** — priority table hold available now | Same list as sponsors | $150–$500 per vendor, paid upfront |
 
-**The date is the unlock.** Sponsors and vendors won't commit without it. This decision is worth more than any email you could send this week.
+**The date is set. Sponsor and vendor outreach starts now.** Past partners get first call before this opens publicly. Personal email, not a blast.
 
 **On donation emails:** Not the move for fast cash. The list is valuable but not for mass fundraising. Reserve email sends for member recruitment (where $25/month compounds) and event promotion (where there's a transaction on the other end). See updated email strategy in [[Track 1 - Email Campaign System]].
 
@@ -94,7 +94,7 @@ SSI + this stack = sustainable floor with real upside.
 | CGN website not live | Google Ads ($10k/month free) | Prioritize CGN website build — GA4 must be installed at launch |
 | Gaming Lounge needs $30k startup | $44k/month potential net | Separate fundraising track — do not mix with immediate cash strategy |
 | VMP entity structure not confirmed | Clean contracts | Confirm: is VMP a new LLC or DBA? File or register accordingly |
-| KYCannaCon Year 4 date not set | Ticket presales, sponsorships, Google Ads campaign | Make this decision this week |
+| ~~KYCannaCon Year 4 date not set~~ | ~~Ticket presales, sponsorships, Google Ads campaign~~ | **RESOLVED — Early March 2027** |
 
 ---
 

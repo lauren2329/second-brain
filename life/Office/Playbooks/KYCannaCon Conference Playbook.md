@@ -10,11 +10,30 @@ tags: [playbook, kynorml, kycannacon, conference, revenue, events]
 
 KYCannaCon is KYNORML's annual cannabis conference and primary fundraising event.
 Three years running. Kentucky's only cannabis conference.
-This playbook covers the full production cycle — from 90 days out to post-event close — and serves as the replicable model for other NORML chapters.
+This playbook covers the full production cycle — from 9 months out to post-event close — and serves as the replicable model for other NORML chapters.
 
 **Entity:** [[KYNORML, INC 501c4]]
 **Payments:** [[Zeffy]] for tickets and donations; direct invoice for sponsorships and vendors
-**Frequency:** Annual
+**Frequency:** Annual — **early March**
+
+---
+
+## Timing — Why Early March
+
+KYCannaCon is held in early March to coincide with the Kentucky General Assembly legislative session.
+
+**Why this is the right window:**
+
+- The General Assembly runs January through late March. Early March is mid-session — bills are moving, votes are being called, and cannabis policy is actively in the news cycle.
+- Legislators, lobbyists, policy advocates, and industry players are already engaged and paying attention to cannabis legislation in Kentucky.
+- Press covering the legislative session will also cover a cannabis industry conference happening the same week. Built-in news hook.
+- It positions KYCannaCon as the professional policy event — not just a consumer expo, but the annual moment where the Kentucky cannabis industry and advocacy community takes stock of where legislation stands and what comes next.
+- Legislators can be invited to attend or speak. Accepting puts them on record as engaging with the cannabis community. Declining is also a data point.
+- The conference becomes a lobbying-adjacent event without KYNORML doing any direct lobbying — the presence of the community, the industry, and the press does the work.
+
+**The pitch to sponsors:** "Every serious player in Kentucky cannabis will be in the room. The General Assembly is in session. If you want visibility with the people who matter to this industry right now — this is the event."
+
+**Target dates:** First or second weekend of March (avoid Mardi Gras weekend and UK basketball schedule conflicts).
 
 ---
 
@@ -131,8 +150,24 @@ Track per sponsor: what was promised, what has been delivered, what's outstandin
 |---|---|---|
 | Platinum sponsor speaker | Included in sponsorship | No (covered by sponsorship) |
 | Keynote | Recruited — national advocate, policy expert, or patient advocate | Sometimes honorarium |
+| Legislator / policy panel | Invited from KY General Assembly — sitting legislators, staff, or former members | No — public service |
 | Panel participants | Recruited from KY community, national NORML network | Usually no — exposure trade |
 | Workshop facilitators | Recruited or applied | Usually no |
+
+### The General Assembly Speaker Strategy
+
+Invite sitting legislators — particularly members of committees with cannabis jurisdiction — to speak or participate in a policy panel. Frame it as: "KYCannaCon is bringing together Kentucky's cannabis industry, patients, and advocates during session. We'd like to include your perspective on where Kentucky stands."
+
+**Why they should say yes:** It's constituent engagement. The cannabis community in Kentucky is large and growing. A legislator who shows up and engages is a legislator who is listening.
+
+**Why it matters if they say no:** That's public information. KYNORML tracks who was invited and who declined. It goes in the legislative relationship log in the Advocacy Toolkit.
+
+**Format options for legislators:**
+- Keynote or fireside chat (10–20 minutes)
+- Policy panel with multiple legislators or policy staff
+- Recorded video message if they can't attend in person
+
+**Don't lobby them.** The conference is the platform — it puts them in the room with their constituents. The advocacy work happens in the follow-up.
 
 ### Recruitment Process
 
@@ -170,9 +205,36 @@ Track per sponsor: what was promised, what has been delivered, what's outstandin
 
 ---
 
+## Pre-Production — 9 Months Out (June–November)
+
+The 90-day countdown is the production sprint. Pre-production is the revenue sprint — sponsorships and vendor tables close before the formal timeline even begins.
+
+**June–July (now):**
+- [ ] Lock the date — specific weekend confirmed
+- [ ] Email past sponsors: "KYCannaCon Year 4 is set — [date]. You're getting first call." Personal, not a blast.
+- [ ] Email past vendors same message — priority hold available now
+- [ ] Announce save-the-date to email list and social
+- [ ] Pitch to any Platinum-tier prospects while the General Assembly angle is fresh
+
+**August–September:**
+- [ ] Venue secured — contract signed, deposit paid
+- [ ] Sponsorship one-pager updated with confirmed date, venue, and Year 3 attendance numbers
+- [ ] Second sponsor outreach wave — new prospects from directory and cannabis business list
+- [ ] Open formal vendor applications
+
+**October–November:**
+- [ ] Google Ads campaign for KYCannaCon builds (Track 3) — runs through March
+- [ ] Speaker recruitment begins — keynote targeted
+- [ ] Sponsor pipeline reviewed — Platinum and Gold priority window closes end of November
+- [ ] Early bird ticket presale setup on Zeffy
+
+**Goal by December 1:** All Platinum and Gold sponsorships committed. Venue paid. Event fully funded before the 90-day sprint begins. Ticket revenue from December forward is net.
+
+---
+
 ## 90-Day Production Timeline
 
-### 90 Days Out
+### 90 Days Out (~ December)
 - [ ] Confirm event date and venue
 - [ ] Set ticket pricing and create Zeffy event
 - [ ] Build sponsorship one-pager (tiers, deliverables, contact)
