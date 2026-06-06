@@ -241,6 +241,52 @@ Chapters should choose based on their legal structure and use case:
 - Use **ActBlue** when the ask is explicitly political — candidate-adjacent campaigns, voter mobilization drives, Smoke the Vote
 - Do not use both for the same campaign — pick one per ask to avoid donor confusion
 
+### Free Operations Stack — Google Ecosystem
+
+**Google Workspace for Nonprofits** is the foundation. Qualifying 501(c)(3)s get the full suite completely free — including custom email domains, unlimited Drive storage, and extended Meet features. Apply at google.org/nonprofits.
+
+| Tool | Use |
+|---|---|
+| **Gmail** | Chapter email with custom domain (e.g., director@[statechapter].org) |
+| **Google Drive** | All chapter files — shared with board, team, and volunteers. No emailing attachments. |
+| **Google Docs** | Press releases, meeting notes, playbooks, templates |
+| **Google Sheets** | Sponsor tracker, vendor list, budget, volunteer roster, bill tracking |
+| **Google Slides** | Sponsorship decks, board presentations, conference materials |
+| **Google Forms** | Vendor applications, volunteer signups, member surveys, speaker submissions |
+| **Google Meet** | Board meetings, team check-ins, volunteer briefings, sponsor calls |
+| **Google Chat** | Day-to-day team communication — replaces group texts |
+| **Google Calendar** | Shared chapter calendar — events, deadlines, meeting schedule |
+| **Google Sites** | Simple chapter website if no other site exists — free, no code required |
+| **YouTube** | Record and host conference sessions, advocacy videos, educational content |
+| **Google Analytics 4** | Track website traffic — required for Google Ad Grants activation |
+
+**Note on Workspace for Nonprofits:** This requires 501(c)(3) status. KYNORML (501(c)(4)) does not qualify directly. Chapters with a 501(c)(3) education arm (like CGN) can apply through that entity and share access with chapter operations.
+
+---
+
+### Additional Free Tools
+
+| Tool | Use | Why |
+|---|---|---|
+| **Canva** (free tier) | Graphics, social posts, sponsorship decks, event flyers | National NORML graphics are a starting point — Canva for KY-specific customization |
+| **Buffer** (free tier) | Schedule social posts across 3 channels | 10 posts per channel queued at a time — enough for the 2-week batch |
+| **Meta Business Suite** | Facebook + Instagram scheduling and analytics | Free, direct integration, no post limit |
+| **Calendly** (free tier) | Schedule sponsor calls, speaker confirmations, board meetings | Eliminates back-and-forth scheduling |
+| **Zoom** (free tier) | Video meetings up to 40 min | Backup to Google Meet |
+| **Signal** | Secure team messaging | For sensitive advocacy communications |
+
+---
+
+### What Costs Money (Worth It)
+
+| Tool | Cost | Why |
+|---|---|---|
+| **Monday.com** | ~$10–15/user/month | Follow-up tracking, project management, conference production board — non-negotiable for execution |
+| **BillTrack50** | Paid tiers | Legislative monitoring beyond free tier |
+| **Action Network** | Free for basic; paid for large lists | Advocacy email at scale |
+
+---
+
 ### Tech Stack Summary
 
 | Function | Tool |
