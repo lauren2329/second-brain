@@ -11,7 +11,7 @@ tags: [marketing, email, kynorml, revenue]
 8,000 subscribers. 0% fees via Zeffy. Direct line to your warmest audience.
 Email is the fastest cash channel KYNORML has. Every campaign type below maps to a specific revenue stream.
 
-Platform: **[ADD EMAIL PLATFORM — Mailchimp, ConvertKit, Klaviyo, etc.]**
+Platforms: **Zeffy** (donations, ticket sales, membership) + **Action Network** (advocacy emails, list management)
 
 ---
 

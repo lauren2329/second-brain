@@ -12,8 +12,9 @@ $10,000/month in free Google Search Ads under [[Common Good Network 501c3]].
 Currently idle. Activating this creates a continuous inbound engine — new donors, KYCannaCon ticket buyers, directory traffic, and email list growth — all from people already searching for what KYNORML offers.
 
 **Account:** Under Common Good Network (must use CGN's domain for landing pages)
-**Status:** Idle — needs campaigns built
+**Status:** Idle — blocked until CGN website is live
 **Grant type:** Google Ad Grants (search ads only, no display)
+**Dependency:** CGN website is currently being built — GA4 installation and landing pages required before activation
 
 ---
 
@@ -46,7 +47,7 @@ Google will suspend the grant without active conversion tracking.
 4. Set "Donate" click and "Register" click as primary conversions
 5. Set email signup as secondary conversion
 
-**Blocker:** Does CGN's website have GA4? **[CONFIRM BEFORE PROCEEDING]**
+**Blocker:** CGN website is still being built. Google Ads cannot go live until the site is up and GA4 is installed. This is the gating dependency for all of Track 3.
 
 ---
 
