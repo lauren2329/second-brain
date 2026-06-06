@@ -32,6 +32,32 @@ This is the most important compliance issue for NORML chapters.
 
 ---
 
+## Do Not Spend Money on Lobbyists
+
+State chapters do not need lobbyists. Do not budget for one. Do not hire one.
+
+**Why:**
+
+National NORML funds and employs a federal lobbyist. That is covered. Federal lobbying is not a state chapter's job.
+
+State chapter power does not come from a paid professional walking the halls. It comes from:
+- A documented record of evidence delivered directly to legislators
+- A public constituency that legislators know is watching and voting
+- A press presence that keeps cannabis reform in the public eye
+- An organized base that shows up in elections
+
+A lobbyist works behind closed doors. That is not where NORML chapters operate. Everything the chapter does is on the record, in public, and traceable. A lobbyist's value is access and private relationships — the chapter's strategy makes private relationships irrelevant by making everything public.
+
+The money spent on a lobbyist is better spent on:
+- Director travel to build direct relationships with legislators and vendors
+- Conference production that puts legislators in the same room as patients
+- Google Ad Grants activation that puts the chapter's message in front of every constituent searching for cannabis information in the state
+- The fact sheet book that lands on every targeted legislator's desk before session opens
+
+State chapters win through constituents and public record. Not paid access.
+
+---
+
 ## The Core Principle: Public Record Only
 
 Words that aren't recorded mean nothing.
