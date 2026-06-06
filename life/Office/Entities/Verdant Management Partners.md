@@ -127,8 +127,9 @@ For chapters that want VMP to stay on after onboarding — managing systems, upd
 
 | Phase | Focus | Status |
 |---|---|---|
-| **Phase 1** | NORML chapter operations — the Chapter Box, direct outreach, first client onboardings | Active |
-| **Phase 2** | Expand to other nonprofits — same operational framework, different vertical | Next |
+| **Phase 1a** | Get KYNORML running properly — all revenue streams activated, marketing machine live, KYCannaCon Year 4 in motion | Active now |
+| **Phase 1b** | Use KYNORML as the proof of concept — begin chapter director outreach, onboard 2–3 other chapters | After 1a is running |
+| **Phase 2** | Expand to other nonprofits — same operational framework, different vertical | After Phase 1 is proven |
 | **Phase 3** | Charitable gaming — help chapters and nonprofits establish gaming operations in states where available | Future |
 
 **Phase 3 notes:**
