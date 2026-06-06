@@ -26,15 +26,24 @@ This keeps Lauren's personal entity clean and separate from VMP's client relatio
 
 ---
 
-## The Core Offer
+## The Offer — Three Tiers
 
-**VMP handles the hard parts. Chapters just operate.**
+### Tier 1 — The Guide (Free)
+The complete NORML Chapter Box — every playbook, template, and system — available to any chapter at no cost.
 
-Most state chapters fail not because they lack passion — but because they get stuck in setup, technology, and systems that nobody on a volunteer board knows how to build. VMP removes that friction entirely.
+Chapters that can execute on their own are welcome to. Most won't. The guide is the top of the funnel — it builds trust, demonstrates expertise, and creates the conditions where chapters come back and ask VMP to do it for them.
 
-When VMP onboards a chapter, the chapter gets a fully built operation handed to them. They don't apply for Google Workspace — VMP applies for them. They don't configure their Action Network account — VMP configures it. They don't build their Monday.com board — VMP builds it. They don't activate Google Ad Grants — VMP activates it. They show up and run their chapter.
+### Tier 2 — Done For You, Revenue Share (No Upfront Cost)
+VMP executes everything in the guide on the chapter's behalf. No charge upfront. VMP takes a percentage of the revenue it generates.
 
-**A guide tells you what to do. VMP does it.**
+For chapters with no budget. The chapter has nothing to lose and a fully operational system to gain.
+
+### Tier 3 — Done For You, Direct Fee (For Chapters With Budget)
+VMP is hired at a flat project fee or monthly retainer. Cleaner structure for chapters or organizations that have operating funds and prefer a direct billing relationship over revenue share.
+
+---
+
+**The guide is marketing. Execution is the product.**
 
 ### What VMP Handles
 
@@ -107,7 +116,10 @@ For chapters that want VMP to stay on after onboarding — managing systems, upd
 
 ## Revenue Model
 
-### State Chapters — Revenue Share
+### Tier 1 — Free Guide
+No revenue. The guide distributes at no cost. It is the marketing, not the product.
+
+### Tier 2 — State Chapters — Revenue Share
 
 Most state chapters have no operating budget. VMP does not charge them upfront. VMP comes in, builds everything, activates all revenue streams, and takes its fees out of the revenue it generates.
 
@@ -134,6 +146,19 @@ VMP's incentive is to maximize chapter revenue. The more the chapter makes, the 
 
 **Why this works for chapters:**
 Zero financial risk. Chapters receive a fully built, professionally managed operation and pay for it only from the revenue it generates. A chapter that generates $0 pays $0.
+
+---
+
+### Tier 3 — Direct Fee (Chapters or Orgs With Budget)
+
+For chapters or organizations that have operating funds and prefer a direct billing relationship.
+
+| Service | Pricing |
+|---|---|
+| Full chapter onboarding | $[2,500–5,000] flat — 50% upfront, 50% at completion |
+| Monthly management retainer | $[500–1,500]/month |
+| Conference production | Flat fee + 10–15% of net event revenue |
+| Chapter Box consultation only | $[500–1,000] one-time |
 
 ---
 

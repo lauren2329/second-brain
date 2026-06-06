@@ -6,6 +6,20 @@ status: active
 tags: [chapter-box, vmp, norml, index]
 ---
 
+## How This Works — Three Tiers
+
+| Tier | What You Get | Cost |
+|---|---|---|
+| **Guide** | The complete Chapter Box — every playbook, template, and system | Free |
+| **Done For You — Revenue Share** | VMP executes everything. No upfront cost. VMP takes a % of revenue generated. | No upfront cost |
+| **Done For You — Direct Fee** | VMP is hired to execute. Flat fee or monthly retainer. | Negotiated |
+
+The guide is free for any chapter that wants it. Chapters that want VMP to execute choose between revenue share (no budget needed) or direct fee (cleaner structure when budget exists).
+
+See [[Verdant Management Partners]] for full pricing.
+
+---
+
 ## What NORML Is — Read This First
 
 **NORML is a consumer protection and advocacy organization.**
