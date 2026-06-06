@@ -107,12 +107,57 @@ For chapters that want VMP to stay on after onboarding — managing systems, upd
 
 ## Revenue Model
 
-| Service | Pricing Model |
-|---|---|
-| Chapter onboarding — done for you | Project fee |
-| Conference production | Flat management fee + % of net revenue |
-| National Chapter Summit | Management contract with National NORML |
-| Ongoing management retainer | Monthly retainer |
+### State Chapters — Revenue Share
+
+Most state chapters have no operating budget. VMP does not charge them upfront. VMP comes in, builds everything, activates all revenue streams, and takes its fees out of the revenue it generates.
+
+**The model:**
+- VMP sets up and manages the chapter's full operation at no upfront cost
+- VMP takes a percentage of all revenue generated through the systems it built and manages
+- The chapter keeps the remainder — money they would not have had without VMP
+- No revenue generated = no VMP fee = no risk to the chapter
+
+**VMP revenue share structure (per chapter):**
+
+| Revenue Stream | VMP Take | Chapter Keeps |
+|---|---|---|
+| Memberships | 20% | 80% |
+| Donations | 15% | 85% |
+| Directory listings | 25% | 75% |
+| Merch | 20% | 80% |
+| Conference — tickets | 15% | 85% |
+| Conference — vendor fees | 20% | 80% |
+| Conference — sponsorships | 20% | 80% |
+
+**Why this works for VMP:**
+VMP's incentive is to maximize chapter revenue. The more the chapter makes, the more VMP makes. Every system VMP builds and every campaign VMP runs directly increases VMP's own income.
+
+**Why this works for chapters:**
+Zero financial risk. Chapters receive a fully built, professionally managed operation and pay for it only from the revenue it generates. A chapter that generates $0 pays $0.
+
+---
+
+### National NORML — Direct Contract
+
+National NORML has operating funds. The National Chapter Summit is a direct management contract — negotiated fee paid by National NORML to VMP. This is the one engagement where VMP charges upfront rather than on revenue share.
+
+---
+
+### Money Flow
+
+```
+Chapter revenue
+      ↓
+VMP collects and reconciles
+      ↓
+VMP retains its share
+      ↓
+VMP pays VV (via invoice) for services delivered
+      ↓
+Remainder distributed to chapter
+      ↓
+Lauren draws from VV
+```
 
 ---
 

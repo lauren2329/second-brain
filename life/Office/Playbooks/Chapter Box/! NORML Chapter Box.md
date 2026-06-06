@@ -47,9 +47,15 @@ VMP handles setup. Chapters operate.
 
 ## Delivery Model
 
-VMP builds and configures everything. The chapter receives a running operation.
+**No upfront cost to chapters.**
 
-See [[Verdant Management Partners]] for the full service scope and pricing.
+Most state chapters have no operating budget. VMP does not charge them to get started. VMP builds the full operation, activates all revenue streams, and takes its fees as a percentage of the revenue it generates for the chapter.
+
+Chapters pay nothing until they're making money. Once they're making money, VMP takes a percentage of what it helped create. The chapter keeps the rest — funds they would not have had without VMP.
+
+VMP's success is the chapter's success. The incentives are the same.
+
+See [[Verdant Management Partners]] for the full revenue share structure.
 
 ---
 
