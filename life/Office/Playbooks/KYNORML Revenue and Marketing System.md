@@ -218,6 +218,12 @@ Once this system is running for KYNORML, it is packaged as a consulting delivera
 
 ---
 
+## Conference
+
+- [[KYCannaCon Conference Playbook]] — full production cycle, revenue model, 90-day timeline, sponsorship system, vendor system, speaker system, day-of run sheet, chapter box
+
+---
+
 ## Marketing Tracks
 
 - [[Track 1 - Email Campaign System]] — donation asks, matching campaigns, KYCannaCon presales, automations
