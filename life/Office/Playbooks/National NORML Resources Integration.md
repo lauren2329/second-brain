@@ -204,6 +204,58 @@ This system applies to every NORML state chapter. The national resources are the
 
 ---
 
+## Chapter Technology Stack
+
+Every NORML chapter should run on the same core tools. This is the standard stack.
+
+### Legislative Tracking
+
+**BillTrack50** (billtrack50.com)
+- Tracks cannabis bills at the state and federal level
+- Set up alerts for every bill relevant to your state
+- Use it to monitor bill status, committee assignments, votes, and amendments
+- Action alerts (from national NORML) are triggered by bill movement — BillTrack50 is how you see it coming
+- Every chapter director should have this running for their state
+
+### Advocacy + Organizing
+
+**Action Network** (actionnetwork.org)
+- Email list management for advocacy sends
+- Petition hosting
+- Event registration
+- Action alert distribution to supporters
+- Integrates with legislative campaigns — one-click email to representatives
+- Used by KYNORML for the 8k list and all advocacy communications
+
+### Payments + Fundraising
+
+Chapters should choose based on their legal structure and use case:
+
+| Tool | Best For | Fee |
+|---|---|---|
+| **Zeffy** (zeffy.com) | Nonprofit donations, ticket sales, memberships, merch | 0% platform fee — donors cover Zeffy's costs optionally |
+| **ActBlue** (actblue.com) | Political and advocacy fundraising — 501(c)(4)s | 3.95% processing fee |
+
+**Guidance:**
+- Use **Zeffy** for conference tickets, memberships, merch, and general donations — 0% fees means more money stays with the chapter
+- Use **ActBlue** when the ask is explicitly political — candidate-adjacent campaigns, voter mobilization drives, Smoke the Vote
+- Do not use both for the same campaign — pick one per ask to avoid donor confusion
+
+### Tech Stack Summary
+
+| Function | Tool |
+|---|---|
+| Legislative monitoring | BillTrack50 |
+| Advocacy emails + organizing | Action Network |
+| Nonprofit payments (donations, tickets, memberships) | Zeffy |
+| Political / advocacy fundraising | ActBlue |
+| Project and follow-up tracking | Monday.com |
+| Social scheduling | Buffer or Meta Business Suite |
+| Email newsletter / mass send | Action Network |
+| Payment processing (conference vendors / invoices) | QuickBooks or Zeffy |
+
+---
+
 ## Related Files
 
 - [[KYNORML Revenue and Marketing System]]
