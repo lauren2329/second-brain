@@ -9,24 +9,31 @@ tags: [marketing, email, kynorml, revenue]
 ## Overview
 
 8,000 subscribers. 0% fees via Zeffy. Direct line to your warmest audience.
-Email is the fastest cash channel KYNORML has. Every campaign type below maps to a specific revenue stream.
+
+**The list is an advocacy list — not a donor list.** These are people who care about cannabis rights. Many are patients, consumers, and advocates who are already financially stretched. Mass donation asks underperform against this demographic.
+
+**What works:** Transactions with a value exchange. KYCannaCon tickets. Membership (access and community, not charity). Event vendor and sponsor outreach to businesses. Directory listing offers to cannabis-adjacent businesses.
+
+**What doesn't:** Cold donation asks to the full list. Reserve donation campaigns for matching gift moments, crisis/news events with high urgency, or deeply segmented high-engagement subsets.
 
 Platforms: **Zeffy** (donations, ticket sales, membership) + **Action Network** (advocacy emails, list management)
 
 ---
 
-## Campaign Types
+## Campaign Types — Priority Order
 
-| Campaign | Trigger | Revenue Stream | Frequency |
-|---|---|---|---|
-| Donation ask | Manual / news event | Donations | 4–6x/year |
-| Matching campaign | When anchor donor secured | Donations (doubled) | 1–2x/year |
-| KYCannaCon early bird | Date confirmed | Ticket sales | 1x/year |
-| KYCannaCon sponsor push | 90 days before event | Sponsorship revenue | 1x/year |
-| Featured listing offer | Rolling | Directory revenue | Quarterly |
-| Membership drive | Annual + milestone | Recurring revenue | 2x/year |
-| Merch drop | New product / seasonal | Merch sales | As needed |
-| News reaction | Cannabis news in KY or nationally | Engagement + donations | As needed |
+| Priority | Campaign | Trigger | Revenue Stream | Frequency |
+|---|---|---|---|---|
+| **1** | KYCannaCon early bird tickets | Date confirmed | Ticket sales | 1x/year |
+| **1** | KYCannaCon sponsor push | Date confirmed | Sponsorship revenue — upfront | 1x/year |
+| **2** | Featured listing offer (businesses) | Rolling | Directory revenue — recurring | Quarterly |
+| **3** | Membership drive | Annual + milestone | Recurring revenue | 2x/year |
+| **4** | Matching gift campaign | Anchor donor secured | Donations (doubled) | 1–2x/year |
+| **5** | Merch drop | New product / seasonal | Merch sales | As needed |
+| **Low** | Standard donation ask | Crisis/urgency moment only | Donations | Use sparingly |
+| **Low** | News reaction | Breaking state or national story | Engagement | As needed |
+
+Campaigns 1 and 2 are transactions — someone gets something specific in return. Lead with those. Donations without a matching gift or crisis moment are the weakest performs against this list.
 
 ---
 

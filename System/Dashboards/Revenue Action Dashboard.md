@@ -15,15 +15,20 @@ This dashboard shows exactly what to do, in what order, and what it generates.
 
 ## This Week — Cash in 48–72 Hours
 
-These require no setup. Do them now.
+The 8,000-person list skews advocates — people who believe in the cause but don't have spare cash. Donation asks from that list underperform. The money is B2B: businesses that need visibility and sponsors that need access to the cannabis community.
+
+**Do not lead with donation asks. Lead with transactions.**
 
 | Action | What It Takes | Expected Return |
 |---|---|---|
-| Confirm Zeffy donation page is live for KYNORML or CGN | 10 minutes to check or create | Required before email send |
-| Send donation email to 8,000 list via Action Network | Write and send — template in [[Track 1 - Email Campaign System]] | $2,500–$5,000 from one send |
-| Email directory businesses about featured listings | Pull business contacts from directory, send offer — template in Track 1 | $500–$1,500/month recurring from first responses |
+| **Set KYCannaCon Year 4 date** | Decision only — takes 5 minutes | Unlocks every other item below |
+| Email past KYCannaCon sponsors — "Year 4 is locked in, early hold available" | Pull past sponsor list, send one-pager from [[KYCannaCon Conference Playbook]] | $500–$5,000 per sponsor, paid upfront to confirm |
+| Direct outreach to cannabis businesses for featured directory listings | Pull business contacts, send offer — template in [[Track 1 - Email Campaign System]] | $75–$150/month per listing, recurring from day one |
+| Email KYCannaCon vendor table spots | Same list as sponsors — vendors want tables | $150–$500 per vendor, paid upfront |
 
-**Do not move to the next tier until these are done.**
+**The date is the unlock.** Sponsors and vendors won't commit without it. This decision is worth more than any email you could send this week.
+
+**On donation emails:** Not the move for fast cash. The list is valuable but not for mass fundraising. Reserve email sends for member recruitment (where $25/month compounds) and event promotion (where there's a transaction on the other end). See updated email strategy in [[Track 1 - Email Campaign System]].
 
 ---
 
@@ -31,12 +36,11 @@ These require no setup. Do them now.
 
 | Action | Blocker | Expected Return |
 |---|---|---|
-| Set KYCannaCon Year 4 date | Decision only — no cost | Unlocks ticket presales and sponsorship sales |
-| Open KYCannaCon early bird tickets via Zeffy | Date must be set | $1,000–$3,000 from email list presale |
-| Send KYCannaCon sponsorship one-pager to past sponsors and directory businesses | Sponsorship one-pager (template in [[KYCannaCon Conference Playbook]]) | $500–$5,000 per sponsor, collected upfront |
-| Build outreach list from norml.org/chapters | 2 hours to build the list | Foundation for VMP income |
-| Send first 10 chapter director outreach emails | List built, guide ready | First VMP conversion calls in 30–45 days |
-| Add membership tiers to Zeffy | 1 hour setup | Recurring revenue — target 100 members @ $25/month = $2,500/month |
+| Open KYCannaCon early bird tickets via Zeffy | Date must be set first | $1,000–$3,000 from presale |
+| KYCannaCon sponsorship campaign — follow up all outreach | Date set, one-pager sent | $5,000–$15,000 in committed sponsor revenue |
+| Add membership tiers to Zeffy | 1 hour setup | $25/month/member compounds — target 100 members = $2,500/month |
+| Build outreach list from norml.org/chapters | 2 hours to build | Foundation for VMP professional income |
+| Send first 10 chapter director outreach emails | List built, Chapter Box ready | First VMP conversion calls in 30–45 days |
 
 ---
 
@@ -66,15 +70,18 @@ These require no setup. Do them now.
 
 ## Revenue Stack — What It Looks Like at 90 Days
 
-| Stream | Monthly Estimate |
-|---|---|
-| KYNORML donations (campaign avg) | $500–$1,000 |
-| Memberships | $500–$2,500 |
-| Directory featured listings | $1,500–$3,000 |
-| Portal to Wellness affiliate | TBD — needs audit |
-| VMP revenue share (1–2 chapters) | $400–$1,600 |
-| KYCannaCon (annualized monthly) | $1,500–$3,000 |
-| **Total monthly estimate** | **$4,400–$12,100** |
+Donations from the advocacy list are removed as a primary revenue driver. The reliable income is transactional.
+
+| Stream | Monthly Estimate | Notes |
+|---|---|---|
+| Directory featured listings | $1,500–$3,000 | B2B — businesses paying for visibility |
+| KYCannaCon sponsorships (annualized) | $1,500–$3,000 | Upfront, locked before the event |
+| KYCannaCon tickets (annualized) | $500–$1,500 | Transaction, not ask |
+| Memberships | $500–$2,500 | $25/month — positions as access/community, not donation |
+| VMP revenue share (1–2 chapters) | $400–$1,600 | Professional income |
+| Portal to Wellness affiliate | TBD — needs audit | |
+| Donations | Low — not a primary driver | Only works with a compelling matching gift or crisis moment |
+| **Total monthly estimate** | **$4,400–$11,600** | |
 
 SSI + this stack = sustainable floor with real upside.
 
