@@ -12,7 +12,8 @@ Verdant Management Partners (VMP) is the professional services and event managem
 
 **Owner:** Lauren Bratcher
 **Structure:** [LLC / DBA — confirm entity structure]
-**Primary client target:** National NORML and state NORML chapters
+**Market:** Nonprofits broadly — advocacy organizations, community orgs, social welfare organizations
+**Current focus:** NORML state chapters — beachhead market
 
 ---
 
@@ -23,6 +24,23 @@ VMP is the client-facing professional services entity. It contracts with externa
 **Lauren's income flows through VV** — VV bills VMP for the work it performs. VMP collects client revenue and pays VV as a vendor.
 
 This keeps Lauren's personal entity clean and separate from VMP's client relationships and any future partners or investors VMP may involve.
+
+---
+
+## Market
+
+VMP serves nonprofits broadly — advocacy organizations, community organizations, social welfare nonprofits, and similar mission-driven entities that need operations, revenue systems, marketing infrastructure, and event production.
+
+**Current focus: NORML state chapters.**
+
+NORML chapters are the beachhead market because:
+- Lauren has 8 years of direct experience operating a state chapter
+- Every chapter has the same structure, the same challenges, and the same revenue opportunities
+- The model replicates identically across 50 states — build it once, deploy it everywhere
+- National NORML provides a ready-made distribution network
+- KYCannaCon is the proof of concept that travels
+
+Once the chapter model is running in 3–5 states, VMP expands to other nonprofit verticals using the same framework — different mission, same operational playbook.
 
 ---
 
