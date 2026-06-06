@@ -8,9 +8,7 @@ tags: [entity, verdant, consulting, event-management, professional-services]
 
 ## Overview
 
-Verdant Management Partners (VMP) is the professional services and event management arm of Lauren Bratcher's business ecosystem.
-
-Where [[Verdant Ventures LLC]] handles internal operations and management support across KYNORML, CGN, and the gaming lounge, VMP faces outward — delivering conference production, chapter development consulting, and organizational management services to external clients.
+Verdant Management Partners (VMP) is the professional services and event management arm of Lauren Bratcher's business ecosystem. VMP faces outward — delivering conference production, chapter development consulting, and organizational management services to external clients.
 
 **Owner:** Lauren Bratcher
 **Structure:** [LLC / DBA — confirm entity structure]
@@ -28,7 +26,54 @@ This keeps Lauren's personal entity clean and separate from VMP's client relatio
 
 ---
 
-### 1. Conference Production
+## The Core Offer
+
+**VMP handles the hard parts. Chapters just operate.**
+
+Most state chapters fail not because they lack passion — but because they get stuck in setup, technology, and systems that nobody on a volunteer board knows how to build. VMP removes that friction entirely.
+
+When VMP onboards a chapter, the chapter gets a fully built operation handed to them. They don't apply for Google Workspace — VMP applies for them. They don't configure their Action Network account — VMP configures it. They don't build their Monday.com board — VMP builds it. They don't activate Google Ad Grants — VMP activates it. They show up and run their chapter.
+
+**A guide tells you what to do. VMP does it.**
+
+### What VMP Handles
+
+| Workstream | VMP Does |
+|---|---|
+| Google Workspace for Nonprofits | Application, setup, custom domain, user accounts |
+| Google Ad Grants | Application (via 501(c)(3) arm), campaign build, conversion tracking, launch |
+| Action Network | Account setup, list import, first campaign templates loaded |
+| Zeffy | Account setup, donation page, membership tiers, ticket pages |
+| ActBlue | Account setup if applicable |
+| BillTrack50 | Account setup, state bill alerts configured |
+| Monday.com | Board built: follow-up tracker, conference production board, sponsor pipeline |
+| Social media | Accounts optimized, Buffer or Meta Business Suite connected, first batch scheduled |
+| Email system | Welcome sequence written and loaded, first donation email ready to send |
+| KYCannaCon playbook | Customized to chapter name, state, and conference brand |
+| Sponsorship one-pager | Customized and ready to send |
+| National NORML resource integration | Workflow set up, Thursday/Saturday rhythm documented for chapter |
+| Press release templates | Loaded and ready |
+
+### What the Chapter Does
+
+- Run their advocacy and community work
+- Follow the workflows VMP built
+- Send the emails VMP templated
+- Show up to the conference VMP helped produce
+- Use the tools VMP configured
+
+---
+
+## Services
+
+### 1. Chapter Onboarding — Done For You
+Full setup of a state chapter's operations, technology, and revenue systems. Chapter gets a running operation, not a to-do list.
+
+**Deliverables:** Everything in the "What VMP Handles" table above, plus 30-day hand-holding support after launch.
+
+**Pricing:** Project fee [TBD — set based on chapter size and scope]
+
+### 2. Conference Production
 Full-cycle event management for cannabis, advocacy, and nonprofit conferences.
 - Venue sourcing and contract negotiation
 - Sponsorship sales and fulfillment
@@ -40,22 +85,14 @@ Full-cycle event management for cannabis, advocacy, and nonprofit conferences.
 
 **Proof of concept:** KYCannaCon — 3 years running under KYNORML
 
-### 2. Chapter Development Consulting
-Turn-key system for NORML state chapters (and similar advocacy organizations) to build sustainable revenue and operations.
-- Revenue system setup (memberships, directory, merch, event)
-- Marketing machine activation (Google Ad Grants, email, social)
-- Annual conference model (KYCannaCon playbook)
-- National resource integration
-- Delivered as a consulting engagement or packaged template license
+### 3. National NORML Chapter Summit
+Annual conference for all state chapter directors — built and produced by VMP for National NORML.
+See [[National NORML Chapter Conference]].
 
-**Product:** [[NORML Chapter Replication Box]]
+### 4. Ongoing Management Retainer
+For chapters that want VMP to stay on after onboarding — managing systems, updating content, handling tech issues, and keeping the operation running.
 
-### 3. Organizational Management Support
-Operational support for nonprofits and advocacy organizations that need structure but don't have full-time staff.
-- Systems setup (Monday.com, email, CRM)
-- Financial operations support
-- Communications and PR
-- Volunteer and event coordination frameworks
+**Pricing:** Monthly retainer [TBD]
 
 ---
 
@@ -70,21 +107,20 @@ Operational support for nonprofits and advocacy organizations that need structur
 
 ## Revenue Model
 
-VMP charges clients directly for services. Revenue flows to Lauren Bratcher through VMP.
-
 | Service | Pricing Model |
 |---|---|
-| Conference production | Flat fee + % of net revenue, or flat management fee |
-| Chapter consulting — full engagement | Project fee ($X,XXX–$XX,XXX depending on scope) |
-| Chapter consulting — template license | One-time license fee + optional ongoing support retainer |
-| Organizational management | Monthly retainer |
+| Chapter onboarding — done for you | Project fee |
+| Conference production | Flat management fee + % of net revenue |
+| National Chapter Summit | Management contract with National NORML |
+| Ongoing management retainer | Monthly retainer |
 
 ---
 
 ## Related Files
 
-- [[Verdant Ventures LLC]] — internal operations entity
+- [[Verdant Ventures LLC]] — VMP's primary vendor
 - [[KYNORML Revenue and Marketing System]] — proof of concept for chapter consulting
 - [[KYCannaCon Conference Playbook]] — proof of concept for conference production
 - [[National NORML Chapter Conference]] — first major VMP client project
+- [[National NORML Resources Integration]] — chapter tech stack and tools
 - [[NORML Chapter Replication Box]] *(to be built)*
