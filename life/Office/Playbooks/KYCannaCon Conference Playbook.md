@@ -35,9 +35,28 @@ KYCannaCon is held in early March to coincide with the Kentucky General Assembly
 
 **Target dates:** First or second weekend of March (avoid Mardi Gras weekend and UK basketball schedule conflicts).
 
----
+## Rebuilding After Year 3
 
-## Revenue Model
+Year 3 underperformed. Not enough lead time, too much of the production on one person. That is the honest version.
+
+**What that means for Year 4:**
+
+Past sponsors and vendors from Year 3 are not warm leads — they're skeptical. Approaching them as if they had a great experience will fail. The play is transparency: acknowledge it didn't go the way it should have, explain what's different, and give them a reason to believe it.
+
+**What's actually different:**
+- 9 months of lead time (Year 3 didn't have this)
+- General Assembly timing — a strategic reason to be there, not just a cannabis expo
+- VMP running production — Lauren is not doing this alone
+- Formal sponsor and vendor commitments locked before December — the event is fully funded before the sprint begins
+- **Kentucky now has licensed dispensaries** — Years 1–3 were pre-market. Year 4 is the first KYCannaCon with a legal cannabis market in Kentucky. That is a new story with new money attached to it.
+
+**How to approach Year 3 participants:**
+
+> "KYCannaCon Year 3 wasn't what we wanted it to be — not enough runway, too much on too few people. Year 4 is different. We're 9 months out, we've got professional production support, and we're timing it to the General Assembly session. I'd like the chance to earn [business name]'s confidence back. Can we talk about what Year 4 looks like for you?"
+
+This works better than pretending nothing happened. Cannabis is a small community. Everyone in the room knew Year 3 was rough.
+
+---
 
 | Stream | When Collected | Notes |
 |---|---|---|
@@ -71,15 +90,44 @@ KYCannaCon is held in early March to coincide with the Kentucky General Assembly
 | **Bronze** | $500 | Logo in program, 1 general admission ticket, 1 social mention |
 | **Media / In-Kind** | Negotiated | Press credentials, logo in program — in exchange for coverage or goods |
 
-### Prospect List
+### Prospect List — Building from Scratch
 
-**Start here — warmest leads:**
-1. Every sponsor from previous KYCannaCon years
-2. Every business in the KYNORML directory
-3. Cannabis businesses in Kentucky not yet in the directory
-4. Ancillary businesses (lawyers, accountants, consultants serving cannabis industry)
-5. Hemp and CBD brands operating in Kentucky
-6. National cannabis brands with KY presence
+**KYCannaCon Years 1–3 all happened before any Kentucky dispensaries opened.** Year 4 is the first KYCannaCon with a legal cannabis market in Kentucky. That is the story.
+
+Dispensaries are the top new prospect category — they have marketing budgets, they need community credibility, they want to be seen as part of the advocacy movement that made their business possible, and they have never been asked to sponsor this event. Approach them as the flagship new opportunity, not as a category that was overlooked.
+
+Year 3 sponsors are not warmest leads — they're skeptical. Start fresh with new prospects and approach past participants separately using the transparency script above.
+
+---
+
+**Tier 1 — New-to-conference, strong business case:**
+
+- **Licensed medical cannabis dispensaries in Kentucky** — they are the direct beneficiary of everything KYNORML fought for. They have marketing budgets. They want community relationships. They did not exist at any prior KYCannaCon. This is the flagship sponsor category for Year 4.
+- **Cannabis cultivators, processors, and growers** — licensed operators in the medical supply chain
+- **Cannabis testing labs in KY** — required by law, new businesses, want visibility
+- **Hemp industry: farms, processors, brands** — major KY industry, established base
+- **Cannabis law firms and solo practitioners** — every attorney in this space wants to be in front of this room
+- **Cannabis CPAs and financial consultants** — same audience, same logic
+- **Cannabis compliance and licensing consultants** — new market means everyone needs help navigating the rules
+- **Grow supply / cultivation supply companies** — serving the new legal market
+
+**Tier 2 — Broader cannabis and wellness space:**
+- CBD and wellness brands with KY retail presence
+- Smoke shops, vape shops, head shops — they are the existing retail distribution network
+- Cannabis software companies (POS, compliance, seed-to-sale) with KY clients
+- Packaging and labeling companies serving cannabis operators
+- National cannabis brands with KY expansion interest
+
+**Tier 3 — General business sponsors:**
+- Small business lawyers and accountants not specialized in cannabis
+- Local media with cannabis coverage (in-kind: coverage in exchange for media sponsorship)
+- Printing and signage companies (in-kind is fine — reduces cost)
+- Hospitality and venue partners
+
+**Year 3 participants — approach separately, with transparency:**
+- Use the script in the Rebuilding section above
+- Offer first right of refusal at their previous tier
+- Lead with what's different: 9 months of lead time, GA timing, legal market now open
 
 ### Outreach Sequence
 
@@ -210,11 +258,11 @@ Invite sitting legislators — particularly members of committees with cannabis 
 The 90-day countdown is the production sprint. Pre-production is the revenue sprint — sponsorships and vendor tables close before the formal timeline even begins.
 
 **June–July (now):**
-- [ ] Lock the date — specific weekend confirmed
-- [ ] Email past sponsors: "KYCannaCon Year 4 is set — [date]. You're getting first call." Personal, not a blast.
-- [ ] Email past vendors same message — priority hold available now
-- [ ] Announce save-the-date to email list and social
-- [ ] Pitch to any Platinum-tier prospects while the General Assembly angle is fresh
+- [ ] Lock the specific date — first or second weekend of March 2027
+- [ ] Build sponsor prospect list (Tier 1 and Tier 2 above) — research, names, contacts, in a Google Sheet
+- [ ] Announce save-the-date to email list and social — simple, no hype
+- [ ] Begin Tier 1 outreach: licensed dispensaries, hemp brands, cannabis attorneys — new relationships, no baggage
+- [ ] Reach out to Year 3 participants using the transparency script — separate from the new prospect outreach
 
 **August–September:**
 - [ ] Venue secured — contract signed, deposit paid
