@@ -344,14 +344,29 @@ Before committing to a site visit:
 
 ---
 
-### Venue Sourcing — Where to Start
+### Venue — Louisville
 
-- LinkedIn: search "[city] event venues" or contact hotel sales managers directly
-- CVB (Convention and Visitors Bureau) for Louisville or Lexington — they have venue lists and sometimes facilitate introductions at no cost
-- Past venues from other cannabis or nonprofit events in the state (ask in NORML and hemp community contacts)
-- Hotel sales teams will come to you — if you reach out to a Marriott or Hilton regional sales contact with a date and headcount, they will send a proposal within 48 hours
+**Do not return to the Kentucky International Convention Center.** KICC is built for trade shows with thousands of attendees. 150–200 people in that building reads as empty no matter what's happening on stage. Year 3 was fighting the venue before the doors opened.
 
-**Target cities:** Louisville or Lexington. Louisville has more options and easier access from out of state. Lexington is closer to Frankfort (symbolic weight during the legislative session).
+**Target: a hotel conference center or boutique event space in Louisville.** The footprint should feel full, not cavernous.
+
+**Where to start:**
+
+**Louisville Tourism (the CVB)** is the fastest path. They offer a free venue matching service — give them your date, headcount, and room requirements, and they'll send proposals from multiple properties simultaneously. No cost, no obligation. Contact: louisvilletourism.com or call their convention services team.
+
+This is the right first call. Let the CVB do the venue legwork rather than calling hotels one by one.
+
+**What to ask Louisville Tourism for:**
+- Hotel conference centers in downtown Louisville with a main room capacity of 175–225 theater-style
+- 2 breakout rooms (40–60 capacity each)
+- Lobby or pre-function space for registration and a small exhibitor showcase
+- Available first or second weekend of March 2027
+- Budget range: [fill in once sponsorship picture is clearer — but venue should be covered by Presenting Sponsor alone]
+
+**What to avoid:**
+- KICC — too large, built for expos
+- Any venue that requires you to rent the full space to get the rooms you need
+- Venues with mandatory full-building catering contracts (negotiate itemized)
 
 ---
 
