@@ -273,12 +273,45 @@ See Day-Of Run Sheet below.
 | Marketing (if any paid spend beyond Google Ads) | | |
 | Catering / water / supplies | | |
 | Insurance (event liability) | | |
+| **Director travel fund** | | |
 | Miscellaneous | | |
 | **Total expenses** | | |
 | **Total revenue** | | |
 | **Net** | | |
 
 **Cost coverage principle:** Sponsorship and vendor revenue should cover all expenses before the event. Ticket revenue is net profit.
+
+---
+
+## Director Travel Fund
+
+State chapter directors should have dedicated travel funds to attend cannabis industry events outside their state. This is not discretionary — it is a strategic investment in KYCannaCon's vendor pipeline and attendance base.
+
+**Why it matters:**
+- Vendors who exhibit at other cannabis conferences are the exact vendors you want at KYCannaCon
+- Meeting them in person at their event — before asking them to exhibit at yours — is the fastest path to a yes
+- Directors who are visible at national and regional events build KYNORML's credibility and the KYCannaCon brand beyond Kentucky's borders
+- Relationships built at other events convert to sponsors, speakers, and cross-promotional partners
+
+**What director travel covers:**
+- Registration fees for cannabis conferences and industry networking events
+- Transportation and accommodation
+- Meals while traveling on chapter business
+
+**How it works:**
+- Director submits travel request with event name, purpose, and estimated cost
+- Approved as a chapter operating expense
+- Director brings back: minimum 10 vendor/sponsor contacts logged in Monday.com, plus a debrief for the team on what was learned
+- Receipts submitted for reimbursement within 30 days
+
+**Suggested events for KYNORML director attendance:**
+- National NORML conference
+- MJBizCon (Las Vegas — largest cannabis industry trade show)
+- Regional cannabis conferences in neighboring states (TN, OH, IN)
+- State hemp and cannabis association events
+- Any event where KYCannaCon's target vendors and sponsors are present
+
+**Budget guidance:** Allocate a minimum of $[1,500–3,000]/year per director for travel. This is recovered many times over if even one additional Platinum sponsor or 5 additional vendors are secured as a direct result.
 
 ---
 
@@ -295,6 +328,7 @@ This playbook is the deliverable for other state chapters via [[Verdant Ventures
 6. Speaker invitation template
 7. Day-of run sheet template
 8. Post-event reconciliation + sponsor report template
+9. Director travel fund policy and reimbursement process
 
 **What makes KYNORML the proof of concept:**
 - 3 years running
