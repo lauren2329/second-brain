@@ -6,344 +6,339 @@ status: active
 tags: [playbook, kynorml, kycannacon, conference, revenue, events]
 ---
 
-## Overview
+## What KYCannaCon Is
 
-KYCannaCon is KYNORML's annual cannabis conference and primary fundraising event.
-Three years running. Kentucky's only cannabis conference.
-This playbook covers the full production cycle — from 9 months out to post-event close — and serves as the replicable model for other NORML chapters.
+KYCannaCon is Kentucky's annual cannabis policy and industry conference. Not an expo. Not a trade show. There are plenty of those.
+
+This is the professional event — the one where the industry, the advocates, the patients, and the policymakers are in the same room while the General Assembly is deciding their future. The value is the content and the conversation, not the floor space.
+
+**Three years running. Year 4 is the reset.**
 
 **Entity:** [[KYNORML, INC 501c4]]
-**Payments:** [[Zeffy]] for tickets and donations; direct invoice for sponsorships and vendors
-**Frequency:** Annual — **early March**
+**Payments:** Zeffy for tickets; direct invoice for sponsorships
+**Frequency:** Annual — **early March, during the Kentucky General Assembly session**
 
 ---
 
-## Timing — Why Early March
+## Why Early March
 
-KYCannaCon is held in early March to coincide with the Kentucky General Assembly legislative session.
+The General Assembly runs January through late March. Early March is mid-session — bills are active, votes are being called, cannabis policy is in the news.
 
-**Why this is the right window:**
+- Legislators can be invited to speak. Accepting means they're engaging with their constituents. Declining is a data point.
+- Press covering the session will also cover a cannabis conference the same week.
+- Industry players and advocates are already paying attention to Frankfort. The conference gives them a place to gather.
+- It positions KYCannaCon as the annual policy reckoning — where does Kentucky cannabis stand, and where is it going?
 
-- The General Assembly runs January through late March. Early March is mid-session — bills are moving, votes are being called, and cannabis policy is actively in the news cycle.
-- Legislators, lobbyists, policy advocates, and industry players are already engaged and paying attention to cannabis legislation in Kentucky.
-- Press covering the legislative session will also cover a cannabis industry conference happening the same week. Built-in news hook.
-- It positions KYCannaCon as the professional policy event — not just a consumer expo, but the annual moment where the Kentucky cannabis industry and advocacy community takes stock of where legislation stands and what comes next.
-- Legislators can be invited to attend or speak. Accepting puts them on record as engaging with the cannabis community. Declining is also a data point.
-- The conference becomes a lobbying-adjacent event without KYNORML doing any direct lobbying — the presence of the community, the industry, and the press does the work.
+**Year 4 is also the first KYCannaCon since Kentucky licensed dispensaries opened.** Years 1–3 were pre-market. That is a new story.
 
-**The pitch to sponsors:** "Every serious player in Kentucky cannabis will be in the room. The General Assembly is in session. If you want visibility with the people who matter to this industry right now — this is the event."
+**Target dates:** First or second weekend of March. Avoid Mardi Gras weekend and major UK basketball conflicts.
 
-**Target dates:** First or second weekend of March (avoid Mardi Gras weekend and UK basketball schedule conflicts).
+---
 
 ## Rebuilding After Year 3
 
-Year 3 underperformed. Not enough lead time, too much of the production on one person. That is the honest version.
+Year 3 underperformed. Not enough lead time, too much production on one person.
 
-**What that means for Year 4:**
-
-Past sponsors and vendors from Year 3 are not warm leads — they're skeptical. Approaching them as if they had a great experience will fail. The play is transparency: acknowledge it didn't go the way it should have, explain what's different, and give them a reason to believe it.
-
-**What's actually different:**
-- 9 months of lead time (Year 3 didn't have this)
-- General Assembly timing — a strategic reason to be there, not just a cannabis expo
-- VMP running production — Lauren is not doing this alone
-- Formal sponsor and vendor commitments locked before December — the event is fully funded before the sprint begins
-- **Kentucky now has licensed dispensaries** — Years 1–3 were pre-market. Year 4 is the first KYCannaCon with a legal cannabis market in Kentucky. That is a new story with new money attached to it.
+**What's different for Year 4:**
+- 9 months of runway
+- VMP handling production — Lauren is not doing this alone
+- Conference format, not expo — less logistics, more content
+- Sponsorships and major commitments locked before December — event is funded before the sprint begins
+- Kentucky now has a legal cannabis market
 
 **How to approach Year 3 participants:**
 
-> "KYCannaCon Year 3 wasn't what we wanted it to be — not enough runway, too much on too few people. Year 4 is different. We're 9 months out, we've got professional production support, and we're timing it to the General Assembly session. I'd like the chance to earn [business name]'s confidence back. Can we talk about what Year 4 looks like for you?"
+> "KYCannaCon Year 3 wasn't what we wanted it to be — not enough time, too much on too few people. Year 4 is different in every way that mattered. We're 9 months out, we have professional production support, and we're building a real conference this time — timed to the General Assembly session, content-driven, no expo floor. I'd like to earn [business name]'s confidence back. Can I walk you through what we're building?"
 
-This works better than pretending nothing happened. Cannabis is a small community. Everyone in the room knew Year 3 was rough.
+Cannabis is a small community. Everyone knew Year 3 was rough. Transparency works better than pretending.
 
 ---
 
-| Stream | When Collected | Notes |
-|---|---|---|
-| Platinum sponsorships ($5,000) | 90+ days out | Speaking slot included |
-| Gold sponsorships ($2,500) | 90+ days out | Stage signage + email feature |
-| Silver sponsorships ($1,000) | 60+ days out | Table + social mentions |
-| Bronze sponsorships ($500) | 60+ days out | Logo in program + social |
-| Vendor tables | 60+ days out | Full payment at booking |
-| VIP tickets | 60 days out — presale | Smaller pool, higher price |
-| Early bird tickets | 60 days out — presale | To email list first |
-| General admission tickets | 30 days out | Public sale |
-| Day-of tickets | Day of event | At-door price (highest) |
-| Merch sales | Day of event | Booth at conference |
-| Raffle / auction | Day of event | Optional — high upside |
-| Donations | During + post-event | Zeffy link active throughout |
+## Conference Format
 
-**Revenue target:** Set per year based on venue cost, expected attendance, and operating budget.
-**Cash flow principle:** Sponsorships and vendor tables are collected upfront — these fund the event before it happens.
+### The Day
+
+One full day. One room for plenary sessions (keynote, major panels). Breakout rooms for smaller sessions and workshops. A curated exhibitor showcase open during breaks — small, 10–15 spots max, quality-controlled.
+
+**The flow:**
+
+| Block | Format | Purpose |
+|---|---|---|
+| Morning | Welcome + keynote | Set the tone, establish the stakes |
+| Mid-morning | State of Cannabis in Kentucky | Legislative update — where do the bills stand today |
+| Late morning | Panel 1 | Policy or patient access track |
+| Lunch | Networking + exhibitor showcase open | Relationship building |
+| Early afternoon | Panel 2 | Industry track |
+| Mid-afternoon | Panel 3 | Community or patient track |
+| Late afternoon | Closing keynote or fireside | National perspective, call to action |
+| Evening (optional) | Networking reception | Sponsor-branded |
+
+### Session Tracks
+
+**Policy track** — for advocates, lobbyists, legislative staff, media
+- State of Cannabis in Kentucky (annual legislative update)
+- What it takes to move a bill in the General Assembly
+- Federal policy outlook — where is national cannabis legislation
+- Legislator panel or fireside
+
+**Industry track** — for operators, investors, ancillary businesses
+- Kentucky's licensed market: what's working, what isn't
+- Banking, compliance, and business survival in a restricted state
+- Hemp and CBD: where the industry stands
+- What investors are looking for in cannabis businesses
+
+**Patient and Community track** — for patients, advocates, consumers
+- Patient rights and access in Kentucky
+- Expungement resources and what's available now
+- Starting and sustaining advocacy at the local level
+- Consumer safety and product knowledge
 
 ---
 
 ## Sponsorship System
 
+Conference sponsorships are category exclusives tied to specific content and visibility — not tables and logos. Sponsors get association with the content people came to see.
+
 ### Tiers
 
 | Tier | Price | What They Get |
 |---|---|---|
-| **Platinum** | $5,000 | Speaking slot (20 min), premier logo placement on stage + all materials, dedicated email to 8k list, 4 VIP tickets, social feature, table |
-| **Gold** | $2,500 | Logo on stage signage, email feature to 8k list, 2 VIP tickets, social features (3 posts), table |
-| **Silver** | $1,000 | Table, 2 general admission tickets, logo in printed program, 2 social mentions |
-| **Bronze** | $500 | Logo in program, 1 general admission ticket, 1 social mention |
-| **Media / In-Kind** | Negotiated | Press credentials, logo in program — in exchange for coverage or goods |
+| **Presenting Sponsor** | $7,500–$10,000 | One per event. Conference branded "presented by [sponsor]." Opening remarks slot (5 min), logo on all materials and social, dedicated email to 8k list, 6 VIP tickets, table in exhibitor showcase, named at every session. |
+| **Session Sponsor** | $3,000 | One per session. Session introduced as "presented by [sponsor]." 5-min speaking slot before the session, logo on session signage and program, email feature to list, 2 VIP tickets. |
+| **Networking Reception Sponsor** | $2,500 | Branded reception. Remarks at reception (5 min), logo on signage and materials, 4 VIP tickets, social feature. |
+| **Community Sponsor** | $1,000 | Logo on all printed and digital materials, 2 general admission tickets, 2 social mentions, name in opening remarks. |
+| **Media / In-Kind** | Negotiated | Press credentials and logo placement in exchange for coverage or donated goods/services. |
+
+**No table-only sponsorships.** If a business wants presence, they buy a tier that includes it. Exhibitor showcase spots are separate (below).
+
+### Exhibitor Showcase
+
+Small and curated. Available during lunch and breaks only — not the focus of the event.
+
+- 10–15 exhibitor spots maximum
+- $350–$500 per spot (includes 2 general admission passes)
+- Nonprofit rate: $150 (qualifying organizations only)
+- All exhibitors approved by KYNORML — mission alignment required
+- This is not a vendor floor. It is a showcase during breaks.
 
 ### Prospect List — Building from Scratch
 
-**KYCannaCon Years 1–3 all happened before any Kentucky dispensaries opened.** Year 4 is the first KYCannaCon with a legal cannabis market in Kentucky. That is the story.
+**KYCannaCon Years 1–3 all happened before Kentucky dispensaries opened.** Year 4 is the first conference with a legal cannabis market. Dispensaries are the flagship new sponsor category — they have marketing budgets, they need community credibility, and they are the direct beneficiaries of what KYNORML spent 8 years fighting for.
 
-Dispensaries are the top new prospect category — they have marketing budgets, they need community credibility, they want to be seen as part of the advocacy movement that made their business possible, and they have never been asked to sponsor this event. Approach them as the flagship new opportunity, not as a category that was overlooked.
+**Tier 1 — Primary targets, strong business case:**
+- Licensed medical cannabis dispensaries in Kentucky
+- Cannabis cultivators, processors, and licensed operators
+- Cannabis testing labs (state-required, new businesses, want visibility)
+- Hemp industry: farms, processors, brands — major Kentucky industry
+- Cannabis law firms and solo attorneys in KY
+- Cannabis CPAs, accountants, financial consultants
+- Compliance and licensing consultants
+- Cultivation supply and ancillary equipment companies
 
-Year 3 sponsors are not warmest leads — they're skeptical. Start fresh with new prospects and approach past participants separately using the transparency script above.
-
----
-
-**Tier 1 — New-to-conference, strong business case:**
-
-- **Licensed medical cannabis dispensaries in Kentucky** — they are the direct beneficiary of everything KYNORML fought for. They have marketing budgets. They want community relationships. They did not exist at any prior KYCannaCon. This is the flagship sponsor category for Year 4.
-- **Cannabis cultivators, processors, and growers** — licensed operators in the medical supply chain
-- **Cannabis testing labs in KY** — required by law, new businesses, want visibility
-- **Hemp industry: farms, processors, brands** — major KY industry, established base
-- **Cannabis law firms and solo practitioners** — every attorney in this space wants to be in front of this room
-- **Cannabis CPAs and financial consultants** — same audience, same logic
-- **Cannabis compliance and licensing consultants** — new market means everyone needs help navigating the rules
-- **Grow supply / cultivation supply companies** — serving the new legal market
-
-**Tier 2 — Broader cannabis and wellness space:**
-- CBD and wellness brands with KY retail presence
-- Smoke shops, vape shops, head shops — they are the existing retail distribution network
-- Cannabis software companies (POS, compliance, seed-to-sale) with KY clients
+**Tier 2 — Secondary targets:**
+- CBD and wellness brands with Kentucky retail presence
+- Cannabis software companies (POS, seed-to-sale, compliance) with KY clients
 - Packaging and labeling companies serving cannabis operators
-- National cannabis brands with KY expansion interest
+- National cannabis brands with Kentucky expansion interest
 
-**Tier 3 — General business sponsors:**
-- Small business lawyers and accountants not specialized in cannabis
-- Local media with cannabis coverage (in-kind: coverage in exchange for media sponsorship)
-- Printing and signage companies (in-kind is fine — reduces cost)
-- Hospitality and venue partners
+**Tier 3 — General sponsors:**
+- Local and regional media (in-kind: coverage for media sponsorship)
+- Hospitality partners, printing/signage (in-kind acceptable)
 
-**Year 3 participants — approach separately, with transparency:**
-- Use the script in the Rebuilding section above
-- Offer first right of refusal at their previous tier
-- Lead with what's different: 9 months of lead time, GA timing, legal market now open
+**Year 3 participants:** Approach separately, with the transparency script above. Offer first right of refusal before opening to new prospects.
 
 ### Outreach Sequence
 
-**Day 1:** Direct email or call — personal, not a blast
-> "We're opening KYCannaCon Year [X] sponsorships to our past partners first. [Business name] has been part of this community — we'd love to have you back at [tier]. Can we confirm your spot this week?"
+**Contact 1 — Personal (phone or direct email):**
+> "I'm building KYCannaCon Year 4 — first conference-format event, timed to the General Assembly session, and the first KYCannaCon since Kentucky dispensaries opened. I'd like to talk about what a sponsorship looks like for [business name]. When can we connect for 15 minutes?"
 
-**Day 7 (if no response):** Follow-up
-> "Following up on KYCannaCon sponsorships — [tier] spots are going fast. Want to lock in [business name]'s placement?"
+**Contact 2 — 7 days later (if no response):**
+> "Following up on KYCannaCon Year 4. Presenting Sponsor and Session Sponsor spots are limited and I'm prioritizing conversations with Kentucky's licensed operators first. Worth a quick call this week?"
 
-**Day 14 (if no response):** Final notice
-> "Last chance for priority placement — opening to public list next week."
+**Contact 3 — 14 days later (final):**
+> "Last note on this — opening sponsorships to the broader list next week. Happy to hold a spot for [business name] if you want to connect before then."
 
-**Log every outreach in Monday.com with 7-day follow-up date.**
+Log every contact in the sponsor tracker with the 7-day follow-up date.
 
 ### Sponsorship Deliverables Tracker
 
-Track per sponsor: what was promised, what has been delivered, what's outstanding.
-
-| Sponsor | Tier | Paid | Speaking | Logo | Email Feature | Social Posts | Table Confirmed | Notes |
-|---|---|---|---|---|---|---|---|---|
-| | | | | | | | | |
-
----
-
-## Vendor System
-
-### Who Belongs at KYCannaCon
-
-- Cannabis dispensaries and retailers
-- Hemp / CBD brands
-- Cannabis ancillary businesses (packaging, consulting, legal, tech)
-- Nonprofits and advocacy organizations
-- Wellness and lifestyle brands with cannabis connection
-- Authors, educators, media
-
-### Vendor Table Pricing
-
-| Table Type | Price | Includes |
-|---|---|---|
-| Standard | $[250–350] | 6ft table, 2 chairs, 2 general admission passes |
-| Premium (corner or high-traffic) | $[400–500] | Above + preferred placement |
-| Nonprofit rate | $[100–150] | Standard table — for qualifying nonprofits |
-
-### Vendor Application Process
-
-1. Vendor submits application (Google Form or Zeffy)
-2. Lauren or team reviews (KYNORML approves all vendors — keep quality and mission alignment)
-3. Invoice sent via Zeffy or QuickBooks
-4. Full payment required to hold table
-5. Confirmation + logistics packet sent 30 days before event
-
-### Vendor Logistics Packet (send 30 days out)
-
-- Load-in time and instructions
-- Table assignment and floor plan
-- Parking
-- What to bring / what's provided
-- Day-of contact number
-- Rules (no illegal sales, compliance notes)
+| Sponsor | Tier | Amount | Paid | Speaking Slot | Logo/Materials | Email Feature | Social Posts | Exhibitor Spot | Notes |
+|---|---|---|---|---|---|---|---|---|---|
+| | | | | | | | | | |
 
 ---
 
 ## Speaker System
 
-### Speaker Types
+Speakers are the product. The conference lives or dies by who is on stage and whether what they say is worth attending.
 
-| Type | How They're Secured | Paid? |
-|---|---|---|
-| Platinum sponsor speaker | Included in sponsorship | No (covered by sponsorship) |
-| Keynote | Recruited — national advocate, policy expert, or patient advocate | Sometimes honorarium |
-| Legislator / policy panel | Invited from KY General Assembly — sitting legislators, staff, or former members | No — public service |
-| Panel participants | Recruited from KY community, national NORML network | Usually no — exposure trade |
-| Workshop facilitators | Recruited or applied | Usually no |
+### Speaker Priorities
 
-### The General Assembly Speaker Strategy
+1. **Legislators** — sitting members of the General Assembly with cannabis committee assignments. Not a courtesy invite — a strategic one. See below.
+2. **National NORML** — policy director, executive director, or a prominent national advocate
+3. **Kentucky industry leaders** — dispensary operators, cultivators, hemp industry leaders who are building the market
+4. **Patient advocates** — people whose lives are directly affected by the laws being debated
+5. **Legal and compliance experts** — attorneys and consultants who can give attendees practical knowledge
+6. **Presenting and Session sponsors** — speaking slots are a sponsorship deliverable, not an audition
 
-Invite sitting legislators — particularly members of committees with cannabis jurisdiction — to speak or participate in a policy panel. Frame it as: "KYCannaCon is bringing together Kentucky's cannabis industry, patients, and advocates during session. We'd like to include your perspective on where Kentucky stands."
+### The Legislator Strategy
 
-**Why they should say yes:** It's constituent engagement. The cannabis community in Kentucky is large and growing. A legislator who shows up and engages is a legislator who is listening.
+Invite legislators who sit on committees with cannabis jurisdiction. Frame every invitation the same way:
 
-**Why it matters if they say no:** That's public information. KYNORML tracks who was invited and who declined. It goes in the legislative relationship log in the Advocacy Toolkit.
+> "KYCannaCon is gathering Kentucky's cannabis industry, patients, and advocates while the General Assembly is in session. We'd like to include your perspective on where Kentucky cannabis policy stands. This is your constituents — they'd like to hear directly from you."
 
-**Format options for legislators:**
-- Keynote or fireside chat (10–20 minutes)
-- Policy panel with multiple legislators or policy staff
-- Recorded video message if they can't attend in person
+**If they accept:** They're on record engaging with the cannabis community during session. That matters.
 
-**Don't lobby them.** The conference is the platform — it puts them in the room with their constituents. The advocacy work happens in the follow-up.
+**If they decline:** That's also a data point. Log it in the legislative relationship tracker in [[Advocacy Toolkit]]. Use it.
 
-### Recruitment Process
+**Format options:**
+- 20-minute fireside chat (moderated by Lauren)
+- Legislator panel with 2–3 members, mixed party if possible
+- Pre-recorded video message if in-person is not possible
 
-1. Identify 1 keynote and 3–4 panel topics 90 days out
-2. Reach out to national NORML for recommended speakers
-3. Reach out to KY cannabis community leaders directly
-4. Confirm with written agreement: topic, time slot, AV needs, bio + headshot deadline
-5. Collect bio + headshot 45 days out for marketing use
-6. Send speaker logistics packet 30 days out
+**Do not lobby them from the stage.** The conference creates the relationship. The advocacy follow-up happens after.
 
-### Speaker Logistics Packet
+### Speaker Recruitment Process
 
-- Full schedule with their slot highlighted
-- Venue address and parking
-- AV setup (will there be slides? mic type?)
-- Day-of contact
-- What to expect from the audience
+1. Build session lineup 4 months before the event — not 90 days
+2. Legislator invitations go out first — they have scheduling constraints
+3. National NORML contact made through Lauren's existing relationship
+4. KY industry and patient speakers recruited from KYNORML network
+5. Confirm every speaker in writing: [[Conference Speaker Agreement]]
+6. Collect bio + headshot 60 days out — used in marketing
+7. Send logistics packet 30 days out
 
 ---
 
 ## Ticket System
 
-### Tiers
+People are paying for content and professional access, not just to be in a room. Price accordingly.
 
 | Tier | Price | Notes |
 |---|---|---|
-| VIP Early Bird | $[75–100] | To email list 60 days out. Limited quantity. |
-| General Early Bird | $[35–50] | To email list 60 days out. |
-| General Admission | $[50–65] | Public sale 30 days out. |
-| Day-Of | $[75] | At door. Always highest price. |
-| Volunteer / Staff | Free | In exchange for hours worked |
+| **VIP / Professional** | $100–$125 | All sessions + networking reception + priority seating. To email list 75 days out. |
+| **General Admission Early Bird** | $55–$65 | All sessions. To email list 60 days out. |
+| **General Admission** | $75–$85 | Public sale 30 days out. |
+| **Patient / Low-Income** | $25 | Available by request — no questions asked. Keeps access open to the community. |
+| **Day-Of** | $100 | At door. Always highest price. |
+| **Press / Media** | Free | Credentialed media, in exchange for coverage. Apply in advance. |
+| **Volunteer / Staff** | Free | In exchange for assigned hours. |
 
-**Platform:** Zeffy (0% fees) or dedicated event ticketing platform
-**Email list gets first access** before public sale opens — this rewards loyalty and generates early cash.
+**Platform:** Zeffy (0% fees)
+**Email list gets first access** before public sale opens.
+
+---
+
+## Revenue Model
+
+| Stream | When | Notes |
+|---|---|---|
+| Presenting Sponsor | Pre-production (locked by October) | One per event — highest priority close |
+| Session Sponsors | Pre-production (locked by November) | One per session — 4–5 sessions = $12,000–$15,000 potential |
+| Networking Reception Sponsor | Pre-production | One sponsor |
+| Community Sponsors | Pre-production through 60 days out | Fills with secondary prospects |
+| Exhibitor showcase spots | 60 days out | Secondary revenue — not the focus |
+| VIP tickets | 75 days out — email list first | |
+| Early bird tickets | 60 days out | |
+| General admission | 30 days out | |
+| Day-of tickets | Day of | |
+| Merch | Day of | |
+
+**Revenue principle:** Sponsorships fund the event before it happens. Ticket revenue is net. The event should be fully funded by December 1 — 90 days before it runs.
+
+**Cost coverage principle:** Venue + AV + production costs should be covered by Presenting Sponsor + 2 Session Sponsors alone. Everything else is margin.
 
 ---
 
 ## Pre-Production — 9 Months Out (June–November)
 
-The 90-day countdown is the production sprint. Pre-production is the revenue sprint — sponsorships and vendor tables close before the formal timeline even begins.
-
-**June–July (now):**
-- [ ] Lock the specific date — first or second weekend of March 2027
-- [ ] Build sponsor prospect list (Tier 1 and Tier 2 above) — research, names, contacts, in a Google Sheet
-- [ ] Announce save-the-date to email list and social — simple, no hype
-- [ ] Begin Tier 1 outreach: licensed dispensaries, hemp brands, cannabis attorneys — new relationships, no baggage
-- [ ] Reach out to Year 3 participants using the transparency script — separate from the new prospect outreach
+**June–July:**
+- [ ] Lock the specific date
+- [ ] Build sponsor prospect list — Tier 1 and Tier 2 contacts in Google Sheet
+- [ ] Announce save-the-date to email list and social
+- [ ] Begin Tier 1 outreach: dispensaries, hemp, cannabis attorneys — fresh contacts, no baggage
+- [ ] Reach out to Year 3 participants separately using the transparency script
+- [ ] Begin legislator outreach — early contact, long lead time
 
 **August–September:**
 - [ ] Venue secured — contract signed, deposit paid
-- [ ] Sponsorship one-pager updated with confirmed date, venue, and Year 3 attendance numbers
-- [ ] Second sponsor outreach wave — new prospects from directory and cannabis business list
-- [ ] Open formal vendor applications
+- [ ] Sponsorship one-pager finalized with confirmed date, venue, conference format overview
+- [ ] Presenting Sponsor close — priority outreach, personal
+- [ ] Session lineup roughed out — which sessions, which topics
+- [ ] Second sponsor outreach wave — Tier 2 contacts
 
 **October–November:**
-- [ ] Google Ads campaign for KYCannaCon builds (Track 3) — runs through March
-- [ ] Speaker recruitment begins — keynote targeted
-- [ ] Sponsor pipeline reviewed — Platinum and Gold priority window closes end of November
-- [ ] Early bird ticket presale setup on Zeffy
+- [ ] Presenting Sponsor confirmed
+- [ ] Session Sponsors pipeline — close Platinum-equivalent commitments
+- [ ] Keynote speaker confirmed
+- [ ] Legislator panel confirmed or in final negotiation
+- [ ] Google Ads campaign for KYCannaCon goes live (Track 3)
+- [ ] Early bird ticket presale set up on Zeffy
+- [ ] Exhibitor showcase opens for applications
 
-**Goal by December 1:** All Platinum and Gold sponsorships committed. Venue paid. Event fully funded before the 90-day sprint begins. Ticket revenue from December forward is net.
+**Goal by December 1:** Presenting Sponsor + at least 3 Session Sponsors committed. Venue paid. Event revenue covers all costs before the 90-day sprint.
 
 ---
 
 ## 90-Day Production Timeline
 
 ### 90 Days Out (~ December)
-- [ ] Confirm event date and venue
-- [ ] Set ticket pricing and create Zeffy event
-- [ ] Build sponsorship one-pager (tiers, deliverables, contact)
-- [ ] Start sponsor outreach — past sponsors first
-- [ ] Open vendor applications
-- [ ] Announce save-the-date to email list and social
+- [ ] VIP ticket presale live — email list only
+- [ ] Full speaker lineup confirmed and announced
+- [ ] Session descriptions written for program and marketing
+- [ ] Exhibitor showcase — confirm accepted applicants
+- [ ] Remaining sponsorship outreach — Community Sponsor tier
+- [ ] Google Ads campaign running
 
 ### 75 Days Out
-- [ ] VIP early bird tickets go live — email list only
-- [ ] Send KYCannaCon announcement to full 8k email list
-- [ ] Identify keynote speaker — send invite
-- [ ] Identify panel topics and speakers — send invites
-- [ ] Begin Google Ads campaign for KYCannaCon (Track 3)
-- [ ] First sponsorship follow-ups due
+- [ ] VIP tickets to email list
+- [ ] Full event announcement to 8k email list with speaker lineup
+- [ ] Speaker bios + headshots collected
+- [ ] Social content batch begins: speaker spotlights, session previews, GA timing angle
+- [ ] Networking reception confirmed (venue + catering)
 
 ### 60 Days Out
-- [ ] General early bird tickets go live — email list first, then public
-- [ ] Confirm venue logistics (AV, layout, parking, catering if applicable)
-- [ ] Close Platinum and Gold sponsorship priority window
-- [ ] Confirm keynote and at least 2 panel speakers
-- [ ] Send vendor confirmation + logistics packets
-- [ ] KYCannaCon social content batch (Track 2) — weekly posts begin
+- [ ] Early bird general admission tickets go live — email list first, then public
+- [ ] Confirm venue logistics: AV, room setup, registration table, signage placement
+- [ ] Event program drafted — agenda, session descriptions, sponsor logos
+- [ ] All exhibitors confirmed — logistics packet sent
+- [ ] Volunteer recruitment begins
 
 ### 45 Days Out
-- [ ] Collect speaker bios + headshots
-- [ ] Build event program / agenda
-- [ ] Social media — speaker announcement posts
-- [ ] Sponsorship follow-up — Silver and Bronze still available
-- [ ] Volunteer recruitment begins
+- [ ] Session moderators confirmed and briefed
+- [ ] Social media — speaker announcement posts, legislative session connection content
+- [ ] Program finalized and sent to printer
+- [ ] Sponsorship fulfillment review: confirm all deliverables on track
 
 ### 30 Days Out
 - [ ] General admission tickets go public
-- [ ] Send full logistics packets to speakers, vendors, sponsors, volunteers
-- [ ] Finalize floor plan — assign vendor tables and sponsor placements
-- [ ] Print materials: programs, signage, sponsor logos
-- [ ] Confirm all AV and tech needs with venue
-- [ ] Email list — "30 days out" reminder with agenda preview
+- [ ] Full logistics packets sent: speakers, exhibitors, sponsors, volunteers
+- [ ] Confirm headcount with venue
+- [ ] Confirm AV and tech setup
+- [ ] Email list — "30 days out" reminder with agenda and featured speakers
 
 ### 14 Days Out
-- [ ] Email list — final push for ticket sales
-- [ ] Social — countdown content begins
-- [ ] Confirm headcount with venue (catering, seating, AV)
-- [ ] Confirm all volunteer assignments and shifts
-- [ ] Prepare check-in list and day-of materials
+- [ ] Email list — final ticket push
+- [ ] Social countdown content
+- [ ] Final headcount to venue for catering and seating
+- [ ] Confirm all volunteer assignments
+- [ ] Prepare registration materials: check-in list, badges, printed programs
 
 ### 7 Days Out
-- [ ] Final email to registered attendees — logistics, parking, schedule
-- [ ] Final social posts — "See you next week"
-- [ ] Confirm all sponsor + vendor logistics one last time
-- [ ] Brief volunteers on day-of responsibilities
+- [ ] Email registered attendees — logistics, parking, full schedule
+- [ ] Final confirmation with all speakers, sponsors, exhibitors
+- [ ] Brief volunteer team on day-of responsibilities
 
 ### Day Of
 See Day-Of Run Sheet below.
 
 ### 1 Week Post-Event
-- [ ] Send thank-you email to all attendees, vendors, sponsors
-- [ ] Post event recap on social + email (photos, highlights)
-- [ ] Reconcile all revenue: ticket sales, vendor fees, sponsorships, merch, donations, raffle
-- [ ] Send sponsor recap report (attendance numbers, social reach, email reach)
-- [ ] Log leads for next year: vendors and sponsors who want to return
-- [ ] Debrief — what worked, what didn't, what to change for Year [X+1]
+- [ ] Thank-you email to all attendees, exhibitors, sponsors
+- [ ] Event recap post on social + email (photos, key moments, quotes)
+- [ ] Reconcile all revenue: tickets, exhibitor fees, sponsorships, merch
+- [ ] Send sponsor recap report: attendance numbers, social reach, email reach, press coverage
+- [ ] Log all sponsor/exhibitor decisions for Year 5: who wants to return, who to upgrade
+- [ ] Debrief document: what worked, what didn't, what changes for next year
 
 ---
 
@@ -351,102 +346,84 @@ See Day-Of Run Sheet below.
 
 **[Date] | [Venue] | [City, KY]**
 
-| Time | Task | Owner |
+| Time | Block | Owner |
 |---|---|---|
-| [T-3hr] | Load in begins — vendors and sponsors | Venue lead |
-| [T-2hr] | Volunteer check-in and briefing | Volunteer coordinator |
-| [T-1hr] | Speaker check-in and AV soundcheck | Speaker coordinator |
-| [T-30min] | Doors open — attendee check-in begins | Registration team |
-| [Start] | Welcome remarks | Lauren Bratcher |
-| [+30min] | Keynote | Keynote speaker |
-| [+90min] | Panel 1 | Moderator |
-| [+2.5hr] | Break — vendor floor open | All |
-| [+3hr] | Panel 2 or Workshop | Moderator |
-| [+4.5hr] | Break | All |
-| [+5hr] | Panel 3 or Closing | Moderator |
-| [+6hr] | Raffle / auction draw (if applicable) | MC |
-| [+6.5hr] | Closing remarks + thank yous | Lauren Bratcher |
-| [+7hr] | Load out begins | All |
-| [+8hr] | Venue cleared | Venue lead |
+| T–2hr | Load in: exhibitors, A/V setup, sponsor signage | Venue coordinator |
+| T–1hr | Volunteer check-in and briefing | Volunteer lead |
+| T–45min | Speaker check-in, A/V soundcheck | Speaker coordinator |
+| T–30min | Doors open, registration begins | Registration team |
+| 0:00 | Welcome remarks | Lauren Bratcher |
+| 0:15 | Presenting Sponsor remarks (5 min) | Sponsor representative |
+| 0:20 | Keynote | Keynote speaker |
+| 1:15 | State of Cannabis in Kentucky — legislative update | Lauren / policy lead |
+| 1:45 | Break + exhibitor showcase open | All |
+| 2:15 | Panel 1 (policy or patient track) | Moderator |
+| 3:30 | Lunch + exhibitor showcase open | All |
+| 4:30 | Panel 2 (industry track) | Moderator |
+| 5:45 | Break | All |
+| 6:00 | Panel 3 (community or closing track) | Moderator |
+| 7:15 | Closing remarks | Lauren Bratcher |
+| 7:30 | Networking reception begins (if applicable) | Reception sponsor |
+| 9:00 | Event closes, load out begins | All |
+
+*Adjust session lengths based on final program. Breaks keep the exhibitor showcase visible without making it the event.*
 
 ---
 
 ## Budget Template
 
-| Category | Estimated Cost | Actual Cost |
+| Category | Estimated | Actual |
 |---|---|---|
 | Venue rental | | |
-| AV / tech | | |
-| Printed materials (programs, signage) | | |
-| Speaker honorarium (if applicable) | | |
-| Volunteer coordination | | |
-| Marketing (if any paid spend beyond Google Ads) | | |
-| Catering / water / supplies | | |
-| Insurance (event liability) | | |
-| **Director travel fund** | | |
+| A/V and tech | | |
+| Printed materials (programs, signage, badges) | | |
+| Speaker honorarium (keynote only, if any) | | |
+| Catering (lunch and/or reception) | | |
+| Event insurance (liability) | | |
+| Marketing (beyond Google Ads) | | |
+| Staff and volunteer coordination | | |
+| Director travel fund | | |
 | Miscellaneous | | |
 | **Total expenses** | | |
 | **Total revenue** | | |
 | **Net** | | |
 
-**Cost coverage principle:** Sponsorship and vendor revenue should cover all expenses before the event. Ticket revenue is net profit.
+**Cost coverage target:** Presenting Sponsor ($7,500) + 2 Session Sponsors ($6,000) = $13,500. That covers venue, A/V, and production for most configurations. Everything else is margin.
 
 ---
 
 ## Director Travel Fund
 
-State chapter directors should have dedicated travel funds to attend cannabis industry events outside their state. This is not discretionary — it is a strategic investment in KYCannaCon's vendor pipeline and attendance base.
+Directors should attend cannabis industry events outside Kentucky. The relationships built there become speakers, sponsors, and cross-promotional partners for KYCannaCon.
 
-**Why it matters:**
-- Vendors who exhibit at other cannabis conferences are the exact vendors you want at KYCannaCon
-- Meeting them in person at their event — before asking them to exhibit at yours — is the fastest path to a yes
-- Directors who are visible at national and regional events build KYNORML's credibility and the KYCannaCon brand beyond Kentucky's borders
-- Relationships built at other events convert to sponsors, speakers, and cross-promotional partners
-
-**What director travel covers:**
-- Registration fees for cannabis conferences and industry networking events
-- Transportation and accommodation
-- Meals while traveling on chapter business
-
-**How it works:**
-- Director submits travel request with event name, purpose, and estimated cost
-- Approved as a chapter operating expense
-- Director brings back: minimum 10 vendor/sponsor contacts logged in Monday.com, plus a debrief for the team on what was learned
-- Receipts submitted for reimbursement within 30 days
-
-**Suggested events for KYNORML director attendance:**
+**Suggested events:**
 - National NORML conference
-- MJBizCon (Las Vegas — largest cannabis industry trade show)
-- Regional cannabis conferences in neighboring states (TN, OH, IN)
-- State hemp and cannabis association events
-- Any event where KYCannaCon's target vendors and sponsors are present
+- MJBizCon (largest cannabis trade show — the room full of the sponsors you want)
+- Regional conferences in neighboring states (TN, OH, IN)
+- State hemp association events
 
-**Budget guidance:** Allocate a minimum of $[1,500–3,000]/year per director for travel. This is recovered many times over if even one additional Platinum sponsor or 5 additional vendors are secured as a direct result.
+**Budget guidance:** $1,500–$3,000/year per director. Recovered if one additional Presenting Sponsor or two Session Sponsors result directly.
+
+**Process:** Submit travel request with event name and estimated cost. Bring back minimum 10 contacts logged in the sponsor tracker. Submit receipts within 30 days.
 
 ---
 
 ## The Chapter Box — Replicable for Other NORML Chapters
 
-This playbook is the deliverable for other state chapters via [[Verdant Ventures LLC]].
+This conference model travels. Every state has a legislative session. Every state chapter can run a session-week conference.
 
-**What gets packaged:**
-1. This full playbook (customized to chapter name + state)
+**What gets packaged for other chapters:**
+1. This playbook (customized to chapter name, state, legislative calendar)
 2. Sponsorship one-pager template
-3. Vendor application template
-4. Ticket setup on Zeffy (or equivalent)
-5. 90-day timeline as a Monday.com board
-6. Speaker invitation template
-7. Day-of run sheet template
-8. Post-event reconciliation + sponsor report template
-9. Director travel fund policy and reimbursement process
+3. Session lineup and speaker recruitment guide
+4. Ticket setup on Zeffy
+5. 90-day production timeline as a Monday.com board
+6. Day-of run sheet template
+7. Post-event reconciliation and sponsor report template
 
-**What makes KYNORML the proof of concept:**
-- 3 years running
-- Established sponsor and vendor relationships
-- Proven revenue model
-- Real attendance numbers to reference
+**What makes KYNORML the proof of concept:** 4 years of production (Year 4 being the first clean run), General Assembly timing model, and a functioning sponsor and attendee base.
 
-**Delivered through:** [[Verdant Ventures LLC]] — consulting engagement or packaged template license.
+**Delivered through:** [[Verdant Management Partners]]
 
 ---
 
@@ -457,4 +434,7 @@ This playbook is the deliverable for other state chapters via [[Verdant Ventures
 - [[Track 1 - Email Campaign System]] — KYCannaCon email campaigns
 - [[Track 2 - Social Media System]] — KYCannaCon social content
 - [[Track 3 - Google Ads Playbook]] — KYCannaCon campaign
-- [[Verdant Ventures LLC]] — chapter replication delivery vehicle
+- [[Conference Speaker Agreement]]
+- [[Conference Sponsorship Agreement]]
+- [[Conference Vendor Agreement]]
+- [[Verdant Management Partners]]

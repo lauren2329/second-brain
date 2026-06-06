@@ -24,9 +24,7 @@ The 8,000-person list skews advocates — people who believe in the cause but do
 | ~~**Set KYCannaCon Year 4 date**~~ | ~~Decision only~~ | **DONE — Early March 2027** |
 | **Email past KYCannaCon sponsors** — "Year 4 is locked in, early March — you're getting first call" | Pull past sponsor list, send one-pager from [[KYCannaCon Conference Playbook]] | $500–$5,000 per sponsor, paid upfront to confirm |
 | **Direct outreach to cannabis businesses for directory listings** | Pull business contacts, send offer — template in [[Track 1 - Email Campaign System]] | $75–$150/month per listing, recurring from day one |
-| **Email past KYCannaCon vendors** — priority table hold available now | Same list as sponsors | $150–$500 per vendor, paid upfront |
-
-**The date is set. Sponsor and vendor outreach starts now.** Past partners get first call before this opens publicly. Personal email, not a blast.
+**The date is set. Sponsor outreach starts now.** KYCannaCon is conference-format — no expo floor. Presenting Sponsor and Session Sponsor outreach first. Past Year 3 participants approached separately with transparency. Personal contact, not a blast.
 
 **On donation emails:** Not the move for fast cash. The list is valuable but not for mass fundraising. Reserve email sends for member recruitment (where $25/month compounds) and event promotion (where there's a transaction on the other end). See updated email strategy in [[Track 1 - Email Campaign System]].
 
