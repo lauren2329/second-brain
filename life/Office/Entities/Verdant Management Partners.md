@@ -123,6 +123,20 @@ For chapters that want VMP to stay on after onboarding — managing systems, upd
 
 ---
 
+## Roadmap
+
+| Phase | Focus | Status |
+|---|---|---|
+| **Phase 1** | NORML chapter operations — the Chapter Box, direct outreach, first client onboardings | Active |
+| **Phase 2** | Expand to other nonprofits — same operational framework, different vertical | Next |
+| **Phase 3** | Charitable gaming — help chapters and nonprofits establish gaming operations in states where available | Future |
+
+**Phase 3 notes:**
+Charitable gaming is a significant revenue stream for nonprofits in states where it is legally available. VMP will develop a charitable gaming setup and compliance guide — modeled on [[Gaming Lounge]] under [[Common Good Network 501c3]] — and offer it as an additional revenue layer for nonprofit clients.
+This is not part of the current Chapter Box offering. It becomes relevant once Phase 1 is proven and Phase 2 is underway.
+
+---
+
 ## Active Projects
 
 | Project | Client | Status |
