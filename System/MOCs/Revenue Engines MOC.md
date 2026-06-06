@@ -17,5 +17,8 @@ tags: [moc, revenue]
 ## Master Dashboard
 - [[! Revenue Engine List]]
 
+## Playbooks
+- [[KYNORML Revenue and Marketing System]] — full system: marketing machine, revenue streams, matching layer, chapter replication box
+
 ## Compliance
 - [[Entity Mapping]] — revenue split rules and structure
