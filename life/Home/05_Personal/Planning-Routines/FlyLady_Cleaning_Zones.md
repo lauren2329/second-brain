@@ -119,6 +119,10 @@
 
 ## Weekly Rotation Schedule
 
+Zones rotate through the week. Each week, a different zone starts on Monday.
+
+**Week 1 (Starting Jun 8):**
+
 | Day | Zone | Area Focus |
 |-----|------|-----------|
 | Monday | 1 | Entryway & Front Door |
@@ -126,6 +130,31 @@
 | Wednesday | 3 | Downstairs Bedroom & Bathroom |
 | Thursday | 4 | Upstairs Bedrooms & Bathroom |
 | Friday | 5 | Playroom, Storage, Garage |
+
+**Week 2 (Starting Jun 15):**
+
+| Day | Zone | Area Focus |
+|-----|------|-----------|
+| Monday | 2 | Open Living/Dining/Kitchen & Back Patio |
+| Tuesday | 3 | Downstairs Bedroom & Bathroom |
+| Wednesday | 4 | Upstairs Bedrooms & Bathroom |
+| Thursday | 5 | Playroom, Storage, Garage |
+| Friday | 1 | Entryway & Front Door |
+
+**Week 3 (Starting Jun 22):**
+
+| Day | Zone | Area Focus |
+|-----|------|-----------|
+| Monday | 3 | Downstairs Bedroom & Bathroom |
+| Tuesday | 4 | Upstairs Bedrooms & Bathroom |
+| Wednesday | 5 | Playroom, Storage, Garage |
+| Thursday | 1 | Entryway & Front Door |
+| Friday | 2 | Open Living/Dining/Kitchen & Back Patio |
+
+*Pattern continues: each week, all 5 zones rotate forward by one day*
+
+| Weekend |  |  |
+|---|---|---|
 | Saturday | All | Catch-up & Deep Tasks |
 | Sunday | All | Rest, Planning, Meal Prep |
 
