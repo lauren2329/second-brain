@@ -8,9 +8,34 @@ tags: [marketing, pr, kynorml, communications]
 
 ## Overview
 
-KYNORML's PR strategy is reactive and news-driven.
-When cannabis news breaks — locally in Kentucky or nationally — KYNORML responds as the authoritative Kentucky cannabis voice.
-This system makes each response take 20 minutes, not 2 hours.
+KYNORML's PR strategy has two tracks:
+
+1. **Reactive** — when cannabis news breaks, KYNORML responds within 24–48 hours as the authoritative Kentucky cannabis voice. This system makes each response take 20 minutes.
+2. **Planned** — proactive announcements on KYNORML's own timeline: KYCannaCon milestones, legislative session previews, sponsor and speaker reveals, year-end recaps. These are scheduled, not reactive, and they create news instead of waiting for it.
+
+Both use the same press release template and media list. The difference is timing — reactive runs on the news cycle's clock, planned runs on yours.
+
+---
+
+## Planned Press Release Calendar
+
+These are the announcements KYNORML controls the timing of. Build them into the year — they generate coverage on a predictable schedule and keep KYNORML visible between news cycles.
+
+| Timing | Announcement | Why It's Newsworthy |
+|---|---|---|
+| **November** | KYCannaCon Year [X] save-the-date — date, venue, theme | First public announcement of the year's signature event; ties to "first conference since dispensaries opened" framing for Year 4 |
+| **December** | Year in review — KYNORML's advocacy wins, KYCannaCon recap, what's ahead for the legislative session | Positions KYNORML as the authoritative voice heading into session |
+| **January** | Legislative session preview — what cannabis bills are expected, what KYNORML is watching, how Kentuckians can engage | Runs the same week the General Assembly convenes — guaranteed relevance |
+| **Late January / Early February** | KYCannaCon speaker lineup announcement — keynote, legislator panel (if confirmed), session topics | Drives ticket sales, gives media a concrete hook beyond "there's an event" |
+| **Mid-February** | KYCannaCon sponsor announcement — Presenting Sponsor reveal | Newsworthy for the sponsor (they want the press) and for KYNORML (signals a funded, professional event) |
+| **Late February** | KYCannaCon final countdown — full agenda, ticket info, what to expect | Last press push before the event — drives day-of and walk-up attendance |
+| **Day of / Day after KYCannaCon** | Event recap — attendance, key moments, quotes from speakers and legislators who attended | Closes the loop publicly; becomes the proof point for next year's sponsor pitch |
+| **March (post-session)** | Legislative session wrap-up — what passed, what didn't, what KYNORML is doing next | Keeps KYNORML in the conversation after the session ends and the news cycle moves on |
+| **Spring/Summer (as they happen)** | Milestone announcements — membership launch, dispensary directory milestones, advocacy wins | Smaller items, but they compound visibility between the big seasonal pushes |
+
+**The pattern:** November through March is press-heavy — aligned with the GA session and KYCannaCon. April through October is lighter — milestone-driven, not calendar-driven. Don't force a release where there's no real news. A thin release damages credibility more than no release at all.
+
+**Distribution for planned releases:** Same as reactive — media list, website, email to list, social — but with one addition: planned releases can be embargoed and offered to a priority outlet first (e.g., give the Kentucky Lantern or Courier-Journal a 24-hour exclusive on the KYCannaCon sponsor announcement). Exclusives build media relationships that pay off over time.
 
 ---
 
