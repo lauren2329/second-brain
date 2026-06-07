@@ -3,46 +3,52 @@
 ## House Overview
 - **Bedrooms:** 1 downstairs, 2 upstairs
 - **Bathrooms:** 2 full bathrooms
+- **Main Living Space:** Open-concept living/dining/kitchen (one long area)
 - **Garage:** 10' × 22' (split: half playroom, half storage)
-- **Special Features:** Daily use of back patio
+- **Special Features:** Back patio in daily use
+- **Layout Advantage:** Open-concept makes weekly cleaning flow naturally through connected zones
 
 ---
 
 ## Zone Breakdown & Rotation
 
-### ZONE 1: Entryway & Living Room (Monday)
-**Focus:** Entry points, living spaces, first impressions
+### ZONE 1: Entryway & Front Door (Monday)
+**Focus:** Entry point and first impression
 
 **Includes:**
 - Front entryway/foyer
-- Living room
-- Main hallway
-- Closet organization
+- Entry closet
+- Front door area
 
 **Weekly Tasks:**
-- Vacuum/sweep entry and living room
-- Dust surfaces and baseboards
+- Vacuum/sweep entry
+- Dust entry table/surfaces
 - Organize entry closet
-- Wipe down light switches
-- Check for clutter accumulation
+- Wipe down door and light switches
+- Check for clutter by entry
+- Clean entry mirrors/windows
 
 ---
 
-### ZONE 2: Kitchen & Dining (Tuesday)
-**Focus:** Food prep and eating areas, includes patio access
+### ZONE 2: Open Living/Dining/Kitchen & Back Patio (Tuesday)
+**Focus:** Main living space—the heart of the home, includes daily patio use
 
 **Includes:**
+- Living room
+- Dining area
 - Kitchen (all appliances, counters, cabinets)
-- Dining room
-- Back patio
+- Back patio (daily use area)
 
 **Weekly Tasks:**
-- Deep clean kitchen: appliances, inside microwave, oven, fridge
-- Clean dining table and chairs
+- Deep clean kitchen: appliances (inside microwave, oven, fridge)
+- Clean all kitchen counters and backsplash
 - Wipe down kitchen cabinets (rotate which ones)
-- Sweep and mop kitchen/dining
+- Clean dining table and chairs
+- Vacuum/sweep entire open living area
+- Mop kitchen/dining tile
 - Hose down/sweep back patio
-- Organize kitchen junk drawer
+- Wipe light switches and baseboards throughout
+- Organize kitchen junk drawer/utensil drawers
 
 ---
 
@@ -115,8 +121,8 @@
 
 | Day | Zone | Area Focus |
 |-----|------|-----------|
-| Monday | 1 | Entryway & Living Room |
-| Tuesday | 2 | Kitchen, Dining, Back Patio |
+| Monday | 1 | Entryway & Front Door |
+| Tuesday | 2 | Open Living/Dining/Kitchen & Back Patio |
 | Wednesday | 3 | Downstairs Bedroom & Bathroom |
 | Thursday | 4 | Upstairs Bedrooms & Bathroom |
 | Friday | 5 | Playroom, Storage, Garage |
@@ -144,7 +150,7 @@
 
 ## Weekly Tracking Log
 
-| Week Starting | Z1: Entryway | Z2: Kitchen | Z3: Down Bed/Bath | Z4: Up Beds/Bath | Z5: Playroom | Notes |
+| Week Starting | Z1: Entry | Z2: Living/Kitchen/Patio | Z3: Down Bed/Bath | Z4: Up Beds/Bath | Z5: Playroom | Notes |
 |---|---|---|---|---|---|---|
 | Jun 8 | ✓ | ✓ | ✓ | ✓ | ✓ | Initial setup |
 | Jun 15 | | | | | | |
