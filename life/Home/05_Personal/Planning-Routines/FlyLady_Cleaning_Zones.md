@@ -142,6 +142,23 @@
 
 ---
 
+## Weekly Tracking Log
+
+| Week Starting | Z1: Entryway | Z2: Kitchen | Z3: Down Bed/Bath | Z4: Up Beds/Bath | Z5: Playroom | Notes |
+|---|---|---|---|---|---|---|
+| Jun 8 | ✓ | ✓ | ✓ | ✓ | ✓ | Initial setup |
+| Jun 15 | | | | | | |
+| Jun 22 | | | | | | |
+| Jun 29 | | | | | | |
+| Jul 6 | | | | | | |
+| Jul 13 | | | | | | |
+| Jul 20 | | | | | | |
+| Jul 27 | | | | | | |
+| Aug 3 | | | | | | |
+| Aug 10 | | | | | | |
+
+---
+
 ## Customization Notes
 - Adjust timing based on your household size and schedule
 - If needed, combine Zones 3 & 4 into one "Bathrooms & Bedrooms" week
