@@ -52,6 +52,7 @@ VMP handles setup. Chapters operate.
 | [[Advocacy Toolkit]] | Legislative relationships, testimony, 501(c)(4) compliance, coalition building |
 | [[Crisis Communications Box]] | Bad news response, holding statements, media protocol |
 | [[Chapter Health Dashboard]] | KPIs, monthly tracking, annual review |
+| [[KYNORML Monthly Operations Handoff]] | The assembled monthly operating rhythm — finance, fundraising, board, compliance — built for clean leadership transitions |
 | [[New Chapter Startup Guide]] | First 30 and 90 days, common mistakes |
 | [[501c3 Setup Guide]] | 501(c)(3) arm setup — Candid, TechSoup, Google Ad Grants, platform registrations |
 | [[KYNORML Revenue and Marketing System]] | Revenue streams, marketing machine, matching layer |
