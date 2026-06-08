@@ -1,5 +1,5 @@
 ---
-title: KYNORML Monthly Operations Handoff
+title: KYNORML Executive Director Operations Handbook
 date: 2026-06-08
 type: playbook
 status: active
@@ -8,86 +8,152 @@ tags: [chapter-box, operations, handoff, governance, finance, fundraising, kynor
 
 ## Why This Document Exists
 
-This is a transition document — built to hand the recurring monthly operating rhythm of KYNORML from the outgoing Deputy Director to the Executive Director (and to whoever steps into the Deputy Director role next). The goal: nothing about how the chapter actually runs month to month should live only in one person's head. If you're reading this because you're stepping into this work, this is everything you need to keep the beat going without having to reconstruct it from scratch.
+This is a complete transition document — built to hand every recurring operational responsibility of the Executive Director role from the outgoing Deputy Director to whoever holds or inherits the ED position. Nothing about how KYNORML actually runs should live only in one person's head.
 
-This document does **not** replace the templates it draws from — it's the assembled, KYNORML-specific version of them, in the order you actually do the work. The source templates ([[Financial Box]], [[Governance Box]], [[Chapter Health Dashboard]], [[Marketing Master Calendar]]) stay current and authoritative; this is the "run it in this order, every month" view.
+The work runs on five different rhythms: daily, bi-weekly, monthly, seasonal (KYCannaCon production, September–March), and annual. This document covers all five. If you're stepping into this role, this is the full picture of what it takes to keep the chapter running.
+
+The source playbooks ([[Financial Box]], [[Governance Box]], [[Chapter Health Dashboard]], [[Marketing Master Calendar]], [[Track 1 - Email Campaign System]], [[Track 2 - Social Media System]], [[Track 4 - PR Response System]], [[KYCannaCon Conference Playbook]]) stay current and authoritative — this document is the assembled, KYNORML-specific view of when and in what order to run them.
 
 ---
 
 ## The Entity Map — Who's Who
 
-A new ED inherits not just KYNORML, but a small web of related entities. None of this is optional context — money, services, and compliance obligations move between these, and misunderstanding the map causes real problems (commingling funds, missed filings, unclear ownership of work product).
+A new ED inherits not just KYNORML but a small web of related entities. Money, services, and compliance obligations move between them — misunderstanding the map causes real problems.
 
 | Entity | What It Is | Relationship to KYNORML |
 |---|---|---|
-| **KYNORML, INC** | The 501(c)(4) social welfare organization — the chapter itself. Advocacy, lobbying, KYCannaCon, membership, directory. Donations to it are **not** tax-deductible. | This is the organization you're running. |
-| **Common Good Network (CGN)** | A 501(c)(3) educational nonprofit — the "education arm." Runs Google Ad Grants ($10,000/month in free advertising), cannabis wellness education, and anything that needs tax-deductible donations or grant eligibility. | Separate legal entity, same mission family. KYNORML and CGN must keep finances, messaging, and activities legally distinct — this is the single most important compliance boundary to understand on day one. Confirm with legal/accounting how the two currently divide work before assuming anything is shared. |
-| **Verdant Management Partners (VMP)** | Lauren Bratcher's professional services and event-management company. Produces KYCannaCon, consults for other NORML chapters (the "Chapter Box" model), and is a paying **client relationship** — not part of KYNORML's org chart. | VMP is a vendor/contractor to KYNORML for conference production and consulting-style services — any work VMP does for KYNORML should be under a written agreement (see the Vendor Contract Template in [[Financial Box]]), with payment and scope clearly defined. |
-| **Verdant Ventures LLC** | Lauren's personal vendor entity. Bills VMP for the work Lauren personally performs; keeps her personal income separate from VMP's client-facing business. | Has no direct relationship to KYNORML — it's two layers removed (KYNORML → VMP → Verdant Ventures). You should never see direct transactions between KYNORML and Verdant Ventures. If you do, that's a red flag worth raising with the board. |
-| **National NORML** | The parent organization. Provides the chapter charter, free press/social content, the chapter directory network, and (per VMP's current pipeline) may engage VMP directly for projects like a National Chapter Summit. | KYNORML operates under National NORML's umbrella as a state chapter — not a subsidiary. Distribution, branding guidance, and content all flow from this relationship. |
+| **KYNORML, INC** | The 501(c)(4) social welfare organization — the chapter itself. Advocacy, lobbying, KYCannaCon, membership, directory. Donations are **not** tax-deductible. | This is the organization you're running. |
+| **Common Good Network (CGN)** | A 501(c)(3) educational nonprofit — the education arm. Runs Google Ad Grants ($10,000/month in free advertising), cannabis wellness education, and anything requiring tax-deductible donations or grant eligibility. | Separate legal entity, same mission family. KYNORML and CGN must keep finances, messaging, and activities legally distinct — this is the single most important compliance boundary to understand on day one. Confirm with legal/accounting how the two currently divide work before assuming anything is shared. |
+| **Verdant Management Partners (VMP)** | Lauren Bratcher's professional services and event-management company. Produces KYCannaCon, consults for other NORML chapters, and is a **vendor/contractor** to KYNORML — not part of the org chart. | Any work VMP does for KYNORML should be under a written agreement with clear payment terms. See the Vendor Contract Template in [[Financial Box]]. |
+| **Verdant Ventures LLC** | Lauren's personal vendor entity. Bills VMP for Lauren's work directly. | No direct relationship to KYNORML — two layers removed. If you see a direct KYNORML-to-Verdant Ventures transaction, that's a red flag worth raising with the board. |
+| **National NORML** | The parent organization. Provides the chapter charter, free press/social content, chapter directory network, and national advocacy resources. | KYNORML operates as a state chapter — not a subsidiary. Distribution, branding, and content flow from this relationship. Chapter has reporting obligations and branding guidelines to follow. |
 
-**The one thing to internalize:** KYNORML is the chapter. CGN is the legally separate education partner. VMP and Verdant Ventures are Lauren's outward-facing businesses that happen to also produce KYNORML's signature event — which means anything VMP does for KYNORML needs the same scrutiny, written agreements, and arm's-length treatment you'd apply to any other vendor. This protects both KYNORML's nonprofit status and Lauren's business.
+**The compliance line that matters most:** KYNORML (advocacy) and CGN (education) must stay legally distinct. VMP and Verdant Ventures are Lauren's outside businesses — treat them with the same written-agreement, arm's-length standards you'd apply to any vendor.
 
 ---
 
-## The Monthly Rhythm — One Page
+## Full Scope of the Role — At a Glance
 
-Run these in this order, every month. Total time: roughly half a day, spread across the month — not one sitting.
+Every recurring task the ED is responsible for, organized by frequency. Nothing in this list is optional — if something stops happening, the chapter starts degrading.
 
-| When | Task | Source / Detail |
+| Frequency | Area | Task |
 |---|---|---|
-| **1st–3rd of the month** | Pull last month's financial snapshot (P&L, cash on hand, budget variance) | [[Financial Box]] — Monthly P&L Snapshot |
-| **1st–3rd of the month** | Pull last month's KPI numbers (list size, open rates, social, revenue by stream, membership) | [[Chapter Health Dashboard]] — Monthly KPI Tracker |
-| **First week** | Check this month's row in the Marketing Master Calendar — confirm the planned email send, social emphasis, and press moment are loaded | [[Marketing Master Calendar]] |
-| **First week** | Donor / member / sponsor stewardship touches (see Fundraising Cadence below) | This document — Fundraising Cadence section |
-| **Mid-month** | Reconcile bank statement; flag anything off-budget by more than 15% | [[Financial Box]] — Financial Controls |
-| **Mid-month (if board meeting scheduled)** | Prep board packet — financial snapshot, KPI summary, health indicators, agenda | [[Governance Box]] — Board Meeting Minutes Template |
-| **Ongoing, all month** | Reactive PR / social response as news breaks (does not wait for the monthly cycle) | [[Track 4 - PR Response System]] |
-| **Last week** | Check the compliance calendar (below) — anything due in the next 60 days? | This document — Annual Compliance Calendar |
-| **Last week** | Log the month — revenue actuals, sends completed, press issued, board actions — into the working dashboards | [[Revenue Action Dashboard]], [[Weekly Action Plan]] |
+| **Daily** | Advocacy | Check Google Alerts digest for Kentucky cannabis news |
+| **Daily** | Social | 5 min Threads engagement — reply to cannabis policy conversations |
+| **Daily** | Operations | Respond to urgent inbox items (media, sponsors, board, directory inquiries) |
+| **Daily** | Instagram | Post one Story — casual, behind-the-scenes, phone quality is fine |
+| **Every 2 weeks** | Social media | Run the 2.5-hour batch session — creates 21 scheduled posts across FB/IG/Threads |
+| **Every 2 weeks** | Email | Check that the next campaign is loaded, tested, and queued |
+| **Every 2 weeks** | Revenue | Directory outreach batch, membership follow-ups, sponsor pipeline touches |
+| **Monthly** | Finance | Pull P&L snapshot and reserve check |
+| **Monthly** | Analytics | Pull full KPI dashboard (list, social, revenue, membership, advocacy) |
+| **Monthly** | Fundraising | Run stewardship cadence — directory, membership, sponsors, donors |
+| **Monthly** | Team | Review contractor invoices, check in with Shealonda/Maurice/James |
+| **Monthly** | List | Email list hygiene — bounce cleanup, segment review |
+| **Monthly** | Directory | Audit listings — expired, updated, new businesses to add |
+| **Monthly** | Website | Spot-check key pages, links, and membership/donation flows |
+| **Monthly** | National NORML | Check-in — chapter obligations, content to repurpose, national updates |
+| **Monthly (if meeting)** | Board | Prep board packet; run meeting; file minutes |
+| **Monthly** | Compliance | Check compliance calendar — anything due in next 60 days? |
+| **Monthly** | Marketing | Sync with Marketing Master Calendar — confirm email, social, press on track |
+| **Seasonal (Sept–March)** | KYCannaCon | Full conference production cycle — venue, speakers, sponsors, tickets, AV, day-of |
+| **Annual** | Finance | Board approves operating budget (start of fiscal year) |
+| **Annual** | Compliance | Form 990 filed by May 15 |
+| **Annual** | Compliance | State annual report filed by incorporation anniversary |
+| **Annual** | Compliance | State charitable solicitation registration renewed |
+| **Annual** | Governance | Board conflict-of-interest policy signed by all members |
+| **Annual** | Governance | Board elections / term renewals |
+| **Annual** | Strategy | Annual chapter review — scorecard, wins/losses, one priority for next year |
+| **Annual** | Revenue | Merch planning — new products for the year |
+| **Annual** | Google Ads | Review Google Ad Grants performance via CGN — confirm $10K/month is being used |
 
 ---
 
 ## Systems & Access Map
 
-Every platform KYNORML runs on, what it's for, and who needs access. Before the transition is final, the incoming ED should be added as an admin/owner on every row of this table — not just a user.
+Every platform KYNORML runs on. Before transition is final, the incoming ED should be added as admin/owner on every row — not just a user.
 
-| System | What It's For | Access Level Needed by ED | Status |
+| System | What It's For | Access Level Needed | Notes |
 |---|---|---|---|
-| **Wave or QuickBooks** | Bookkeeping — income, expenses, P&L, invoicing | Full admin (or shared access with treasurer) | Confirm which is currently in use — Financial Box recommends Wave free tier, QuickBooks once revenue exceeds $50K/year |
-| **Zeffy** | Memberships, donations, event ticketing — 0% platform fees for nonprofits | Full admin | Confirm KYNORML's (c)(4) verification is complete on the platform |
-| **Action Network** | The 8,000-person email list, advocacy alerts, list segmentation | Full admin | This is the chapter's single largest audience asset — losing access to it would be a major operational gap |
-| **Monday.com** | Operations board — follow-up tracking, sponsor pipeline, conference production board (~$10–15/user/month) | Full admin / board owner | Confirm current seat count and who's billed |
-| **Buffer or Meta Business Suite** | Social media scheduling across Facebook, Instagram, Threads | Full admin | See [[Track 2 - Social Media System]] for the batch workflow this supports |
-| **Google Workspace** | Email infrastructure, shared drives, calendar — runs under CGN | Admin or delegated admin | Confirm whether KYNORML has its own Workspace or operates inside CGN's |
-| **Google Ad Grants** | $10,000/month in free Google advertising — runs under CGN, not KYNORML directly | Awareness + coordination access | Currently idle per vault notes — worth confirming status and whether it's being used |
-| **Canva** | Design templates for social graphics, the sponsorship one-pager, event materials | Brand kit access | See [[KYCannaCon Sponsorship One-Pager]] |
-| **Bank account(s)** | Operating account + reserve account | Authorized signatory (with dual-signature controls per [[Governance Box]]) | **Bank name, account structure, and current signatories are not documented in the vault — get this in writing during transition, not from memory** |
-| **Social media accounts** | Facebook, Instagram, Threads — the chapter's public voice | Full admin on all three | Transfer ownership, not just login sharing |
-| **Website / CMS** | Public-facing site, directory, membership/donation links | Full admin | Confirm hosting, domain registrar, and CMS login ownership |
+| **Wave or QuickBooks** | Bookkeeping — P&L, invoicing, expense tracking | Full admin (or shared with treasurer) | Wave is free; upgrade to QuickBooks once revenue exceeds $50K/year |
+| **Zeffy** | Memberships ($25/mo, $250/yr), donations, event ticketing — 0% platform fee | Full admin | Confirm 501(c)(4) verification is complete on the platform |
+| **Action Network** | The 8,000-person email list, advocacy alerts, segmentation, campaign scheduling | Full admin | Single largest audience asset — losing access is a major operational gap |
+| **Monday.com** | Operations board, sponsor pipeline, conference production tracking (~$10–15/user/month) | Full admin / billing owner | Confirm current seat count and who pays |
+| **Buffer or Meta Business Suite** | Social media scheduling — Facebook, Instagram, Threads | Full admin | See [[Track 2 - Social Media System]] |
+| **Google Workspace** | Email, shared drives, calendar — runs under CGN | Admin or delegated admin | Confirm whether KYNORML has its own Workspace or operates within CGN's |
+| **Google Ad Grants** | $10,000/month in free Google advertising — runs under CGN | Awareness + coordination | Currently idle — confirm status and whether it's being actively managed |
+| **Canva** | Social graphics, sponsorship one-pager, event materials | Brand kit access | See [[KYCannaCon Sponsorship One-Pager]] |
+| **Bank account(s)** | Operating account + reserve account (separate) | Authorized signatory | Requires dual signature on transactions over $500–1,000. Bank name, account structure, and current signatories are not documented in the vault — get this in writing during transition. |
+| **Social media accounts** | Facebook, Instagram, Threads | Full owner on all three | Transfer ownership, not just login sharing |
+| **Website / CMS** | Public site, directory, membership and donation links | Full admin | Confirm hosting provider, domain registrar, CMS login ownership |
 
 ---
 
 ## Team — Who Does What
 
-The vault names three KYNORML team members beyond the Executive Director: **Shealonda, Maurice, and James**. Their specific roles and responsibilities are not documented here — that's a gap to close during the transition, not after.
+Three team members are named in vault records: **Shealonda, Maurice, and James.** Their specific roles are not documented here — closing this gap is one of the highest-value things the outgoing Deputy Director can do before leaving. A team that exists only as first names cannot be led by someone new.
 
-**Before the handoff is complete, document for each person:**
+**Document for each person before transition:**
 - [ ] Full name and role/title
-- [ ] What they're responsible for, day to day
-- [ ] How to reach them and how often you should expect to sync
-- [ ] Whether they're staff, contractors, or volunteers — and what that means for payroll/1099 obligations
-- [ ] Any standing commitments or projects currently in motion that depend on them
-
-A team that exists only as first names in a dashboard is a team an incoming ED can't actually lead. Closing this gap is one of the highest-value things you can do before you go.
+- [ ] What they own, day to day
+- [ ] How to reach them and expected sync frequency
+- [ ] Staff, contractor, or volunteer — and what that means for payroll/1099 obligations
+- [ ] Any in-progress projects or standing commitments
 
 ---
 
-## Step 1 — Monthly Financial Snapshot
+## Daily Work — Under 30 Minutes Total
 
-Pull this from Wave/QuickBooks at the end of every month. Takes about 20 minutes once the books are current.
+These happen every working day. They're fast, but skipping them for a week shows up in the chapter's responsiveness and relevance.
 
-**[Month] Financial Snapshot — KYNORML**
+**Advocacy news monitoring (10 min)**
+Check the Google Alerts daily digest. Alerts are set for: `Kentucky cannabis`, `Kentucky marijuana`, `NORML Kentucky`, `Kentucky medical cannabis`, `Kentucky cannabis legislation`, `Kentucky cannabis dispensary`. Ask one question: does this news directly affect Kentucky cannabis patients? If yes, use the decision framework in [[Track 4 - PR Response System]] to decide whether to post, send an alert, or issue a press release. The response window is 24–48 hours — not a week.
+
+**Threads engagement (5 min)**
+Spend 5 minutes replying to relevant conversations in the cannabis policy space — other NORML chapters, advocates, legislators, journalists covering cannabis. Threads rewards participation, not just broadcasting. This is the fastest way to build relationships with the people who cover or influence the issue.
+
+**Instagram Story (5 min)**
+Post something once a day — a photo, a quick thought, a behind-the-scenes moment, a repost of someone tagging KYNORML. Phone quality is fine. No caption needed. This is the lowest-lift, highest-connection feature on Instagram and it compounds over time.
+
+**Inbox triage (10 min)**
+Respond to anything time-sensitive: directory listing inquiries (reply within 24 hours or lose the conversion), sponsor questions, media inquiries, board questions. Non-urgent items get flagged for the bi-weekly revenue or board workflow.
+
+---
+
+## Every 2 Weeks — The Batch Session
+
+Do not create content outside this window. Block 2.5 hours. Everything social and email lives here — doing it in batches prevents the daily friction that kills consistency.
+
+**The social batch session (2.5 hours every 2 weeks)**
+
+See [[Track 2 - Social Media System]] for the full workflow. Summary:
+- Pull 3–4 recent national NORML posts or articles relevant to Kentucky
+- Check KY cannabis news and your own calendar for the next 2 weeks
+- Draft 7 core content ideas using the pillar rotation (Patient Resources, Policy + News, Action, Education, Community)
+- For each idea, write 3 versions: Facebook (full caption + link), Instagram (punchy caption + graphic note), Threads (1–2 sentences, conversational)
+- Pull/create 5–7 graphics for Instagram
+- Schedule everything in Buffer or Meta Business Suite
+- Add 3–5 extra Threads-only posts (reactions, polls, quick thoughts) to fill in the gaps
+
+Result: 21 scheduled posts from 7 ideas, plus daily Stories and reactive posts as news breaks.
+
+**Email campaign check (30 min every 2 weeks)**
+Confirm the next scheduled email send in [[Track 1 - Email Campaign System]] is loaded in Action Network, links tested, and scheduled. The campaigns in priority order: KYCannaCon early bird tickets → KYCannaCon sponsor push → directory listing offer → membership drive → matching gift campaign. Do not send a campaign until it's been tested in a preview send.
+
+**Revenue pipeline touches (30 min every 2 weeks)**
+- Directory: send outreach batch to next 15 businesses using Campaign 4 template. Log every contact (name, business, date, response, follow-up date) in Google Sheet.
+- Membership: check Zeffy for new signups; flag anyone in the non-opener sequence.
+- Sponsors: check anyone in active conversation — anything that's gone quiet for 7+ days gets one follow-up touch.
+
+---
+
+## Monthly Work
+
+Run these in order, once a month. Total time: roughly half a day spread across the month.
+
+### Financial Snapshot
+
+Pull from Wave or QuickBooks at the end of every month. Takes 20 minutes once the books are current.
 
 | | This Month | Year to Date | Budget | Variance |
 |---|---|---|---|---|
@@ -96,165 +162,273 @@ Pull this from Wave/QuickBooks at the end of every month. Takes about 20 minutes
 | **Net** | | | | |
 | **Cash on Hand** | | | | |
 
-**Flag anything more than 15% off budget — no surprises for the board.**
+Flag anything more than 15% off budget. No surprises allowed for the board.
 
-**Reserve check:** KYNORML's target reserve is 3 months of operating expenses, held in a separate account, untouched except for genuine emergency. Working from a baseline of roughly $2,000/month in operating expenses, the reserve target is roughly **$6,000**. Note where the chapter stands against that target every month — this is one of the fastest ways to see financial health trending in the wrong direction before it's a crisis. **Confirm the actual current monthly operating cost and reserve balance with the treasurer/books during transition — the $2,000 figure is a working baseline from the revenue planning docs, not a confirmed actual.**
+**Reserve check:** Target is 3 months of operating expenses in a separate savings account — roughly $6,000 based on ~$2,000/month operating costs. Note where the chapter stands every month. Confirm the actual current operating cost and reserve balance with the books during transition — $2,000 is a planning baseline, not a confirmed actual.
 
-**What "on track" looks like, by revenue stream — the monthly targets this snapshot should be measured against:**
+**Revenue stream targets to measure against:**
 
-| Stream | Monthly Target (Conservative) | How It's Built |
+| Stream | Monthly Target | How It's Built |
 |---|---|---|
-| Directory listings | ~$750/month | 10 listings × ~$75/month — see [[Track 1 - Email Campaign System]] Campaign 4 |
-| Memberships | ~$750/month | 30 members × $25/month tier (or annual $250/year tier) — see [[Zeffy Membership Setup Guide]] |
-| KYCannaCon sponsorships | $8,500+ upfront, seasonal (Nov–March) | Presenting Sponsor $8,500, Session Sponsor $3,000, Networking Reception $2,500, Community $1,000 — see [[KYCannaCon Conference Playbook]] |
-| **Recurring monthly floor (directory + membership)** | **~$1,500/month** | This is the number that should be growing steadily, month over month — it's the base the rest of the revenue stack sits on |
+| Directory listings | ~$750/month | 10 listings × ~$75/month — Campaign 4 in [[Track 1 - Email Campaign System]] |
+| Memberships | ~$750/month | 30 members × $25/month (or $250/year annual tier) — [[Zeffy Membership Setup Guide]] |
+| KYCannaCon sponsorships | $8,500+ upfront (seasonal, Nov–Mar) | Presenting $8,500 / Session $3,000 / Networking Reception $2,500 / Community $1,000 |
+| **Recurring monthly floor** | **~$1,500/month** | Directory + membership combined — this number should grow month over month |
 
-These targets come from [[Weekly Action Plan]] and [[Revenue Action Dashboard]] — both should be checked alongside this snapshot to see whether the chapter is tracking toward, ahead of, or behind plan.
-
-Full detail and the annual budget template: [[Financial Box]]
+Full detail and annual budget template: [[Financial Box]]
 
 ---
 
-## Step 2 — Monthly KPI Pull
+### Monthly KPI Pull
 
-Pull these numbers at the end of every month — 15 minutes, same day as the financial snapshot so they tell one story together.
+Pull these numbers the same day as the financial snapshot — 15 minutes.
 
-**Audience + List:** email list size, open rate (target ≥25%), click rate (target ≥3%), social followers, website visitors, directory page views
+**Audience and list:** email list size, open rate (target ≥25%), click rate (target ≥3%), social followers, website visitors, directory page views
 
-**Revenue by stream:** membership, donations, directory listings, merch, events, grants
+**Revenue by stream:** membership, donations, directory listings, merch, events, grants — log against the targets above
 
-**Membership:** active members, new members, lapsed members, net change
+**Membership:** active members, new members this month, lapsed members this month, net change
 
 **Advocacy activity:** action alerts sent, legislative contacts made, testimonies submitted, press releases issued, media mentions, events/appearances
 
-Full tracker and health indicator scale (green/yellow/red): [[Chapter Health Dashboard]]
+**The fast read:** if cash, list growth, membership, and revenue are all green — the chapter is healthy. Two or more going yellow at the same time is the trigger to dig in before the quarterly board review.
 
-**The fast read:** if cash, list growth, membership, and revenue are all green, the chapter is healthy. If two or more go yellow at the same time, that's the trigger to dig in — don't wait for the quarterly review.
+Full tracker and health indicators (green/yellow/red scale): [[Chapter Health Dashboard]]
 
 ---
 
-## Step 3 — Fundraising and Stewardship Cadence
+### Fundraising and Stewardship Cadence
 
-This is the piece that doesn't live in any template — it's the actual monthly rhythm of keeping money moving in. Donations are not the lead engine here (the list is an advocacy list, not a donor list — see [[Track 1 - Email Campaign System]]), so this cadence is built around the things that actually convert: memberships, directory listings, sponsorships, and the few donation moments that work.
+The month-by-month rhythm of keeping money moving in. Built around what actually converts on an advocacy list — not cold donation asks.
 
-| Week | Fundraising Action | Notes |
+| Week | Action | Detail |
 |---|---|---|
-| **Week 1** | Check membership pipeline — new signups, lapsed renewals, non-opener follow-ups due | Use Campaign 5 (Membership Drive) follow-up sequence in [[Track 1 - Email Campaign System]] |
-| **Week 1** | Check directory listing pipeline — outreach due, conversions to log, renewal dates approaching | Campaign 4 (Directory Featured Listing Offer) |
-| **Week 2** | Sponsor pipeline touch — anyone in conversation gets a check-in; anyone who went quiet gets one follow-up, then moves to "dormant" | See [[KYCannaCon Conference Playbook]] — Sponsorship System |
-| **Week 3** | Donor cultivation (off-season months only — see [[Marketing Master Calendar]] for which months) | Reserve donation asks for matching-gift moments or genuine urgency — cold asks underperform against this list |
-| **Week 4** | Update the revenue scorecard — actuals against the monthly targets in [[Revenue Action Dashboard]] | This is what goes into the board packet |
+| **Week 1** | Membership pipeline | New signups logged in Zeffy; lapsed members in renewal sequence; non-opener follow-up sent if due |
+| **Week 1** | Directory pipeline | Conversion confirmations logged; renewal reminders sent if upcoming; new outreach batch loaded for the bi-weekly session |
+| **Week 2** | Sponsor pipeline | Anyone in active conversation gets a check-in; anyone gone quiet for 10+ days gets one follow-up, then moves to "dormant" in the tracker |
+| **Week 3** | Donor cultivation | Off-season months only (see [[Marketing Master Calendar]] for which months this applies) — reserve broad donation asks for matching-gift moments or genuine urgency |
+| **Week 4** | Revenue scorecard | Update actuals in [[Revenue Action Dashboard]] — this feeds the board packet |
 
-**The one rule that matters most:** every touch gets logged — name, what was offered, response, follow-up date. A pipeline that isn't logged is a pipeline that gets forgotten. Use the Google Sheet structure already set up per [[Weekly Action Plan]].
+**The one rule:** every touch gets logged. Pipeline that isn't logged gets forgotten.
 
-**Annual giving moment:** December is the one month a broader donation push makes sense — pair it with the year-in-review press moment (see [[Marketing Master Calendar]] → December row) and, if possible, a matching gift to double impact.
+**The one annual donation moment that works:** December — pair with the year-in-review press release and a matching gift offer if an anchor donor is secured. See [[Marketing Master Calendar]] → December row.
 
 ---
 
-## Step 4 — Board Cadence
+### Team and Contractor Management
 
-KYNORML's bylaws call for board meetings at minimum quarterly; monthly is recommended. Whatever the actual current cadence is, here's what goes into every meeting that happens:
+- Review any contractor invoices received this month — approve and process within 14 days per the reimbursement policy in [[Financial Box]]
+- Touch base with Shealonda, Maurice, and James — anything blocked, behind, or needing a decision?
+- If anyone is operating under a service agreement, confirm scope and timeline are still on track
+- Any 1099 obligations for contractor payments over $600/year — flag for the treasurer before year-end
 
-**Standing agenda items (every meeting):**
+---
+
+### Email List Hygiene
+
+The 8,000-person list degrades without maintenance. Once a month in Action Network:
+- Review hard bounce rate — remove any hard bounces (bad addresses) from the active list
+- Check unsubscribe rate on the most recent send — if it spikes above 1%, the send frequency or content mix needs a review
+- Confirm the list segments are current (e.g., KYCannaCon attendees, members, high-engagement subset for donation asks)
+- Note the current list size in the monthly KPI pull — the trend line matters more than the absolute number
+
+---
+
+### Directory and Website Maintenance
+
+The directory is a revenue engine and a community resource — it only serves both functions if it's accurate and current.
+
+**Directory (monthly):**
+- Review for expired or unresponsive listings — follow up on any that haven't renewed
+- Add any new Kentucky cannabis businesses that have opened or come to your attention
+- Confirm that featured/paid listings are displaying correctly
+- Check for any outdated contact info, hours, or addresses
+
+**Website (monthly spot check):**
+- Confirm membership and donation links (Zeffy) are live and working — test them in a private browser
+- Check the KYCannaCon event page — is the information current?
+- Confirm contact info, social links, and navigation are correct
+- Look for any broken links on high-traffic pages
+
+---
+
+### National NORML Check-In
+
+KYNORML operates under a chapter charter — there are obligations running in both directions.
+
+**Monthly:**
+- Check national NORML's website and social for new content, studies, or press to repurpose for Kentucky (free to use, credit the source)
+- Confirm any chapter reporting requirements are current — ask if uncertain
+- If VMP has an active engagement with national NORML (e.g., Chapter Summit production), confirm that project has its own separate workflow and isn't bleeding into KYNORML's operational time
+
+**Ongoing:**
+- Any national policy development affecting Kentucky patients should trigger the [[Track 4 - PR Response System]] reactive workflow within 24–48 hours
+
+---
+
+### Board Meeting Preparation
+
+Run every meeting that happens with this standard structure:
+
+**Standing agenda:**
 1. Approval of previous minutes
-2. Financial report — this month's snapshot + variance flags
-3. Chapter Health Review (use the full version quarterly — see [[Chapter Health Dashboard]] for the 30-minute agenda)
+2. Financial report — monthly snapshot + variance flags
+3. Chapter health review — green/yellow/red on each indicator (full version quarterly per [[Chapter Health Dashboard]])
 4. Old business — status of prior action items
 5. New business
 6. Action items with owners and due dates
-7. Set next meeting date
+7. Next meeting date
 
-**Use the Board Meeting Minutes Template in [[Governance Box]]** for recording — keep every set on file. The IRS compliance checklist requires at least one set of minutes per year; doing it every meeting makes the annual filing a non-event instead of a scramble.
+**Minutes:** Use the Board Meeting Minutes Template in [[Governance Box]]. File every set on record — minimum one per year is required; every meeting is best practice.
 
-**Sound the alarm — these trigger an off-cycle board conversation, not a wait for the next meeting:**
+**Sound the alarm — off-cycle board conversation required for any of these:**
 - Cash drops below 1 month of operating expenses
 - Email list declines 3 consecutive months
 - 990 filing is overdue
 - A board officer seat is vacant more than 60 days
 - Revenue is more than 25% below budget at any quarter
 - A key vendor or platform terminates the chapter's account
+- Chapter is named in litigation
 
 ---
 
-## Step 5 — Annual Compliance Calendar
+### Compliance Calendar Check
 
-These don't happen every month, but they need to be checked every month so nothing is ever a surprise. Add a recurring 60-day-out reminder for each.
+Last week of every month: ask "is anything on this list due in the next 60 days?" If yes, it gets an owner and a date before the month closes.
 
-| Requirement | Due | What Triggers It |
+| Requirement | When Due | Notes |
 |---|---|---|
-| **Form 990 filing** | 4.5 months after fiscal year end — **May 15** for calendar-year orgs | Automatic — every year, no exceptions. 990-N if under $50K gross receipts, 990-EZ if $50K–$200K, full 990 if over $200K |
-| **State annual report** | Varies by state — usually the anniversary of incorporation | Check Kentucky Secretary of State filing date on record |
-| **State charitable solicitation registration** | Varies — required before active fundraising in most states | Confirm KYNORML's registration is current before any major fundraising push |
-| **Conflict of interest policy** | Annual — each board member signs | Build into the first board meeting of the fiscal year |
-| **Board meeting minutes on file** | At minimum 1 set per year (realistically: every meeting) | Ongoing — see Step 4 |
-
-**The habit that prevents all of these from becoming emergencies:** every month, in the "last week" check (see the one-page rhythm above), ask "is anything on this list due in the next 60 days?" If yes, it goes on next month's calendar with an owner and a date. That's the entire system — it only fails when nobody asks the question.
-
-Full detail: [[Governance Box]]
+| **Form 990 filing** | May 15 (calendar-year orgs) | 990-N under $50K, 990-EZ $50K–$200K, full 990 over $200K — start 60 days early |
+| **State annual report** | Anniversary of incorporation date | Check Kentucky Secretary of State — confirm the actual date on the filing record |
+| **Charitable solicitation registration** | Varies — usually annual renewal | Must be current before any active fundraising push |
+| **Conflict of interest policy** | Annual — first board meeting of the year | All board members sign |
+| **Board meeting minutes on file** | Minimum 1/year, every meeting preferred | Secretary's responsibility; ED confirms it's happening |
 
 ---
 
-## Step 6 — Marketing and Press Sync
+### Monthly Marketing and Press Sync
 
-The monthly operations rhythm and the monthly marketing rhythm run on the same clock — they should never be planned separately. Every month, confirm:
+- Confirm this month's row in [[Marketing Master Calendar]] — is the theme, social emphasis, email send, and press moment still accurate given what's actually happening?
+- Is the month's scheduled email campaign loaded in Action Network and tested?
+- If a planned press release is due this month, is a draft started at least a week ahead?
+- If the calendar says "no press planned," don't force one — a thin release damages credibility more than silence
+- Reactive PR runs on its own 24–48 hour clock on top of the planned calendar — it doesn't replace it
 
-- This month's theme and revenue push in [[Marketing Master Calendar]] matches what's actually being worked (if KYCannaCon production has shifted, the calendar should shift with it)
-- The email send scheduled for this month is loaded and tested before it goes to the full list
-- Any planned press moment for this month is drafted at least a week ahead — or, if the calendar says "none planned," that a thin release isn't being forced
-- Reactive PR (news-driven, see [[Track 4 - PR Response System]]) runs on its own 24–48 hour clock, on top of — not instead of — the planned calendar
+**Media outlets to build relationships with (currently named as targets, not yet confirmed contacts):** Louisville Courier-Journal, Kentucky Lantern (priority for embargoed exclusives), Bowling Green Daily News, WHAS11/WDRB local TV, National NORML press list.
 
-**Media list status:** the working media contact list in [[Track 4 - PR Response System]] currently names target outlets — Louisville Courier-Journal, Kentucky Lantern, Bowling Green Daily News, WHAS11/WDRB local TV, and National NORML press — but specific reporter names and direct contacts are placeholders, not yet filled in. Building real relationships with these outlets (especially Kentucky Lantern and Courier-Journal, named as priority targets for embargoed exclusives) is ongoing work, not a finished asset. Don't assume the list is "done" because the file exists.
+---
+
+## Seasonal Work — KYCannaCon Production (September–March)
+
+KYCannaCon is KYNORML's single largest revenue moment and its most visible community asset. From September through March, conference production runs alongside (not instead of) the monthly rhythm. See [[KYCannaCon Conference Playbook]] for the full detail — this is the monthly milestone view.
+
+| Month | Production Milestone |
+|---|---|
+| **June–August** | Sponsor outreach begins — Presenting Sponsor ($8,500) and Session Sponsors ($3,000) are the priority; venue call to Louisville Tourism CVB for proposals |
+| **September** | Venue contract signed; speaker invitations sent; save-the-date teaser content starts on social |
+| **October** | Speaker lineup in progress (confirmed and tracking); AV/tech vendor locked; sponsor pipeline active |
+| **November** | **Save-the-date press release issued** — first official public announcement; early bird ticket sales open; email to full 8,000-person list |
+| **December** | Year-in-review press release; sponsor follow-ups; speaker confirmations; full agenda draft in progress |
+| **January** | **Legislative session preview press release** (runs when GA convenes); early bird ticket deadline; Session Sponsor final asks |
+| **February** | **Speaker lineup press release** (early Feb); **Presenting Sponsor reveal** (mid-Feb — consider Kentucky Lantern embargo); final ticket push; exhibitor spots fill |
+| **March** | **Final countdown press release**; event day; **event recap press release** day-of or day-after; **session wrap-up release** post-GA adjournment |
+| **April** | Convert event attendees to members; post-event sponsorship debrief; capture proof points (attendance, quotes, photos) for next year's sponsor pitch |
+
+**Conference format:** one-day, conference-format (not expo). Three content tracks: Policy, Industry, Patient/Community. Legislator panel is the centerpiece. No table-only sponsorships — every sponsor buys access to the content/audience. Capacity target: 175–200. Do not return to KICC (too large — reads as empty with 150–200 people).
+
+---
+
+## Annual Work
+
+These don't happen every month but they define the chapter's long-term health. The compliance calendar check (last week of every month) is what prevents any of these from becoming surprises.
+
+**January — Start of fiscal year**
+- [ ] Board approves annual operating budget — income and expense targets by category
+- [ ] Board conflict-of-interest policy signed by all members at first meeting
+- [ ] Review and update the annual operating budget template in [[Financial Box]]
+
+**May 15 — 990 Filing Deadline**
+- [ ] File Form 990 with the IRS — 990-N if gross receipts under $50K, 990-EZ if $50K–$200K, full 990 if over $200K
+- [ ] Begin prep 60 days early (mid-March) — don't start the week it's due
+- [ ] Confirm CGN files its own separate 990 — these are two separate entities
+
+**Incorporation Anniversary — State Annual Report**
+- [ ] File the Kentucky state annual report with the Secretary of State
+- [ ] Confirm the exact due date from the original incorporation filing record — it's the anniversary, not a calendar date
+
+**Annual — Charitable Solicitation Registration**
+- [ ] Confirm Kentucky charitable solicitation registration is current
+- [ ] Required before any active fundraising — renew before it lapses, not after
+
+**Annual — Board Governance**
+- [ ] Board elections / officer term renewals per the bylaws schedule
+- [ ] Confirm no seats have been vacant more than 60 days
+- [ ] Update board roster in the Handoff Notes below
+
+**Annual — Strategic Review**
+- [ ] Conduct the annual chapter review using the scorecard and questions in [[Chapter Health Dashboard]]
+- [ ] Answer the five annual review questions as a board: biggest win, biggest failure, revenue sustainability, right people in right roles, one thing that would make the biggest difference next year
+
+**Annual — Merch**
+- [ ] Review current product line — what's selling, what's not
+- [ ] Decide on any new product for the year; brief the designer; update the Canva brand kit if needed
+- [ ] Confirm the Zeffy or fulfillment setup for merch sales is current
+
+**Annual — Google Ad Grants Review (via CGN)**
+- [ ] Confirm the $10,000/month in free Google advertising via CGN is being actively managed — currently noted as idle in vault records
+- [ ] If idle: either activate it (requires a landing page strategy and keyword targeting) or document why it's being left unused
 
 ---
 
 ## Handoff Notes — What a New Person Needs to Know That Isn't Written Anywhere Else
 
-*(Fill this in before the transition is complete — this is the part that only lives in your head right now. Where possible, write the actual answer next to the item — not just a checkmark. A checked box with no information is not a handoff.)*
+*(Fill this in before the transition is complete. Write the actual answer next to each item — not just a checkmark. A checked box with no information is not a handoff.)*
 
 **Access and credentials**
-- [ ] Books: Wave or QuickBooks — login owner: ___________ — who else has access: ___________
-- [ ] Action Network — admin login owner: ___________ — list size as of transition date: ___________
-- [ ] Zeffy — admin login owner: ___________ — confirm (c)(4) verification status: ___________
+- [ ] Books (Wave or QuickBooks) — login owner: ___________ / who else has access: ___________
+- [ ] Action Network — admin login owner: ___________ / list size at transition date: ___________
+- [ ] Zeffy — admin login owner: ___________ / (c)(4) verification confirmed: Y / N
 - [ ] Monday.com — board owner / billing contact: ___________
 - [ ] Buffer / Meta Business Suite — admin owner: ___________
-- [ ] Google Workspace — admin or delegated admin: ___________ — relationship to CGN's Workspace: ___________
+- [ ] Google Workspace — admin owner: ___________ / relationship to CGN Workspace: ___________
 - [ ] Canva — brand kit owner: ___________
-- [ ] Website / CMS — hosting account owner: ___________ — domain registrar: ___________
-- [ ] Social accounts (Facebook, Instagram, Threads) — transferred to incoming ED as full owner, not shared login: Y / N
-- [ ] Bank account(s) — bank name: ___________ — authorized signatories: ___________ — how to add/remove a signatory: ___________
+- [ ] Website / CMS — host: ___________ / domain registrar: ___________ / CMS login owner: ___________
+- [ ] Social accounts (FB, IG, Threads) — transferred as full owner, not shared login: Y / N
+- [ ] Bank — bank name: ___________ / account type(s): ___________ / authorized signatories: ___________ / process to add/remove signatory: ___________
 
 **People**
-- [ ] Current board roster — name, role, term start/end, renewal date, contact info, for every seat
-- [ ] Team roles for Shealonda, Maurice, and James — title, responsibilities, how to reach them, staff/contractor/volunteer status
-- [ ] Anyone outside the org who is a key relationship — media contacts, legislative allies, chapter directors, sponsors in active conversation — who should get a **personal** heads-up about the transition before they hear about it secondhand
+- [ ] Full board roster: name / role / term start-end / renewal date / email / phone — for every seat
+- [ ] Shealonda: role ___________ / responsibilities ___________ / staff or contractor ___________ / how to reach ___________
+- [ ] Maurice: role ___________ / responsibilities ___________ / staff or contractor ___________ / how to reach ___________
+- [ ] James: role ___________ / responsibilities ___________ / staff or contractor ___________ / how to reach ___________
+- [ ] Key external relationships who need a personal heads-up about the transition (not a mass announcement): ___________
 
 **Money and commitments in motion**
-- [ ] Any informal agreements, verbal commitments, or in-progress conversations (sponsor talks, vendor relationships, grant applications, venue negotiations) that aren't yet logged in Monday.com or the revenue scorecard
-- [ ] Current cash on hand and reserve balance, confirmed against the books — not the working baseline figures in this document
-- [ ] Any outstanding invoices, pending reimbursements, or unpaid bills
-- [ ] Status of the current KYCannaCon production cycle — what's confirmed (venue, sponsors, speakers) vs. what's still in conversation
+- [ ] Actual cash on hand and reserve balance at transition date (confirmed from books): ___________
+- [ ] Any informal agreements, verbal commitments, or in-progress conversations not yet logged in Monday.com: ___________
+- [ ] Outstanding invoices, pending reimbursements, or unpaid bills: ___________
+- [ ] KYCannaCon production status — what's confirmed vs. still in conversation: ___________
+- [ ] Any active grant applications (via CGN or otherwise): ___________
 
 **Compliance**
-- [ ] Date of last 990 filing and confirmation the next one is on track for May 15
-- [ ] State annual report due date (tied to KYNORML's incorporation anniversary — confirm the actual date with the Secretary of State filing record)
-- [ ] State charitable solicitation registration — current status and renewal date
-- [ ] Date of last board meeting with minutes on file, and the next scheduled meeting
+- [ ] Date of last 990 filing and next due date confirmed: ___________
+- [ ] State annual report — incorporation anniversary date: ___________ / last filed: ___________
+- [ ] Charitable solicitation registration — current status and renewal date: ___________
+- [ ] Date of last board meeting with minutes on file: ___________
 
 ---
 
-## First 30 Days — A Ramp for Whoever Steps Into This
+## First 30 Days — A Ramp for Whoever Steps Into This Role
 
-If you're new to this role, don't try to run the full monthly rhythm on day one. Use this sequence instead:
-
-**Week 1 — Get access, not action.** Work through the Systems & Access Map above. Confirm you can log into every tool as an admin. Don't change anything yet — just confirm you *can*. Sit down with the outgoing Deputy Director and walk the Handoff Notes checklist together, in person or on a call, while they can still answer follow-up questions in real time.
+**Week 1 — Get access, not action.** Work through the Systems & Access Map. Confirm you can log into every platform as an admin. Don't change anything yet — just confirm access. Meet with the outgoing Deputy Director and walk through the Handoff Notes together, live, while they can still answer follow-up questions in real time.
 
 **Week 2 — Read before you run.** Read [[Marketing Master Calendar]], [[Revenue Action Dashboard]], and [[Weekly Action Plan]] in full. Pull the most recent monthly financial snapshot and KPI numbers — even if you didn't generate them, knowing where the chapter stood the month before you arrived is your starting line.
 
-**Week 3 — Shadow the rhythm.** If there's a board meeting, sponsor call, or scheduled email send in this window, sit in on it — ideally with the outgoing person still present to provide context on the "why," not just the "what."
+**Week 3 — Shadow the rhythm.** If there's a board meeting, sponsor call, batch session, or scheduled email send in this window, sit in on it — ideally with the outgoing person present to provide context on the *why*, not just the *what*.
 
-**Week 4 — Run one cycle with a safety net.** Execute the Monthly Rhythm one-page checklist yourself, with the outgoing person available to answer questions but not doing the work for you. By the end of this week, you should be able to run the next month's cycle solo.
+**Week 4 — Run one cycle with a safety net.** Execute the monthly rhythm yourself, with the outgoing person available to answer questions but not doing the work for you. By the end of this week, you should be able to run the next full month solo.
 
-**The test that tells you the handoff worked:** can you run a full monthly cycle — financial snapshot, KPI pull, fundraising touches, board prep, compliance check — without needing to ask the outgoing Deputy Director a single question? If yes, the knowledge transfer is complete. If no, that's not a failure — it's a signal of exactly what still needs to be written down.
+**The test that tells you the handoff is complete:** can you run a full monthly cycle — financial snapshot, KPI pull, fundraising touches, board prep, compliance check, marketing sync — without asking the outgoing Deputy Director a single question? If yes, the transfer is done. If no, that's not failure — it's a signal of exactly what still needs to be documented.
 
 ---
 
@@ -262,26 +436,30 @@ If you're new to this role, don't try to run the full monthly rhythm on day one.
 
 | Term | What It Means |
 |---|---|
-| **KYNORML** | Kentucky NORML — the 501(c)(4) chapter this document is about |
+| **KYNORML** | Kentucky NORML — the 501(c)(4) chapter this document covers |
 | **CGN** | Common Good Network — the affiliated 501(c)(3) education arm (separate legal entity) |
 | **VMP** | Verdant Management Partners — Lauren Bratcher's professional services company; produces KYCannaCon and consults for other chapters |
-| **VV** | Verdant Ventures LLC — Lauren's personal vendor entity; bills VMP |
-| **GA session** | The Kentucky General Assembly's annual legislative session (roughly January–March/April) — the single biggest driver of advocacy relevance and press hooks each year |
-| **KYCannaCon** | KYNORML's signature annual conference, timed to the GA session, now in its 4th year |
-| **The 8k list** | Shorthand for the ~8,000-person Action Network email list — the chapter's largest single audience asset |
-| **The Chapter Box** | The replicable operating-system package (governance, finance, brand, health dashboard, etc.) VMP packages and sells to other NORML state chapters |
-| **VMP Chapter outreach / VMP income engine** | VMP's consulting revenue stream — selling the Chapter Box model to other state chapters; takes 30–45 days to start converting once outreach begins |
+| **VV** | Verdant Ventures LLC — Lauren's personal vendor entity; bills VMP for her work |
+| **GA session** | The Kentucky General Assembly's annual legislative session (roughly January–March/April) — the single biggest advocacy and press driver each year |
+| **KYCannaCon** | KYNORML's signature annual cannabis policy conference, timed to the GA session; Year 4 is the first since Kentucky dispensaries opened |
+| **The 8k list** | Shorthand for the ~8,000-person Action Network email list — KYNORML's largest single audience asset |
+| **The Chapter Box** | The replicable operations package (governance, finance, brand, health dashboard, etc.) VMP packages and sells to other NORML state chapters |
+| **VMP chapter outreach** | VMP's consulting revenue stream — selling the Chapter Box to other chapters; takes 30–45 days to start converting after outreach begins |
+| **Batch session** | The 2.5-hour bi-weekly social media content creation and scheduling block per [[Track 2 - Social Media System]] — the only time social content is created, except for reactive posts |
 
 ---
 
 ## Related Files
 
-- [[Financial Box]] — full bookkeeping setup, budget template, financial controls
-- [[Governance Box]] — board structure, bylaws, IRS compliance, banking
-- [[Chapter Health Dashboard]] — full KPI tracker, health indicators, quarterly/annual review templates
-- [[Marketing Master Calendar]] — the 12-month marketing and revenue view this rhythm runs alongside
-- [[Track 1 - Email Campaign System]] — campaign templates referenced in the fundraising cadence
-- [[Track 4 - PR Response System]] — reactive and planned press workflows
+- [[Financial Box]] — bookkeeping setup, budget template, financial controls, vendor contracts
+- [[Governance Box]] — board structure, bylaws, IRS compliance, banking, minutes template
+- [[Chapter Health Dashboard]] — full KPI tracker, health indicators, quarterly/annual review
+- [[Marketing Master Calendar]] — 12-month marketing and revenue view
+- [[Track 1 - Email Campaign System]] — all email campaign templates
+- [[Track 2 - Social Media System]] — batch workflow, pillar rotation, platform formats
+- [[Track 4 - PR Response System]] — reactive and planned press workflows and templates
+- [[KYCannaCon Conference Playbook]] — full conference production system
+- [[Zeffy Membership Setup Guide]] — step-by-step membership tier setup
 - [[Revenue Action Dashboard]] — current revenue sprint and scorecard
 - [[Weekly Action Plan]] — week-by-week execution detail
-- [[! NORML Chapter Box]]
+- [[! NORML Chapter Box]] — full index of all chapter operating system components
