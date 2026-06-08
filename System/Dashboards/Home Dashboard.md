@@ -13,6 +13,7 @@ tags: [dashboard]
 
 ## Daily
 - [[Planner/Daily Journal Notes/]] — daily notes
+- [[System/Dashboards/Weekly Action Plan]] — **what to do this week**
 - [[System/Dashboards/Work Dashboard]] — work priorities
 
 ## Entities
@@ -21,6 +22,7 @@ tags: [dashboard]
 - [[Verdant Ventures LLC]]
 
 ## Revenue
+- [[Revenue Action Dashboard]] — what to do this week, this month, 90 days
 - [[! Revenue Engine List]]
 - [[Portal to Wellness]]
 - [[Gaming Lounge]]
