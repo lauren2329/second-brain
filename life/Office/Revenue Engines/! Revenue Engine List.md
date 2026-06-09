@@ -30,5 +30,9 @@ tags: [dashboard, revenue]
 - Model: Charitable gaming revenue under CGN
 - Compliance: See [[Entity Mapping]]
 
+## Master Framework
+
+See [[Revenue Engines Framework]] for comprehensive analysis of 15+ revenue engines including consumer value mapping and implementation roadmap.
+
 ## Last Updated
-2026-04-23
+2026-06-09
