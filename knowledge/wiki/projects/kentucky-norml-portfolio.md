@@ -80,81 +80,137 @@ The major shift for Year 4 is creating an event people plan their calendars arou
 - Fewer concurrent sessions
 - Stronger anchor events
 
-### Proposed Year 4 Structure (2027)
+### 2027 Prospectus Schedule
 
-**Tuesday — Arrival Day**
+**TUESDAY — Experience Day**
 
-Registration Opens
-- Badge pickup
-- Information desk
-- Directory demonstrations
-- Sponsor setup
+12:00 PM
+- Registration Opens
+- Speakeasy Hub Opens (coffee, seating, check-in)
 
-Speakeasy Hub Opens
-- Central gathering space for networking, coffee, informal meetings, and industry conversations
+1:00 PM – 5:00 PM
+- **Bo Keys Kentucky Cannabis Classic** (Golf / TopGolf / Simulator Challenge) — Optional
+
+3:00 PM – 6:00 PM
+- **Kentucky Bourbon Experience** (Rolling entry, small groups, conversation-focused)
+
+6:00 PM – Late
+- Open Evening (no official programming, dinner on your own, sponsor dinners, organic gatherings)
 
 ---
 
-**Wednesday — Conference Day 1**
+**WEDNESDAY — Conference Day 1**
 
-Breakfast
-- Hosted sponsor breakfast
+7:30 AM – 9:00 AM
+- **Breakfast Conversations** (Hosted tables: Healthcare, Policy, Consumer Protection, First-Time Attendees, Industry)
 
-Opening Session: State of Kentucky Cannabis
-- Owner: KCIA
-- Topics: market development, license progress, industry growth, regulatory status, economic impact
+9:00 AM – 10:00 AM
+- **State of the Kentucky Cannabis Industry** (Presented by KCIA)
 
-Kentucky NORML Session: State of the Consumer
-- Topics: patient access, consumer protection, legislative priorities, program challenges
+10:00 AM – 11:00 AM
+- Coffee & Conversations (Speakeasy Hub)
 
-Lunch
-- Hosted lunch
+11:00 AM – 12:00 PM
+- **State of the Kentucky Cannabis Consumer** (Presented by Kentucky NORML)
 
-Afternoon Programming
-- Focused tracks rather than numerous breakouts
-- Potential owners: KCIA, Kentucky NORML, Legal, Compliance, Education
+12:00 PM – 1:30 PM
+- **Hosted Lunches** (The lunch is the session—choose a table)
+
+1:30 PM – 3:00 PM
+- Open Gathering Time (meetings, conversations, coffee)
+
+3:00 PM – 4:00 PM
+- **Office of Medical Cannabis Program Update** (Presented by OMC)
+
+4:00 PM – 6:00 PM
+- Free Time (reset, meet people, take meetings)
 
 Evening
-- Purposeful networking experience (not a gala or generic reception)
+- Unofficial Gatherings (hotel bar, restaurants, sponsor dinners)
 
 ---
 
-**Thursday — Conference Day 2**
+**THURSDAY — Conference Day 2 + Awards**
 
-Breakfast
+8:00 AM – 10:00 AM
+- **Ladies Blunt Brunch** (Signature Experience)
 
-Industry & Consumer Sessions
-- Higher-level discussions
+10:30 AM – 11:30 AM
+- **Cannabis & The Law** (Presented by Cannabis Attorneys)
+  - Topics: Employment, Housing, Firearms, Family Law, Consumer Rights
 
-Lunch
+11:30 AM – 1:00 PM
+- **Hosted Lunches Round Two** (Different hosts, different topics)
 
-**Consumer Choice Awards**
-- Primary anchor event
+1:00 PM – 3:00 PM
+- Open Gathering Time (final meetings, final conversations)
 
-Closing Activities
-- Networking, partnership meetings, board meetings, industry meetings
+3:00 PM – 4:00 PM
+- **Legislative Outlook** (What to expect in next legislative session)
+
+4:00 PM – 5:00 PM
+- **State of Kentucky Cannabis Report Release** (Presented by Kentucky NORML) — Conference Closing Session
+
+5:00 PM – 6:30 PM
+- Break (change for awards)
+
+6:30 PM – 9:00 PM
+- **Kentucky Cannabis Consumer Choice Awards** (Reception style, awards, photos, recognition) — **Flagship Event**
+
+9:00 PM – Late
+- **Speakeasy After Hours** (Entire conference gathers, no programming, just people)
 
 ---
 
-**Friday — Departure**
+**FRIDAY — Departure Day**
 
-### Potential Programming Ownership
+Morning
+- Departures
+- Optional breakfast meetings
 
-**Kentucky NORML Owns:**
-- Consumer Rights Update
-- Legislative Update
-- NORML Resources
-- Advocacy Priorities
-- Regulatory Education
+### Experience Pillars (Signature Experiences)
+
+These are the memorable, differentiating moments that define the conference:
+
+1. **Bo Keys Kentucky Cannabis Classic** — Golf/TopGolf/simulator experience
+2. **Kentucky Bourbon Experience** — Small-group, conversation-focused tasting
+3. **Breakfast Conversations** — Themed hosted breakfast tables
+4. **Hosted Lunches** — Session-as-meal format with multiple hosts/topics
+5. **Ladies Blunt Brunch** — Signature Thursday experience
+6. **Kentucky Cannabis Consumer Choice Awards** — Flagship evening event
+7. **Speakeasy After Hours** — Final night gathering (no programming, just people)
+
+### Content Ownership
+
+**KCIA**
+- State of the Kentucky Cannabis Industry
+
+**Kentucky NORML**
+- State of the Kentucky Cannabis Consumer
+- State of Kentucky Cannabis Report (release)
 - Consumer Choice Awards
 
-**KCIA Owns:**
-- State of the Industry Report
-- Market Conditions
-- Licensee Updates
-- Industry Forecast
+**Office of Medical Cannabis Program (OMC)**
+- Program Update
 
-> **Note:** Recently determined that the industry report should belong to KCIA rather than Kentucky NORML.
+**Cannabis Attorneys**
+- Cannabis & The Law (Employment, Housing, Firearms, Family Law, Consumer Rights)
+
+**Legislators / Policy Leaders**
+- Legislative Outlook (next session preview)
+
+### Conference Philosophy
+
+This schedule deliberately moves away from:
+- Multiple concurrent sessions (room-hopping)
+- Endless panels
+- Traditional conference structure
+
+This schedule emphasizes:
+- **Relationship building** (open time, hosted meals, small group conversations)
+- **Clear ownership** (each major session has a defined presenter/organization)
+- **Intentional rhythm** (content + openness + meals + experiences)
+- **Quality over quantity** (fewer sessions, better designed)
 
 ---
 

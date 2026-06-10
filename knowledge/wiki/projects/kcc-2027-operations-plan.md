@@ -53,132 +53,176 @@ Tuesday through Friday (4 days)
 
 ---
 
-## Schedule & Programming
+## Schedule & Programming (Prospectus Version)
 
-### Tuesday — Arrival Day
+### Tuesday — Experience Day
 
-**Registration Opens** (2:00 PM - 6:00 PM)
-- Badge pickup station
-- Information packets
-- Directory demonstrations
-- WiFi setup assistance
-- Sponsor check-in
-
-**Speakeasy Hub Opens** (3:00 PM onwards)
-- Coffee/beverage station
-- Informal seating areas
+**12:00 PM** — Registration Opens + Speakeasy Hub Opens
+- Badge pickup, information packets, WiFi setup
+- Coffee, seating, informal check-in
 - Directory browsing station
-- Industry conversation areas
-
-**Evening (Optional):** Casual mixer or dinner for early arrivals
 
 **Owner Responsibilities:**
 - Registration team (2-3 people)
 - Sponsor coordinator on-site
 - Tech support for badge printing/registration
+- Speakeasy hub supervisor
+
+**1:00 PM – 5:00 PM** — Bo Keys Kentucky Cannabis Classic (Optional)
+- Golf / TopGolf / Simulator Challenge
+- Organized by Bo Keys / Five Iron Golf
+- ~50 participants
+- Separate golf event logistics (see Companion Golf Outing plan)
+
+**3:00 PM – 6:00 PM** — Kentucky Bourbon Experience (Optional)
+- Rolling entry, small groups
+- Conversation-focused tasting
+- Hosted by Kentucky bourbon partner (TBD)
+- ~80-100 participants
+- Separate experience logistics
+
+**6:00 PM – Late** — Open Evening
+- No official programming
+- Dinner on your own
+- Sponsor-hosted dinners (private arrangements)
+- Hotel bar, restaurants, organic gatherings
+- Speakeasy Hub remains open
 
 ---
 
 ### Wednesday — Conference Day 1
 
-**7:30 AM** — Breakfast (Hosted by Title Sponsor)
-- Networking during meal
+**7:30 AM – 9:00 AM** — Breakfast Conversations
+- Hosted tables with themes:
+  - Healthcare
+  - Policy
+  - Consumer Protection
+  - First-Time Attendees
+  - Industry Professionals
+- Table hosts assigned (Kentucky NORML, KCIA, partners)
 - ~250 people
 
-**9:00 AM** — Opening Session: "State of Kentucky Cannabis"
+**9:00 AM – 10:00 AM** — State of the Kentucky Cannabis Industry
 - Owner: KCIA
-- 60 minutes (50 min presentation + 10 min Q&A)
-- Main stage
+- Main stage, 60 minutes
 - Topics: market development, license progress, regulatory status, economic impact
 - Expected audience: 200+
 
-**10:15 AM** — Kentucky NORML Session: "State of the Consumer"
+**10:00 AM – 11:00 AM** — Coffee & Conversations
+- Speakeasy Hub
+- Open networking time
+- No formal programming
+
+**11:00 AM – 12:00 PM** — State of the Kentucky Cannabis Consumer
 - Owner: Kentucky NORML
-- 60 minutes
+- Main stage, 60 minutes
 - Topics: patient access, consumer protection, legislative priorities, program challenges
 - Expected audience: 150+
 
-**11:30 AM** — Break (Networking, Speakeasy Hub)
-
-**12:00 PM** — Lunch (Hosted by Sponsor)
+**12:00 PM – 1:30 PM** — Hosted Lunches
+- "The lunch is the session"
+- Multiple host tables (KCIA, Kentucky NORML, industry partners)
+- Attendees choose table by topic/interest
 - Networking during meal
 
-**1:30 PM** — Afternoon Programming: Focused Tracks (Select 2-3 concurrent tracks)
+**1:30 PM – 3:00 PM** — Open Gathering Time
+- Meetings, conversations, coffee
+- No formal programming
+- Speakeasy Hub, exec boardrooms for meetings
 
-**Track Options:**
-- Legal & Compliance (Owner: Legal Partner)
-- Medical Cannabis & Patient Care (Owner: Kentucky NORML)
-- Industry Operations & Scaling (Owner: KCIA)
-- Employee Benefits & HR (Owner: TBD)
+**3:00 PM – 4:00 PM** — Office of Medical Cannabis Program Update
+- Owner: OMC (Office of Medical Cannabis)
+- Main stage, 60 minutes
+- Program updates, regulatory information
+- Expected audience: 100-150
 
-Each track: 90 minutes (3x30 min sessions or 2x45 min sessions)
+**4:00 PM – 6:00 PM** — Free Time
+- Reset, meet people, take meetings
+- No formal programming
+- Speakeasy Hub available
 
-**3:00 PM** — Break
-
-**3:30 PM** — Continued Afternoon Programming or Panel Sessions
-
-**5:00 PM** — Evening Program: Networking Experience
-- Not a gala, not a formal reception
-- Casual gathering with light refreshments
-- Speakeasy Hub, exhibits, small group conversations
-- Duration: 2-3 hours
+**Evening** — Unofficial Gatherings
+- Hotel bar, restaurants, sponsor dinners
+- No official programming
 
 **Owner Responsibilities:**
-- Session logistics (speaker setup, timing, tech)
-- Moderator coordination
-- Breakout room management
+- Session logistics (speaker tech, timing, moderation)
+- Breakfast table coordination & hosts
+- Lunch host coordination
+- Speakeasy Hub supervision
 - Catering coordination
-- Networking space management
 
 ---
 
-### Thursday — Conference Day 2
+### Thursday — Conference Day 2 + Awards
 
-**7:30 AM** — Breakfast
+**8:00 AM – 10:00 AM** — Ladies Blunt Brunch (Signature Experience)
+- Main stage/dedicated space
+- Hosted breakfast for women in cannabis
+- Expected audience: 40-60
+- Topics: industry challenges, opportunities, leadership
 
-**9:00 AM** — Industry & Consumer Sessions
-- Higher-level discussions (45-60 min each)
-- Topics: future regulatory landscape, market consolidation, small business opportunities, patient advocacy evolution
-- 2-3 concurrent sessions
-- Expected audience: 100-150 per session
+**10:30 AM – 11:30 AM** — Cannabis & The Law
+- Owner: Cannabis Attorneys panel
+- Main stage, 60 minutes
+- Topics: Employment, Housing, Firearms, Family Law, Consumer Rights
+- Expected audience: 100-150
 
-**10:30 AM** — Break (Speakeasy Hub networking)
+**11:30 AM – 1:00 PM** — Hosted Lunches Round Two
+- Different hosts, different topics than Wednesday
+- Attendees choose new table
+- Networking during meal
 
-**11:00 AM** — Continued Sessions or Open Networking Time
-- Board meetings
-- Partnership meetings
-- One-on-one conversations
+**1:00 PM – 3:00 PM** — Open Gathering Time
+- Final meetings, final conversations
+- No formal programming
 
-**12:00 PM** — Lunch (Hosted)
+**3:00 PM – 4:00 PM** — Legislative Outlook
+- Owner: Legislators / Policy Leaders
+- Main stage, 60 minutes
+- Topics: What to expect in next legislative session
+- Expected audience: 150-200
 
-**1:30 PM** — Final Sessions or Networking
+**4:00 PM – 5:00 PM** — State of Kentucky Cannabis Report Release
+- Owner: Kentucky NORML
+- Main stage, 60 minutes
+- Conference closing session
+- Report launch, key findings
 
-**3:00 PM** — Awards Ceremony Setup Begins
-- Clear main hall
-- Stage setup
-- Audience seating
-- Photo backdrop
+**5:00 PM – 6:30 PM** — Break
+- Attendees change for awards ceremony
+- Light refreshments available
 
-**5:00 PM** — Consumer Choice Awards Ceremony
-- Hosted reception with light refreshments
-- Award presentations (30-45 minutes)
-- Photo opportunities
-- Networking
-- Duration: 2-3 hours
+**6:30 PM – 9:00 PM** — Kentucky Cannabis Consumer Choice Awards
+- **Main stage/reception style**
+- **Flagship event of the conference**
+- Award presentations, photos, recognition
+- Sponsor recognition
+- Light refreshments
+- Expected audience: 200+
 
 **Owner Responsibilities:**
-- Awards logistics (presenter briefing, award prep, timing)
-- Red carpet/photo area management
-- Award winner communication
-- Media coordination
-- Sponsor recognition
+- Awards ceremony logistics (presenter briefing, award prep, timing)
+- Stage/AV management
+- Award winner communication & coordination
+- Photo/media backdrop management
+- Sponsor recognition coordination
 - Video/highlight reel (if applicable)
 
+**9:00 PM – Late** — Speakeasy After Hours
+- Entire conference gathers
+- No programming, no speakers
+- Just people, music, informal celebration
+- Light refreshments
+
 ---
 
-### Friday — Departure
+### Friday — Departure Day
 
-Light breakfast available for early departures
+**Morning**
+- Departures begin
+- Optional breakfast meetings available
+- No formal programming
 
 ---
 
