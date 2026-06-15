@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Digital Planner — Your Day at a Glance</title>
+<style>
+:root {
+  color-scheme: light;
+  --bg: #f8fafc;
+  --card: #ffffff;
+  --border: #e2e8f0;
+  --text: #1e293b;
+  --muted: #64748b;
+  --red: #dc2626;
+  --red-bg: #fef2f2;
+  --yellow: #b45309;
+  --yellow-bg: #fffbeb;
+  --green: #059669;
+  --green-bg: #f0fdf4;
+  --blue: #2563eb;
+  --blue-bg: #eff6ff;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 14px;
+  padding: 16px 16px 48px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* NAV TABS */
+.nav-tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 24px;
+  border-bottom: 2px solid var(--border);
+  overflow-x: auto;
+}
+
+.nav-tab {
+  padding: 12px 16px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--muted);
+  border-bottom: 3px solid transparent;
+  white-space: nowrap;
+  transition: all 0.2s;
+}
+
+.nav-tab.active {
+  color: var(--blue);
+  border-bottom-color: var(--blue);
+}
+
+.nav-tab:hover {
+  color: var(--text);
+}
+
+/* PAGE SECTIONS */
+.page {
+  display: none;
+}
+
+.page.active {
+  display: block;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* HEADER */
+.page-header {
+  margin-bottom: 20px;
+}
+
+.page-header h1 {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.page-header .subtitle {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+/* CARDS */
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 12px;
+}
+
+.card-header {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--muted);
+  margin-bottom: 12px;
+}
+
+.card-title {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+/* TODAY'S AGENDA */
+.energy-check {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+  padding: 12px;
+  background: var(--blue-bg);
+  border-radius: 8px;
+  align-items: center;
+}
+
+.energy-label {
+  font-size: 13px;
+  font-weight: 500;
+  flex: 1;
+}
+
+.energy-slider {
+  width: 100px;
+  cursor: pointer;
+}
+
+.focus-area {
+  background: var(--green-bg);
+  border: 1px solid #bbf7d0;
+  border-radius: 8px;
+  padding: 12px;
+  margin-bottom: 12px;
+}
+
+.focus-title {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--green);
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.focus-question {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text);
+}
+
+.focus-input {
+  width: 100%;
+  border: 1px solid #bbf7d0;
+  border-radius: 6px;
+  padding: 8px 10px;
+  font-size: 13px;
+  margin-top: 8px;
+  font-family: inherit;
+}
+
+.focus-input:focus {
+  outline: none;
+  border-color: var(--green);
+  box-shadow: 0 0 0 2px rgba(5, 150, 105, 0.1);
+}
+
+/* TASK ITEM */
+.task-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 10px;
+  border-bottom: 1px solid var(--border);
+  cursor: pointer;
+  border-radius: 6px;
+  transition: background 0.2s;
+}
+
+.task-item:last-child {
+  border-bottom: none;
+}
+
+.task-item:hover {
+  background: var(--bg);
+}
+
+.task-item.done {
+  opacity: 0.5;
+}
+
+.task-item.done .task-text {
+  text-decoration: line-through;
+  color: var(--muted);
+}
+
+.task-checkbox {
+  width: 18px;
+  height: 18px;
+  border: 2px solid var(--border);
+  border-radius: 4px;
+  flex-shrink: 0;
+  margin-top: 2px;
+  cursor: pointer;
+  accent-color: var(--blue);
+}
+
+.task-item.done .task-checkbox {
+  background: var(--blue);
+  border-color: var(--blue);
+}
+
+.task-text {
+  flex: 1;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.task-time {
+  font-size: 12px;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+/* BRAIN DUMP */
+.brain-dump {
+  border: 2px dashed var(--yellow);
+  border-radius: 8px;
+  padding: 12px;
+  background: var(--yellow-bg);
+  margin-bottom: 12px;
+}
+
+.brain-dump-label {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--yellow);
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.brain-dump-input {
+  width: 100%;
+  border: 1px solid #fde68a;
+  border-radius: 6px;
+  padding: 10px;
+  font-size: 13px;
+  font-family: inherit;
+  resize: vertical;
+  min-height: 60px;
+}
+
+.brain-dump-input:focus {
+  outline: none;
+  border-color: var(--yellow);
+  box-shadow: 0 0 0 2px rgba(180, 83, 9, 0.1);
+}
+
+/* SECTION DIVIDER */
+.section-divider {
+  border: none;
+  border-top: 2px dashed var(--border);
+  margin: 16px 0;
+}
+
+/* HEALTH PAGE */
+.metric-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.metric-box {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 12px;
+  text-align: center;
+}
+
+.metric-label {
+  font-size: 11px;
+  color: var(--muted);
+  text-transform: uppercase;
+  margin-bottom: 4px;
+  font-weight: 600;
+}
+
+.metric-value {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.metric-unit {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+/* FINANCE PAGE */
+.amount {
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.amount.positive {
+  color: var(--green);
+}
+
+.amount.negative {
+  color: var(--red);
+}
+
+.amount.warning {
+  color: var(--yellow);
+}
+
+.bill-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.bill-row:last-child {
+  border-bottom: none;
+}
+
+.bill-name {
+  font-weight: 500;
+  flex: 1;
+}
+
+.bill-due {
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 2px;
+}
+
+/* QUICK LINKS */
+.link-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 8px;
+}
+
+.link-btn {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 12px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-decoration: none;
+  color: var(--text);
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.link-btn:hover {
+  border-color: var(--blue);
+  background: var(--blue-bg);
+  color: var(--blue);
+}
+
+/* LOADING */
+.loading {
+  text-align: center;
+  padding: 32px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.spinner {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--border);
+  border-top-color: var(--blue);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  margin-bottom: 8px;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* HEADER WITH TIME */
+.header-time {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 24px;
+}
+
+.header-time .time {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+/* ALERT BOX */
+.alert {
+  padding: 12px;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  border-left: 4px solid;
+}
+
+.alert.urgent {
+  background: var(--red-bg);
+  border-left-color: var(--red);
+  color: var(--red);
+  font-weight: 500;
+}
+
+.alert.warning {
+  background: var(--yellow-bg);
+  border-left-color: var(--yellow);
+  color: var(--yellow);
+  font-weight: 500;
+}
+
+.alert.info {
+  background: var(--blue-bg);
+  border-left-color: var(--blue);
+  color: var(--blue);
+  font-weight: 500;
+}
+</style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<div class="nav-tabs" id="nav-tabs">
+  <button class="nav-tab active" data-page="today">📅 Today</button>
+  <button class="nav-tab" data-page="health">❤️ Health</button>
+  <button class="nav-tab" data-page="finance">💰 Finance</button>
+  <button class="nav-tab" data-page="family">👨‍👩‍👧‍👦 Family</button>
+  <button class="nav-tab" data-page="week">📊 Week</button>
+  <button class="nav-tab" data-page="tracker">📈 Progress</button>
+  <button class="nav-tab" data-page="relationships">💬 Relationships</button>
+  <button class="nav-tab" data-page="links">🔗 Links</button>
+</div>
+
+<!-- TODAY'S AGENDA -->
+<div class="page active" id="today">
+  <div class="header-time">
+    <div>
+      <h1>Today's Agenda</h1>
+      <p class="subtitle" id="date-today"></p>
+    </div>
+    <div class="time" id="current-time"></div>
+  </div>
+
+  <!-- ENERGY CHECK -->
+  <div class="energy-check">
+    <span class="energy-label">How are you feeling today?</span>
+    <input type="range" class="energy-slider" id="energy-slider" min="1" max="10" value="5">
+    <span id="energy-value" style="font-weight: 700; width: 30px;">5/10</span>
+  </div>
+
+  <!-- FOCUS AREA -->
+  <div class="focus-area">
+    <div class="focus-title">🎯 Focus Question</div>
+    <div class="focus-question">What's the ONE thing that matters most today?</div>
+    <input type="text" class="focus-input" id="focus-input" placeholder="Your answer here...">
+  </div>
+
+  <!-- FINANCIAL ALERTS -->
+  <div class="card" id="fin-alerts-card" style="display:none;">
+    <div class="card-header">⚠️ Financial Alerts</div>
+    <div id="fin-alerts"></div>
+  </div>
+
+  <!-- FLYLADY NON-NEGOTIABLES -->
+  <div class="card">
+    <div class="card-header">✅ Daily Non-Negotiables</div>
+    <div id="flylady-tasks"></div>
+  </div>
+
+  <!-- ACTIONABLE ITEMS -->
+  <div class="card">
+    <div class="card-header">📋 Today's Actionable Items</div>
+    <div id="actionable-items"></div>
+  </div>
+
+  <hr class="section-divider">
+
+  <!-- BRAIN DUMP -->
+  <div class="brain-dump">
+    <div class="brain-dump-label">🧠 Brain Dump</div>
+    <textarea class="brain-dump-input" id="brain-dump" placeholder="Quick thoughts, ideas, concerns — dump them here and move on"></textarea>
+  </div>
+
+  <!-- WINS/REFLECTION -->
+  <div class="card">
+    <div class="card-header">🎉 Evening Reflection</div>
+    <textarea class="brain-dump-input" id="wins-input" placeholder="What went well today? What's one win (big or small)?"></textarea>
+  </div>
+</div>
+
+<!-- HEALTH PAGE -->
+<div class="page" id="health">
+  <div class="page-header">
+    <h1>Personal Health</h1>
+    <p class="subtitle">Today's health snapshot + upcoming appointments</p>
+  </div>
+
+  <div class="card">
+    <div class="card-header">📊 Today's Metrics</div>
+    <div class="metric-grid" id="health-metrics">
+      <div class="metric-box">
+        <div class="metric-label">Sleep</div>
+        <div class="metric-value">—</div>
+        <div class="metric-unit">hours</div>
+      </div>
+      <div class="metric-box">
+        <div class="metric-label">Steps</div>
+        <div class="metric-value">—</div>
+        <div class="metric-unit">today</div>
+      </div>
+      <div class="metric-box">
+        <div class="metric-label">Heart Rate</div>
+        <div class="metric-value">—</div>
+        <div class="metric-unit">avg</div>
+      </div>
+      <div class="metric-box">
+        <div class="metric-label">Water</div>
+        <div class="metric-value">—</div>
+        <div class="metric-unit">cups</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">💊 Medications & Supplements</div>
+    <div id="medications"></div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">📅 Upcoming Appointments</div>
+    <div id="appointments"></div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">🏃 Exercise Protocol</div>
+    <div id="exercise-protocol" style="color: var(--muted); font-size: 13px;">Not set up yet</div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">🍎 Diet Protocol</div>
+    <div id="diet-protocol" style="color: var(--muted); font-size: 13px;">Not set up yet</div>
+  </div>
+</div>
+
+<!-- FINANCE PAGE -->
+<div class="page" id="finance">
+  <div class="page-header">
+    <h1>Personal Finance</h1>
+    <p class="subtitle">Budget snapshot + bills due + alerts</p>
+  </div>
+
+  <div class="card">
+    <div class="card-header">💰 This Month</div>
+    <div style="text-align: center; padding: 16px;">
+      <div style="font-size: 12px; color: var(--muted); margin-bottom: 4px;">Available after fixed expenses</div>
+      <div style="font-size: 32px; font-weight: 700; color: var(--green);" id="budget-remaining">—</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">⚠️ Urgent Alerts</div>
+    <div id="finance-alerts"></div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">📅 Bills Due This Week</div>
+    <div id="bills-due"></div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">🎯 Spending Priorities</div>
+    <ol style="padding-left: 20px; font-size: 13px; line-height: 1.8;">
+      <li>Rent — roof over your head</li>
+      <li>Utilities — lights & water</li>
+      <li>Food — SNAP covered</li>
+      <li>Phone — communication & work</li>
+      <li>Gas — transportation</li>
+      <li>CC minimums — won't cut power</li>
+      <li>Subscriptions — last priority</li>
+    </ol>
+  </div>
+</div>
+
+<!-- FAMILY PAGE -->
+<div class="page" id="family">
+  <div class="page-header">
+    <h1>Family & Household</h1>
+    <p class="subtitle">Secondary view — family routines & tasks</p>
+  </div>
+
+  <div class="card">
+    <div class="card-header">👨‍👩‍👧‍👦 Family Schedule Today</div>
+    <div id="family-schedule" style="color: var(--muted); font-size: 13px; padding: 10px;">Loading calendar...</div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">📝 Family Chores & Tasks</div>
+    <div id="family-tasks"></div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">🛏️ Routines</div>
+    <div style="font-size: 13px; line-height: 1.8;">
+      <div style="margin-bottom: 12px;">
+        <strong>Morning:</strong><br>
+        7am supervision • Make beds • Meds • Check calendar
+      </div>
+      <div style="margin-bottom: 12px;">
+        <strong>Midday:</strong><br>
+        Swish & swipe bathroom • Clear sink • Laundry
+      </div>
+      <div>
+        <strong>Evening:</strong><br>
+        9pm kitchen close • 15-min hot spot • 11pm quiet hours
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- WEEK PAGE -->
+<div class="page" id="week">
+  <div class="page-header">
+    <h1>Week at a Glance</h1>
+    <p class="subtitle">This week's theme, zone, and overview</p>
+  </div>
+
+  <div class="card">
+    <div class="card-header">🏠 This Week's Zone</div>
+    <div id="zone-info" style="padding: 10px;">
+      <div style="font-size: 16px; font-weight: 600; margin-bottom: 8px;" id="zone-name">Zone 1</div>
+      <div style="font-size: 13px; color: var(--muted);" id="zone-desc">Loading...</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">📅 Daily Themes</div>
+    <div id="week-themes" style="font-size: 13px; line-height: 1.8;">
+      <div>Sun: Weekly Reset</div>
+      <div>Mon: Planning & Paperwork</div>
+      <div>Tue: Errands</div>
+      <div>Wed: Zone Cleaning</div>
+      <div>Thu: Appointments & Learning</div>
+      <div>Fri: Fill Up & Clean Out</div>
+      <div>Sat: Family & Fun</div>
+    </div>
+  </div>
+</div>
+
+<!-- PROGRESS TRACKER -->
+<div class="page" id="tracker">
+  <div class="page-header">
+    <h1>Progress Tracker</h1>
+    <p class="subtitle">Task completion & trends</p>
+  </div>
+
+  <div class="card">
+    <div class="card-header">📊 This Week</div>
+    <div style="text-align: center; padding: 16px;">
+      <div style="font-size: 12px; color: var(--muted); margin-bottom: 4px;">Completion Rate</div>
+      <div style="font-size: 48px; font-weight: 700; color: var(--green);">—</div>
+      <div style="font-size: 13px; color: var(--muted);">tasks completed</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">🎉 Recent Wins</div>
+    <div id="wins-list" style="color: var(--muted); font-size: 13px; padding: 10px;">No wins recorded yet. Add them in Today → Evening Reflection</div>
+  </div>
+</div>
+
+<!-- RELATIONSHIPS -->
+<div class="page" id="relationships">
+  <div class="page-header">
+    <h1>Relationship Reminders</h1>
+    <p class="subtitle">Your Council — who to reach out to this week</p>
+  </div>
+
+  <div class="card">
+    <div class="card-header">💬 This Week's Check-Ins</div>
+    <div id="council-reminders" style="font-size: 13px; padding: 10px;">
+      <div style="color: var(--muted);">Your Council members listed here (to be populated from Obsidian)</div>
+      <div style="margin-top: 12px; font-size: 12px; color: var(--muted);">Sunday is a good day for Council reflection & planning who to reach out to.</div>
+    </div>
+  </div>
+</div>
+
+<!-- QUICK LINKS -->
+<div class="page" id="links">
+  <div class="page-header">
+    <h1>Quick Links</h1>
+    <p class="subtitle">Access your platforms in one place</p>
+  </div>
+
+  <div class="card">
+    <div class="card-header">🔗 Work & Projects</div>
+    <div class="link-grid">
+      <a href="https://monday.com" class="link-btn">Monday.com</a>
+      <a href="https://gmail.com" class="link-btn">Gmail</a>
+      <a href="https://slack.com" class="link-btn">Slack</a>
+      <a href="https://obsidian.md" class="link-btn">Obsidian</a>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">📱 Personal</div>
+    <div class="link-grid">
+      <a href="https://apple.com/health" class="link-btn">Apple Health</a>
+      <a href="https://calendar.google.com" class="link-btn">Calendar</a>
+      <a href="https://icloud.com" class="link-btn">iCloud</a>
+    </div>
+  </div>
+</div>
+
+<script>
+// ─── TAB NAVIGATION ────────────────────────────────────────
+document.querySelectorAll('.nav-tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    const page = tab.dataset.page;
+
+    document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+
+    tab.classList.add('active');
+    document.getElementById(page).classList.add('active');
+  });
+});
+
+// ─── DATE & TIME ────────────────────────────────────────────
+function updateTime() {
+  const now = new Date();
+  document.getElementById('current-time').textContent = now.toLocaleTimeString('en-US', {
+    hour: 'numeric',
+    minute: '2-digit',
+    hour12: true
+  });
+}
+
+function formatDate(d) {
+  return d.toLocaleDateString('en-US', {
+    weekday: 'long',
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
+  });
+}
+
+document.getElementById('date-today').textContent = formatDate(new Date());
+updateTime();
+setInterval(updateTime, 30000); // Update every 30 seconds
+
+// ─── ENERGY SLIDER ────────────────────────────────────────────
+const energySlider = document.getElementById('energy-slider');
+energySlider.addEventListener('change', () => {
+  document.getElementById('energy-value').textContent = energySlider.value + '/10';
+  localStorage.setItem('energy-' + new Date().toDateString(), energySlider.value);
+});
+
+// ─── FLYLADY TASKS ────────────────────────────────────────────
+const FLYLADY = {
+  morning: [
+    { text: 'Ben morning supervision (7am)' },
+    { text: 'Make all beds before leaving room' },
+    { text: 'Take medications' },
+    { text: 'Check master calendar' }
+  ],
+  midday: [
+    { text: 'Swish and swipe bathroom (5 min)' },
+    { text: 'Clear kitchen sink' },
+    { text: 'One load of laundry — wash, dry, put away' }
+  ],
+  evening: [
+    { text: 'Kitchen close at 9pm (clear counters, sink empty, dishwasher)' },
+    { text: '15-min hot spot clear (timer, stop at 15)' },
+    { text: 'Quiet hours begin at 11pm' }
+  ]
+};
+
+function renderFlyLady() {
+  let html = '';
+
+  Object.entries(FLYLADY).forEach(([period, tasks]) => {
+    const label = period.charAt(0).toUpperCase() + period.slice(1);
+    html += `<div style="margin-bottom: 12px;"><div style="font-size: 12px; font-weight: 600; color: var(--muted); margin-bottom: 6px;">${label}</div>`;
+
+    tasks.forEach(task => {
+      const key = `task-${task.text}`;
+      const done = localStorage.getItem(key) === 'done';
+      html += `
+        <div class="task-item ${done ? 'done' : ''}" onclick="toggleTask(this, '${key}')">
+          <input type="checkbox" class="task-checkbox" ${done ? 'checked' : ''}>
+          <span class="task-text">${task.text}</span>
+        </div>`;
+    });
+
+    html += '</div>';
+  });
+
+  document.getElementById('flylady-tasks').innerHTML = html;
+}
+
+function toggleTask(el, key) {
+  el.classList.toggle('done');
+  if (el.classList.contains('done')) {
+    localStorage.setItem(key, 'done');
+  } else {
+    localStorage.removeItem(key);
+  }
+}
+
+renderFlyLady();
+
+// ─── ACTIONABLE ITEMS (placeholder) ────────────────────────────
+document.getElementById('actionable-items').innerHTML = `
+  <div class="task-item">
+    <input type="checkbox" class="task-checkbox" onchange="this.parentElement.classList.toggle('done')">
+    <span class="task-text">Review today's agenda (check this when done)</span>
+  </div>
+  <div class="task-item">
+    <input type="checkbox" class="task-checkbox" onchange="this.parentElement.classList.toggle('done')">
+    <span class="task-text">Check Gmail for actionable items</span>
+  </div>
+  <div class="task-item">
+    <input type="checkbox" class="task-checkbox" onchange="this.parentElement.classList.toggle('done')">
+    <span class="task-text">Review calendar for prep tasks</span>
+  </div>
+`;
+
+// ─── BRAIN DUMP & WINS ────────────────────────────────────────
+const brainDumpEl = document.getElementById('brain-dump');
+const winsEl = document.getElementById('wins-input');
+
+brainDumpEl.addEventListener('change', () => {
+  const today = new Date().toDateString();
+  localStorage.setItem('brain-dump-' + today, brainDumpEl.value);
+});
+
+winsEl.addEventListener('change', () => {
+  const today = new Date().toDateString();
+  localStorage.setItem('wins-' + today, winsEl.value);
+});
+
+// Load if exists
+const brainDumpSaved = localStorage.getItem('brain-dump-' + new Date().toDateString());
+const winsSaved = localStorage.getItem('wins-' + new Date().toDateString());
+if (brainDumpSaved) brainDumpEl.value = brainDumpSaved;
+if (winsSaved) winsEl.value = winsSaved;
+
+// ─── ZONE CALCULATION ─────────────────────────────────────────
+function getZone() {
+  const today = new Date();
+  const dayOfMonth = today.getDate();
+  const zone = Math.min(5, Math.ceil(dayOfMonth / 7));
+
+  const zones = {
+    1: { name: 'Zone 1 — Entry / Outdoor / Vehicle', desc: 'Entryway, porch, outdoor areas, vehicle interior' },
+    2: { name: 'Zone 2 — Kitchen', desc: 'Full kitchen deep clean' },
+    3: { name: 'Zone 3 — Bathrooms & Master Bedroom', desc: 'Bathrooms and master bedroom deep clean' },
+    4: { name: 'Zone 4 — Living Areas & Kids\' Rooms', desc: 'Living room, dining room, kids\' bedrooms' },
+    5: { name: 'Zone 5 — Whole House Catch-Up', desc: 'Detail cleaning throughout house' }
+  };
+
+  return zones[zone];
+}
+
+const zone = getZone();
+document.getElementById('zone-name').textContent = zone.name;
+document.getElementById('zone-desc').textContent = zone.desc;
+
+// ─── HEALTH METRICS (placeholder) ──────────────────────────────
+// These would pull from Apple Health via Copilot or HealthKit
+// For now, showing structure
+
+// ─── BUDGET (placeholder) ─────────────────────────────────────
+document.getElementById('budget-remaining').textContent = '—';
+
+// ─── INIT ──────────────────────────────────────────────────────
+console.log('Digital Planner loaded. Check browser console for data sources.');
+</script>
+
+</body>
+</html>
