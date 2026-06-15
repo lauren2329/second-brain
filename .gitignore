@@ -1,0 +1,67 @@
+# Obsidian
+.obsidian/workspace.json
+.obsidian/cache
+.obsidian/plugins/*/data.json
+
+# System
+.DS_Store
+
+# Claude
+.claude/
+
+# App bundles and plugins
+System/Software-Plugins/Apps-DMG/
+System/Software-Plugins/WordPress-Plugins/
+
+# Raw review queue (images and clippings)
+knowledge/raw/REVIEW/
+
+# Granola cache/temp folder
+knowledge/raw/user-QPX4feLCoRmhgdmqJqA976SY/
+
+# 05_Personal: track .md files only, ignore all other file types
+life/Home/05_Personal/**
+!life/Home/05_Personal/**/
+!life/Home/05_Personal/**/*.md
+
+# All Attachments folders under life/ (pure file storage)
+life/**/Attachments/
+
+# Office media and recordings
+life/Office/06_Assets-Media/
+life/Office/Meetings/Zoom/
+
+# Office data folders: track .md files only
+life/Office/03_Finance-Admin/**
+!life/Office/03_Finance-Admin/**/
+!life/Office/03_Finance-Admin/**/*.md
+
+life/Office/04_Real-Estate/**
+!life/Office/04_Real-Estate/**/
+!life/Office/04_Real-Estate/**/*.md
+
+life/Office/Entities/**
+!life/Office/Entities/**/
+!life/Office/Entities/**/*.md
+
+life/Office/Revenue Engines/**
+!life/Office/Revenue Engines/**/
+!life/Office/Revenue Engines/**/*.md
+
+# Planner attachments
+life/Planner/Attachments/
+
+# knowledge/wiki/concepts: track .md files only
+knowledge/wiki/concepts/**
+!knowledge/wiki/concepts/**/
+!knowledge/wiki/concepts/**/*.md
+
+# Large files only
+*.pdf
+*.mp4
+*.mov
+*.zip
+*.tar
+*.gz
+*.dmg
+*.sqlite
