@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Digital Planner Setup Questionnaire</title>
+<style>
+:root {
+  --bg: #f8fafc;
+  --card: #ffffff;
+  --border: #e2e8f0;
+  --text: #1e293b;
+  --muted: #64748b;
+  --blue: #2563eb;
+  --green: #059669;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  padding: 24px 20px 48px;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+header {
+  margin-bottom: 32px;
+}
+
+header h1 {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+header p {
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.question-block {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 20px;
+}
+
+.question-title {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  color: var(--text);
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.option {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.option:hover {
+  background: var(--bg);
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+  accent-color: var(--blue);
+}
+
+.option-label {
+  flex: 1;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.text-input {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-size: 14px;
+  font-family: inherit;
+  width: 100%;
+  margin-top: 8px;
+}
+
+.text-input:focus {
+  outline: none;
+  border-color: var(--blue);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.submit-btn {
+  background: var(--blue);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 14px 24px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 32px;
+}
+
+.submit-btn:hover {
+  opacity: 0.9;
+}
+
+.multi-select {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 24px 0;
+}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>📱 Digital Planner Setup</h1>
+  <p>Just click through. No typing unless you want to add details.</p>
+</header>
+
+<form id="questionnaire">
+
+<!-- Q1: Health Apps -->
+<div class="question-block">
+  <div class="question-title">1. Health & Fitness Apps You Use</div>
+  <div class="multi-select">
+    <label class="option">
+      <input type="checkbox" name="health-app" value="apple-fitness">
+      <span class="option-label">Apple Fitness+</span>
+    </label>
+    <label class="option">
+      <input type="checkbox" name="health-app" value="strava">
+      <span class="option-label">Strava</span>
+    </label>
+    <label class="option">
+      <input type="checkbox" name="health-app" value="myfitnesspal">
+      <span class="option-label">MyFitnessPal</span>
+    </label>
+    <label class="option">
+      <input type="checkbox" name="health-app" value="cronometer">
+      <span class="option-label">Cronometer</span>
+    </label>
+    <label class="option">
+      <input type="checkbox" name="health-app" value="sleep-app">
+      <span class="option-label">Sleep tracking app</span>
+    </label>
+    <label class="option">
+      <input type="checkbox" name="health-app" value="mood-tracker">
+      <span class="option-label">Mood/mental health tracker</span>
+    </label>
+    <label class="option">
+      <input type="checkbox" name="health-app" value="med-reminder">
+      <span class="option-label">Medication reminder app</span>
+    </label>
+    <label class="option">
+      <input type="checkbox" name="health-app" value="welltory">
+      <span class="option-label">Welltory</span>
+    </label>
+  </div>
+  <input type="text" class="text-input" placeholder="Other health apps (optional)">
+</div>
+
+<!-- Q2: Current Alexa Setup -->
+<div class="question-block">
+  <div class="question-title">2. What's Alexa Currently Doing?</div>
+  <textarea class="text-input" style="min-height: 80px; font-family: inherit;" placeholder="What routines or reminders does Alexa already run?"></textarea>
+</div>
+
+<!-- Q3: New Alexa Reminders -->
+<div class="question-block">
+  <div class="question-title">3. New Alexa Reminders You Want</div>
+  <div class="multi-select">
+    <label class="option">
+      <input type="checkbox" name="alexa-reminder" value="meds">
+      <span class="option-label">Medication reminders</span>
+    </label>
+    <label class="option">
+      <input type="checkbox" name="alexa-reminder" value="water">
+      <span class="option-label">Water intake reminders</span>
+    </label>
+    <label class="option">
+      <input type="checkbox" name="alexa-reminder" value="movement">
+      <span class="option-label">Movement/stretch breaks</span>
+    </label>
+    <label class="option">
+      <input type="checkbox" name="alexa-reminder" value="family-chores">
+      <span class="option-label">Family chore reminders</span>
+    </label>
+    <label class="option">
+      <input type="checkbox" name="alexa-reminder" value="appointments">
+      <span class="option-label">Appointment prep reminders</span>
+    </label>
+    <label class="option">
+      <input type="checkbox" name="alexa-reminder" value="bedtime">
+      <span class="option-label">Bedtime routine reminders</span>
+    </label>
+    <label class="option">
+      <input type="checkbox" name="alexa-reminder" value="meals">
+      <span class="option-label">Meal prep/time reminders</span>
+    </label>
+  </div>
+  <input type="text" class="text-input" placeholder="Other reminders (optional)">
+</div>
+
+<hr>
+
+<!-- Q4: Dashboard Purpose -->
+<div class="question-block">
+  <div class="question-title">4. Dashboard Primary Purpose</div>
+  <div class="options">
+    <label class="option">
+      <input type="radio" name="dashboard-purpose" value="personal">
+      <span class="option-label">Just you (health/tasks/finances)</span>
+    </label>
+    <label class="option">
+      <input type="radio" name="dashboard-purpose" value="family">
+      <span class="option-label">Family focus (chores/routines)</span>
+    </label>
+    <label class="option">
+      <input type="radio" name="dashboard-purpose" value="both">
+      <span class="option-label">Both (personal + family)</span>
+    </label>
+  </div>
+</div>
+
+<!-- Q5: Apple Watch Notifications -->
+<div class="question-block">
+  <div class="question-title">5. What Should Alert You on Apple Watch?</div>
+  <div class="multi-select">
+    <label class="option">
+      <input type="checkbox" name="watch-notify" value="urgent-alerts">
+      <span class="option-label">Urgent financial alerts</span>
+    </label>
+    <label class="option">
+      <input type="checkbox" name="watch-notify" value="meds">
+      <span class="option-label">Medication reminders</span>
+    </label>
+    <label class="option">
+      <input type="checkbox" name="watch-notify" value="appointments">
+      <span class="option-label">Appointment reminders</span>
+    </label>
+    <label class="option">
+      <input type="checkbox" name="watch-notify" value="high-energy">
+      <span class="option-label">High-energy tasks ready</span>
+    </label>
+    <label class="option">
+      <input type="checkbox" name="watch-notify" value="family-alert">
+      <span class="option-label">Family alerts (kids need you)</span>
+    </label>
+    <label class="option">
+      <input type="checkbox" name="watch-notify" value="none">
+      <span class="option-label">Nothing (I'll check the dashboard)</span>
+    </label>
+  </div>
+</div>
+
+<!-- Q6: Alexa Announcements -->
+<div class="question-block">
+  <div class="question-title">6. What Should Alexa Announce Out Loud?</div>
+  <div class="multi-select">
+    <label class="option">
+      <input type="checkbox" name="alexa-announce" value="appointments">
+      <span class="option-label">Upcoming appointments</span>
+    </label>
+    <label class="option">
+      <input type="checkbox" name="alexa-announce" value="bills">
+      <span class="option-label">Bills due today</span>
+    </label>
+    <label class="option">
+      <input type="checkbox" name="alexa-announce" value="priorities">
+      <span class="option-label">Today's top 3 priorities</span>
+    </label>
+    <label class="option">
+      <input type="checkbox" name="alexa-announce" value="weather">
+      <span class="option-label">Weather & commute info</span>
+    </label>
+    <label class="option">
+      <input type="checkbox" name="alexa-announce" value="family-schedule">
+      <span class="option-label">Family schedule for today</span>
+    </label>
+    <label class="option">
+      <input type="checkbox" name="alexa-announce" value="wins">
+      <span class="option-label">Yesterday's wins (celebration)</span>
+    </label>
+  </div>
+</div>
+
+<!-- Q7: Copilot Connections -->
+<div class="question-block">
+  <div class="question-title">7. Copilot App Data Connections</div>
+  <div class="multi-select">
+    <label class="option">
+      <input type="checkbox" name="copilot-connect" value="banking">
+      <span class="option-label">Banking</span>
+    </label>
+    <label class="option">
+      <input type="checkbox" name="copilot-connect" value="health-providers">
+      <span class="option-label">Health provider portals</span>
+    </label>
+    <label class="option">
+      <input type="checkbox" name="copilot-connect" value="subscriptions">
+      <span class="option-label">Subscription services</span>
+    </label>
+    <label class="option">
+      <input type="checkbox" name="copilot-connect" value="insurance">
+      <span class="option-label">Insurance accounts</span>
+    </label>
+    <label class="option">
+      <input type="checkbox" name="copilot-connect" value="benefits">
+      <span class="option-label">Government benefits (SNAP/Medicaid)</span>
+    </label>
+  </div>
+  <input type="text" class="text-input" placeholder="Other Copilot connections (optional)">
+</div>
+
+<hr>
+
+<!-- Final Notes -->
+<div class="question-block">
+  <div class="question-title">8. Anything Else?</div>
+  <textarea class="text-input" style="min-height: 100px;" placeholder="Any other integrations, constraints, or priorities?"></textarea>
+</div>
+
+<button type="submit" class="submit-btn">Save Answers</button>
+
+</form>
+
+<script>
+document.getElementById('questionnaire').addEventListener('submit', function(e) {
+  e.preventDefault();
+
+  const data = new FormData(this);
+  const answers = {
+    health_apps: data.getAll('health-app'),
+    current_alexa: this.querySelector('textarea').value,
+    new_alexa_reminders: data.getAll('alexa-reminder'),
+    dashboard_purpose: data.get('dashboard-purpose'),
+    watch_notifications: data.getAll('watch-notify'),
+    alexa_announcements: data.getAll('alexa-announce'),
+    copilot_connections: data.getAll('copilot-connect'),
+    other_notes: Array.from(this.querySelectorAll('textarea'))[1]?.value || ''
+  };
+
+  localStorage.setItem('planner-setup', JSON.stringify(answers, null, 2));
+  alert('Answers saved! Ready to build your digital planner.');
+  console.log(answers);
+});
+</script>
+
+</body>
+</html>
