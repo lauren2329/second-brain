@@ -651,7 +651,16 @@ body {
 <div class="page" id="week">
   <div class="page-header">
     <h1>Week at a Glance</h1>
-    <p class="subtitle">This week's theme, zone, and overview</p>
+    <p class="subtitle">This week's theme, zone, and calendar</p>
+  </div>
+
+  <div class="card">
+    <div class="card-header">📅 Your Calendar</div>
+    <div id="calendar-embed" style="width: 100%; height: 400px; border-radius: 8px; overflow: hidden;">
+      <p style="color: var(--muted); font-size: 13px; padding: 20px; text-align: center;">
+        ⚙️ <a href="#" onclick="setupCalendar(event)" style="color: var(--blue); text-decoration: underline;">Connect your Google Calendar</a> to see events here
+      </p>
+    </div>
   </div>
 
   <div class="card">
@@ -902,6 +911,39 @@ document.getElementById('zone-desc').textContent = zone.desc;
 
 // ─── BUDGET (placeholder) ─────────────────────────────────────
 document.getElementById('budget-remaining').textContent = '—';
+
+// ─── CALENDAR SETUP ───────────────────────────────────────
+function setupCalendar(e) {
+  e.preventDefault();
+  const calendarUrl = prompt('Paste your Google Calendar embed URL or public calendar ID:\n\nExample: https://calendar.google.com/calendar/embed?src=YOUR_EMAIL@gmail.com\n\nOr just your email for public calendar');
+
+  if (!calendarUrl) return;
+
+  let embedUrl = calendarUrl;
+
+  // If just an email, convert to embed URL
+  if (calendarUrl.includes('@gmail.com') && !calendarUrl.includes('calendar.google.com')) {
+    embedUrl = `https://calendar.google.com/calendar/embed?src=${calendarUrl}`;
+  }
+
+  // Store in localStorage
+  localStorage.setItem('calendar-url', embedUrl);
+
+  // Load the calendar
+  loadCalendar();
+}
+
+function loadCalendar() {
+  const calendarUrl = localStorage.getItem('calendar-url');
+  const embed = document.getElementById('calendar-embed');
+
+  if (calendarUrl) {
+    embed.innerHTML = `<iframe src="${calendarUrl}" style="border: 0; width: 100%; height: 100%;" frameborder="0"></iframe>`;
+  }
+}
+
+// Load calendar on page init
+loadCalendar();
 
 // ─── INIT ──────────────────────────────────────────────────────
 console.log('Digital Planner loaded. Check browser console for data sources.');
