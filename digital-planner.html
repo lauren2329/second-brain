@@ -884,6 +884,9 @@ const FLYLADY = {
 };
 
 function renderFlyLady() {
+  const el = document.getElementById('flylady-tasks');
+  if (!el) return;
+
   let html = '';
 
   Object.entries(FLYLADY).forEach(([period, tasks]) => {
@@ -903,7 +906,7 @@ function renderFlyLady() {
     html += '</div>';
   });
 
-  document.getElementById('flylady-tasks').innerHTML = html;
+  el.innerHTML = html;
 }
 
 function toggleTask(el, key) {
@@ -921,6 +924,16 @@ renderFlyLady();
 const GMAIL_CLIENT_ID = '244029922407-0qm83m270ccs3r4043mf1d7ictusrpqo.apps.googleusercontent.com';
 const GMAIL_SCOPES = 'https://www.googleapis.com/auth/gmail.readonly';
 
+function showPlaceholderItems() {
+  const container = document.getElementById('actionable-items');
+  if (!container) return;
+  container.innerHTML = `
+    <button onclick="authorizeGmail()" style="padding: 8px 16px; background: var(--blue); color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: 500; width: 100%;">
+      🔗 Connect Gmail to see actionable emails
+    </button>
+  `;
+}
+
 async function authorizeGmail() {
   try {
     const token = await gapi.auth2.getAuthInstance().signIn().then(
@@ -932,15 +945,6 @@ async function authorizeGmail() {
     console.log('Gmail auth skipped');
     showPlaceholderItems();
   }
-}
-
-function showPlaceholderItems() {
-  const container = document.getElementById('actionable-items');
-  container.innerHTML = `
-    <button onclick="authorizeGmail()" style="padding: 8px 16px; background: var(--blue); color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: 500; width: 100%;">
-      🔗 Connect Gmail to see actionable emails
-    </button>
-  `;
 }
 
 async function loadGmailItems() {
@@ -999,11 +1003,20 @@ async function loadGmailItems() {
   }
 }
 
-// Try to load Gmail items on startup
-if (localStorage.getItem('gmail-token')) {
-  loadGmailItems();
+// Try to load Gmail items on startup (when DOM is ready)
+function initGmail() {
+  if (localStorage.getItem('gmail-token')) {
+    loadGmailItems();
+  } else {
+    showPlaceholderItems();
+  }
+}
+
+// Wait for DOM to load
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initGmail);
 } else {
-  showPlaceholderItems();
+  initGmail();
 }
 
 // ─── BRAIN DUMP ────────────────────────────────────────────────
