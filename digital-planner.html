@@ -471,6 +471,42 @@ body {
     <div class="time" id="current-time"></div>
   </div>
 
+  <!-- BRAIN DUMP -->
+  <div class="brain-dump">
+    <div class="brain-dump-label">🧠 Brain Dump</div>
+    <textarea class="brain-dump-input" id="brain-dump" placeholder="Quick thoughts, ideas, concerns — dump them here and move on"></textarea>
+  </div>
+
+  <!-- YOUR STATUS TODAY (data-driven) -->
+  <div class="card">
+    <div class="card-header">📊 Your Status Today</div>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; font-size: 13px;">
+      <div style="padding: 10px; background: var(--bg); border-radius: 6px; text-align: center;">
+        <div style="font-size: 11px; color: var(--muted); margin-bottom: 4px;">SLEEP</div>
+        <div style="font-size: 20px; font-weight: 700; color: var(--text);">—</div>
+        <div style="font-size: 11px; color: var(--muted);">hours (Apple Health)</div>
+      </div>
+      <div style="padding: 10px; background: var(--bg); border-radius: 6px; text-align: center;">
+        <div style="font-size: 11px; color: var(--muted); margin-bottom: 4px;">HEART RATE</div>
+        <div style="font-size: 20px; font-weight: 700; color: var(--text);">—</div>
+        <div style="font-size: 11px; color: var(--muted);">avg (Apple Watch)</div>
+      </div>
+      <div style="padding: 10px; background: var(--bg); border-radius: 6px; text-align: center;">
+        <div style="font-size: 11px; color: var(--muted); margin-bottom: 4px;">STRESS</div>
+        <div style="font-size: 20px; font-weight: 700; color: var(--text);">—</div>
+        <div style="font-size: 11px; color: var(--muted);">Welltory score</div>
+      </div>
+      <div style="padding: 10px; background: var(--bg); border-radius: 6px; text-align: center;">
+        <div style="font-size: 11px; color: var(--muted); margin-bottom: 4px;">TODAY'S LOAD</div>
+        <div style="font-size: 20px; font-weight: 700; color: var(--text);">—</div>
+        <div style="font-size: 11px; color: var(--muted);">meetings/tasks</div>
+      </div>
+    </div>
+    <div style="margin-top: 12px; padding: 12px; background: var(--blue-bg); border-radius: 6px; font-size: 13px; color: var(--blue);">
+      ⚙️ Connecting to Apple Health, Apple Watch, Welltory, Google Calendar...
+    </div>
+  </div>
+
   <!-- STAGE HEALTH CHECK -->
   <div class="card">
     <div class="card-header">🏛️ Stage Health Check</div>
@@ -505,52 +541,6 @@ body {
       </div>
     </div>
     <div id="stage-focus" style="margin-top: 12px; padding: 12px; background: var(--blue-bg); border-radius: 6px; font-size: 13px; color: var(--blue); font-weight: 500;"></div>
-  </div>
-
-  <!-- ENERGY CHECK -->
-  <div class="energy-check">
-    <span class="energy-label">How are you feeling today?</span>
-    <input type="range" class="energy-slider" id="energy-slider" min="1" max="10" value="5">
-    <span id="energy-value" style="font-weight: 700; width: 30px;">5/10</span>
-  </div>
-
-  <!-- FOCUS AREA -->
-  <div class="focus-area">
-    <div class="focus-title">🎯 Focus Question</div>
-    <div class="focus-question">What's the ONE thing that matters most today?</div>
-    <input type="text" class="focus-input" id="focus-input" placeholder="Your answer here...">
-  </div>
-
-  <!-- FINANCIAL ALERTS -->
-  <div class="card" id="fin-alerts-card" style="display:none;">
-    <div class="card-header">⚠️ Financial Alerts</div>
-    <div id="fin-alerts"></div>
-  </div>
-
-  <!-- FLYLADY NON-NEGOTIABLES -->
-  <div class="card">
-    <div class="card-header">✅ Daily Non-Negotiables</div>
-    <div id="flylady-tasks"></div>
-  </div>
-
-  <!-- ACTIONABLE ITEMS -->
-  <div class="card">
-    <div class="card-header">📋 Today's Actionable Items</div>
-    <div id="actionable-items"></div>
-  </div>
-
-  <hr class="section-divider">
-
-  <!-- BRAIN DUMP -->
-  <div class="brain-dump">
-    <div class="brain-dump-label">🧠 Brain Dump</div>
-    <textarea class="brain-dump-input" id="brain-dump" placeholder="Quick thoughts, ideas, concerns — dump them here and move on"></textarea>
-  </div>
-
-  <!-- WINS/REFLECTION -->
-  <div class="card">
-    <div class="card-header">🎉 Evening Reflection</div>
-    <textarea class="brain-dump-input" id="wins-input" placeholder="What went well today? What's one win (big or small)?"></textarea>
   </div>
 </div>
 
@@ -852,13 +842,6 @@ document.getElementById('date-today').textContent = formatDate(new Date());
 updateTime();
 setInterval(updateTime, 30000); // Update every 30 seconds
 
-// ─── ENERGY SLIDER ────────────────────────────────────────────
-const energySlider = document.getElementById('energy-slider');
-energySlider.addEventListener('change', () => {
-  document.getElementById('energy-value').textContent = energySlider.value + '/10';
-  localStorage.setItem('energy-' + new Date().toDateString(), energySlider.value);
-});
-
 // ─── FLYLADY TASKS ────────────────────────────────────────────
 const FLYLADY = {
   morning: [
@@ -929,25 +912,17 @@ document.getElementById('actionable-items').innerHTML = `
   </div>
 `;
 
-// ─── BRAIN DUMP & WINS ────────────────────────────────────────
+// ─── BRAIN DUMP ────────────────────────────────────────────────
 const brainDumpEl = document.getElementById('brain-dump');
-const winsEl = document.getElementById('wins-input');
 
 brainDumpEl.addEventListener('change', () => {
   const today = new Date().toDateString();
   localStorage.setItem('brain-dump-' + today, brainDumpEl.value);
 });
 
-winsEl.addEventListener('change', () => {
-  const today = new Date().toDateString();
-  localStorage.setItem('wins-' + today, winsEl.value);
-});
-
 // Load if exists
 const brainDumpSaved = localStorage.getItem('brain-dump-' + new Date().toDateString());
-const winsSaved = localStorage.getItem('wins-' + new Date().toDateString());
 if (brainDumpSaved) brainDumpEl.value = brainDumpSaved;
-if (winsSaved) winsEl.value = winsSaved;
 
 // ─── ZONE CALCULATION ─────────────────────────────────────────
 function getZone() {
