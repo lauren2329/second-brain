@@ -547,12 +547,16 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; b
 <div id="tab-relationships" class="tab">
 
   <div class="card" style="background:linear-gradient(135deg,#f5f3ff,#ede9fe);border:1px solid #c4b5fd;">
-    <div class="card-title" style="color:#7c3aed;">🤖 Your AI Council</div>
-    <p style="font-size:12px;color:#7c3aed;margin-bottom:14px;">Meet your daily advisors</p>
+    <div class="card-title" style="color:#7c3aed;">🤝 The Council</div>
+    <p style="font-size:12px;color:#7c3aed;margin-bottom:14px;">21 advisors organized by domain. Annabel coordinates.</p>
     <div class="council-grid" id="council-grid"></div>
-    <div id="ai-council-report" class="small">Click "Generate Report" to get AI analysis of your day.</div>
+  </div>
+
+  <div class="card" style="background:linear-gradient(135deg,#f5f3ff,#ede9fe);border:1px solid #c4b5fd;">
+    <div class="card-title" style="color:#7c3aed;">📋 Daily Briefing</div>
+    <div id="ai-council-report" class="small">Click to request Annabel's coordination summary from across all domains.</div>
     <div style="margin-top:10px;">
-      <button class="btn-sm" onclick="generateCouncilReport()" style="background:#7c3aed;">✨ Generate Report</button>
+      <button class="btn-sm" onclick="generateCouncilReport()" style="background:#7c3aed;">Annabel, brief me</button>
     </div>
   </div>
 
@@ -648,14 +652,37 @@ const PETS = [
   { id: 'princess', name: 'Princess', emoji: '🐱' }
 ];
 
-const COUNCIL = [
-  { name: 'Dr. Wellness', role: 'Health & Energy Advisor', emoji: '💚' },
-  { name: 'Morgan', role: 'Executive Director Coach', emoji: '💼' },
-  { name: 'Sage', role: 'Household Operations', emoji: '🏠' },
-  { name: 'River', role: 'Family & Caregiving', emoji: '❤️' },
-  { name: 'Alex', role: 'Financial & Planning', emoji: '💰' },
-  { name: 'Casey', role: 'Decision Clarity', emoji: '🧭' }
-];
+const COUNCIL = {
+  devoted: [
+    { name: 'Annabel', role: 'Personal Assistant & Librarian', emoji: '📚' }
+  ],
+  home: [
+    { name: 'Martha', role: 'Housekeeper', emoji: '🏠' },
+    { name: 'Mary', role: 'Nanny', emoji: '👩‍🍼' },
+    { name: 'Penny', role: 'Butler', emoji: '🎩' },
+    { name: 'Dolly', role: 'Ranch Hand', emoji: '🤠' },
+    { name: 'Imogen', role: 'Interior Designer', emoji: '🎨' },
+    { name: 'Harriet', role: 'Tutor', emoji: '📖' }
+  ],
+  personal: [
+    { name: 'Sylvia', role: 'Wellness Coach', emoji: '💚' },
+    { name: 'Prudence', role: 'Personal Finance Manager', emoji: '💰' },
+    { name: 'Vera', role: 'Legal Advisor', emoji: '⚖️' },
+    { name: 'Sage', role: 'Counselor', emoji: '🧘' }
+  ],
+  work: [
+    { name: 'Victoria', role: 'Chief of Staff', emoji: '💼' },
+    { name: 'Dot', role: 'CPA', emoji: '📊' },
+    { name: 'Roxanne', role: 'Sales Manager', emoji: '📈' },
+    { name: 'Sterling', role: 'Consultant', emoji: '🎯' },
+    { name: 'Vivienne', role: 'Marketing Director', emoji: '📢' },
+    { name: 'Greta', role: 'Grant Writer', emoji: '💵' },
+    { name: 'Fiona', role: 'Community Organizer', emoji: '🤝' },
+    { name: 'Cleo', role: 'Content Creator', emoji: '✍️' },
+    { name: 'Constance', role: 'Head of Correspondence', emoji: '📧' },
+    { name: 'Ada', role: 'Systems Manager', emoji: '⚙️' }
+  ]
+};
 
 const ZONES = [
   { name: 'Zone 1 — Entry, Front Porch & Dining Room',
@@ -1304,13 +1331,57 @@ function renderPetsGrid() {
 
 function renderCouncilGrid() {
   const el = document.getElementById('council-grid');
-  el.innerHTML = COUNCIL.map(m => `
-    <div class="council-member">
+  let html = '';
+
+  // Devoted to Lauren
+  html += '<div style="margin-bottom:20px;"><div style="font-size:11px;font-weight:700;color:#7c3aed;text-transform:uppercase;letter-spacing:.05em;margin-bottom:8px;">Devoted to Lauren</div>';
+  html += '<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;">';
+  COUNCIL.devoted.forEach(m => {
+    html += `<div class="council-member">
       <div class="council-emoji">${m.emoji}</div>
       <div class="council-name">${m.name}</div>
       <div class="council-role">${m.role}</div>
-    </div>
-  `).join('');
+    </div>`;
+  });
+  html += '</div></div>';
+
+  // Home
+  html += '<div style="margin-bottom:20px;"><div style="font-size:11px;font-weight:700;color:#2caa6e;text-transform:uppercase;letter-spacing:.05em;margin-bottom:8px;">Home — Coordinated by Martha</div>';
+  html += '<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;">';
+  COUNCIL.home.forEach(m => {
+    html += `<div class="council-member">
+      <div class="council-emoji">${m.emoji}</div>
+      <div class="council-name">${m.name}</div>
+      <div class="council-role">${m.role}</div>
+    </div>`;
+  });
+  html += '</div></div>';
+
+  // Personal
+  html += '<div style="margin-bottom:20px;"><div style="font-size:11px;font-weight:700;color:#d97706;text-transform:uppercase;letter-spacing:.05em;margin-bottom:8px;">Personal</div>';
+  html += '<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;">';
+  COUNCIL.personal.forEach(m => {
+    html += `<div class="council-member">
+      <div class="council-emoji">${m.emoji}</div>
+      <div class="council-name">${m.name}</div>
+      <div class="council-role">${m.role}</div>
+    </div>`;
+  });
+  html += '</div></div>';
+
+  // Work
+  html += '<div style="margin-bottom:20px;"><div style="font-size:11px;font-weight:700;color:#2563eb;text-transform:uppercase;letter-spacing:.05em;margin-bottom:8px;">Work — Coordinated by Victoria</div>';
+  html += '<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;">';
+  COUNCIL.work.forEach(m => {
+    html += `<div class="council-member">
+      <div class="council-emoji">${m.emoji}</div>
+      <div class="council-name">${m.name}</div>
+      <div class="council-role">${m.role}</div>
+    </div>`;
+  });
+  html += '</div></div>';
+
+  el.innerHTML = html;
 }
 
 function openSubPage(id) {
@@ -1513,7 +1584,7 @@ async function generateCouncilReport() {
   const reportEl = document.getElementById('ai-council-report');
   const suggestEl = document.getElementById('ai-suggestions');
   const tasksEl = document.getElementById('ai-tasks');
-  reportEl.innerHTML = '<div class="loading">🤖 Council convening...</div>';
+  reportEl.innerHTML = '<div class="loading">📋 Annabel coordinating across domains...</div>';
 
   const todayStr = new Date().toLocaleDateString([], { weekday: 'long', month: 'long', day: 'numeric' });
   const todayEvts = allEvents.filter(ev => isToday(ev.start?.dateTime || ev.start?.date || ''));
@@ -1524,11 +1595,14 @@ async function generateCouncilReport() {
 
   try {
     const report = await window.cowork.askClaude(
-      `You are Lauren's AI Council. Given this context: "${context}", generate:
-1. A brief daily assessment (2-3 sentences)
-2. Three specific suggestions for today
-3. Three recommended focus tasks in priority order
-Format as JSON: {"assessment":"...","suggestions":["...","...","..."],"tasks":["...","...","..."]}`,
+      `You are Annabel, Lauren's Personal Assistant & Librarian. You coordinate her 21-member council across Home (Martha), Personal (Sylvia, Prudence, Vera, Sage), and Work (Victoria) domains.
+
+Given this context: "${context}", provide:
+1. A brief coordination summary (2-3 sentences) — what needs Lauren's attention across all domains TODAY
+2. Three specific actions flagged as urgent/actionable by the council
+3. Three recommended focus areas in priority order
+
+Format as JSON: {"summary":"...","actions":["...","...","..."],"focus":["...","...","..."]}`,
       [context]
     );
 
@@ -1538,23 +1612,23 @@ Format as JSON: {"assessment":"...","suggestions":["...","...","..."],"tasks":["
       data = JSON.parse(jsonMatch?.[0] || '{}');
     } catch (e) { data = {}; }
 
-    reportEl.innerHTML = `<div style="font-size:13px;line-height:1.6">${data.assessment || report.slice(0, 300)}</div>`;
+    reportEl.innerHTML = `<div style="font-size:13px;line-height:1.6;color:#5b21b6;"><strong>Annabel's Coordination:</strong> ${data.summary || report.slice(0, 300)}</div>`;
 
-    if (suggestEl && data.suggestions?.length) {
-      suggestEl.innerHTML = data.suggestions.map(s =>
-        `<div style="padding:6px 0;border-bottom:1px solid var(--border);font-size:13px;">💡 ${s}</div>`
+    if (suggestEl && data.actions?.length) {
+      suggestEl.innerHTML = data.actions.map(s =>
+        `<div style="padding:6px 0;border-bottom:1px solid var(--border);font-size:13px;">🚩 ${s}</div>`
       ).join('');
     }
-    if (tasksEl && data.tasks?.length) {
-      tasksEl.innerHTML = data.tasks.map((t, i) =>
+    if (tasksEl && data.focus?.length) {
+      tasksEl.innerHTML = data.focus.map((t, i) =>
         `<div style="padding:6px 0;border-bottom:1px solid var(--border);font-size:13px;"><span style="display:inline-block;background:var(--kynorml);color:#fff;padding:2px 8px;border-radius:4px;font-size:10px;margin-right:8px;">${i + 1}</span>${t}</div>`
       ).join('');
     }
 
     // Update alert banner
-    updateAIAlerts(data.tasks);
+    updateAIAlerts(data.focus);
   } catch (e) {
-    reportEl.innerHTML = '<div style="color:var(--red);font-size:12px;">Could not generate report. Check AI connection.</div>';
+    reportEl.innerHTML = '<div style="color:var(--red);font-size:12px;">Annabel unavailable. Check connection.</div>';
   }
 }
 
