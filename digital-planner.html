@@ -471,6 +471,42 @@ body {
     <div class="time" id="current-time"></div>
   </div>
 
+  <!-- STAGE HEALTH CHECK -->
+  <div class="card">
+    <div class="card-header">🏛️ Stage Health Check</div>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; font-size: 13px;">
+      <div style="padding: 10px; background: var(--red-bg); border-radius: 6px;">
+        <label style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
+          <input type="checkbox" id="stage-survive" onchange="updateStageHealth()">
+          <strong style="color: var(--red);">Survive</strong>
+        </label>
+        <div style="font-size: 11px; color: var(--muted); margin-top: 4px;">Housing • Food • Meds • Safety</div>
+      </div>
+      <div style="padding: 10px; background: var(--yellow-bg); border-radius: 6px;">
+        <label style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
+          <input type="checkbox" id="stage-function" onchange="updateStageHealth()">
+          <strong style="color: var(--yellow);">Function</strong>
+        </label>
+        <div style="font-size: 11px; color: var(--muted); margin-top: 4px;">Routines • Systems • Organization</div>
+      </div>
+      <div style="padding: 10px; background: var(--blue-bg); border-radius: 6px;">
+        <label style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
+          <input type="checkbox" id="stage-grow" onchange="updateStageHealth()">
+          <strong style="color: var(--blue);">Grow</strong>
+        </label>
+        <div style="font-size: 11px; color: var(--muted); margin-top: 4px;">Revenue • Expansion • Impact</div>
+      </div>
+      <div style="padding: 10px; background: var(--green-bg); border-radius: 6px;">
+        <label style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
+          <input type="checkbox" id="stage-thrive" onchange="updateStageHealth()">
+          <strong style="color: var(--green);">Thrive</strong>
+        </label>
+        <div style="font-size: 11px; color: var(--muted); margin-top: 4px;">Legacy • Systems • Community</div>
+      </div>
+    </div>
+    <div id="stage-focus" style="margin-top: 12px; padding: 12px; background: var(--blue-bg); border-radius: 6px; font-size: 13px; color: var(--blue); font-weight: 500;"></div>
+  </div>
+
   <!-- ENERGY CHECK -->
   <div class="energy-check">
     <span class="energy-label">How are you feeling today?</span>
@@ -598,16 +634,45 @@ body {
   </div>
 
   <div class="card">
-    <div class="card-header">🎯 Spending Priorities</div>
-    <ol style="padding-left: 20px; font-size: 13px; line-height: 1.8;">
-      <li>Rent — roof over your head</li>
-      <li>Utilities — lights & water</li>
-      <li>Food — SNAP covered</li>
-      <li>Phone — communication & work</li>
-      <li>Gas — transportation</li>
-      <li>CC minimums — won't cut power</li>
-      <li>Subscriptions — last priority</li>
-    </ol>
+    <div class="card-header">🎯 Spending Priorities (by Stage)</div>
+    <div style="font-size: 13px; line-height: 1.8;">
+      <div style="margin-bottom: 16px;">
+        <div style="font-weight: 600; color: var(--red); margin-bottom: 8px;">🔴 SURVIVE (Must Have)</div>
+        <ol style="padding-left: 20px; color: var(--text);">
+          <li>Rent/Mortgage — shelter</li>
+          <li>Utilities — heat, lights, water</li>
+          <li>Food — groceries & SNAP</li>
+          <li>Medications — health maintenance</li>
+          <li>Transportation — car/gas</li>
+          <li>Insurance — health, car, home</li>
+        </ol>
+      </div>
+      <div style="margin-bottom: 16px;">
+        <div style="font-weight: 600; color: var(--yellow); margin-bottom: 8px;">🟡 FUNCTION (Must Do)</div>
+        <ol style="padding-left: 20px; color: var(--text);">
+          <li>Phone/Internet — communication</li>
+          <li>Household supplies — cleaning, basics</li>
+          <li>Children's services — school, activities</li>
+          <li>CC minimums — credit survival</li>
+        </ol>
+      </div>
+      <div style="margin-bottom: 16px;">
+        <div style="font-weight: 600; color: var(--blue); margin-bottom: 8px;">🔵 GROW (Should Do)</div>
+        <ol style="padding-left: 20px; color: var(--text);">
+          <li>Debt paydown — accelerated payments</li>
+          <li>Business investment — revenue engines</li>
+          <li>Skill development — courses, training</li>
+        </ol>
+      </div>
+      <div>
+        <div style="font-weight: 600; color: var(--green); margin-bottom: 8px;">🟢 THRIVE (Nice To Have)</div>
+        <ol style="padding-left: 20px; color: var(--text);">
+          <li>Subscriptions — entertainment</li>
+          <li>Long-term savings — investments</li>
+          <li>Legacy building — trusts, education</li>
+        </ol>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -944,6 +1009,42 @@ function loadCalendar() {
 
 // Load calendar on page init
 loadCalendar();
+
+// ─── STAGE HEALTH CHECK ────────────────────────────────────────
+function updateStageHealth() {
+  const survive = document.getElementById('stage-survive').checked;
+  const func = document.getElementById('stage-function').checked;
+  const grow = document.getElementById('stage-grow').checked;
+  const thrive = document.getElementById('stage-thrive').checked;
+
+  localStorage.setItem('stage-survive', survive);
+  localStorage.setItem('stage-function', func);
+  localStorage.setItem('stage-grow', grow);
+  localStorage.setItem('stage-thrive', thrive);
+
+  // Determine focus
+  let focus = '';
+  if (!survive) {
+    focus = '🔴 FOCUS: Stabilize Survive (housing, food, meds, safety)';
+  } else if (!func) {
+    focus = '🟡 FOCUS: Build Function (routines, systems, organization)';
+  } else if (!grow) {
+    focus = '🔵 FOCUS: Enable Growth (revenue, expansion, capacity)';
+  } else if (!thrive) {
+    focus = '🟢 FOCUS: Create Thrive (legacy, community, systems)';
+  } else {
+    focus = '✅ All stages stable. Choose what to prioritize today.';
+  }
+
+  document.getElementById('stage-focus').textContent = focus;
+}
+
+// Load stage health on init
+document.getElementById('stage-survive').checked = localStorage.getItem('stage-survive') === 'true';
+document.getElementById('stage-function').checked = localStorage.getItem('stage-function') === 'true';
+document.getElementById('stage-grow').checked = localStorage.getItem('stage-grow') === 'true';
+document.getElementById('stage-thrive').checked = localStorage.getItem('stage-thrive') === 'true';
+updateStageHealth();
 
 // ─── INIT ──────────────────────────────────────────────────────
 console.log('Digital Planner loaded. Check browser console for data sources.');
