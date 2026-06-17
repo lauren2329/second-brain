@@ -6,6 +6,13 @@
 # System
 .DS_Store
 
+# Backend
+node_modules/
+.env
+.env.local
+.env.*.local
+*.log
+
 # Claude
 .claude/
 
