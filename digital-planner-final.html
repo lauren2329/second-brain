@@ -663,7 +663,11 @@ const PETS = [
 
 const COUNCIL = {
   devoted: [
-    { name: 'Annabel', role: 'Personal Assistant & Librarian', emoji: '📚' }
+    { name: 'Annabel', role: 'Personal Assistant & Librarian', emoji: '📚' },
+    { name: 'Sylvia', role: 'Wellness Coach', emoji: '💚' },
+    { name: 'Prudence', role: 'Personal Finance Manager', emoji: '💰' },
+    { name: 'Vera', role: 'Legal Advisor', emoji: '⚖️' },
+    { name: 'Sage', role: 'Counselor', emoji: '🧘' }
   ],
   home: [
     { name: 'Martha', role: 'Housekeeper', emoji: '🏠' },
@@ -672,12 +676,6 @@ const COUNCIL = {
     { name: 'Dolly', role: 'Ranch Hand', emoji: '🤠' },
     { name: 'Imogen', role: 'Interior Designer', emoji: '🎨' },
     { name: 'Harriet', role: 'Tutor', emoji: '📖' }
-  ],
-  personal: [
-    { name: 'Sylvia', role: 'Wellness Coach', emoji: '💚' },
-    { name: 'Prudence', role: 'Personal Finance Manager', emoji: '💰' },
-    { name: 'Vera', role: 'Legal Advisor', emoji: '⚖️' },
-    { name: 'Sage', role: 'Counselor', emoji: '🧘' }
   ],
   work: [
     { name: 'Victoria', role: 'Chief of Staff', emoji: '💼' },
@@ -1358,18 +1356,6 @@ function renderCouncilGrid() {
   html += '<div style="margin-bottom:20px;"><div style="font-size:11px;font-weight:700;color:#2caa6e;text-transform:uppercase;letter-spacing:.05em;margin-bottom:8px;">Home — Coordinated by Martha</div>';
   html += '<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;">';
   COUNCIL.home.forEach(m => {
-    html += `<div class="council-member">
-      <div class="council-emoji">${m.emoji}</div>
-      <div class="council-name">${m.name}</div>
-      <div class="council-role">${m.role}</div>
-    </div>`;
-  });
-  html += '</div></div>';
-
-  // Personal
-  html += '<div style="margin-bottom:20px;"><div style="font-size:11px;font-weight:700;color:#d97706;text-transform:uppercase;letter-spacing:.05em;margin-bottom:8px;">Personal</div>';
-  html += '<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;">';
-  COUNCIL.personal.forEach(m => {
     html += `<div class="council-member">
       <div class="council-emoji">${m.emoji}</div>
       <div class="council-name">${m.name}</div>
