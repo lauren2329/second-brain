@@ -313,6 +313,12 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; b
 .zone-pips { display: flex; gap: 5px; margin-left: auto; }
 .zone-pip { width: 22px; height: 22px; border-radius: 50%; border: 2px solid #d4f0e4; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 700; color: #bbb; }
 .zone-pip.active { background: var(--personal); border-color: var(--personal); color: #fff; }
+
+/* Modals */
+.modal { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,.5); display: flex; align-items: center; justify-content: center; z-index: 1000; }
+.modal-content { background: var(--card); border-radius: var(--radius); padding: 20px; max-width: 500px; width: 90%; max-height: 80vh; overflow-y: auto; box-shadow: 0 10px 40px rgba(0,0,0,.2); }
+.btn-close { background: none; border: none; font-size: 24px; cursor: pointer; color: var(--muted); padding: 0; width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; }
+.btn-close:hover { color: var(--text); }
 </style>
 </head>
 <body>
@@ -326,7 +332,10 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; b
 
 <!-- Header -->
 <div id="header">
-  <h1>Lauren's Digital Planner</h1>
+  <div>
+    <h1>Lauren's Digital Planner</h1>
+    <div style="font-size:12px;color:var(--muted);">📍 Bowling Green, KY</div>
+  </div>
   <div id="header-date"></div>
 </div>
 
@@ -352,18 +361,32 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; b
 <!-- ======================== TODAY TAB ======================== -->
 <div id="tab-today" class="tab active">
 
-  <div class="card" style="background:linear-gradient(135deg,#f5f3ff,#ede9fe);border:1px solid #c4b5fd;">
-    <div class="card-title" style="color:#7c3aed;">📋 Annabel's Morning Brief</div>
-    <div style="display:flex;gap:8px;margin-bottom:12px;">
-      <button class="btn-sm" onclick="fetchAnnabelBriefing()" style="background:#7c3aed;flex:1;">🔄 Refresh Brief</button>
-      <button class="btn-sm" onclick="clearAnnabelBriefing()" style="background:#999;flex:1;">Clear</button>
-    </div>
-    <div id="annabel-briefing"><div class="loading">Loading Annabel's coordination...</div></div>
-  </div>
-
   <div class="card">
     <div class="card-title">🧠 Brain Dump</div>
-    <textarea id="brain-dump" placeholder="What's on your mind? Dump it here..."></textarea>
+    <textarea id="brain-dump" placeholder="What's on your mind? Dump it here..." style="min-height:80px;"></textarea>
+  </div>
+
+  <div class="card" style="background:linear-gradient(135deg,#f5f3ff,#ede9fe);border:1px solid #c4b5fd;padding:12px;">
+    <div class="card-title" style="color:#7c3aed;margin-bottom:8px;">📋 Annabel's Briefing</div>
+    <div style="display:flex;gap:6px;margin-bottom:8px;">
+      <button class="btn-sm" onclick="fetchAnnabelBriefing()" style="background:#7c3aed;flex:1;padding:6px;font-size:11px;">🔄 Refresh</button>
+      <button class="btn-sm" onclick="clearAnnabelBriefing()" style="background:#999;flex:1;padding:6px;font-size:11px;">Clear</button>
+    </div>
+    <div id="annabel-briefing" style="font-size:12px;"><div class="loading">Loading coordination...</div></div>
+  </div>
+
+  <div class="card" style="background:linear-gradient(135deg,#fef3e2,#fde9c8);border:1px solid #fed7aa;padding:12px;">
+    <div class="card-title" style="color:#d97706;margin-bottom:8px;">🎯 Council Suggests</div>
+    <div id="council-suggests" style="font-size:12px;color:var(--text);line-height:1.5;">
+      <div class="loading">Assembling council input...</div>
+    </div>
+  </div>
+
+  <div class="card" style="background:linear-gradient(135deg,#e0f2fe,#cffafe);border:1px solid #a5f3fc;padding:12px;">
+    <div class="card-title" style="color:#0369a1;margin-bottom:8px;">🔍 Recommended Focus</div>
+    <div id="recommended-focus" style="font-size:12px;color:var(--text);line-height:1.5;">
+      <div class="loading">Prioritizing today's work...</div>
+    </div>
   </div>
 
   <div class="two-col">
@@ -388,12 +411,16 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; b
 <!-- ======================== WEEK TAB ======================== -->
 <div id="tab-week" class="tab">
 
-  <div class="card">
-    <div class="card-title">🗓 Week Range</div>
-    <div id="week-range" style="font-size:14px;color:var(--text);font-weight:600;"></div>
-  </div>
+  <div class="two-col" style="gap:14px;">
+    <div class="card">
+      <div class="card-title">🗓 Week Range</div>
+      <div id="week-range" style="font-size:14px;color:var(--text);font-weight:600;"></div>
+    </div>
 
-  <div class="zone-banner" id="zone-banner"></div>
+    <div class="card">
+      <div class="zone-banner" id="zone-banner"></div>
+    </div>
+  </div>
 
   <div class="inbox-section">
     <div class="inbox-header">From your inbox</div>
@@ -403,19 +430,6 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; b
   </div>
 
   <div class="week-grid" id="week-grid"></div>
-
-  <div class="bottom-columns">
-    <div class="task-col fly">
-      <div class="col-header fly">FlyLady <span class="col-sub" id="fly-subtitle"></span></div>
-      <div id="fly-tasks"></div>
-    </div>
-
-    <div class="task-col nonneg">
-      <div class="col-header nonneg">Daily Non-Negotiables</div>
-      <div class="reset-note">Check off each day. Reset each morning.</div>
-      <div id="nn-tasks"></div>
-    </div>
-  </div>
 
 </div>
 
@@ -438,11 +452,46 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; b
     </div>
   </div>
 
+  <div class="zone-card">
+    <div class="zone-title">📋 FlyLady This Week</div>
+    <div id="fly-tasks"></div>
+  </div>
+
   <div class="card">
     <div class="card-title">📝 Home Notes</div>
     <textarea class="note-area" id="home-notes" placeholder="Home tasks, repairs, projects..." oninput="autoSave('home-notes',this.value)"></textarea>
   </div>
 
+  <div class="card">
+    <div class="card-title">🍽️ Meal Planning & Groceries</div>
+    <div style="display:flex;flex-direction:column;gap:8px;">
+      <button class="btn-sm" onclick="toggleModal('menu-modal')" style="background:var(--kynorml);width:100%;padding:10px;">📋 Meal Plan</button>
+      <button class="btn-sm" onclick="toggleModal('grocery-modal')" style="background:var(--kynorml);width:100%;padding:10px;">🛒 Grocery List</button>
+    </div>
+  </div>
+
+</div>
+
+<!-- ======================== MODAL: MEAL PLAN ======================== -->
+<div id="menu-modal" class="modal" style="display:none;">
+  <div class="modal-content">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+      <h3 style="color:var(--kynorml);">📋 Meal Plan</h3>
+      <button class="btn-close" onclick="toggleModal('menu-modal')">&times;</button>
+    </div>
+    <textarea class="note-area" id="meal-plan" placeholder="Weekly meal plan..." oninput="autoSave('meal-plan',this.value)" style="height:300px;"></textarea>
+  </div>
+</div>
+
+<!-- ======================== MODAL: GROCERY LIST ======================== -->
+<div id="grocery-modal" class="modal" style="display:none;">
+  <div class="modal-content">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+      <h3 style="color:var(--kynorml);">🛒 Grocery List</h3>
+      <button class="btn-close" onclick="toggleModal('grocery-modal')">&times;</button>
+    </div>
+    <textarea class="note-area" id="grocery-list" placeholder="Grocery items..." oninput="autoSave('grocery-list',this.value)" style="height:300px;"></textarea>
+  </div>
 </div>
 
 <!-- ======================== WORK TAB ======================== -->
@@ -561,23 +610,6 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; b
     <div class="council-grid" id="council-grid"></div>
   </div>
 
-  <div class="card" style="background:linear-gradient(135deg,#f5f3ff,#ede9fe);border:1px solid #c4b5fd;">
-    <div class="card-title" style="color:#7c3aed;">📋 Daily Briefing</div>
-    <div id="ai-council-report" class="small">Click to request Annabel's coordination summary from across all domains.</div>
-    <div style="margin-top:10px;">
-      <button class="btn-sm" onclick="generateCouncilReport()" style="background:#7c3aed;">Annabel, brief me</button>
-    </div>
-  </div>
-
-  <div class="card">
-    <div class="card-title">💡 AI Suggestions</div>
-    <div id="ai-suggestions"><div class="small">Generate a report to see personalized suggestions.</div></div>
-  </div>
-
-  <div class="card">
-    <div class="card-title">📋 Recommended Focus Today</div>
-    <div id="ai-tasks"><div class="small">Generate a report to see task recommendations.</div></div>
-  </div>
 
   <div class="card">
     <div class="card-title">📝 Council Notes</div>
@@ -889,6 +921,15 @@ function showTab(name) {
       b.classList.add('active');
     }
   });
+}
+
+function toggleModal(modalId) {
+  const modal = document.getElementById(modalId);
+  if (modal.style.display === 'none' || !modal.style.display) {
+    modal.style.display = 'flex';
+  } else {
+    modal.style.display = 'none';
+  }
 }
 
 // ============================================================
@@ -1710,6 +1751,16 @@ async function init() {
   // Annabel's morning briefing (load cached or fetch new)
   loadAnnabelBriefingIfExists();
 
+  // Load Council Suggests and Recommended Focus (placeholder for now)
+  const councilSuggests = localStorage.getItem('council-suggests-' + todayKey);
+  if (councilSuggests) {
+    document.getElementById('council-suggests').innerHTML = councilSuggests;
+  }
+  const recommendedFocus = localStorage.getItem('recommended-focus-' + todayKey);
+  if (recommendedFocus) {
+    document.getElementById('recommended-focus').innerHTML = recommendedFocus;
+  }
+
   // Brain dump
   initBrainDump();
 
@@ -1731,7 +1782,7 @@ async function init() {
   renderCouncilGrid();
 
   // Saved text areas
-  ['home-notes', 'work-notes', 'finance-notes', 'health-meds', 'health-mental', 'family-notes', 'rel-notes'].forEach(autoLoad);
+  ['home-notes', 'work-notes', 'finance-notes', 'health-meds', 'health-mental', 'family-notes', 'rel-notes', 'meal-plan', 'grocery-list'].forEach(autoLoad);
 
   // Remove loading overlay
   document.getElementById('overlay').classList.add('hidden');
