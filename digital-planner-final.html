@@ -966,26 +966,21 @@ async function loadWeather() {
 // ============================================================
 async function fetchCalendar(calId, daysAhead = 7) {
   try {
-    const now = new Date();
-    const end = new Date(now);
-    end.setDate(now.getDate() + daysAhead);
-    const r = await window.cowork.callMcpTool(CAL_TOOL, {
-      calendar_id: calId,
-      time_min: now.toISOString(),
-      time_max: end.toISOString(),
-      max_results: 50
+    const response = await fetch('http://localhost:3001/api/calendar', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ calId, daysAhead })
     });
-    let raw;
-    if (r.structuredContent) {
-      raw = r.structuredContent;
-    } else {
-      const txt = Array.isArray(r.content) ? r.content[0]?.text : r.content;
-      try { raw = JSON.parse(txt || '{}'); } catch (e) { raw = {}; }
-    }
-    const items = raw.items || raw.events || raw.data || (Array.isArray(raw) ? raw : []);
+
+    if (!response.ok) throw new Error('Calendar API error');
+    const data = await response.json();
+    const items = data.events || [];
     const color = calId === KYNORML_CAL ? 'var(--kynorml)' : 'var(--personal)';
     return items.map(ev => ({ ...ev, _calId: calId, _color: color }));
-  } catch (e) { return []; }
+  } catch (e) {
+    console.log('Calendar fetch error, returning empty');
+    return [];
+  }
 }
 
 function renderEventList(events, elId, showDate = false) {
@@ -1052,32 +1047,28 @@ async function loadCalendarEvents() {
 async function fetchEmails() {
   const el = document.getElementById('email-list');
   try {
-    const r = await window.cowork.callMcpTool(GMAIL_TOOL, {
-      query: 'in:inbox is:unread',
-      max_results: 10
+    const response = await fetch('http://localhost:3001/api/gmail', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' }
     });
-    let raw;
-    if (r.structuredContent) { raw = r.structuredContent; }
-    else {
-      const txt = Array.isArray(r.content) ? r.content[0]?.text : r.content;
-      try { raw = JSON.parse(txt || '{}'); } catch (e) { raw = {}; }
+
+    if (!response.ok) throw new Error('Gmail API error');
+    const data = await response.json();
+    const emails = data.emails || [];
+
+    if (!emails.length) {
+      el.innerHTML = '<div class="small">📭 No unread email</div>';
+      return emails;
     }
-    const threads = raw.threads || raw.messages || raw.data || (Array.isArray(raw) ? raw : []);
-    if (!threads.length) { el.innerHTML = '<div class="small">📭 No unread email</div>'; return threads; }
-    el.innerHTML = threads.slice(0, 8).map(t => {
-      const subject = t.subject || t.snippet?.split('\n')[0] || 'No subject';
-      const from = t.from || t.sender || '';
-      const date = t.date || t.internalDate || '';
-      const dateStr = date ? new Date(isNaN(+date) ? date : +date).toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' }) : '';
-      return `<div class="msg-item">
-        <span class="msg-time">${dateStr}</span>
-        <div class="msg-from">${from}</div>
-        <div class="msg-subject">${subject}</div>
-      </div>`;
-    }).join('');
-    return threads;
+
+    el.innerHTML = emails.slice(0, 8).map(e => `<div class="msg-item">
+      <span class="msg-time">${e.time || ''}</span>
+      <div class="msg-from">${e.from || 'Unknown'}</div>
+      <div class="msg-subject">${e.subject || 'No subject'}</div>
+    </div>`).join('');
+    return emails;
   } catch (e) {
-    el.innerHTML = '<div class="small" style="color:var(--red)">Gmail unavailable — check connector</div>';
+    el.innerHTML = '<div class="small" style="color:var(--red)">Gmail unavailable — backend not running</div>';
     return [];
   }
 }
@@ -1104,20 +1095,24 @@ async function fetchEmailsForWeek() {
 async function fetchMessages() {
   const el = document.getElementById('imsg-list');
   try {
-    const r = await window.cowork.callMcpTool(IMSG_TOOL, {});
-    let raw;
-    if (r.structuredContent) { raw = r.structuredContent; }
-    else {
-      const txt = Array.isArray(r.content) ? r.content[0]?.text : r.content;
-      try { raw = JSON.parse(txt || '{}'); } catch (e) { raw = {}; }
+    const response = await fetch('http://localhost:3001/api/imessages', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' }
+    });
+
+    if (!response.ok) throw new Error('iMessages API error');
+    const data = await response.json();
+    const msgs = data.messages || [];
+
+    if (!msgs.length) {
+      el.innerHTML = '<div class="small">💬 No recent messages</div>';
+      return;
     }
-    const msgs = raw.messages || raw.data || (Array.isArray(raw) ? raw : []);
-    if (!msgs.length) { el.innerHTML = '<div class="small">💬 No unread messages</div>'; return; }
+
     el.innerHTML = msgs.slice(0, 8).map(m => {
-      const from = m.sender || m.from || m.chat_identifier || 'Unknown';
-      const text = m.text || m.body || m.message || '';
-      const time = m.date || m.timestamp || '';
-      const timeStr = time ? new Date(isNaN(+time) ? time : +time * 1000).toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' }) : '';
+      const from = m.from || 'Unknown';
+      const text = m.text || m.body || '';
+      const timeStr = m.time || '';
       return `<div class="msg-item">
         <span class="msg-time">${timeStr}</span>
         <div class="msg-from">${from}</div>
@@ -1125,7 +1120,7 @@ async function fetchMessages() {
       </div>`;
     }).join('');
   } catch (e) {
-    el.innerHTML = '<div class="small" style="color:var(--red)">iMessages unavailable — check connector</div>';
+    el.innerHTML = '<div class="small" style="color:var(--red)">iMessages unavailable — backend not running</div>';
   }
 }
 
@@ -1689,38 +1684,25 @@ async function fetchAnnabelBriefing() {
   const todayStr = new Date().toLocaleDateString([], { weekday: 'long', month: 'long', day: 'numeric' });
   const brainDump = localStorage.getItem('brain-dump-' + getTodayKey()) || '(empty)';
   const todayEvts = allEvents.filter(ev => isToday(ev.start?.dateTime || ev.start?.date || ''));
-  const eventSummary = todayEvts.map(ev => ev.summary || ev.title || '').filter(Boolean).join('; ') || 'No events';
-
-  const context = `Today: ${todayStr}\nCalendar: ${eventSummary}\nBrain dump: ${brainDump.slice(0, 300)}`;
 
   try {
-    const report = await window.cowork.askClaude(
-      `You are Annabel, Lauren's Personal Assistant & Librarian. Your job: coordinate her 21-member council and tell her ONLY what needs HER decision today.
+    const response = await fetch('http://localhost:3001/api/briefing', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        brainDump,
+        events: todayEvts,
+        todayDate: todayStr
+      })
+    });
 
-Council:
-- Home (Martha coordinates): Martha, Mary, Penny, Dolly, Imogen, Harriet
-- Personal: Sylvia (Wellness), Prudence (Finance), Vera (Legal), Sage (Counselor)
-- Work (Victoria coordinates): Victoria, Dot, Roxanne, Sterling, Vivienne, Greta, Fiona, Cleo, Constance, Ada
+    if (!response.ok) throw new Error('Server error');
+    const data = await response.json();
 
-Context for today:
-${context}
-
-Provide a BRIEF morning coordination (keep it SHORT — she reads this on her phone):
-
-1. **Morning Summary** (1-2 sentences max) — what MUST Lauren decide/do today
-2. **Urgent Actions** (2-3 bullets) — time-critical, council-flagged
-3. **Today's Focus** (2-3 bullets) — where to put energy
-
-Format as plain text, no JSON. Start with emojis for clarity.`,
-      [context]
-    );
-
-    el.innerHTML = `<div style="font-size:13px;line-height:1.7;color:#5b21b6;white-space:pre-wrap;">${report}</div>`;
-
-    // Cache for today
-    localStorage.setItem('annabel-brief-' + getTodayKey(), report);
+    el.innerHTML = `<div style="font-size:13px;line-height:1.7;color:#5b21b6;white-space:pre-wrap;">${data.briefing}</div>`;
+    localStorage.setItem('annabel-brief-' + getTodayKey(), data.briefing);
   } catch (e) {
-    el.innerHTML = '<div style="color:var(--red);font-size:12px;">Annabel connection lost. Try refresh.</div>';
+    el.innerHTML = '<div style="color:var(--red);font-size:12px;">Annabel connection lost. Backend at localhost:3001?</div>';
   }
 }
 
