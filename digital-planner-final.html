@@ -352,6 +352,15 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; b
 <!-- ======================== TODAY TAB ======================== -->
 <div id="tab-today" class="tab active">
 
+  <div class="card" style="background:linear-gradient(135deg,#f5f3ff,#ede9fe);border:1px solid #c4b5fd;">
+    <div class="card-title" style="color:#7c3aed;">📋 Annabel's Morning Brief</div>
+    <div style="display:flex;gap:8px;margin-bottom:12px;">
+      <button class="btn-sm" onclick="fetchAnnabelBriefing()" style="background:#7c3aed;flex:1;">🔄 Refresh Brief</button>
+      <button class="btn-sm" onclick="clearAnnabelBriefing()" style="background:#999;flex:1;">Clear</button>
+    </div>
+    <div id="annabel-briefing"><div class="loading">Loading Annabel's coordination...</div></div>
+  </div>
+
   <div class="card">
     <div class="card-title">🧠 Brain Dump</div>
     <textarea id="brain-dump" placeholder="What's on your mind? Dump it here..."></textarea>
@@ -1644,6 +1653,66 @@ function updateAIAlerts(tasks) {
 }
 
 // ============================================================
+// ANNABEL'S MORNING BRIEFING
+// ============================================================
+async function fetchAnnabelBriefing() {
+  const el = document.getElementById('annabel-briefing');
+  el.innerHTML = '<div class="loading">📋 Annabel coordinating across domains...</div>';
+
+  const todayStr = new Date().toLocaleDateString([], { weekday: 'long', month: 'long', day: 'numeric' });
+  const brainDump = localStorage.getItem('brain-dump-' + getTodayKey()) || '(empty)';
+  const todayEvts = allEvents.filter(ev => isToday(ev.start?.dateTime || ev.start?.date || ''));
+  const eventSummary = todayEvts.map(ev => ev.summary || ev.title || '').filter(Boolean).join('; ') || 'No events';
+
+  const context = `Today: ${todayStr}\nCalendar: ${eventSummary}\nBrain dump: ${brainDump.slice(0, 300)}`;
+
+  try {
+    const report = await window.cowork.askClaude(
+      `You are Annabel, Lauren's Personal Assistant & Librarian. Your job: coordinate her 21-member council and tell her ONLY what needs HER decision today.
+
+Council:
+- Home (Martha coordinates): Martha, Mary, Penny, Dolly, Imogen, Harriet
+- Personal: Sylvia (Wellness), Prudence (Finance), Vera (Legal), Sage (Counselor)
+- Work (Victoria coordinates): Victoria, Dot, Roxanne, Sterling, Vivienne, Greta, Fiona, Cleo, Constance, Ada
+
+Context for today:
+${context}
+
+Provide a BRIEF morning coordination (keep it SHORT — she reads this on her phone):
+
+1. **Morning Summary** (1-2 sentences max) — what MUST Lauren decide/do today
+2. **Urgent Actions** (2-3 bullets) — time-critical, council-flagged
+3. **Today's Focus** (2-3 bullets) — where to put energy
+
+Format as plain text, no JSON. Start with emojis for clarity.`,
+      [context]
+    );
+
+    el.innerHTML = `<div style="font-size:13px;line-height:1.7;color:#5b21b6;white-space:pre-wrap;">${report}</div>`;
+
+    // Cache for today
+    localStorage.setItem('annabel-brief-' + getTodayKey(), report);
+  } catch (e) {
+    el.innerHTML = '<div style="color:var(--red);font-size:12px;">Annabel connection lost. Try refresh.</div>';
+  }
+}
+
+function clearAnnabelBriefing() {
+  localStorage.removeItem('annabel-brief-' + getTodayKey());
+  document.getElementById('annabel-briefing').innerHTML = '<div class="loading">Loading Annabel\'s coordination...</div>';
+  fetchAnnabelBriefing();
+}
+
+function loadAnnabelBriefingIfExists() {
+  const cached = localStorage.getItem('annabel-brief-' + getTodayKey());
+  if (cached) {
+    document.getElementById('annabel-briefing').innerHTML = `<div style="font-size:13px;line-height:1.7;color:#5b21b6;white-space:pre-wrap;">${cached}</div>`;
+  } else {
+    fetchAnnabelBriefing();
+  }
+}
+
+// ============================================================
 // INIT
 // ============================================================
 async function init() {
@@ -1651,6 +1720,9 @@ async function init() {
   setHeaderDate();
   loadWeather();
   setInterval(loadWeather, 30 * 60 * 1000);
+
+  // Annabel's morning briefing (load cached or fetch new)
+  loadAnnabelBriefingIfExists();
 
   // Brain dump
   initBrainDump();
