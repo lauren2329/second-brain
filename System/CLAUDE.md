@@ -36,7 +36,7 @@ You are working inside a structured Obsidian vault.
 - Do not rename files unless necessary
 
 ## Morning Briefing Routine
-- Every run saves its output as a new file: `Inbox/YYYY-MM-DD Morning Briefing.md`
+- Every run saves its output as a new file: `1 📥 Inbox/YYYY-MM-DD Morning Briefing.md`
 - Use frontmatter (title, date, type: briefing, tags, status: unreviewed) matching other notes in the vault
 - Structure with clear headers and scannable formatting: urgency-grouped sections (🔴 Needs a response, 🟠 Worth attention, 📅 Schedule, ⚪ Inbox noise), checkboxes for action items, a table for the schedule
 - Skip sections with nothing notable rather than writing "nothing to report"
