@@ -1,214 +1,336 @@
 ---
-title: Verdant Money Flow Policy
-date: 2026-07-01
+title: Verdant Money Flow and Financing Policy
+date: 2026-07-18
 type: policy
 status: draft
-tags: [verdant, constitution, money-flow, compliance, finance]
+tags: [verdant, vmp, money-flow, compliance, finance, quickbooks, invoices, receivables]
 ---
 
-# Verdant Money Flow Policy
+# Verdant Money Flow and Financing Policy
 
 ## Purpose
 
-This policy explains how money should move between Verdant Management Partners, nonprofit clients, for-profit clients, related-party service providers, independent vendors, employees, contractors, and household finances.
+This policy explains how money should move among Verdant Ventures LLC d/b/a Verdant Management Partners, nonprofit clients, for-profit clients, vendors, contractors, lenders, and household finances.
 
-The goal is to support growth while protecting nonprofit compliance, charitable gaming compliance, tax compliance, public benefits eligibility, and trust between partners.
+It also defines how VMP should use contracts, invoices, accounts receivable, QuickBooks, and financing products to build a finance-ready management company.
 
-This policy is a planning document and must be reviewed by an attorney, CPA, and any required nonprofit board or regulatory authority before implementation.
+This is a planning document. Signed contracts, nonprofit board approvals, charitable gaming rules, tax advice, legal review, and lender requirements control.
+
+## Master Structure
+
+```text
+Verdant Ventures LLC
+DBA Verdant Management Partners (VMP)
+        |
+        +-- Client: Common Good Network Inc.
+        |       +-- Program: The Golden Door
+        |
+        +-- Client: Kentucky NORML
+        |
+        +-- Other nonprofit and for-profit clients
+```
+
+Verdant Ventures LLC is the legal entity. Verdant Management Partners is its assumed name and operating brand. They are not separate companies.
+
+All contracts, invoices, bank accounts, credit products, tax filings, loans, and legal obligations must use the legal identity:
+
+> Verdant Ventures LLC d/b/a Verdant Management Partners
 
 ## Master Rule
 
 > Money must flow through the entity that legally matches the activity.
 
-Do not hide money. Structure it correctly.
+Do not hide money. Structure it correctly and document it.
 
 ## Core Principles
 
 1. Every payment must have a legitimate purpose.
-2. Every payment must be tied to real work, a real product, a real service, a real reimbursement, or a lawful distribution.
-3. Nonprofit money must serve the nonprofit mission.
-4. Charitable gaming money must follow charitable gaming law.
-5. For-profit money may support business operations, wages, contractors, reinvestment, and lawful profit.
-6. Related-party payments require extra documentation.
+2. Every payment must be tied to real work, a real product, a real reimbursement, a lawful loan, or a lawful distribution.
+3. Each legal entity maintains separate bank accounts, books, contracts, invoices, tax records, insurance, and governance records.
+4. Nonprofit money must serve the nonprofit's mission and legal obligations.
+5. Charitable gaming money must remain under CGN control and follow Kentucky charitable gaming law.
+6. Related-party payments require written terms, reasonableness review, approval, and records.
 7. Personal expenses must not be disguised as business expenses.
-8. Business accounts and household accounts must remain separate.
-9. Benefits reporting must be accurate.
-10. Records should be clean enough for a CPA, attorney, regulator, lender, or board member to review.
+8. Business and household accounts must remain separate.
+9. Benefits and tax reporting must be accurate.
+10. Records must be clean enough for a CPA, attorney, regulator, lender, board member, or investor to review.
 
-## Standard Money Flow
-
-### Client to VMP
-
-Clients pay Verdant Management Partners under written service agreements.
+## Standard Client-to-VMP Flow
 
 ```text
 Client Organization
-    ↓
+        ↓
 Written Service Agreement
-    ↓
-Verdant Management Partners
+        ↓
+Invoice from Verdant Ventures LLC d/b/a VMP
+        ↓
+Payment to Verdant Ventures LLC bank account
+        ↓
+QuickBooks records and financial statements
 ```
 
-Examples of clients:
+Current clients include:
 
-- Common Good Network
+- Common Good Network Inc.
 - Kentucky NORML
-- Tennessee NORML
-- Potent C710
-- Wonderland Wellness World
 - Future nonprofit clients
 - Future for-profit clients
 
-Each client payment should be supported by:
+Each payment should be supported by:
 
 - Signed agreement
-- Scope of work
+- Defined scope of work
 - Fee schedule
 - Invoice
 - Payment record
 - Deliverable record or activity log
 - Approval record where required
 
-## VMP to Service Providers
+## VMP Revenue Model
 
-VMP may pay employees, contractors, vendors, and third-party service providers.
+VMP should be operated as a professional management company with recurring contracted revenue.
+
+Primary revenue sources may include:
+
+- Monthly management retainers
+- Administrative service fees
+- Event and conference production fees
+- Project management fees
+- Marketing and communications services
+- Technology and systems implementation
+- Grant administration support
+- Vendor coordination
+- Reimbursement of documented client costs
+- Consulting and strategic planning
+
+The objective is to create predictable revenue supported by contracts and invoices, not informal transfers.
+
+## QuickBooks Rule
+
+QuickBooks is the primary financial record for Verdant Ventures LLC d/b/a VMP.
+
+It should track:
+
+- Customer contracts
+- Invoices issued
+- Accounts receivable
+- Reimbursements due
+- Payments received
+- Expenses by client and project
+- Loans and lender payments
+- Profit and loss
+- Balance sheet
+- Cash flow
+- Tax liabilities
+
+QuickBooks does not create business credit by itself. Its value is that it proves revenue, expenses, receivables, margins, and repayment capacity to banks, lenders, investors, and accountants.
+
+## Invoice and Receivables Financing
+
+VMP may use eligible unpaid client invoices as a working-capital tool.
+
+### Basic flow
 
 ```text
-Verdant Management Partners
-    ↓
-Employees / Contractors / Vendors / Service Providers
+VMP completes contracted work
+        ↓
+VMP issues invoice
+        ↓
+Invoice becomes an account receivable
+        ↓
+Lender advances part of invoice value
+        ↓
+Client pays invoice
+        ↓
+Lender receives repayment and fees
+        ↓
+Remaining balance goes to VMP
 ```
 
-Examples:
+### Two common structures
 
-- Verdant Ventures LLC
-- Mandy-owned companies, where appropriate
-- Catering providers
-- Janitorial providers
-- Trades providers
-- Technology providers
-- Marketing providers
-- Bookkeeping providers
-- Event support providers
+**Invoice factoring**
 
-Each payment should be tied to real work and supported by documentation.
+- VMP sells the invoice to a factor.
+- The factor usually advances 70% to 90%.
+- The factor may collect directly from the client.
+- The factor deducts fees and releases the remainder.
 
-## Verdant Ventures LLC Money Flow
+**Invoice financing or discounting**
 
-Verdant Ventures LLC is owned by Lauren and Matthew Bratcher and operates as a third-party service provider.
+- VMP borrows against the invoice.
+- VMP usually keeps control of customer collection.
+- VMP repays the lender when the customer pays.
 
-Possible flow:
+### Example
 
-```text
-Client
-    ↓
-Verdant Management Partners
-    ↓
-Verdant Ventures LLC
-    ↓
-Owner compensation / distributions / business expenses
-```
+For a $50,000 invoice with an 85% advance and a 3% fee per 30 days:
 
-Required safeguards:
+- Immediate advance: $42,500
+- If paid after 60 days, total fee: $3,000
+- Final reserve released: $4,500
+- Total received by VMP: $47,000
 
-- Written contract between VMP and Verdant Ventures
-- Clear scope of services
-- Fair and reasonable pricing
-- Invoices from Verdant Ventures
-- Deliverable records
-- Separate bank account
-- Separate books
-- Separate tax records
-- Conflict disclosure where appropriate
+This is expensive capital. It should be used to bridge timing gaps or fund profitable work, not to cover a structurally unprofitable operation.
 
-Verdant Ventures should not exist only as a pass-through. It must perform real services and maintain real business records.
+### Invoice financing controls
+
+Before financing an invoice, confirm:
+
+- The work was actually completed.
+- The invoice is valid and not disputed.
+- The client has approved the amount.
+- The payment terms are documented.
+- The invoice is not already pledged elsewhere.
+- The financing fee is lower than the economic benefit of receiving cash early.
+- The agreement does not violate nonprofit, grant, gaming, or contract restrictions.
+- The client relationship will not be damaged by lender collection activity.
+
+## Financing Priority
+
+VMP's financing sequence should be:
+
+1. Owner capital and retained earnings
+2. Documented private loans
+3. Client deposits and advance payments where appropriate
+4. Reimbursement of approved client startup costs
+5. Recurring management-fee revenue
+6. Business credit cards used within a repayment plan
+7. Bank or fintech working-capital line
+8. Invoice or accounts-receivable financing
+9. Equipment or vehicle financing tied to productive assets
+10. Conventional bank or SBA financing when financial history supports it
+
+DUNS and vendor tradelines are not the current priority. Clean QuickBooks records, signed contracts, recurring invoices, deposits, and repayment history are higher-value financing assets for VMP's present stage.
 
 ## Common Good Network Money Flow
 
-Common Good Network is a nonprofit organization. Its money must serve its charitable, educational, community, or legally permitted purposes.
-
-Possible flow:
+Common Good Network Inc. is a separate board-governed 501(c)(3).
 
 ```text
 Donations / Grants / Program Revenue / Charitable Gaming Revenue
-    ↓
-Common Good Network
-    ↓
-Mission expenses / allowable program expenses / approved vendor payments
+        ↓
+Common Good Network Inc.
+        ↓
+Mission expenses / lawful gaming expenses / approved vendors
 ```
 
-CGN may pay VMP only if:
+CGN may pay Verdant Ventures LLC d/b/a VMP only when:
 
-- The services are real.
+- The services are real and non-gaming.
 - The services support CGN's mission or operations.
 - The fee is reasonable.
 - The arrangement is documented.
 - Conflicts are disclosed.
-- Board approval is obtained where required.
+- Interested directors are recused where required.
+- The board approves the arrangement where required.
 - Charitable gaming restrictions are followed.
 
 ## Golden Door Money Flow
 
-Golden Door is the charitable social gaming lounge concept connected to Common Good Network unless later restructured.
-
-Recommended flow:
+The Golden Door is a CGN program. It is not owned by VMP.
 
 ```text
 Gaming Activity Revenue
-    ↓
-Common Good Network
-    ↓
-Allowable charitable gaming expenses and mission uses
-    ↓
-Approved service agreements / vendor payments where permitted
+        ↓
+Common Good Network Inc.
+        ↓
+Gaming obligations, lawful expenses, reserves, and mission use
+        ↓
+Approved non-gaming service and reimbursement payments to VMP
 ```
 
-Important restrictions:
+CGN retains exclusive responsibility for:
 
-- Gaming funds are not personal funds.
-- Gaming funds are not VMP funds unless paid under a lawful and approved service agreement.
-- Gaming activities must be performed by authorized CGN persons where required.
-- VMP may provide management and administration only within legal boundaries.
-- Related-party payments connected to gaming funds require extra legal review.
+- Gaming licenses
+- Gaming operations and supervision
+- Cash accountability
+- Gaming records and reporting
+- Gaming bank accounts
+- Prize obligations
+- Regulatory compliance
+- Lawful use of charitable proceeds
 
-## Portal to Wellness Money Flow
+VMP may provide documented non-gaming support such as:
 
-Portal to Wellness is an educational website / campaign sponsored by Common Good Network unless later restructured.
+- Facility and vendor coordination
+- Startup administration
+- Budget and reporting support
+- Purchasing coordination
+- Marketing and communications
+- Technology implementation
+- Scheduling and back-office administration
 
-Possible flow:
+## CGN Reimbursement and Management Agreement
+
+The current financing model contemplates VMP advancing approved startup costs for CGN and receiving:
+
+1. Dollar-for-dollar reimbursement of documented startup costs, subject to the written agreement and cap.
+2. A recurring reasonable management fee for ongoing non-gaming services.
+
+Possible reimbursable startup costs include:
+
+- Opening cash float
+- Lease deposit and initial rent
+- Utility deposits
+- Working capital
+- Initial payroll costs
+- Security and surveillance systems
+
+Any lender security interest should attach only to VMP's lawful contractual right to receive reimbursement and management fees. It should not give the lender ownership or control of CGN's gaming license, gaming equipment, gaming accounts, restricted funds, or charitable assets.
+
+## Arrow and Lancaster Relationship
+
+The electronic pull-tab arrangement belongs to CGN.
+
+Current project records reflect:
+
+- 35 Arrow cabinets
+- Three-year exclusive term
+- Distributor fee equal to 35% of adjusted gross receipts
+- $50,000 payment incentive
+- $40,000 first-year credit
+- $10,000 second-year credit
+- $10,000 third-year credit
+- Cash redemption kiosk on consignment
+
+These incentives, credits, equipment rights, gaming obligations, and vendor relationships are CGN assets and obligations. VMP may coordinate administration only under an approved service agreement.
+
+## Kentucky NORML Money Flow
+
+Kentucky NORML is a separate advocacy organization and an established VMP client.
 
 ```text
-Donations / sponsorship / affiliate / program income
-    ↓
-Common Good Network or designated lawful entity
-    ↓
-Program expenses / technology / marketing / administration / service contracts
+Kentucky NORML client or program revenue
+        ↓
+Kentucky NORML
+        ↓
+Invoice from Verdant Ventures LLC d/b/a VMP for contracted work
+        ↓
+Payment to VMP
 ```
 
-Before adding affiliate income, sponsorship income, ads, product sales, or paid content, determine:
+Kentucky NORML should invoice its own clients directly when Kentucky NORML is the contracting party. VMP should invoice Kentucky NORML only for actual contracted VMP work.
 
-- Which entity owns the revenue.
-- Whether the revenue is charitable, program-related, unrelated business income, or for-profit revenue.
-- Whether taxes or unrelated business income reporting apply.
-- Whether contracts and disclosures are required.
-
-## For-Profit Client Money Flow
-
-For-profit clients such as Potent C710 and Wonderland Wellness World may pay VMP for services.
+This includes the Dark Horse relationship. Dark Horse is Kentucky NORML's client. The intended flow is:
 
 ```text
-For-Profit Client
-    ↓
-Service Agreement
-    ↓
-Verdant Management Partners
+Dark Horse
+        ↓
+Kentucky NORML invoice
+        ↓
+Kentucky NORML payment account
+        ↓
+VMP invoice to Kentucky NORML for contracted services
 ```
 
-For-profit client funds are not charitable funds, but payments still need to be real, documented, and reasonable.
+Do not route Kentucky NORML client revenue through VMP merely to build VMP revenue or credit history.
 
 ## Vendor and Contractor Payments
 
-All contractor and vendor payments should include:
+VMP may pay employees, contractors, and vendors for real business work.
+
+Each payment should include:
 
 - W-9 or appropriate tax form
 - Contract or written scope
@@ -217,130 +339,95 @@ All contractor and vendor payments should include:
 - Deliverable or work record
 - Classification review where needed
 
-If a person works like an employee, they should not be treated as a contractor just for convenience.
-
-## Payroll and Household Income
-
-Family members may receive income only through lawful channels:
-
-- Payroll
-- Contractor payments for real services
-- Owner draws or distributions where legally appropriate
-- Reimbursements for documented business expenses
-- Benefits or support accurately reported where required
-
-Household finances should not be mixed with nonprofit or business finances.
-
-## Business Expense Rule
-
-A business expense must be ordinary, necessary, documented, and tied to the business.
-
-Allowed only when legitimate:
-
-- Work vehicles
-- Work phones
-- Software
-- Equipment
-- Work clothing or uniforms
-- Office supplies
-- Insurance
-- Marketing
-- Professional fees
-- Facility costs
-- Contractor payments
-
-Not allowed:
-
-- Personal spending disguised as business spending
-- Family gifts disguised as vendor payments
-- Lifestyle expenses with no business purpose
-- Payments with no invoice or work record
-- Nonprofit funds used for private benefit
+If a person functions as an employee, the relationship should not be labeled as independent contracting merely for convenience.
 
 ## Reimbursement Rule
 
-Reimbursements should require:
+Reimbursements require:
 
-- Receipt
+- Receipt or invoice
 - Business purpose
 - Date
 - Amount
 - Approver
-- Entity responsible for the expense
+- Correct responsible entity
+- Proof of payment
 
-No reimbursement should be paid just because someone needs cash.
+No reimbursement should be paid merely because someone needs cash.
 
-## Related-Party Payment Review
+## Related-Party Review
 
-Related-party payments include transactions involving:
+Related-party payments are not automatically prohibited. They require stricter controls.
 
-- Lauren
-- Matthew
-- Mandy
-- Family members
-- Insider-owned companies
-- Board members
-- Officers
-- Key contractors
-- Entities controlled by people close to the organization
-
-Related-party payments are not automatically wrong, but they must be handled carefully.
-
-Recommended review:
+Required review:
 
 1. Identify the relationship.
-2. Confirm the service is needed.
-3. Compare pricing or document reasonableness.
-4. Approve through the proper authority.
-5. Record the approval.
-6. Keep invoices and deliverables.
-7. Review periodically.
+2. Confirm the service or expense is necessary.
+3. Compare pricing or otherwise document reasonableness.
+4. Use the proper approval authority.
+5. Recuse interested decision-makers where required.
+6. Record the approval in minutes or written records.
+7. Keep contracts, invoices, receipts, and deliverables.
+8. Review the arrangement periodically.
+
+## Business and Household Separation
+
+Family members may receive money only through lawful channels:
+
+- Payroll
+- Contractor payments for real services
+- Owner draws or distributions
+- Documented reimbursements
+- Repayment of documented loans
+
+Business or nonprofit accounts must not function as household checking accounts.
 
 ## Forbidden Money Flows
 
 Do not allow:
 
 - Nonprofit funds used for personal expenses
-- Gaming funds used outside legal purposes
+- Gaming funds used outside lawful purposes
+- Gaming revenue deposited into VMP accounts
+- VMP claiming ownership of The Golden Door or Arrow contract
 - Payments to related parties without documentation
-- Fake invoices
-- Inflated invoices
-- Payments for work not performed
-- Personal bills paid from nonprofit accounts
-- Business accounts used as household checking accounts
-- Unreported income for benefits purposes
-- Trusts used to conceal assets or income
+- Fake or inflated invoices
+- Financing the same receivable more than once
+- Borrowing against disputed or restricted invoices
+- Personal bills paid from business or nonprofit accounts
+- Client revenue routed through the wrong entity
+- Unreported income or concealed assets
+- A nonexistent separate VMP LLC used in contracts or credit applications
 
-## Monthly Review Checklist
+## Monthly Finance Review
 
-Each month, review:
+Review each month:
 
 - Bank statements by entity
+- QuickBooks reconciliations
 - Invoices sent
-- Invoices received
-- Payroll records
-- Contractor payments
-- Reimbursements
-- Related-party payments
-- Charitable gaming records
-- Nonprofit restricted funds
-- Benefits-impact items
-- Outstanding receivables
-- Outstanding payables
-- Tax reserve needs
+- Accounts receivable aging
+- Client deposits and payments
+- Reimbursements due and received
+- Accounts payable
+- Payroll and contractor payments
+- Loan balances and payment dates
+- Credit-card balances and utilization
+- Related-party transactions
+- CGN charitable gaming records
+- Restricted funds
+- Tax reserves
+- Cash runway
+- Available borrowing capacity
 
 ## Plain-English Summary
 
-Money should move because real work happened, a real service was provided, a real product was purchased, or a lawful obligation exists.
-
-CGN money serves CGN.
-
-Gaming money follows gaming law.
-
-VMP earns service revenue.
-
-Verdant Ventures earns contractor revenue only for real work.
-
-Family members get paid for real work through the correct entity.
-
-The whole system survives only if the records are clean.
+- Verdant Ventures LLC is the company.
+- Verdant Management Partners is its DBA.
+- VMP earns money from real contracts and documented services.
+- QuickBooks proves the financial performance.
+- Invoices create accounts receivable.
+- Eligible receivables can support working-capital financing.
+- CGN owns The Golden Door and controls all gaming activity and gaming money.
+- Kentucky NORML invoices its own clients and pays VMP only for contracted VMP work.
+- The financing goal is predictable contracted revenue, clean books, and lender-ready records.
