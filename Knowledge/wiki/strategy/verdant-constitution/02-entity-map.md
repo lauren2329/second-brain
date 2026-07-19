@@ -62,6 +62,10 @@ Client / Program Layer
 | Tennessee NORML | Nonprofit / advocacy organization | Its own governance | Advocacy, education, and community work | Potential or current VMP client |
 | Future service provider businesses | For-profit or sole-proprietor vendors | Individual owners | Specialized services such as catering, janitorial, maintenance, trades, marketing, IT, events, bookkeeping, transportation | VMP vendor / contractor network |
 
+## Explicit Exclusion
+
+**Bratcher Learning Co. is nonexistent.** It is not an inactive entity, dormant project, former subsidiary, placeholder, brand, program, or future plan. It must not appear in entity maps, financial models, organizational charts, contracts, planning documents, or summaries.
+
 ## Verdant Management Partners
 
 Verdant Management Partners is the management and administrative hub.
@@ -256,6 +260,8 @@ Verdant Ventures is Lauren and Matthew's service-provider LLC.
 Mandy's companies are independent for-profit clients.
 
 Verdant Holdings is a future holding / exit-planning entity, not an immediate operating need.
+
+Bratcher Learning Co. does not exist and is not part of this structure in any capacity.
 
 The master rule is simple:
 
