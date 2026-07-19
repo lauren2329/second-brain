@@ -1,6 +1,6 @@
 ---
 title: Verdant Entity Map
-date: 2026-07-01
+date: 2026-07-18
 type: governance-map
 status: draft
 tags: [verdant, constitution, entity-map, governance, compliance]
@@ -10,259 +10,156 @@ tags: [verdant, constitution, entity-map, governance, compliance]
 
 ## Purpose
 
-This document maps the organizations, programs, brands, and service providers connected to the Verdant Enterprise Network.
+This document maps the active legal entities, programs, brands, and client relationships connected to Verdant Ventures LLC and Verdant Management Partners.
 
-The purpose is to clarify who does what, who owns what, who contracts with whom, and where legal separation must be preserved.
-
-This document is a planning tool. It does not replace operating agreements, bylaws, service agreements, nonprofit board approvals, tax advice, or legal review.
+It is a planning tool and does not replace signed contracts, bylaws, board approvals, tax advice, legal review, licensing, or regulatory requirements.
 
 ## Master Structure
 
-The Verdant Enterprise Network is a collaborative ecosystem. It is not one company and not one nonprofit.
-
-The core structure is:
-
 ```text
-Future Strategic Layer
-    Verdant Holdings LLC
+Future Bratcher Family Trust
+        |
+        v
+Verdant Ventures LLC
+DBA Verdant Management Partners (VMP)
+        |
+        +-- Management and administrative services for Kentucky NORML
+        |
+        +-- Management and administrative services for Common Good Network
+        |
+        +-- Event, consulting, project, and back-office services for other clients
 
-Management Layer
-    Verdant Management Partners
-
-Service Provider Layer
-    Verdant Ventures LLC
-    Mandy-owned companies
-    Future provider businesses
-    Other vendors and contractors
-
-Client / Program Layer
-    Common Good Network
-    Golden Door
-    Portal to Wellness
-    Kentucky NORML
-    Tennessee NORML
-    Potent C710
-    Wonderland Wellness World
-    Future client organizations
+Common Good Network Inc. (separate nonprofit)
+        |
+        +-- Owns and operates The Golden Door program
+        +-- Holds charitable gaming responsibility, licenses, revenue, and compliance
 ```
 
 ## Entity Table
 
-| Name | Type | Owner / Control | Primary Role | Relationship to Network |
-|---|---|---|---|---|
-| Verdant Management Partners | Management company / operating hub | To be defined | Provides management, administration, operations, compliance coordination, and shared services | Central coordination hub |
-| Verdant Ventures LLC | For-profit LLC | Lauren and Matthew Bratcher | Third-party service provider to VMP; may provide strategic, operational, administrative, project, or business development services | Related-party service provider |
-| Verdant Holdings LLC | Future holding company | To be formed later | Holds assets, equity interests, IP, acquisitions, or exit-related interests when needed | Future strategic / exit layer |
-| Common Good Network | Nonprofit organization | Board-governed | Charitable, educational, and community mission work; potential charitable gaming license holder / operator | Nonprofit client and mission partner |
-| Golden Door | Program / brand | Program of Common Good Network unless later restructured | Charitable social gaming lounge brand and community gathering concept | CGN program managed/administered with VMP support where legal |
-| Portal to Wellness | Educational campaign / website | Sponsored by Common Good Network unless later restructured | Online wellness education and resource platform | CGN-sponsored initiative supported by VMP |
-| Potent C710 | For-profit business | Mandy Lyle | Product / brand / business client | VMP client |
-| Wonderland Wellness World | For-profit digital wellness platform | Mandy Lyle | Digital wellness platform | VMP client |
-| Kentucky NORML | Nonprofit / advocacy organization | Its own governance | Advocacy, education, and community work | Potential or current VMP client |
-| Tennessee NORML | Nonprofit / advocacy organization | Its own governance | Advocacy, education, and community work | Potential or current VMP client |
-| Future service provider businesses | For-profit or sole-proprietor vendors | Individual owners | Specialized services such as catering, janitorial, maintenance, trades, marketing, IT, events, bookkeeping, transportation | VMP vendor / contractor network |
+| Name | Type | Ownership / Control | Primary Role |
+|---|---|---|---|
+| Verdant Ventures LLC | Kentucky for-profit LLC | Lauren and Matthew Bratcher | Legal operating entity for management, consulting, project, event, and administrative services |
+| Verdant Management Partners (VMP) | Assumed name / DBA of Verdant Ventures LLC | Same legal entity as Verdant Ventures LLC | Public-facing management and professional-services brand |
+| Common Good Network Inc. (CGN) | Kentucky 501(c)(3) nonprofit | Board-governed | Charitable mission organization and operator of The Golden Door |
+| The Golden Door | Program / operating location of CGN | Owned and controlled by CGN | Kentucky charitable gaming lounge and sustainable fundraising program |
+| Kentucky NORML | Separate nonprofit advocacy organization | Its own governance | Longstanding VMP client; VMP has supported operations and produced three approximately $20,000 conferences |
+| Future Bratcher Family Trust | Future family planning structure | To be established | Long-term family asset, succession, and estate-planning layer; not an operating business |
 
-## Explicit Exclusion
+## Verdant Ventures LLC DBA Verdant Management Partners
 
-**Bratcher Learning Co. is nonexistent.** It is not an inactive entity, dormant project, former subsidiary, placeholder, brand, program, or future plan. It must not appear in entity maps, financial models, organizational charts, contracts, planning documents, or summaries.
+Verdant Ventures LLC is the legal company. Verdant Management Partners is its assumed business name, not a separate LLC, subsidiary, or intermediary.
 
-## Verdant Management Partners
+VMP provides non-gaming services such as:
 
-Verdant Management Partners is the management and administrative hub.
-
-VMP may provide services to nonprofit and for-profit clients through written service agreements.
-
-Possible services include:
-
-- Executive support
-- Administrative management
-- Operations coordination
-- Program management
-- Contractor coordination
-- Vendor management
+- Executive and administrative support
+- Operations and project management
+- Budgeting and financial reporting support
 - Bookkeeping coordination
+- Vendor and contractor coordination
 - Compliance coordination
+- Event and conference production
 - Grant administration support
-- Marketing and communications support
-- Event support
-- Technology support
+- Marketing and communications
+- Technology and systems implementation
 - Strategic planning
-- Reporting
-
-VMP should not be treated as the owner of client organizations unless a separate ownership agreement exists.
-
-## Verdant Ventures LLC
-
-Verdant Ventures LLC is owned by Lauren and Matthew Bratcher.
-
-It operates as an independent third-party service provider to VMP and may serve other clients.
-
-Possible services include:
-
-- Strategy
 - Business development
-- Project management
-- Research
-- Administrative support
-- Technical implementation
-- Operations support
-- Event support
-- Community partnership development
 
-Because Verdant Ventures is related to VMP leadership, any contract between VMP and Verdant Ventures should be documented carefully.
-
-Recommended safeguards:
-
-- Written contract
-- Clear scope of work
-- Reasonable pricing
-- Records of deliverables
-- Invoices
-- Payment records
-- Conflict-of-interest disclosure where applicable
-- Board approval where nonprofit funds are involved
-
-## Verdant Holdings LLC
-
-Verdant Holdings LLC should be formed later, not prematurely.
-
-Potential purposes:
-
-- Hold equity interests
-- Hold intellectual property
-- Hold strategic assets
-- Prepare for acquisitions
-- Prepare for sale or exit
-- Support succession planning
-- Separate operating risk from long-term assets
-
-Do not use Verdant Holdings until there is a clear reason for it.
+All contracts, bank accounts, credit products, loans, tax filings, and legal obligations must use Verdant Ventures LLC's legal identity, with “d/b/a Verdant Management Partners” added where appropriate.
 
 ## Common Good Network
 
-Common Good Network is the nonprofit mission organization.
+Common Good Network is a separate nonprofit organization governed by its board.
 
-Its role may include:
+CGN is responsible for:
 
-- Educational programming
-- Community resource access
-- Wellness education
-- Charitable gaming activities where properly licensed and authorized
-- Sponsoring Portal to Wellness
-- Operating Golden Door as a program / brand
+- Its charitable mission and programs
+- The Golden Door project
+- Charitable gaming licenses and regulatory compliance
+- Gaming operations and supervision
+- Gaming revenue, cash accountability, reporting, and lawful charitable use
+- Board approval of related-party arrangements
 
-CGN must protect nonprofit integrity.
+CGN may contract with Verdant Ventures LLC d/b/a VMP for legitimate, reasonable, documented non-gaming administrative and management services.
 
-Key restrictions:
+## The Golden Door
 
-- No private inurement
-- No disguised personal payments
-- No unrelated personal expenses
-- No misuse of charitable gaming funds
-- Board governance must be respected
-- Conflicts of interest must be disclosed and managed
+The Golden Door is a CGN program and charitable gaming lounge. It is not owned by VMP.
 
-## Golden Door
+VMP may provide non-gaming support, including:
 
-Golden Door is the charitable social gaming lounge concept.
+- Facility and vendor coordination
+- Budget and reporting support
+- Purchasing and startup administration
+- General business operations
+- Marketing and communications
+- Technology implementation
+- Scheduling and non-gaming administrative support
 
-Recommended description:
+CGN retains exclusive responsibility for charitable gaming activities, supervision, financial accountability, licensing, and regulatory reporting.
 
-> Golden Door is a charitable social gaming lounge and community gathering program operated by Common Good Network, with management and administrative support provided by Verdant Management Partners where legally permitted.
+## Current Golden Door Vendor Relationship
 
-Important separation:
+CGN's proposed electronic pull-tab arrangement is with Lancaster Bingo Company / Arrow International.
 
-- Charitable gaming activities are performed by CGN-authorized persons.
-- VMP may support management and administration only within legal boundaries.
-- Gaming funds belong to CGN and must follow charitable gaming law.
-- The brand can be developed, but the program must remain compliant.
+Current contract terms reflected in project records include:
 
-## Portal to Wellness
+- 35 Arrow cabinets
+- Three-year exclusive term
+- Distributor fee equal to 35% of adjusted gross receipts
+- $50,000 payment incentive within 45 days of the effective date
+- $40,000 first-year credit
+- $10,000 credit in year two
+- $10,000 credit in year three
+- Cash redemption kiosk on consignment
 
-Portal to Wellness is an online educational website / campaign sponsored by Common Good Network.
+These assets, incentives, credits, obligations, and gaming relationships belong to CGN. VMP may administer or coordinate them only under an approved service agreement.
 
-VMP may support administration, marketing, technology, operations, and reporting under contract.
+## Kentucky NORML
 
-If Portal to Wellness later becomes a separate entity or for-profit platform, the transfer of assets, content, IP, mailing lists, revenue, and responsibilities must be reviewed legally before restructuring.
+Kentucky NORML is a separate advocacy organization and an established VMP client.
 
-## Mandy-Owned Companies
+The relationship should be supported by:
 
-Potent C710 and Wonderland Wellness World are owned and operated by Mandy Lyle.
+- Written service agreement
+- Defined scope and fee structure
+- Regular invoices
+- Documentation of event, administrative, marketing, and operational work
+- Clear ownership of funds, records, and deliverables
 
-They may become clients of VMP through written service agreements.
+## Explicit Exclusions
 
-They should maintain separate:
+The following are not part of the current structure and should not appear in active planning documents:
+
+- Verdant Green LLC
+- Bratcher Learning Co.
+- Hilltopper Hemp
+- BlueGrass Elevated Festival
+- A separate Verdant Management Partners LLC
+- A premature holding company that has no current operational purpose
+
+## Entity Separation Rules
+
+Each separate legal entity must maintain its own:
 
 - Bank accounts
-- Books
-- Tax records
+- Books and accounting records
 - Contracts
-- Licenses
-- Insurance
-- Brand assets
-- Customer records
-
-VMP should be paid only for real services provided.
-
-## Client Relationship Rule
-
-Every client relationship should have:
-
-- Client name
-- Service provider name
-- Scope of work
-- Fee structure
-- Payment terms
-- Responsible contacts
-- Deliverables
-- Data / record ownership terms
-- Confidentiality terms
-- Conflict-of-interest disclosures if applicable
-- Termination terms
-
-## Related-Party Rule
-
-Related-party relationships are allowed, but they must be cleaner than ordinary relationships.
-
-Use extra care when money moves between:
-
-- CGN and VMP
-- VMP and Verdant Ventures
-- VMP and family-owned vendors
-- CGN and any family-owned vendor
-- Any nonprofit and any insider-controlled company
-
-## Entity Separation Rule
-
-Each entity must keep separate:
-
-- Bank account
-- Books
-- Contracts
-- Invoices
-- Receipts
+- Invoices and receipts
 - Tax filings
 - Governance records
 - Licenses and registrations
 - Insurance
-- Payroll or contractor files
+- Payroll and contractor files
+
+A DBA does not create a new entity. Verdant Ventures LLC and Verdant Management Partners share one legal identity, one tax identity, and one balance sheet.
 
 ## Plain-English Summary
 
-VMP is the hub.
-
-CGN is the nonprofit mission organization.
-
-Golden Door and Portal to Wellness are CGN-connected programs / brands unless later legally restructured.
-
-Verdant Ventures is Lauren and Matthew's service-provider LLC.
-
-Mandy's companies are independent for-profit clients.
-
-Verdant Holdings is a future holding / exit-planning entity, not an immediate operating need.
-
-Bratcher Learning Co. does not exist and is not part of this structure in any capacity.
-
-The master rule is simple:
-
-> Every entity must have its own purpose, records, money, and authority.
+- Verdant Ventures LLC is the company.
+- Verdant Management Partners is its DBA and operating brand.
+- CGN is the separate nonprofit.
+- The Golden Door belongs to CGN.
+- VMP earns money by providing real, documented, non-gaming services.
+- Kentucky NORML is an existing client with a real performance history.
+- Ramp and other lenders should underwrite Verdant Ventures LLC, not a nonexistent VMP entity.
