@@ -167,6 +167,57 @@ Each role should have:
 - Correct entity paying the worker
 - No payment from restricted funds unless legally permitted
 
+## Family Trust Wealth and Protection Goal
+
+The family trust is the long-term wealth and continuity structure. The current planning goal is:
+
+> Build $1,000,000 in invested assets over 10 years.
+
+This is an invested-assets goal, not merely a $1 million net-worth goal. Real estate, business interests, vehicles, and other property may increase family net worth, but they do not replace the separate goal of building liquid, invested assets.
+
+### Ten-Year Investment Benchmark
+
+Current planning assumptions:
+
+- Starting invested balance: $0
+- Time horizon: 10 years
+- Planning return: 6% average annual return
+- Target contribution: approximately $6,100 per month
+- Equivalent annual contribution: approximately $73,200
+- Approximate contributions over 10 years: $732,000
+- Approximate projected investment growth: $268,000
+
+Returns are not guaranteed. The monthly figure is a benchmark rather than a requirement that every deposit be identical. Contributions may combine regular monthly transfers with larger quarterly or year-end contributions when business cash flow permits.
+
+### Life Insurance Bridge
+
+Life insurance protects the household during the period before the trust reaches its investment goal.
+
+Current planning direction:
+
+- Obtain comparison quotes for both parents.
+- Compare $500,000, $750,000, and $1,000,000 coverage levels.
+- Compare 15-year and 20-year level term policies.
+- Prefer coverage that protects the family through the remaining dependent years while the trust assets grow.
+- Base the final amount on affordability, underwriting, policy terms, replacement-income needs, caregiving needs, debts, and future household costs.
+- Keep existing coverage active until any replacement policy is approved and in force.
+
+### Beneficiary and Trust Safeguards
+
+Beneficiary designations should be coordinated with the estate plan and reviewed by a qualified estate-planning attorney.
+
+Planning direction:
+
+- Do not name minor children directly as life-insurance beneficiaries.
+- Consider the surviving spouse as primary beneficiary and a properly drafted family or children's trust as contingent beneficiary.
+- Name a capable successor trustee.
+- Document permitted uses for housing, education, health care, transportation, and support.
+- Use appropriate special-needs planning when a beneficiary's inheritance could affect eligibility for means-tested assistance.
+- Keep policy information and beneficiary designations with the trust and estate records.
+- Review coverage, beneficiaries, trustee choices, and the investment target at least annually.
+
+Life insurance is the temporary protection bridge. The invested trust assets are the permanent long-term wealth goal.
+
 ## Benefits-Aware Planning
 
 We will not frame the strategy as staying poor on paper. That language creates legal and ethical risk.
