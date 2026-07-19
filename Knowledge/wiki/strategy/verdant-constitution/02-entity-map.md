@@ -127,6 +127,57 @@ The relationship should be supported by:
 - Documentation of event, administrative, marketing, and operational work
 - Clear ownership of funds, records, and deliverables
 
+## Credit and Card Strategy
+
+Credit should be built separately for each legal entity and should match that entity's purpose.
+
+### Common Good Network
+
+CGN may establish a modest nonprofit credit profile for legitimate operating needs. A secured business credit card is appropriate if CGN does not yet qualify for an unsecured card.
+
+Recommended initial structure:
+
+- Apply in the legal name Common Good Network Inc. using CGN's EIN.
+- Ask CGN's existing bank, currently Truist, whether it offers a secured business or nonprofit credit card.
+- Use an initial security deposit of approximately $1,000 to $2,000 rather than tying up excessive startup cash.
+- Use the card only for budgeted CGN expenses such as software, office supplies, communications, insurance, marketing, cleaning supplies, facility supplies, and approved non-gaming equipment.
+- Pay the statement balance in full each month.
+- Require receipts, documented business purpose, correct accounting categories, and monthly review by someone other than the person making the purchases.
+- Adopt a board-approved credit card and purchasing policy before regular use.
+
+The CGN card must not be used for personal spending, Verdant Ventures expenses, VMP expenses that should be invoiced separately, lender obligations, opening payout cash, cash advances, or gaming transactions that require dedicated cash-control and banking procedures.
+
+CGN credit exists to support CGN operations. It is not the primary commercial borrowing engine for the Verdant network.
+
+### Verdant Ventures LLC DBA Verdant Management Partners
+
+Verdant Ventures LLC should remain the primary entity for building commercial borrowing capacity.
+
+Its credit strategy may include:
+
+- Ramp and similar expense-management products
+- Business credit cards
+- Vendor tradelines
+- Business lines of credit
+- Vehicle financing
+- Equipment financing
+- Future SBA or conventional bank financing
+- Documented client receivables and management-fee history
+
+All applications must use Verdant Ventures LLC as the legal borrower, with “d/b/a Verdant Management Partners” included where appropriate. Lenders should not be asked to underwrite a nonexistent Verdant Management Partners LLC.
+
+### Related-Party Credit Rule
+
+CGN and Verdant Ventures must not use one another's cards or accounts interchangeably.
+
+When one entity pays an expense on behalf of the other:
+
+- The expense must have a legitimate business purpose.
+- The responsible entity must be identified.
+- The payment must be supported by an approved reimbursement or service agreement.
+- Receipts and approvals must be retained.
+- Related-party and board-approval requirements must be followed.
+
 ## Explicit Exclusions
 
 The following are not part of the current structure and should not appear in active planning documents:
@@ -151,8 +202,9 @@ Each separate legal entity must maintain its own:
 - Licenses and registrations
 - Insurance
 - Payroll and contractor files
+- Credit cards, loans, and other credit products
 
-A DBA does not create a new entity. Verdant Ventures LLC and Verdant Management Partners share one legal identity, one tax identity, and one balance sheet.
+A DBA does not create a new entity. Verdant Ventures LLC and Verdant Management Partners share one legal identity, one tax identity, one balance sheet, and one commercial credit profile.
 
 ## Plain-English Summary
 
@@ -162,4 +214,6 @@ A DBA does not create a new entity. Verdant Ventures LLC and Verdant Management 
 - The Golden Door belongs to CGN.
 - VMP earns money by providing real, documented, non-gaming services.
 - Kentucky NORML is an existing client with a real performance history.
+- CGN may use a modest secured business card for approved nonprofit operating expenses.
+- Verdant Ventures is the main commercial credit-building entity.
 - Ramp and other lenders should underwrite Verdant Ventures LLC, not a nonexistent VMP entity.
