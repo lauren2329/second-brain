@@ -12,11 +12,9 @@ related: [golden-door, verdant-management-partners]
 
 ## Current Funding Structure
 
-Golden Door startup capital consists of:
+Golden Door startup funding must be separated into opening cash, post-opening cash, restricted credits, and debt obligations.
 
 | Source | Amount | Treatment |
 |---|---:|---|
 | Harry | $50,000 | Startup cash |
-| Jeremy | $35,000 | New startup cash |
-| **Private cash capital** | **$85,000** | Available startup capital |
-| Arrow payment incentive |
+|
