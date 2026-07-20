@@ -34,3 +34,10 @@ You are working inside a structured Obsidian vault.
 - Assume all changes will be committed
 - Avoid unnecessary file churn
 - Do not rename files unless necessary
+
+## Morning Briefing Routine
+- Every run saves its output as a new file: `1 📥 Inbox/YYYY-MM-DD Morning Briefing.md`
+- Use frontmatter (title, date, type: briefing, tags, status: unreviewed) matching other notes in the vault
+- Structure with clear headers and scannable formatting: urgency-grouped sections (🔴 Needs a response, 🟠 Worth attention, 📅 Schedule, ⚪ Inbox noise), checkboxes for action items, a table for the schedule
+- Skip sections with nothing notable rather than writing "nothing to report"
+- This file creation does not need separate approval each run — it's pre-approved standing behavior for this routine
