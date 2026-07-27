@@ -65,6 +65,21 @@ Golden Door should feel like an upscale social lounge with charitable purpose, n
 - Behind-the-scenes preparation.
 - Community partner spotlights.
 
+## Revenue Development Campaigns
+
+Marketing should support the following revenue channels without confusing gaming and non-gaming offers:
+
+- Recurring donor and founding-supporter campaigns.
+- Qualified sponsorship packages for community programming, accessibility, and facility amenities.
+- Concession bundles and prepaid non-gaming concession cards.
+- Reservations, private rentals, and birthday or celebration packages.
+- Limited merchandise releases and co-branded partner merchandise.
+- Vendor markets, pop-up events, and food-truck partnerships.
+- Mission-related workshops, community resource events, and sponsor-funded programs.
+- Grants, employer matching, workplace giving, and donor-advised-fund outreach.
+
+No donor, sponsor, member, or customer benefit should include gaming credit, raffle entry, prize advantage, or preferential gaming treatment unless it is intentionally structured and approved as regulated charitable gaming.
+
 ## Required Assets
 - Brand guide.
 - Approved logo files.
