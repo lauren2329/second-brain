@@ -14,6 +14,13 @@ Golden Door is a charitable social gaming lounge and community gathering program
 - Gaming proceeds remain with CGN and are accounted for separately.
 - Related-party transactions require written terms, board approval, and clear documentation.
 
+## Staffing and Service Structure
+- Current operating coverage is expected to be provided by Lauren, Matthew, Colin, and possibly Mandy.
+- VMP is the only entity paid for management or other services.
+- VMP payments require a written scope, reasonable pricing, invoicing, and CGN governance approval.
+- CGN may make small, board-approved, mission-aligned donations or grants to partner organizations whose volunteers support on-site activities. These must not be calculated, invoiced, or described as hourly compensation or payment tied to gaming results.
+- Revenue, restricted funds, sales tax, direct costs, and VMP service payments must be tracked in distinct accounting categories.
+
 ## Concept
 Golden Door will pair a refined, salon-like environment with regulated charitable gaming. The intended customer experience is calm, clean, welcoming, adult-focused, and service-oriented rather than loud or casino-like.
 
@@ -29,7 +36,40 @@ Golden Door will pair a refined, salon-like environment with regulated charitabl
 - Staffing coverage must include one hour before opening and one hour after closing.
 
 ## Revenue Model
-Primary revenue is expected from charitable gaming activity, subject to state fees, vendor terms, and regulatory restrictions. Secondary revenue may include compliant retail, events, memberships, sponsorships, and community programming only where legally and operationally appropriate.
+Primary revenue is expected from Kentucky-authorized charitable gaming, subject to state fees, vendor terms, and regulatory restrictions.
+
+Golden Door will also develop a separate supplemental-revenue portfolio. These receipts must be separately classified and must not be treated as gaming receipts merely because they are earned at the same facility.
+
+### Charitable Support
+- One-time donations.
+- Recurring donor program.
+- Restricted and unrestricted grants.
+- Qualified sponsorships.
+- Workplace giving, employer matching, donor-advised-fund gifts, and planned gifts.
+
+### Venue and Hospitality
+- Concessions and refreshments.
+- Reservations and private room rentals.
+- Birthday and celebration packages.
+- Special non-gaming events.
+- Vendor, pop-up, and food-truck fees or commissions.
+
+### Retail and Programming
+- Branded merchandise.
+- Co-branded partner merchandise.
+- Vending and prepaid concession cards that cannot be used for gaming.
+- Mission-related workshops, classes, and program fees.
+- Community resource events supported through admission, sponsorship, or grants.
+
+### Regulated Gaming Expansion
+- Licensed bingo.
+- Licensed raffles.
+- Offsite special bingo or fundraising events.
+- Approved tournaments or other special gaming events.
+
+Gaming expansions must be reviewed, licensed, reported, and modeled within the charitable-gaming framework. They may not be classified as ordinary non-gaming income to avoid gaming requirements.
+
+The financial model's `Revenue Streams` tab tracks these opportunities separately with zero-dollar inputs until amounts, direct costs, timing, and legal treatment are approved.
 
 ## Customer Segments
 - Adults seeking a social gaming experience.
