@@ -18,5 +18,6 @@ Planned documents:
 - 07 Compliance
 - 08 Marketing
 - 09 Risk Register
+- 10 Revenue System
 
 All future planning should reference these documents instead of creating additional overlapping drafts.
