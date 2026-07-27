@@ -97,6 +97,35 @@ Under 820 KAR 1:057 Section 14(4), this system is treated as not payable from ch
 
 The cost has not yet been sourced and is not included in fixed overhead.
 
+## Supplemental Revenue Planning Layer
+
+The live three-year workbook includes a dedicated `Revenue Streams` tab for revenue that is separate from the base electronic-pulltab model.
+
+Tracked categories include:
+
+- Donations and recurring giving.
+- Grants and qualified sponsorships.
+- Concessions and refreshments.
+- Reservations, private rentals, and celebration packages.
+- Merchandise and co-branded merchandise.
+- Special non-gaming events.
+- Vendor, pop-up, and food-truck fees or commissions.
+- Mission-related workshops and program fees.
+- Licensed bingo, raffles, offsite gaming events, and approved tournaments as separate regulated scenarios.
+
+All supplemental-revenue inputs currently default to **$0**. This preserves the approved gaming assumptions and prevents unapproved revenue from inflating cash flow.
+
+The supplemental schedule separately calculates gross revenue, direct costs, and net contribution. Concessions, merchandise, events, and other inventory-dependent streams must have an approved direct-cost assumption before their net contribution is relied upon.
+
+Non-gaming income is not automatically part of Adjusted Gross Receipts or the statutory gaming-retention calculation. Regulated gaming expansions must remain in the charitable-gaming model.
+
+### Staffing and Service Assumptions
+
+- Operating coverage is expected from Lauren, Matthew, Colin, and possibly Mandy.
+- VMP is the only entity paid for services.
+- CGN may make board-approved, mission-aligned grants or donations to partner organizations whose volunteers support the site, but those amounts must not be calculated or documented as hourly compensation or payment tied to gaming results.
+- No new staffing expense has been added to the financial model as part of the supplemental-revenue plan.
+
 ## Revenue and Runway Context
 
 Jeremy Jacobs's runway model currently uses the following planning figures:
