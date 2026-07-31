@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Home & Personal — Weekly Dashboard</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#f5f4f0;color:#1a1a18;min-height:100vh}
+.topbar{background:#fff;border-bottom:0.5px solid #d3d1c7;padding:0.75rem 1.5rem;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
+.logo{font-size:15px;font-weight:500}
+.logo span{color:#888780;font-weight:400;font-size:13px;margin-left:8px}
+.topright{display:flex;align-items:center;gap:10px}
+.date-label{font-size:12px;color:#888780}
+.mode-bar{display:flex;gap:4px}
+.mode-btn{font-size:11px;font-weight:500;padding:4px 10px;border-radius:8px;border:0.5px solid #b4b2a9;background:transparent;color:#5f5e5a;cursor:pointer}
+.mode-btn.active.full{background:#E1F5EE;color:#0F6E56;border-color:#1D9E75}
+.mode-btn.active.low{background:#FAEEDA;color:#854F0B;border-color:#EF9F27}
+.mode-btn.active.flare{background:#FCEBEB;color:#A32D2D;border-color:#E24B4A}
+.main{max-width:1100px;margin:0 auto;padding:1.5rem}
+.banner{border-radius:8px;padding:0.55rem 1rem;font-size:12px;font-weight:500;margin-bottom:1.25rem;border:0.5px solid}
+.banner.full{background:#E1F5EE;color:#0F6E56;border-color:#5DCAA5}
+.banner.low{background:#FAEEDA;color:#854F0B;border-color:#EF9F27}
+.banner.flare{background:#FCEBEB;color:#A32D2D;border-color:#F09595}
+
+/* Week nav */
+.week-nav{display:flex;align-items:center;gap:10px;margin-bottom:1.25rem}
+.week-nav button{font-size:12px;padding:4px 12px;border-radius:8px;border:0.5px solid #d3d1c7;background:#fff;cursor:pointer;color:#1a1a18}
+.week-nav button:hover{background:#f1efe8}
+.week-label{font-size:13px;font-weight:500;color:#1a1a18;flex:1;text-align:center}
+.week-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;margin-bottom:1.25rem}
+.day-col{background:#fff;border:0.5px solid #d3d1c7;border-radius:10px;padding:0.6rem 0.7rem;min-height:110px;cursor:pointer;transition:border-color 0.15s}
+.day-col:hover{border-color:#1D9E75}
+.day-col.selected{border-color:#1D9E75;background:#F4FBF8}
+.day-col.today{border-color:#185FA5}
+.day-header{font-size:11px;font-weight:500;color:#888780;text-transform:uppercase;letter-spacing:0.04em;margin-bottom:2px}
+.day-num{font-size:18px;font-weight:400;color:#1a1a18;margin-bottom:6px;line-height:1}
+.day-num.today-num{color:#185FA5;font-weight:500}
+.day-pill{font-size:10px;padding:2px 6px;border-radius:5px;margin-bottom:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.dp-fam{background:#EAF3DE;color:#3B6D11}
+.dp-health{background:#FCEBEB;color:#A32D2D}
+.dp-fin{background:#E6F1FB;color:#185FA5}
+.dp-school{background:#F3EEFB;color:#533AB7}
+.dp-task{background:#f1efe8;color:#5f5e5a}
+
+/* Main sections */
+.metric-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-bottom:1rem}
+.metric{background:#fff;border:0.5px solid #d3d1c7;border-radius:10px;padding:0.85rem 1rem}
+.metric-label{font-size:11px;color:#888780;margin-bottom:4px;text-transform:uppercase;letter-spacing:0.04em}
+.metric-val{font-size:20px;font-weight:500;color:#1a1a18;line-height:1}
+.metric-sub{font-size:11px;color:#b4b2a9;margin-top:3px}
+
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px}
+.row3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:10px}
+.card{background:#fff;border:0.5px solid #d3d1c7;border-radius:12px;padding:0.9rem 1.1rem}
+.section-label{font-size:11px;font-weight:500;color:#888780;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:9px}
+
+/* Tasks */
+.task-item{display:flex;align-items:flex-start;gap:7px;padding:5px 0;border-bottom:0.5px solid #ece9e0}
+.task-item:last-child{border-bottom:none}
+.check{width:14px;height:14px;border:1.5px solid #b4b2a9;border-radius:3px;flex-shrink:0;cursor:pointer;margin-top:1px;display:flex;align-items:center;justify-content:center}
+.check.done{background:#1D9E75;border-color:#1D9E75}
+.check.done::after{content:"";display:block;width:4px;height:7px;border:1.5px solid #fff;border-top:none;border-left:none;transform:rotate(45deg) translate(-1px,-1px)}
+.cat-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0;margin-top:4px}
+.c-fam{background:#3B6D11}.c-health{background:#E24B4A}.c-fin{background:#185FA5}.c-school{background:#533AB7}.c-home{background:#854F0B}
+.task-text{font-size:12px;color:#1a1a18;flex:1;line-height:1.4}
+.task-text.done{text-decoration:line-through;color:#b4b2a9}
+.task-cat{font-size:10px;color:#b4b2a9;flex-shrink:0;margin-top:1px}
+.add-task{display:flex;gap:5px;margin-top:8px}
+.add-task input{flex:1;font-size:12px;padding:5px 8px;border:0.5px solid #d3d1c7;border-radius:6px;background:#f5f4f0;color:#1a1a18;outline:none}
+.add-task select{font-size:11px;padding:5px 6px;border:0.5px solid #d3d1c7;border-radius:6px;background:#f5f4f0;color:#1a1a18;outline:none}
+.add-task button{font-size:11px;padding:5px 10px;border-radius:6px;border:0.5px solid #d3d1c7;background:#fff;color:#1a1a18;cursor:pointer}
+.add-task button:hover{background:#f1efe8}
+
+/* Benefits tracker */
+.ben-row{display:flex;align-items:center;justify-content:space-between;padding:5px 0;border-bottom:0.5px solid #ece9e0}
+.ben-row:last-child{border-bottom:none}
+.ben-name{font-size:12px;color:#1a1a18}
+.ben-detail{font-size:11px;color:#888780;margin-top:1px}
+.badge{font-size:10px;padding:2px 8px;border-radius:8px;font-weight:500;white-space:nowrap}
+.b-ok{background:#EAF3DE;color:#3B6D11}
+.b-warn{background:#FAEEDA;color:#854F0B}
+.b-alert{background:#FCEBEB;color:#A32D2D}
+.b-info{background:#E6F1FB;color:#185FA5}
+.b-gray{background:#f1efe8;color:#5f5e5a}
+
+/* Health */
+.health-row{display:flex;align-items:center;gap:8px;padding:5px 0;border-bottom:0.5px solid #ece9e0}
+.health-row:last-child{border-bottom:none}
+.health-label{font-size:12px;color:#1a1a18;flex:1}
+.energy-track{display:flex;gap:3px}
+.e-dot{width:10px;height:10px;border-radius:50%;border:1.5px solid #d3d1c7;cursor:pointer;transition:background 0.1s}
+.e-dot.filled-full{background:#1D9E75;border-color:#1D9E75}
+.e-dot.filled-low{background:#EF9F27;border-color:#EF9F27}
+.e-dot.filled-flare{background:#E24B4A;border-color:#E24B4A}
+
+/* Finance */
+.fin-row{display:flex;justify-content:space-between;align-items:center;padding:5px 0;border-bottom:0.5px solid #ece9e0}
+.fin-row:last-child{border-bottom:none}
+.fin-label{font-size:12px;color:#1a1a18}
+.fin-val{font-size:12px;font-weight:500;color:#1a1a18}
+.fin-edit{font-size:11px;padding:2px 7px;border-radius:6px;border:0.5px solid #d3d1c7;background:transparent;cursor:pointer;color:#888780}
+.fin-edit:hover{background:#f1efe8}
+
+/* School */
+.school-row{display:flex;align-items:center;gap:8px;padding:5px 0;border-bottom:0.5px solid #ece9e0}
+.school-row:last-child{border-bottom:none}
+.child-name{font-size:12px;font-weight:500;color:#1a1a18;width:48px}
+.school-task{font-size:12px;color:#5f5e5a;flex:1}
+
+/* Notes */
+.notes-area{width:100%;font-size:12px;color:#1a1a18;background:#f5f4f0;border:0.5px solid #d3d1c7;border-radius:8px;padding:8px 10px;resize:vertical;min-height:72px;outline:none;font-family:inherit;line-height:1.5}
+.small-btn{font-size:11px;padding:5px 10px;border-radius:6px;border:0.5px solid #d3d1c7;background:#fff;cursor:pointer;color:#888780;margin-top:6px}
+.small-btn:hover{background:#f1efe8}
+
+/* Family schedule */
+.fam-row{display:flex;align-items:center;gap:8px;padding:5px 0;border-bottom:0.5px solid #ece9e0}
+.fam-row:last-child{border-bottom:none}
+.fam-person{font-size:11px;font-weight:500;width:54px;flex-shrink:0;color:#1a1a18}
+.fam-event{font-size:12px;color:#5f5e5a;flex:1}
+.fam-time{font-size:10px;color:#b4b2a9;flex-shrink:0}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="logo">Bratcher Household <span>Weekly Dashboard</span></div>
+  <div class="topright">
+    <div class="date-label" id="daterow"></div>
+    <div class="mode-bar">
+      <button class="mode-btn full active" onclick="setMode('full')">Full capacity</button>
+      <button class="mode-btn low" onclick="setMode('low')">Low energy</button>
+      <button class="mode-btn flare" onclick="setMode('flare')">Flare-up</button>
+    </div>
+  </div>
+</div>
+
+<div class="main">
+  <div class="banner full" id="banner">Full capacity: all systems active. Quiet hour before household begins.</div>
+
+  <!-- Week nav -->
+  <div class="week-nav">
+    <button onclick="shiftWeek(-1)">&#8592; Prev</button>
+    <div class="week-label" id="week-label"></div>
+    <button onclick="shiftWeek(1)">Next &#8594;</button>
+  </div>
+  <div class="week-grid" id="week-grid"></div>
+
+  <!-- Metrics -->
+  <div class="metric-grid">
+    <div class="metric">
+      <div class="metric-label">Household members</div>
+      <div class="metric-val">5</div>
+      <div class="metric-sub">Lauren · Matthew · Colin · Lily · Ben</div>
+    </div>
+    <div class="metric">
+      <div class="metric-label">Benefits status</div>
+      <div class="metric-val" id="m-ben">Active</div>
+      <div class="metric-sub" id="m-ben-sub">SNAP · Medicaid · SSI</div>
+    </div>
+    <div class="metric">
+      <div class="metric-label">Open home tasks</div>
+      <div class="metric-val" id="m-tasks">—</div>
+      <div class="metric-sub">This week</div>
+    </div>
+    <div class="metric">
+      <div class="metric-label">Lauren's energy</div>
+      <div class="metric-val" id="m-energy">—</div>
+      <div class="metric-sub" id="m-energy-sub">Log below</div>
+    </div>
+    <div class="metric">
+      <div class="metric-label">Next appt / deadline</div>
+      <div class="metric-val" style="font-size:13px;padding-top:4px" id="m-next">Add one</div>
+      <div class="metric-sub" id="m-next-sub">No upcoming items</div>
+    </div>
+  </div>
+
+  <!-- Row 1: Tasks + Family schedule -->
+  <div class="row2">
+    <div class="card">
+      <div class="section-label">Household tasks this week</div>
+      <div id="tasklist"></div>
+      <div class="add-task">
+        <input type="text" id="new-task" placeholder="Add task...">
+        <select id="new-cat">
+          <option value="c-fam">Family</option>
+          <option value="c-health">Health</option>
+          <option value="c-fin">Financial</option>
+          <option value="c-school">School</option>
+          <option value="c-home">Home</option>
+        </select>
+        <button onclick="addTask()">Add</button>
+      </div>
+    </div>
+    <div class="card">
+      <div class="section-label">Family schedule — selected day</div>
+      <div id="fam-schedule"></div>
+      <button class="small-btn" onclick="addFamItem()">+ Add item</button>
+    </div>
+  </div>
+
+  <!-- Row 2: Benefits + Finance -->
+  <div class="row2">
+    <div class="card">
+      <div class="section-label">Benefits tracker</div>
+      <div id="benefits"></div>
+    </div>
+    <div class="card">
+      <div class="section-label">Financial snapshot</div>
+      <div id="finance"></div>
+    </div>
+  </div>
+
+  <!-- Row 3: Health + Homeschool + Notes -->
+  <div class="row3">
+    <div class="card">
+      <div class="section-label">Health & energy log — this week</div>
+      <div id="healthlog"></div>
+    </div>
+    <div class="card">
+      <div class="section-label">Homeschool — Colin · Lily · Ben</div>
+      <div id="schoollog"></div>
+      <button class="small-btn" onclick="addSchoolItem()">+ Add task</button>
+    </div>
+    <div class="card">
+      <div class="section-label">Household notes</div>
+      <textarea class="notes-area" id="home-notes" placeholder="Appointments, decisions, follow-ups, reminders..."></textarea>
+      <button class="small-btn" onclick="saveNotes()">Save</button>
+      <span id="notes-saved" style="font-size:11px;color:#1D9E75;display:none;margin-left:8px">Saved</span>
+    </div>
+  </div>
+
+</div>
+
+<script>
+// --- Date setup ---
+const today = new Date();
+today.setHours(0,0,0,0);
+const DAY_MS = 86400000;
+const DAYS_SHORT = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+const MONTHS = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+
+document.getElementById('daterow').textContent =
+  DAYS_SHORT[today.getDay()]+', '+MONTHS[today.getMonth()]+' '+today.getDate()+', '+today.getFullYear();
+
+// --- Week state ---
+let weekOffset = 0; // 0 = current week
+let selectedDay = today.getTime();
+
+function getWeekStart(offset){
+  const d = new Date(today);
+  const dow = d.getDay(); // 0=Sun
+  d.setDate(d.getDate() - dow + offset*7);
+  return d;
+}
+
+function shiftWeek(dir){ weekOffset += dir; renderWeek(); }
+
+function renderWeek(){
+  const ws = getWeekStart(weekOffset);
+  const we = new Date(ws); we.setDate(we.getDate()+6);
+  document.getElementById('week-label').textContent =
+    MONTHS[ws.getMonth()]+' '+ws.getDate()+' – '+
+    (ws.getMonth()!==we.getMonth()?MONTHS[we.getMonth()]+' ':'')+we.getDate()+', '+we.getFullYear();
+
+  const grid = document.getElementById('week-grid');
+  grid.innerHTML = '';
+  for(let i=0;i<7;i++){
+    const d = new Date(ws); d.setDate(ws.getDate()+i);
+    const ts = d.getTime();
+    const isToday = ts === today.getTime();
+    const isSel = ts === selectedDay;
+    const col = document.createElement('div');
+    col.className = 'day-col'+(isSel?' selected':'')+(isToday?' today':'');
+    col.onclick = ()=>{ selectedDay=ts; renderWeek(); renderFamSchedule(); };
+
+    const pills = (dayEvents[ts]||[]).slice(0,3).map(e=>`<div class="day-pill dp-${e.cat}">${e.text}</div>`).join('');
+    col.innerHTML = `
+      <div class="day-header">${DAYS_SHORT[d.getDay()]}</div>
+      <div class="day-num${isToday?' today-num':''}">${d.getDate()}</div>
+      ${pills}`;
+    grid.appendChild(col);
+  }
+}
+
+// --- Mode ---
+const modeData = {
+  full:{banner:'Full capacity: all systems active. Quiet hour before household begins.'},
+  low:{banner:'Low energy: household essentials only. Matthew leads where possible.'},
+  flare:{banner:'Flare-up mode: delegate household tasks. Rest is the priority.'},
+};
+let mode = 'full';
+function setMode(m){
+  mode=m;
+  document.querySelectorAll('.mode-btn').forEach(b=>b.classList.remove('active'));
+  document.querySelector('.mode-btn.'+m).classList.add('active');
+  const ban=document.getElementById('banner');
+  ban.className='banner '+m;
+  ban.textContent=modeData[m].banner;
+  document.getElementById('m-energy').textContent=m==='full'?'Full':m==='low'?'Low':'Flare';
+  document.getElementById('m-energy-sub').textContent=m==='full'?'Full capacity':'Adjust tasks to match';
+}
+
+// --- Tasks ---
+let tasks = [
+  {text:'Refill household medications',cat:'c-health',done:false},
+  {text:'SNAP renewal check — confirm date',cat:'c-fin',done:false},
+  {text:'Colin — college research session',cat:'c-school',done:false},
+  {text:'Grocery run — weekly staples',cat:'c-fam',done:false},
+  {text:'Laundry — all members',cat:'c-home',done:false},
+  {text:'Matthew — paralegal cert renewal check',cat:'c-fam',done:false},
+];
+function renderTasks(){
+  document.getElementById('m-tasks').textContent=tasks.filter(t=>!t.done).length;
+  document.getElementById('tasklist').innerHTML=tasks.map((t,i)=>`
+    <div class="task-item">
+      <div class="cat-dot ${t.cat}"></div>
+      <div class="check${t.done?' done':''}" onclick="toggleTask(${i})"></div>
+      <div class="task-text${t.done?' done':''}">${t.text}</div>
+    </div>`).join('');
+}
+function toggleTask(i){tasks[i].done=!tasks[i].done;renderTasks();}
+function addTask(){
+  const v=document.getElementById('new-task').value.trim();
+  if(!v)return;
+  tasks.push({text:v,cat:document.getElementById('new-cat').value,done:false});
+  document.getElementById('new-task').value='';
+  renderTasks();
+}
+
+// --- Day events ---
+function tsForOffset(n){const d=new Date(today);d.setDate(today.getDate()+n);d.setHours(0,0,0,0);return d.getTime();}
+let dayEvents = {};
+dayEvents[tsForOffset(0)]=[{cat:'health',text:"Lauren — quiet hr 7a"},{cat:'school',text:"Lily — math"}];
+dayEvents[tsForOffset(1)]=[{cat:'fin',text:"SNAP check"}];
+dayEvents[tsForOffset(2)]=[{cat:'fam',text:"Colin — library"}];
+dayEvents[tsForOffset(4)]=[{cat:'school',text:"Ben — reading"},{cat:'health',text:"Med refill"}];
+
+let famItems = {};
+famItems[tsForOffset(0)]=[
+  {person:'Lauren',event:'Quiet hour — no interruptions',time:'7–8a'},
+  {person:'Lily',event:'Math — curriculum block',time:'9a'},
+  {person:'Ben',event:'Morning routine + play',time:'8a'},
+  {person:'Matthew',event:'Work from home',time:'All day'},
+];
+famItems[tsForOffset(1)]=[
+  {person:'Lauren',event:'SNAP renewal — confirm date',time:'AM'},
+  {person:'Colin',event:'Independent study',time:'10a'},
+];
+
+function renderFamSchedule(){
+  const items = famItems[selectedDay]||[];
+  if(items.length===0){
+    document.getElementById('fam-schedule').innerHTML='<div style="font-size:12px;color:#b4b2a9;padding:6px 0">No items for this day. Add one below.</div>';
+    return;
+  }
+  document.getElementById('fam-schedule').innerHTML=items.map((e,i)=>`
+    <div class="fam-row">
+      <div class="fam-person">${e.person}</div>
+      <div class="fam-event">${e.event}</div>
+      <div class="fam-time">${e.time}</div>
+    </div>`).join('');
+
+  // Update next appt metric
+  document.getElementById('m-next').textContent=items[0].time;
+  document.getElementById('m-next-sub').textContent=items[0].person+' — '+items[0].event;
+}
+
+function addFamItem(){
+  const person=prompt('Person (Lauren / Matthew / Colin / Lily / Ben):');
+  if(!person)return;
+  const event=prompt('Event or task:');
+  if(!event)return;
+  const time=prompt('Time (e.g. 9a, AM, All day):') || '—';
+  if(!famItems[selectedDay])famItems[selectedDay]=[];
+  famItems[selectedDay].push({person,event,time});
+  renderFamSchedule();
+  renderWeek();
+}
+
+// --- Benefits ---
+const benefits=[
+  {name:'SNAP',detail:'Renewal — confirm date',status:'b-warn'},
+  {name:'Medicaid',detail:'Active — all eligible members',status:'b-ok'},
+  {name:'SSI',detail:'Monitor income thresholds',status:'b-warn'},
+  {name:'Housing assistance',detail:'Track application status',status:'b-gray'},
+  {name:'Benefits compliance',detail:'No commingling — entity separation clean',status:'b-ok'},
+];
+function renderBenefits(){
+  document.getElementById('benefits').innerHTML=benefits.map((b,i)=>`
+    <div class="ben-row">
+      <div>
+        <div class="ben-name">${b.name}</div>
+        <div class="ben-detail">${b.detail}</div>
+      </div>
+      <span class="badge ${b.status}" style="cursor:pointer" onclick="cycleBen(${i})">${badgeLabel(b.status)}</span>
+    </div>`).join('');
+}
+const benStatuses=['b-ok','b-warn','b-alert','b-gray'];
+const benLabels={'b-ok':'Active','b-warn':'Monitor','b-alert':'Action needed','b-gray':'Pending'};
+function badgeLabel(s){return benLabels[s]||s;}
+function cycleBen(i){
+  const idx=benStatuses.indexOf(benefits[i].status);
+  benefits[i].status=benStatuses[(idx+1)%benStatuses.length];
+  renderBenefits();
+}
+
+// --- Finance ---
+let finItems=[
+  {label:'SNAP monthly',val:'$[amount]',edit:true},
+  {label:'SSI income',val:'$[amount]',edit:true},
+  {label:'Business income — VV LLC',val:'$[amount]',edit:true},
+  {label:'FHA / USDA pathway',val:'Planning stage',edit:false},
+  {label:'Credit repair — target',val:'620+',edit:false},
+  {label:'Habitat for Humanity',val:'Research phase',edit:false},
+];
+function renderFinance(){
+  document.getElementById('finance').innerHTML=finItems.map((f,i)=>`
+    <div class="fin-row">
+      <div class="fin-label">${f.label}</div>
+      <div style="display:flex;align-items:center;gap:6px">
+        <div class="fin-val" id="fv-${i}">${f.val}</div>
+        ${f.edit?`<button class="fin-edit" onclick="editFin(${i})">Edit</button>`:''}
+      </div>
+    </div>`).join('');
+}
+function editFin(i){
+  const v=prompt('Update value for '+finItems[i].label+':',finItems[i].val);
+  if(v!==null)finItems[i].val=v;
+  renderFinance();
+}
+
+// --- Health log ---
+const weekDayNames=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+let energyLog = {}; // ts -> 'full'|'low'|'flare'
+function renderHealth(){
+  const ws=getWeekStart(weekOffset);
+  let html='';
+  for(let i=0;i<7;i++){
+    const d=new Date(ws);d.setDate(ws.getDate()+i);
+    const ts=d.getTime();
+    const cur=energyLog[ts]||null;
+    html+=`<div class="health-row">
+      <div class="health-label">${weekDayNames[d.getDay()]} ${d.getDate()}</div>
+      <div class="energy-track">
+        ${['full','low','flare'].map(l=>`<div class="e-dot${cur===l?' filled-'+l:''}" title="${l}" onclick="logEnergy(${ts},'${l}')"></div>`).join('')}
+      </div>
+      <span class="badge ${cur==='full'?'b-ok':cur==='low'?'b-warn':cur==='flare'?'b-alert':'b-gray'}" style="font-size:9px">${cur||'—'}</span>
+    </div>`;
+  }
+  document.getElementById('healthlog').innerHTML=html;
+}
+function logEnergy(ts,level){
+  energyLog[ts]=level;
+  renderHealth();
+}
+
+// --- School ---
+let schoolItems=[
+  {child:'Colin',task:'College research — 1 school this week',done:false},
+  {child:'Colin',task:'Independent reading — 30 min/day',done:false},
+  {child:'Lily',task:'Math — current curriculum block',done:false},
+  {child:'Lily',task:'Writing — one page journaling',done:false},
+  {child:'Ben',task:'Morning reading — 15 min',done:false},
+  {child:'Ben',task:'Number recognition practice',done:false},
+];
+function renderSchool(){
+  document.getElementById('schoollog').innerHTML=schoolItems.map((s,i)=>`
+    <div class="school-row">
+      <div class="check${s.done?' done':''}" onclick="toggleSchool(${i})"></div>
+      <div class="child-name">${s.child}</div>
+      <div class="school-task${s.done?' task-text done':''}">${s.task}</div>
+    </div>`).join('');
+}
+function toggleSchool(i){schoolItems[i].done=!schoolItems[i].done;renderSchool();}
+function addSchoolItem(){
+  const child=prompt('Child (Colin / Lily / Ben):');
+  if(!child)return;
+  const task=prompt('Task:');
+  if(!task)return;
+  schoolItems.push({child,task,done:false});
+  renderSchool();
+}
+
+// --- Notes ---
+try{const n=localStorage.getItem('home-notes');if(n)document.getElementById('home-notes').value=n;}catch(e){}
+function saveNotes(){
+  try{localStorage.setItem('home-notes',document.getElementById('home-notes').value);}catch(e){}
+  const s=document.getElementById('notes-saved');s.style.display='inline';
+  setTimeout(()=>s.style.display='none',2000);
+}
+
+// --- Init ---
+setMode('full');
+renderWeek();
+renderTasks();
+renderFamSchedule();
+renderBenefits();
+renderFinance();
+renderHealth();
+renderSchool();
+</script>
+</body>
+</html>

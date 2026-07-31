@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Golden Door — Mandala Chart</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#FFFFFF; --card:#FFFFFF; --ink:#1A1A1A; --ink-dim:#5A5A5A; --ink-faint:#9A9A9A;
+    --gold:#C99700; --gold-soft:rgba(201,151,0,0.14); --rule:#E2E2E2;
+    --mkt:#E0303D; --com:#F2790C; --gx:#189E56; --ops:#D6217A;
+    --fin:#0891A6; --lead:#7C3AED; --team:#2563EB; --sales:#EAC300;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:'IBM Plex Sans', sans-serif;-webkit-font-smoothing:antialiased;line-height:1.5;}
+  @media (prefers-reduced-motion: no-preference){ .fade-in{animation:fadeIn .5s ease both;} }
+  @keyframes fadeIn{ from{opacity:0; transform:translateY(6px);} to{opacity:1; transform:translateY(0);} }
+  .wrap{max-width:1240px;margin:0 auto;padding:52px 24px 80px;}
+
+  header{text-align:center;margin-bottom:36px;}
+  .eyebrow{font-family:'IBM Plex Mono', monospace;font-size:11px;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;}
+  h1{font-family:'Fraunces', serif;font-weight:600;font-size:clamp(32px, 5.5vw, 52px);margin:0 0 6px;letter-spacing:-0.01em;}
+  .org-line{font-size:13px;color:var(--ink-dim);margin-bottom:18px;}
+  .quote{font-family:'Fraunces', serif;font-style:italic;font-weight:500;font-size:16px;color:var(--ink-dim);max-width:480px;margin:0 auto 24px;}
+  .hr{width:56px;height:1px;background:var(--gold);margin:0 auto 24px;opacity:0.6;}
+
+  .progress-block{max-width:480px;margin:0 auto 8px;}
+  .progress-label{display:flex;justify-content:space-between;font-family:'IBM Plex Mono', monospace;font-size:12px;color:var(--ink-dim);margin-bottom:8px;}
+  .progress-track{height:6px;background:var(--card);border-radius:3px;overflow:hidden;border:1px solid var(--rule);}
+  .progress-fill{height:100%;background:var(--gold);width:0%;transition:width .4s ease;}
+
+  .matrix-caption{ text-align:center; max-width:520px; margin:8px auto 28px; font-size:12.5px; color:var(--ink-faint); }
+  .matrix-caption b{ color:var(--ink-dim); font-weight:600; }
+
+  .group-labels{
+    display:grid; grid-template-columns:repeat(3, 1fr); max-width:1160px; margin:0 auto 6px;
+    font-family:'IBM Plex Mono', monospace; font-size:10.5px; letter-spacing:0.14em; text-transform:uppercase;
+    color:var(--ink-faint); text-align:center; min-width:1062px;
+  }
+  .group-labels.bottom{ margin:6px auto 0; }
+  .scroll-shell{ overflow-x:auto; padding-bottom:8px; }
+
+  .matrix{
+    display:grid;
+    grid-template-columns:repeat(9, minmax(118px, 1fr));
+    grid-auto-rows:minmax(98px, auto);
+    min-width:1062px;
+    border:2px solid var(--rule);
+    border-radius:8px;
+    overflow:hidden;
+    margin:0 auto;
+  }
+
+  .cell{
+    border-right:1px solid var(--rule);
+    border-bottom:1px solid var(--rule);
+    padding:7px 8px;
+    position:relative;
+    display:flex;
+  }
+  .cell.edge-r{ border-right:2px solid var(--ink-faint); }
+  .cell.edge-b{ border-bottom:2px solid var(--ink-faint); }
+
+  /* action cells */
+  .cell.action{ background:color-mix(in srgb, var(--pillar) 11%, var(--card)); }
+  .action-inner{ display:flex; gap:6px; width:100%; }
+  .cell input[type="checkbox"]{
+    appearance:none; -webkit-appearance:none; width:14px; height:14px; flex:0 0 14px; margin-top:1px;
+    border:1.5px solid var(--ink-faint); border-radius:3px; background:transparent; cursor:pointer;
+  }
+  .cell input[type="checkbox"]:checked{ background:var(--pillar); border-color:var(--pillar); }
+  .cell input[type="checkbox"]:checked::after{ content:""; display:block; width:4px; height:7px; margin:1px auto; border:solid #FFFFFF; border-width:0 1.5px 1.5px 0; transform:rotate(45deg); }
+  .cell input[type="checkbox"]:focus-visible{ outline:2px solid var(--gold); outline-offset:1px; }
+
+  .cell-text{
+    background:transparent; border:none; color:var(--ink); font-family:inherit; font-size:12px;
+    line-height:1.35; resize:none; width:100%; padding:0; height:100%;
+  }
+  .cell-text:hover{ background:rgba(0,0,0,0.035); }
+  .cell-text:focus{ outline:none; background:rgba(0,0,0,0.06); }
+  .cell input[type="checkbox"]:checked ~ .cell-text{ color:var(--ink-faint); text-decoration:line-through; text-decoration-color:var(--ink-faint); }
+
+  /* pillar display (read-only mirror, outer block center) */
+  .cell.pillar-display{
+    flex-direction:column; align-items:center; justify-content:center; text-align:center;
+    background:color-mix(in srgb, var(--pillar) 32%, var(--card));
+    padding:6px 8px;
+  }
+  .pd-name{ font-family:'Fraunces', serif; font-weight:600; font-style:italic; font-size:12.5px; line-height:1.25; color:var(--ink); }
+  .pd-count{ font-family:'IBM Plex Mono', monospace; font-size:9.5px; color:var(--ink-dim); margin-top:5px; }
+
+  /* master (editable pillar, center block ring) */
+  .cell.master{ flex-direction:column; background:color-mix(in srgb, var(--pillar) 20%, var(--card)); }
+  .master-tag{ font-family:'IBM Plex Mono', monospace; font-size:9px; letter-spacing:0.12em; color:var(--pillar); margin-bottom:3px; }
+  .master-text{ font-family:'Fraunces', serif; font-weight:600; font-size:12.5px; }
+
+  /* central goal */
+  .cell.goal{
+    flex-direction:column; align-items:center; justify-content:center; text-align:center;
+    background:var(--gold-soft); border:2px solid var(--gold) !important;
+  }
+  .goal-tag{ font-family:'IBM Plex Mono', monospace; font-size:9px; letter-spacing:0.16em; color:var(--gold); margin-bottom:5px; }
+  .goal-text{ color:var(--gold); font-family:'Fraunces', serif; font-weight:600; font-size:14px; text-align:center; }
+
+  footer{ max-width:480px; margin:44px auto 0; text-align:center; font-size:12px; color:var(--ink-faint); }
+  .reset-link{ color:var(--ink-dim); text-decoration:underline; text-decoration-color:var(--rule); cursor:pointer; background:none; border:none; font-family:inherit; font-size:inherit; padding:0; }
+  .reset-link:hover{ color:var(--gold); }
+
+  @media print{
+    body{ background:#fff; color:#111; }
+    .matrix{ border-color:#999; }
+    .cell{ border-color:#ccc; background:#fff !important; }
+    footer{ display:none; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="fade-in">
+    <div class="eyebrow">Mandala Chart · Open Window 64</div>
+    <h1>The Golden Door</h1>
+    <div class="org-line">Charitable Gaming Lounge · The Common Good Network</div>
+    <div class="hr"></div>
+    <p class="quote">&ldquo;Life does not create dreams. Dreams create life.&rdquo;</p>
+    <div class="progress-block">
+      <div class="progress-label"><span>Overall progress</span><span id="progress-text">0 of 64</span></div>
+      <div class="progress-track"><div class="progress-fill" id="progress-fill"></div></div>
+    </div>
+  </header>
+
+  <p class="matrix-caption"><b>Center cell = goal.</b> The ring around it is your 8 pillars — edit a pillar there and it carries out to that pillar's block in the matrix. Each block's 8 remaining cells are its actions.</p>
+
+  <div class="group-labels">
+    <span>Marketing</span><span>Community</span><span>Guest Experience</span>
+  </div>
+
+  <div class="scroll-shell">
+  <div class="matrix" id="matrix">
+
+    <!-- ROW 1 -->
+    <div class="cell action edge-r" style="--pillar:var(--mkt)"><label class="action-inner"><input type="checkbox" data-key="mkt-1"><textarea class="cell-text" data-text="mkt-1" rows="3">Daily social media</textarea></label></div>
+    <div class="cell action edge-r" style="--pillar:var(--mkt)"><label class="action-inner"><input type="checkbox" data-key="mkt-2"><textarea class="cell-text" data-text="mkt-2" rows="3">Google Ads — $10K/mo</textarea></label></div>
+    <div class="cell action edge-r" style="--pillar:var(--mkt)"><label class="action-inner"><input type="checkbox" data-key="mkt-3"><textarea class="cell-text" data-text="mkt-3" rows="3">Email marketing</textarea></label></div>
+    <div class="cell action edge-r" style="--pillar:var(--com)"><label class="action-inner"><input type="checkbox" data-key="com-1"><textarea class="cell-text" data-text="com-1" rows="3">B-day packages</textarea></label></div>
+    <div class="cell action edge-r" style="--pillar:var(--com)"><label class="action-inner"><input type="checkbox" data-key="com-2"><textarea class="cell-text" data-text="com-2" rows="3">Loyalty system</textarea></label></div>
+    <div class="cell action edge-r" style="--pillar:var(--com)"><label class="action-inner"><input type="checkbox" data-key="com-3"><textarea class="cell-text" data-text="com-3" rows="3">Community calendar</textarea></label></div>
+    <div class="cell action edge-r" style="--pillar:var(--gx)"><label class="action-inner"><input type="checkbox" data-key="gx-1"><textarea class="cell-text" data-text="gx-1" rows="3">Comfortable seating</textarea></label></div>
+    <div class="cell action edge-r" style="--pillar:var(--gx)"><label class="action-inner"><input type="checkbox" data-key="gx-2"><textarea class="cell-text" data-text="gx-2" rows="3">Friendly greetings</textarea></label></div>
+    <div class="cell action" style="--pillar:var(--gx)"><label class="action-inner"><input type="checkbox" data-key="gx-3"><textarea class="cell-text" data-text="gx-3" rows="3">Fast check-in</textarea></label></div>
+
+    <!-- ROW 2 -->
+    <div class="cell action edge-r" style="--pillar:var(--mkt)"><label class="action-inner"><input type="checkbox" data-key="mkt-4"><textarea class="cell-text" data-text="mkt-4" rows="3">Website + AI SEO</textarea></label></div>
+    <div class="cell pillar-display edge-r" style="--pillar:var(--mkt)"><span class="pd-name" data-name-for="mkt">Become BG Famous</span><span class="pd-count" data-count-for="mkt">0/8</span></div>
+    <div class="cell action edge-r" style="--pillar:var(--mkt)"><label class="action-inner"><input type="checkbox" data-key="mkt-5"><textarea class="cell-text" data-text="mkt-5" rows="3">Google/Apple Maps + business profile</textarea></label></div>
+    <div class="cell action edge-r" style="--pillar:var(--com)"><label class="action-inner"><input type="checkbox" data-key="com-4"><textarea class="cell-text" data-text="com-4" rows="3">Community grants</textarea></label></div>
+    <div class="cell pillar-display edge-r" style="--pillar:var(--com)"><span class="pd-name" data-name-for="com">Loyal Community</span><span class="pd-count" data-count-for="com">0/8</span></div>
+    <div class="cell action edge-r" style="--pillar:var(--com)"><label class="action-inner"><input type="checkbox" data-key="com-5"><textarea class="cell-text" data-text="com-5" rows="3">Merch — Kroger roundup</textarea></label></div>
+    <div class="cell action edge-r" style="--pillar:var(--gx)"><label class="action-inner"><input type="checkbox" data-key="gx-4"><textarea class="cell-text" data-text="gx-4" rows="3">Clean & spotless</textarea></label></div>
+    <div class="cell pillar-display edge-r" style="--pillar:var(--gx)"><span class="pd-name" data-name-for="gx">Positive Word of Mouth</span><span class="pd-count" data-count-for="gx">0/8</span></div>
+    <div class="cell action" style="--pillar:var(--gx)"><label class="action-inner"><input type="checkbox" data-key="gx-5"><textarea class="cell-text" data-text="gx-5" rows="3">Premium drinks + snacks</textarea></label></div>
+
+    <!-- ROW 3 -->
+    <div class="cell action edge-r edge-b" style="--pillar:var(--mkt)"><label class="action-inner"><input type="checkbox" data-key="mkt-6"><textarea class="cell-text" data-text="mkt-6" rows="3">Referral program?</textarea></label></div>
+    <div class="cell action edge-r edge-b" style="--pillar:var(--mkt)"><label class="action-inner"><input type="checkbox" data-key="mkt-7"><textarea class="cell-text" data-text="mkt-7" rows="3">Local Chamber of Commerce — events, magazines, news/radio</textarea></label></div>
+    <div class="cell action edge-r edge-b" style="--pillar:var(--mkt)"><label class="action-inner"><input type="checkbox" data-key="mkt-8"><textarea class="cell-text" data-text="mkt-8" rows="3">Non-profit spirit nights (10–15%)</textarea></label></div>
+    <div class="cell action edge-r edge-b" style="--pillar:var(--com)"><label class="action-inner"><input type="checkbox" data-key="com-6"><textarea class="cell-text" data-text="com-6" rows="3">Charity partnerships</textarea></label></div>
+    <div class="cell action edge-r edge-b" style="--pillar:var(--com)"><label class="action-inner"><input type="checkbox" data-key="com-7"><textarea class="cell-text" data-text="com-7" rows="3">Regional coalition</textarea></label></div>
+    <div class="cell action edge-r edge-b" style="--pillar:var(--com)"><label class="action-inner"><input type="checkbox" data-key="com-8"><textarea class="cell-text" data-text="com-8" rows="3">Match fundraise event</textarea></label></div>
+    <div class="cell action edge-r edge-b" style="--pillar:var(--gx)"><label class="action-inner"><input type="checkbox" data-key="gx-6"><textarea class="cell-text" data-text="gx-6" rows="3">Consistent music — no silence</textarea></label></div>
+    <div class="cell action edge-r edge-b" style="--pillar:var(--gx)"><label class="action-inner"><input type="checkbox" data-key="gx-7"><textarea class="cell-text" data-text="gx-7" rows="3">Game screen updates for holidays</textarea></label></div>
+    <div class="cell action edge-b" style="--pillar:var(--gx)"><label class="action-inner"><input type="checkbox" data-key="gx-8"><textarea class="cell-text" data-text="gx-8" rows="3">Surprise + delight moments</textarea></label></div>
+
+    <!-- ROW 4 -->
+    <div class="cell action edge-r" style="--pillar:var(--ops)"><label class="action-inner"><input type="checkbox" data-key="ops-1"><textarea class="cell-text" data-text="ops-1" rows="3">Opening checklist</textarea></label></div>
+    <div class="cell action edge-r" style="--pillar:var(--ops)"><label class="action-inner"><input type="checkbox" data-key="ops-2"><textarea class="cell-text" data-text="ops-2" rows="3">Maintenance + cleaning schedule</textarea></label></div>
+    <div class="cell action edge-r" style="--pillar:var(--ops)"><label class="action-inner"><input type="checkbox" data-key="ops-3"><textarea class="cell-text" data-text="ops-3" rows="3">Inventory counts</textarea></label></div>
+    <div class="cell master edge-r" style="--pillar:var(--mkt)"><span class="master-tag">Pillar 1</span><textarea class="cell-text master-text" data-pillar="mkt" rows="3">Become BG Famous</textarea></div>
+    <div class="cell master edge-r" style="--pillar:var(--com)"><span class="master-tag">Pillar 2</span><textarea class="cell-text master-text" data-pillar="com" rows="3">Loyal Community</textarea></div>
+    <div class="cell master edge-r" style="--pillar:var(--gx)"><span class="master-tag">Pillar 3</span><textarea class="cell-text master-text" data-pillar="gx" rows="3">Positive Word of Mouth</textarea></div>
+    <div class="cell action edge-r" style="--pillar:var(--fin)"><label class="action-inner"><input type="checkbox" data-key="fin-1"><textarea class="cell-text" data-text="fin-1" rows="3">Daily sales reports + review</textarea></label></div>
+    <div class="cell action edge-r" style="--pillar:var(--fin)"><label class="action-inner"><input type="checkbox" data-key="fin-2"><textarea class="cell-text" data-text="fin-2" rows="3">Weekly KPI dashboard</textarea></label></div>
+    <div class="cell action" style="--pillar:var(--fin)"><label class="action-inner"><input type="checkbox" data-key="fin-3"><textarea class="cell-text" data-text="fin-3" rows="3">Budget tracking</textarea></label></div>
+
+    <!-- ROW 5 (center row) -->
+    <div class="cell action edge-r" style="--pillar:var(--ops)"><label class="action-inner"><input type="checkbox" data-key="ops-4"><textarea class="cell-text" data-text="ops-4" rows="3">Closing checklist</textarea></label></div>
+    <div class="cell pillar-display edge-r" style="--pillar:var(--ops)"><span class="pd-name" data-name-for="ops">Flawless Daily Operations</span><span class="pd-count" data-count-for="ops">0/8</span></div>
+    <div class="cell action edge-r" style="--pillar:var(--ops)"><label class="action-inner"><input type="checkbox" data-key="ops-5"><textarea class="cell-text" data-text="ops-5" rows="3">Security SOP</textarea></label></div>
+    <div class="cell master edge-r" style="--pillar:var(--ops)"><span class="master-tag">Pillar 4</span><textarea class="cell-text master-text" data-pillar="ops" rows="3">Flawless Daily Operations</textarea></div>
+    <div class="cell goal edge-r"><span class="goal-tag">Central Goal</span><textarea class="cell-text goal-text" id="goal-input" rows="3">$1M Revenue in 2026</textarea></div>
+    <div class="cell master edge-r" style="--pillar:var(--fin)"><span class="master-tag">Pillar 5</span><textarea class="cell-text master-text" data-pillar="fin" rows="3">Operate Profitably</textarea></div>
+    <div class="cell action edge-r" style="--pillar:var(--fin)"><label class="action-inner"><input type="checkbox" data-key="fin-4"><textarea class="cell-text" data-text="fin-4" rows="3">Reduce waste</textarea></label></div>
+    <div class="cell pillar-display edge-r" style="--pillar:var(--fin)"><span class="pd-name" data-name-for="fin">Operate Profitably</span><span class="pd-count" data-count-for="fin">0/8</span></div>
+    <div class="cell action" style="--pillar:var(--fin)"><label class="action-inner"><input type="checkbox" data-key="fin-5"><textarea class="cell-text" data-text="fin-5" rows="3">Inventory + cash controls</textarea></label></div>
+
+    <!-- ROW 6 -->
+    <div class="cell action edge-r edge-b" style="--pillar:var(--ops)"><label class="action-inner"><input type="checkbox" data-key="ops-6"><textarea class="cell-text" data-text="ops-6" rows="3">Reservation / hosting checklist</textarea></label></div>
+    <div class="cell action edge-r edge-b" style="--pillar:var(--ops)"><label class="action-inner"><input type="checkbox" data-key="ops-7"><textarea class="cell-text" data-text="ops-7" rows="3">Vendor management</textarea></label></div>
+    <div class="cell action edge-r edge-b" style="--pillar:var(--ops)"><label class="action-inner"><input type="checkbox" data-key="ops-8"><textarea class="cell-text" data-text="ops-8" rows="3">Compliance</textarea></label></div>
+    <div class="cell master edge-r edge-b" style="--pillar:var(--lead)"><span class="master-tag">Pillar 6</span><textarea class="cell-text master-text" data-pillar="lead" rows="3">Be the Leader The Golden Door Needs to Win</textarea></div>
+    <div class="cell master edge-r edge-b" style="--pillar:var(--team)"><span class="master-tag">Pillar 7</span><textarea class="cell-text master-text" data-pillar="team" rows="3">Create an Exceptional Staff/Team</textarea></div>
+    <div class="cell master edge-r edge-b" style="--pillar:var(--sales)"><span class="master-tag">Pillar 8</span><textarea class="cell-text master-text" data-pillar="sales" rows="3">Maximize Every Guest Visit</textarea></div>
+    <div class="cell action edge-r edge-b" style="--pillar:var(--fin)"><label class="action-inner"><input type="checkbox" data-key="fin-6"><textarea class="cell-text" data-text="fin-6" rows="3">Increase average spend per visit</textarea></label></div>
+    <div class="cell action edge-r edge-b" style="--pillar:var(--fin)"><label class="action-inner"><input type="checkbox" data-key="fin-7"><textarea class="cell-text" data-text="fin-7" rows="3">Merch + concessions revenue</textarea></label></div>
+    <div class="cell action edge-b" style="--pillar:var(--fin)"><label class="action-inner"><input type="checkbox" data-key="fin-8"><textarea class="cell-text" data-text="fin-8" rows="3">Passive fundraising (donations round-up)</textarea></label></div>
+
+    <!-- ROW 7 -->
+    <div class="cell action edge-r" style="--pillar:var(--lead)"><label class="action-inner"><input type="checkbox" data-key="lead-1"><textarea class="cell-text" data-text="lead-1" rows="3">Daily planning</textarea></label></div>
+    <div class="cell action edge-r" style="--pillar:var(--lead)"><label class="action-inner"><input type="checkbox" data-key="lead-2"><textarea class="cell-text" data-text="lead-2" rows="3">Review metrics</textarea></label></div>
+    <div class="cell action edge-r" style="--pillar:var(--lead)"><label class="action-inner"><input type="checkbox" data-key="lead-3"><textarea class="cell-text" data-text="lead-3" rows="3">Delegate tasks</textarea></label></div>
+    <div class="cell action edge-r" style="--pillar:var(--team)"><label class="action-inner"><input type="checkbox" data-key="team-1"><textarea class="cell-text" data-text="team-1" rows="3">SOPs</textarea></label></div>
+    <div class="cell action edge-r" style="--pillar:var(--team)"><label class="action-inner"><input type="checkbox" data-key="team-2"><textarea class="cell-text" data-text="team-2" rows="3">Weekly meetings</textarea></label></div>
+    <div class="cell action edge-r" style="--pillar:var(--team)"><label class="action-inner"><input type="checkbox" data-key="team-3"><textarea class="cell-text" data-text="team-3" rows="3">Recognition — volunteer of the month</textarea></label></div>
+    <div class="cell action edge-r" style="--pillar:var(--sales)"><label class="action-inner"><input type="checkbox" data-key="sales-1"><textarea class="cell-text" data-text="sales-1" rows="3">Loyalty member club</textarea></label></div>
+    <div class="cell action edge-r" style="--pillar:var(--sales)"><label class="action-inner"><input type="checkbox" data-key="sales-2"><textarea class="cell-text" data-text="sales-2" rows="3">Merch + concessions</textarea></label></div>
+    <div class="cell action" style="--pillar:var(--sales)"><label class="action-inner"><input type="checkbox" data-key="sales-3"><textarea class="cell-text" data-text="sales-3" rows="3">Party + meeting bookings</textarea></label></div>
+
+    <!-- ROW 8 -->
+    <div class="cell action edge-r" style="--pillar:var(--lead)"><label class="action-inner"><input type="checkbox" data-key="lead-4"><textarea class="cell-text" data-text="lead-4" rows="3">Protect executive time</textarea></label></div>
+    <div class="cell pillar-display edge-r" style="--pillar:var(--lead)"><span class="pd-name" data-name-for="lead">Be the Leader The Golden Door Needs to Win</span><span class="pd-count" data-count-for="lead">0/8</span></div>
+    <div class="cell action edge-r" style="--pillar:var(--lead)"><label class="action-inner"><input type="checkbox" data-key="lead-5"><textarea class="cell-text" data-text="lead-5" rows="3">Network weekly</textarea></label></div>
+    <div class="cell action edge-r" style="--pillar:var(--team)"><label class="action-inner"><input type="checkbox" data-key="team-4"><textarea class="cell-text" data-text="team-4" rows="3">Hiring</textarea></label></div>
+    <div class="cell pillar-display edge-r" style="--pillar:var(--team)"><span class="pd-name" data-name-for="team">Create an Exceptional Staff/Team</span><span class="pd-count" data-count-for="team">0/8</span></div>
+    <div class="cell action edge-r" style="--pillar:var(--team)"><label class="action-inner"><input type="checkbox" data-key="team-5"><textarea class="cell-text" data-text="team-5" rows="3">Accountability</textarea></label></div>
+    <div class="cell action edge-r" style="--pillar:var(--sales)"><label class="action-inner"><input type="checkbox" data-key="sales-4"><textarea class="cell-text" data-text="sales-4" rows="3">Nightlife music & atmosphere</textarea></label></div>
+    <div class="cell pillar-display edge-r" style="--pillar:var(--sales)"><span class="pd-name" data-name-for="sales">Maximize Every Guest Visit</span><span class="pd-count" data-count-for="sales">0/8</span></div>
+    <div class="cell action" style="--pillar:var(--sales)"><label class="action-inner"><input type="checkbox" data-key="sales-5"><textarea class="cell-text" data-text="sales-5" rows="3">Corporate rentals</textarea></label></div>
+
+    <!-- ROW 9 -->
+    <div class="cell action edge-r" style="--pillar:var(--lead)"><label class="action-inner"><input type="checkbox" data-key="lead-6"><textarea class="cell-text" data-text="lead-6" rows="3">Plan & take down time</textarea></label></div>
+    <div class="cell action edge-r" style="--pillar:var(--lead)"><label class="action-inner"><input type="checkbox" data-key="lead-7"><textarea class="cell-text" data-text="lead-7" rows="3">Stay mentally + physically healthy</textarea></label></div>
+    <div class="cell action edge-r" style="--pillar:var(--lead)"><label class="action-inner"><input type="checkbox" data-key="lead-8"><textarea class="cell-text" data-text="lead-8" rows="3">Coach staff</textarea></label></div>
+    <div class="cell action edge-r" style="--pillar:var(--team)"><label class="action-inner"><input type="checkbox" data-key="team-6"><textarea class="cell-text" data-text="team-6" rows="3">Training</textarea></label></div>
+    <div class="cell action edge-r" style="--pillar:var(--team)"><label class="action-inner"><input type="checkbox" data-key="team-7"><textarea class="cell-text" data-text="team-7" rows="3">Balanced work demand</textarea></label></div>
+    <div class="cell action edge-r" style="--pillar:var(--team)"><label class="action-inner"><input type="checkbox" data-key="team-8"><textarea class="cell-text" data-text="team-8" rows="3">Performance reviews</textarea></label></div>
+    <div class="cell action edge-r" style="--pillar:var(--sales)"><label class="action-inner"><input type="checkbox" data-key="sales-6"><textarea class="cell-text" data-text="sales-6" rows="3">Donations (tip jar) — no tips</textarea></label></div>
+    <div class="cell action edge-r" style="--pillar:var(--sales)"><label class="action-inner"><input type="checkbox" data-key="sales-7"><textarea class="cell-text" data-text="sales-7" rows="3">Email capture confirmation</textarea></label></div>
+    <div class="cell action" style="--pillar:var(--sales)"><label class="action-inner"><input type="checkbox" data-key="sales-8"><textarea class="cell-text" data-text="sales-8" rows="3">Upsell training</textarea></label></div>
+
+  </div>
+  </div>
+
+  <div class="group-labels bottom">
+    <span>Leadership</span><span>Team</span><span>Sales</span>
+  </div>
+
+  <footer>
+    Progress and edits save automatically. <button class="reset-link" id="reset-btn">Reset all 64 actions</button>
+  </footer>
+
+</div>
+
+<script>
+(function(){
+  const GROUPS = ["mkt","com","gx","ops","fin","lead","team","sales"];
+  const STORAGE_KEY = "golden-door-mandala-state-v3";
+  const checkboxes = Array.from(document.querySelectorAll('input[type="checkbox"][data-key]'));
+  const textInputs = Array.from(document.querySelectorAll('textarea.cell-text[data-text]'));
+  const pillarInputs = Array.from(document.querySelectorAll('textarea[data-pillar]'));
+  const goalInput = document.getElementById('goal-input');
+  const hasStorage = typeof window.storage !== "undefined";
+
+  let state = { goal:"", pillars:{}, actions:{}, checked:{} };
+
+  function captureDefaults(){
+    state.goal = goalInput.value;
+    pillarInputs.forEach(i => state.pillars[i.dataset.pillar] = i.value);
+    textInputs.forEach(i => state.actions[i.dataset.text] = i.value);
+    checkboxes.forEach(cb => state.checked[cb.dataset.key] = cb.checked);
+  }
+
+  async function loadState(){
+    if(!hasStorage) return null;
+    try{
+      const result = await window.storage.get(STORAGE_KEY, false);
+      if(result && result.value) return JSON.parse(result.value);
+    }catch(e){ /* no saved state yet */ }
+    return null;
+  }
+
+  async function saveState(){
+    if(!hasStorage) return;
+    try{ await window.storage.set(STORAGE_KEY, JSON.stringify(state), false); }
+    catch(e){ console.error("Could not save:", e); }
+  }
+
+  function applyState(){
+    goalInput.value = state.goal;
+    pillarInputs.forEach(i => {
+      const v = state.pillars[i.dataset.pillar];
+      if(v !== undefined) i.value = v;
+      const disp = document.querySelector('[data-name-for="' + i.dataset.pillar + '"]');
+      if(disp) disp.textContent = i.value;
+    });
+    textInputs.forEach(i => { if(state.actions[i.dataset.text] !== undefined) i.value = state.actions[i.dataset.text]; });
+    checkboxes.forEach(cb => cb.checked = !!state.checked[cb.dataset.key]);
+    renderProgress();
+  }
+
+  function renderProgress(){
+    let total = 0, done = 0;
+    GROUPS.forEach(g => {
+      const boxes = checkboxes.filter(cb => cb.dataset.key.startsWith(g + "-"));
+      const checked = boxes.filter(cb => cb.checked).length;
+      total += boxes.length; done += checked;
+      const countEl = document.querySelector('[data-count-for="' + g + '"]');
+      if(countEl) countEl.textContent = checked + "/" + boxes.length;
+    });
+    const overallPct = total ? Math.round((done / total) * 100) : 0;
+    document.getElementById("progress-text").textContent = done + " of " + total;
+    document.getElementById("progress-fill").style.width = overallPct + "%";
+  }
+
+  goalInput.addEventListener("input", () => { state.goal = goalInput.value; saveState(); });
+
+  pillarInputs.forEach(i => {
+    i.addEventListener("input", () => {
+      state.pillars[i.dataset.pillar] = i.value;
+      const disp = document.querySelector('[data-name-for="' + i.dataset.pillar + '"]');
+      if(disp) disp.textContent = i.value || "Untitled pillar";
+      saveState();
+    });
+  });
+
+  textInputs.forEach(i => { i.addEventListener("input", () => { state.actions[i.dataset.text] = i.value; saveState(); }); });
+
+  checkboxes.forEach(cb => {
+    cb.addEventListener("change", () => { state.checked[cb.dataset.key] = cb.checked; renderProgress(); saveState(); });
+  });
+
+  document.getElementById("reset-btn").addEventListener("click", () => {
+    if(!confirm("Reset all 64 checkboxes to unchecked? Goal, pillar, and action text stay as-is.")) return;
+    checkboxes.forEach(cb => { cb.checked = false; state.checked[cb.dataset.key] = false; });
+    renderProgress();
+    saveState();
+  });
+
+  captureDefaults();
+  loadState().then(saved => { if(saved) state = saved; applyState(); });
+})();
+</script>
+
+</body>
+</html>

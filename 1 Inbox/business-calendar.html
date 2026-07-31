@@ -1,0 +1,1586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Business Calendar</title>
+<style>
+  :root{
+    --navy:#1e3a5f;
+    --navy-dark:#152a45;
+    --ink:#1f2937;
+    --ink-light:#4b5563;
+    --bg:#f4f6f8;
+    --panel:#ffffff;
+    --border:#dde3ea;
+    --border-strong:#c7d0da;
+    --danger:#b91c1c;
+    --danger-bg:#fdecec;
+    --warn:#92400e;
+    --warn-bg:#fef3e2;
+    --ok:#065f46;
+    --ok-bg:#e7f6ef;
+    --radius:4px;
+    --font: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    --mono: "SF Mono", "Consolas", "Menlo", monospace;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);font-family:var(--font);font-size:14px;line-height:1.45;}
+  h1,h2,h3,h4{margin:0 0 8px 0;font-weight:600;color:var(--ink);}
+  h1{font-size:18px;} h2{font-size:16px;} h3{font-size:14px;} h4{font-size:13px;text-transform:uppercase;letter-spacing:.04em;color:var(--ink-light);}
+  button{font-family:var(--font);cursor:pointer;}
+  input,select,textarea{font-family:var(--font);font-size:13px;}
+  a{color:var(--navy);}
+
+  /* Layout */
+  #topbar{background:var(--navy);color:#fff;padding:10px 16px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;position:sticky;top:0;z-index:50;}
+  #topbar .brand{font-size:16px;font-weight:700;letter-spacing:.01em;margin-right:8px;white-space:nowrap;}
+  #topbar select, #topbar .tb-btn{background:var(--navy-dark);color:#fff;border:1px solid #33547c;border-radius:var(--radius);padding:6px 10px;font-size:12.5px;}
+  #topbar .tb-btn:hover{background:#243f63;}
+  #topbar .spacer{flex:1;}
+  #savedIndicator{font-size:11px;color:#b9c9dd;white-space:nowrap;}
+
+  #nav{background:#fff;border-bottom:1px solid var(--border);padding:0 16px;display:flex;gap:2px;overflow-x:auto;}
+  #nav button{background:none;border:none;padding:10px 14px;font-size:13px;color:var(--ink-light);border-bottom:2px solid transparent;white-space:nowrap;}
+  #nav button.active{color:var(--navy);border-bottom-color:var(--navy);font-weight:600;}
+  #nav button:hover{color:var(--navy);}
+
+  #main{padding:16px;max-width:1400px;margin:0 auto;}
+  .panel{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);padding:14px;margin-bottom:14px;}
+  .row{display:flex;gap:14px;flex-wrap:wrap;}
+  .row > .panel{flex:1;min-width:260px;}
+
+  .btn{background:var(--navy);color:#fff;border:1px solid var(--navy);border-radius:var(--radius);padding:7px 12px;font-size:12.5px;font-weight:500;}
+  .btn:hover{background:var(--navy-dark);}
+  .btn-sec{background:#fff;color:var(--navy);border:1px solid var(--border-strong);}
+  .btn-sec:hover{background:#f0f3f7;}
+  .btn-danger{background:#fff;color:var(--danger);border:1px solid #f0c1c1;}
+  .btn-danger:hover{background:var(--danger-bg);}
+  .btn-sm{padding:4px 8px;font-size:11.5px;}
+  .btn[disabled]{opacity:.5;cursor:not-allowed;}
+
+  .fab{position:fixed;right:22px;bottom:22px;background:var(--navy);color:#fff;border:none;border-radius:50%;width:52px;height:52px;font-size:26px;box-shadow:0 3px 10px rgba(0,0,0,.25);z-index:40;}
+  .fab:hover{background:var(--navy-dark);}
+
+  /* Category chip */
+  .chip{display:inline-flex;align-items:center;gap:5px;padding:2px 7px;border-radius:3px;font-size:11px;color:#fff;line-height:1.6;}
+  .dot{width:8px;height:8px;border-radius:50%;display:inline-block;flex:none;}
+
+  /* Goal cards */
+  .goal-card{border:1px solid var(--border);border-radius:var(--radius);padding:12px;margin-bottom:10px;}
+  .goal-card .gc-top{display:flex;justify-content:space-between;align-items:flex-start;gap:8px;}
+  .goal-card .gc-name{font-weight:600;font-size:13.5px;}
+  .goal-card .gc-meta{font-size:11.5px;color:var(--ink-light);margin-top:2px;}
+  .progress-track{background:#eef1f4;border-radius:6px;height:10px;overflow:hidden;margin:8px 0 6px;}
+  .progress-fill{height:100%;border-radius:6px;}
+  .gc-nums{display:flex;justify-content:space-between;font-size:11.5px;color:var(--ink-light);}
+  .status-badge{font-size:10.5px;font-weight:600;padding:2px 6px;border-radius:3px;text-transform:uppercase;letter-spacing:.03em;}
+  .status-ontrack{background:var(--ok-bg);color:var(--ok);}
+  .status-atrisk{background:var(--warn-bg);color:var(--warn);}
+  .status-overdue{background:var(--danger-bg);color:var(--danger);}
+  .status-complete{background:#e7edf9;color:var(--navy);}
+
+  /* Tables */
+  table{width:100%;border-collapse:collapse;font-size:12.5px;}
+  th,td{border:1px solid var(--border);padding:6px 8px;text-align:left;vertical-align:top;}
+  th{background:#f8fafb;font-weight:600;color:var(--ink-light);font-size:11px;text-transform:uppercase;letter-spacing:.03em;}
+  tr:hover td{background:#fafcfe;}
+
+  /* Calendar grids */
+  .cal-nav{display:flex;align-items:center;gap:10px;margin-bottom:10px;}
+  .cal-nav .cal-title{font-size:16px;font-weight:700;flex:1;}
+  .month-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:1px;background:var(--border);border:1px solid var(--border);}
+  .month-grid .dow{background:#f8fafb;padding:6px;font-size:10.5px;font-weight:700;color:var(--ink-light);text-align:center;text-transform:uppercase;}
+  .day-cell{background:#fff;min-height:96px;padding:5px;cursor:pointer;position:relative;}
+  .day-cell:hover{background:#fafcff;}
+  .day-cell.othermonth{background:#fbfbfc;color:#b7c0cb;}
+  .day-cell.today{outline:2px solid var(--navy);outline-offset:-2px;}
+  .day-num{font-size:11.5px;font-weight:600;margin-bottom:3px;}
+  .day-chip{display:block;font-size:10px;color:#fff;border-radius:2px;padding:1px 4px;margin-bottom:2px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+  .day-extra{font-size:10px;color:var(--ink-light);}
+  .sg-badges{position:absolute;bottom:3px;right:4px;display:flex;gap:3px;}
+  .sg-badge{font-size:9px;font-weight:700;color:#fff;border-radius:8px;padding:1px 5px;}
+  .sg-shift{background:#0f766e;}
+  .sg-group{background:#b45309;}
+
+  .mini-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:1px;background:var(--border);border:1px solid var(--border);}
+  .mini-cell{background:#fff;min-height:34px;padding:2px 3px;font-size:9.5px;cursor:pointer;position:relative;}
+  .mini-cell.othermonth{background:#fbfbfc;color:#c3cbd4;}
+  .mini-cell.today{outline:1.5px solid var(--navy);outline-offset:-1.5px;}
+  .mini-dots{display:flex;gap:1px;flex-wrap:wrap;margin-top:2px;}
+  .mini-dot{width:5px;height:5px;border-radius:50%;}
+  .mini-dow{background:#f8fafb;padding:3px;font-size:8.5px;font-weight:700;text-align:center;color:var(--ink-light);}
+
+  .quarter-block, .year-block{margin-bottom:16px;}
+  .year-grid-wrap{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;}
+
+  /* Day view */
+  .agenda-list{border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;}
+  .agenda-item{display:flex;gap:10px;padding:9px 10px;border-bottom:1px solid var(--border);align-items:flex-start;}
+  .agenda-item:last-child{border-bottom:none;}
+  .agenda-time{width:70px;flex:none;font-size:11.5px;color:var(--ink-light);font-family:var(--mono);padding-top:2px;}
+  .agenda-body{flex:1;}
+  .agenda-title{font-weight:600;font-size:13px;}
+  .agenda-sub{font-size:11.5px;color:var(--ink-light);margin-top:1px;}
+  .agenda-actions{display:flex;gap:4px;}
+
+  .week-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:8px;}
+  .week-day-col{border:1px solid var(--border);border-radius:var(--radius);background:#fff;min-height:220px;}
+  .week-day-head{padding:6px 8px;border-bottom:1px solid var(--border);font-size:11.5px;font-weight:700;background:#f8fafb;}
+  .week-day-body{padding:6px;}
+  .wk-section-label{font-size:9.5px;text-transform:uppercase;letter-spacing:.04em;color:var(--ink-light);margin:6px 0 2px;}
+
+  /* Modal */
+  .overlay{position:fixed;inset:0;background:rgba(20,28,40,.55);display:none;align-items:flex-start;justify-content:center;z-index:100;padding:30px 14px;overflow-y:auto;}
+  .overlay.open{display:flex;}
+  .modal{background:#fff;border-radius:6px;width:100%;max-width:560px;padding:18px 20px 20px;box-shadow:0 8px 30px rgba(0,0,0,.3);}
+  .modal h2{margin-bottom:14px;}
+  .modal .close-x{float:right;background:none;border:none;font-size:18px;color:var(--ink-light);}
+  .field{margin-bottom:10px;}
+  .field label{display:block;font-size:11.5px;font-weight:600;color:var(--ink-light);margin-bottom:3px;text-transform:uppercase;letter-spacing:.02em;}
+  .field input, .field select, .field textarea{width:100%;padding:7px 8px;border:1px solid var(--border-strong);border-radius:var(--radius);}
+  .field textarea{min-height:56px;resize:vertical;}
+  .field-row{display:flex;gap:10px;}
+  .field-row > .field{flex:1;}
+  .type-tabs{display:flex;gap:4px;margin-bottom:14px;flex-wrap:wrap;}
+  .type-tabs button{flex:1;min-width:90px;padding:7px 4px;font-size:11.5px;border:1px solid var(--border-strong);background:#fff;border-radius:var(--radius);color:var(--ink-light);}
+  .type-tabs button.active{background:var(--navy);color:#fff;border-color:var(--navy);}
+  .modal-actions{display:flex;justify-content:space-between;margin-top:16px;gap:8px;}
+  .modal-actions .right{display:flex;gap:8px;}
+  .inline-msg{font-size:11.5px;padding:6px 8px;border-radius:3px;margin-top:6px;}
+  .inline-warn{background:var(--warn-bg);color:var(--warn);}
+  .inline-danger{background:var(--danger-bg);color:var(--danger);}
+  .hidden{display:none !important;}
+  .log-history{max-height:150px;overflow-y:auto;border:1px solid var(--border);border-radius:var(--radius);margin-top:6px;}
+  .log-history-row{display:flex;justify-content:space-between;padding:5px 8px;border-bottom:1px solid var(--border);font-size:11.5px;}
+  .log-history-row:last-child{border-bottom:none;}
+  .small-x{background:none;border:none;color:var(--danger);font-size:11px;cursor:pointer;}
+
+  .legend-row{display:flex;justify-content:space-between;align-items:center;padding:5px 0;border-bottom:1px solid #f0f2f4;font-size:12px;}
+  .legend-row:last-child{border-bottom:none;}
+  .count-pill{background:#eef1f4;color:var(--ink-light);font-size:11px;border-radius:10px;padding:1px 8px;}
+
+  .snapshot-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;}
+  .snapshot-box{border:1px solid var(--border);border-radius:var(--radius);padding:10px;text-align:center;}
+  .snapshot-num{font-size:19px;font-weight:700;color:var(--navy);}
+  .snapshot-label{font-size:10.5px;color:var(--ink-light);text-transform:uppercase;letter-spacing:.03em;margin-top:2px;}
+
+  .empty-note{color:var(--ink-light);font-size:12.5px;padding:6px 0;}
+
+  select#colorSel option{padding:4px;}
+
+  @media print{
+    #topbar,#nav,.fab,.no-print{display:none !important;}
+    body{background:#fff;}
+    #main{padding:0;max-width:none;}
+    .panel{border:none;padding:0;}
+  }
+
+  @media (max-width:760px){
+    .week-grid{grid-template-columns:1fr;}
+    .month-grid{font-size:11px;}
+    .day-cell{min-height:70px;}
+  }
+</style>
+</head>
+<body>
+
+<div id="topbar">
+  <div class="brand">Business Calendar</div>
+  <select id="entityFilter"></select>
+  <div class="spacer"></div>
+  <span id="savedIndicator">All changes saved locally</span>
+  <button class="tb-btn" id="manageBtn">Manage ▾</button>
+  <button class="tb-btn" id="exportBtn">Export</button>
+  <button class="tb-btn" id="importBtn">Import</button>
+  <input type="file" id="importFile" accept=".json" style="display:none;">
+</div>
+
+<div id="nav"></div>
+
+<div id="main"></div>
+
+<button class="fab no-print" id="fabBtn" title="Add new">+</button>
+
+<!-- Manage dropdown menu (simple positioned panel) -->
+<div id="manageMenu" class="overlay" style="align-items:flex-start;justify-content:flex-end;padding-top:44px;padding-right:16px;">
+  <div class="modal" style="max-width:230px;padding:8px;">
+    <button class="btn-sec" style="width:100%;text-align:left;margin-bottom:4px;" data-open="categories">Categories &amp; Colors</button>
+    <button class="btn-sec" style="width:100%;text-align:left;margin-bottom:4px;" data-open="entities">Entities</button>
+    <button class="btn-sec" style="width:100%;text-align:left;margin-bottom:4px;" data-open="goalsManage">All Goals</button>
+    <button class="btn-sec" style="width:100%;text-align:left;margin-bottom:4px;" data-open="templates">Shift Templates</button>
+    <button class="btn-sec" style="width:100%;text-align:left;margin-bottom:4px;" data-open="obligationsManage">Obligations</button>
+    <button class="btn-sec" style="width:100%;text-align:left;" data-open="settings">Settings</button>
+  </div>
+</div>
+
+<!-- Generic entry/goal/shift/group/expense/obligation modal -->
+<div id="entryModal" class="overlay">
+  <div class="modal">
+    <button class="close-x" data-close>&times;</button>
+    <h2 id="entryModalTitle">New Item</h2>
+    <div class="type-tabs" id="typeTabs">
+      <button data-type="entry" class="active">Calendar Entry</button>
+      <button data-type="goal">Goal (KPI/Revenue)</button>
+      <button data-type="shift">Shift</button>
+      <button data-type="group">Incoming Group</button>
+      <button data-type="expense">Expense</button>
+      <button data-type="obligation">Obligation</button>
+    </div>
+    <div id="entryFormArea"></div>
+    <div class="modal-actions">
+      <div>
+        <button class="btn-danger btn-sm hidden" id="deleteItemBtn">Delete</button>
+      </div>
+      <div class="right">
+        <button class="btn-sec btn-sm" data-close>Cancel</button>
+        <button class="btn btn-sm" id="saveItemBtn">Save</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Categories manage modal -->
+<div id="categoriesModal" class="overlay">
+  <div class="modal">
+    <button class="close-x" data-close>&times;</button>
+    <h2>Categories &amp; Colors</h2>
+    <div id="catList"></div>
+    <div class="field-row" style="margin-top:10px;">
+      <div class="field"><label>New Category Name</label><input id="newCatName" placeholder="e.g. Board Meeting"></div>
+      <div class="field" style="max-width:70px;"><label>Color</label><input id="newCatColor" type="color" value="#2563eb"></div>
+    </div>
+    <button class="btn btn-sm" id="addCatBtn">Add Category</button>
+  </div>
+</div>
+
+<!-- Entities manage modal -->
+<div id="entitiesModal" class="overlay">
+  <div class="modal">
+    <button class="close-x" data-close>&times;</button>
+    <h2>Entities</h2>
+    <div id="entList"></div>
+    <div class="field-row" style="margin-top:10px;">
+      <div class="field"><label>New Entity</label><input id="newEntName" placeholder="e.g. Verdant Ventures"></div>
+    </div>
+    <button class="btn btn-sm" id="addEntBtn">Add Entity</button>
+  </div>
+</div>
+
+<!-- Goals manage modal (list + log) -->
+<div id="goalsManageModal" class="overlay">
+  <div class="modal" style="max-width:640px;">
+    <button class="close-x" data-close>&times;</button>
+    <h2>All Goals</h2>
+    <div id="goalsManageList"></div>
+    <button class="btn btn-sm" id="newGoalFromManage">+ New Goal</button>
+  </div>
+</div>
+
+<!-- Log actual modal -->
+<div id="logModal" class="overlay">
+  <div class="modal" style="max-width:420px;">
+    <button class="close-x" data-close>&times;</button>
+    <h2>Log Actual</h2>
+    <div class="field-row">
+      <div class="field"><label>Date</label><input type="date" id="logDate"></div>
+      <div class="field"><label>Amount</label><input type="number" step="any" id="logAmount"></div>
+    </div>
+    <div class="field"><label>Note (optional)</label><input id="logNote" placeholder="e.g. Table 3 payout"></div>
+    <div class="field"><label>History</label><div class="log-history" id="logHistoryList"></div></div>
+    <div class="modal-actions">
+      <div></div>
+      <div class="right">
+        <button class="btn-sec btn-sm" data-close>Close</button>
+        <button class="btn btn-sm" id="saveLogBtn">Add Entry</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Shift templates modal -->
+<div id="templatesModal" class="overlay">
+  <div class="modal" style="max-width:640px;">
+    <button class="close-x" data-close>&times;</button>
+    <h2>Shift Templates</h2>
+    <p class="empty-note">Define a recurring weekly pattern once, then apply it to any date range to generate actual shifts.</p>
+    <div id="templateList"></div>
+    <h3 style="margin-top:14px;">New Template</h3>
+    <div class="field-row">
+      <div class="field"><label>Name</label><input id="tplName" placeholder="e.g. Front Desk Weekday"></div>
+      <div class="field"><label>Day of Week</label>
+        <select id="tplDow"><option value="0">Sunday</option><option value="1">Monday</option><option value="2">Tuesday</option><option value="3">Wednesday</option><option value="4">Thursday</option><option value="5">Friday</option><option value="6">Saturday</option></select>
+      </div>
+    </div>
+    <div class="field-row">
+      <div class="field"><label>Start Time</label><input type="time" id="tplStart" value="09:00"></div>
+      <div class="field"><label>End Time</label><input type="time" id="tplEnd" value="13:00"></div>
+    </div>
+    <div class="field-row">
+      <div class="field"><label>Person</label><input id="tplPerson" placeholder="e.g. J. Smith"></div>
+      <div class="field"><label>Role</label><input id="tplRole" placeholder="e.g. Front Desk"></div>
+    </div>
+    <div class="field"><label>Entity</label><select id="tplEntity"></select></div>
+    <button class="btn btn-sm" id="addTplBtn">Add Template</button>
+
+    <h3 style="margin-top:16px;">Apply Template to Date Range</h3>
+    <div class="field-row">
+      <div class="field"><label>Template</label><select id="applyTplSel"></select></div>
+    </div>
+    <div class="field-row">
+      <div class="field"><label>Start Date</label><input type="date" id="applyStart"></div>
+      <div class="field"><label>End Date</label><input type="date" id="applyEnd"></div>
+    </div>
+    <button class="btn btn-sm" id="applyTplBtn">Generate Shifts</button>
+    <div id="applyTplMsg"></div>
+  </div>
+</div>
+
+<!-- Obligations manage modal -->
+<div id="obligationsModal" class="overlay">
+  <div class="modal" style="max-width:640px;">
+    <button class="close-x" data-close>&times;</button>
+    <h2>Obligations &amp; Compliance</h2>
+    <div id="obligationList"></div>
+    <button class="btn btn-sm" id="newOblFromManage">+ New Obligation</button>
+  </div>
+</div>
+
+<!-- Settings modal -->
+<div id="settingsModal" class="overlay">
+  <div class="modal">
+    <button class="close-x" data-close>&times;</button>
+    <h2>Settings</h2>
+    <div class="field"><label>Venue / Room Capacity (max occupancy)</label><input type="number" id="settingCapacity" placeholder="e.g. 60"></div>
+    <div class="field"><label>Week Starts On</label>
+      <select id="settingWeekStart"><option value="0">Sunday</option><option value="1">Monday</option></select>
+    </div>
+    <button class="btn btn-sm" id="saveSettingsBtn">Save Settings</button>
+  </div>
+</div>
+
+<script>
+/* =========================================================
+   DATA MODEL & PERSISTENCE
+   ========================================================= */
+const STORAGE_KEY = 'bizCalendarData_v1';
+
+function uid(){ return 'id' + Date.now().toString(36) + Math.random().toString(36).slice(2,8); }
+
+function defaultData(){
+  return {
+    categories: [
+      {id:'hol', name:'Holiday', color:'#6b7280'},
+      {id:'kpi', name:'KPI Goal', color:'#7c3aed'},
+      {id:'rev', name:'Revenue Goal', color:'#059669'},
+      {id:'camp', name:'Campaign / Event', color:'#d97706'},
+      {id:'meet', name:'Meeting', color:'#2563eb'}
+    ],
+    entities: ['General','The Common Good Network (CGN)','Kentucky NORML','Verdant Holdings','Verdant Management Partners','Verdant Ventures'],
+    entries: [],
+    goals: [],
+    shifts: [],
+    shiftTemplates: [],
+    groups: [],
+    expenses: [],
+    obligations: [],
+    settings: { capacity:null, weekStart:0 }
+  };
+}
+
+let DB = load();
+function load(){
+  try{
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if(!raw) return defaultData();
+    const parsed = JSON.parse(raw);
+    const d = defaultData();
+    return Object.assign(d, parsed);
+  }catch(e){
+    console.error('Load failed, using defaults', e);
+    return defaultData();
+  }
+}
+function save(){
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(DB));
+  const el = document.getElementById('savedIndicator');
+  el.textContent = 'Saved ' + new Date().toLocaleTimeString([], {hour:'2-digit',minute:'2-digit'});
+  setTimeout(()=>{ el.textContent = 'All changes saved locally'; }, 2500);
+}
+
+/* =========================================================
+   DATE HELPERS
+   ========================================================= */
+function pad(n){ return n<10 ? '0'+n : ''+n; }
+function fmtDate(d){ return d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate()); }
+function parseDate(s){ const [y,m,d] = s.split('-').map(Number); return new Date(y, m-1, d); }
+function todayStr(){ return fmtDate(new Date()); }
+function addDays(d, n){ const r = new Date(d); r.setDate(r.getDate()+n); return r; }
+function addMonths(d, n){ const r = new Date(d); r.setMonth(r.getMonth()+n); return r; }
+function daysBetween(a,b){ return Math.round((parseDate(b) - parseDate(a)) / 86400000); }
+const MONTH_NAMES = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+const DOW_NAMES = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+function fmtHuman(dstr){
+  if(!dstr) return '';
+  const d = parseDate(dstr);
+  return MONTH_NAMES[d.getMonth()].slice(0,3)+' '+d.getDate()+', '+d.getFullYear();
+}
+function fmtMoney(n){
+  n = Number(n)||0;
+  return '$' + n.toLocaleString(undefined,{minimumFractionDigits:0,maximumFractionDigits:2});
+}
+function timeLabel(t){
+  if(!t) return '';
+  const [h,m] = t.split(':').map(Number);
+  const ap = h>=12?'PM':'AM';
+  let hh = h%12; if(hh===0) hh=12;
+  return hh+':'+pad(m)+' '+ap;
+}
+
+/* =========================================================
+   APP STATE
+   ========================================================= */
+let state = {
+  view: 'dashboard',
+  cursorDate: new Date(), // date used as anchor for whichever view is active
+  entityFilter: 'all',
+  editing: null // {type, id} when editing existing item
+};
+
+function catById(id){ return DB.categories.find(c=>c.id===id); }
+function catColor(id){ const c = catById(id); return c ? c.color : '#94a3b8'; }
+function catName(id){ const c = catById(id); return c ? c.name : 'Uncategorized'; }
+
+function passesEntityFilter(entity){
+  return state.entityFilter === 'all' || entity === state.entityFilter;
+}
+
+/* =========================================================
+   GOAL CALCULATIONS
+   ========================================================= */
+function goalTotal(goal){
+  return (goal.logs||[]).reduce((s,l)=> s + (Number(l.amount)||0), 0);
+}
+function goalStatus(goal){
+  const total = goalTotal(goal);
+  const pct = goal.target>0 ? Math.min(100, (total/goal.target)*100) : 0;
+  if(pct>=100) return {status:'complete', label:'Complete', pct};
+  const today = todayStr();
+  if(goal.dueDate && goal.dueDate < today) return {status:'overdue', label:'Overdue', pct};
+  if(goal.dueDate){
+    const daysLeft = daysBetween(today, goal.dueDate);
+    if(daysLeft<=14 && pct<80) return {status:'atrisk', label:'At Risk', pct};
+  }
+  return {status:'ontrack', label:'On Track', pct};
+}
+
+/* =========================================================
+   OBLIGATION RECURRENCE
+   ========================================================= */
+function nextDueDate(obl){
+  if(obl.recurrence==='once' || !obl.recurrence) return obl.dueDate;
+  let d = parseDate(obl.dueDate);
+  const today = new Date(); today.setHours(0,0,0,0);
+  let guard = 0;
+  while(d < today && guard < 800){
+    if(obl.recurrence==='monthly') d = addMonths(d,1);
+    else if(obl.recurrence==='quarterly') d = addMonths(d,3);
+    else if(obl.recurrence==='annual') d = addMonths(d,12);
+    else break;
+    guard++;
+  }
+  return fmtDate(d);
+}
+
+/* =========================================================
+   RENDER: NAV
+   ========================================================= */
+const VIEWS = [
+  {id:'dashboard', label:'Dashboard'},
+  {id:'day', label:'Day'},
+  {id:'week', label:'Week'},
+  {id:'month', label:'Month'},
+  {id:'quarter', label:'Quarter'},
+  {id:'year', label:'Year'},
+  {id:'reports', label:'Reports'}
+];
+function renderNav(){
+  const nav = document.getElementById('nav');
+  nav.innerHTML = VIEWS.map(v=>`<button data-view="${v.id}" class="${state.view===v.id?'active':''}">${v.label}</button>`).join('');
+  nav.querySelectorAll('button').forEach(b=>{
+    b.addEventListener('click', ()=>{ state.view = b.dataset.view; renderAll(); });
+  });
+}
+function renderEntityFilter(){
+  const sel = document.getElementById('entityFilter');
+  sel.innerHTML = '<option value="all">All Entities</option>' + DB.entities.map(e=>`<option value="${escapeHtml(e)}">${escapeHtml(e)}</option>`).join('');
+  sel.value = state.entityFilter;
+  sel.onchange = ()=>{ state.entityFilter = sel.value; renderMain(); };
+}
+function escapeHtml(s){
+  return String(s).replace(/[&<>"']/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
+
+function renderAll(){
+  renderNav();
+  renderEntityFilter();
+  renderMain();
+}
+
+/* =========================================================
+   MAIN DISPATCH
+   ========================================================= */
+function renderMain(){
+  const main = document.getElementById('main');
+  if(state.view==='dashboard') main.innerHTML = renderDashboard();
+  else if(state.view==='day') main.innerHTML = renderDayView();
+  else if(state.view==='week') main.innerHTML = renderWeekView();
+  else if(state.view==='month') main.innerHTML = renderMonthView();
+  else if(state.view==='quarter') main.innerHTML = renderQuarterView();
+  else if(state.view==='year') main.innerHTML = renderYearView();
+  else if(state.view==='reports') main.innerHTML = renderReportsView();
+  attachMainHandlers();
+}
+
+/* =========================================================
+   DASHBOARD
+   ========================================================= */
+function renderDashboard(){
+  const today = todayStr();
+  const goals = DB.goals.filter(g=>passesEntityFilter(g.entity));
+
+  // Goal cards
+  const goalCards = goals.length ? goals.map(goalCardHtml).join('') : '<div class="empty-note">No goals yet. Use "+" to add a KPI or Revenue goal.</div>';
+
+  // Upcoming deadlines: goals (not complete) + entries with future date, next 8
+  let deadlineItems = [];
+  goals.forEach(g=>{
+    const st = goalStatus(g);
+    if(st.status!=='complete' && g.dueDate) deadlineItems.push({date:g.dueDate, label:g.name+' ('+(g.type==='revenue'?'Revenue':'KPI')+' Goal)', entity:g.entity});
+  });
+  DB.entries.filter(e=>passesEntityFilter(e.entity) && e.date>=today).forEach(e=>{
+    deadlineItems.push({date:e.date, label:e.title+' — '+catName(e.categoryId), entity:e.entity});
+  });
+  deadlineItems.sort((a,b)=> a.date.localeCompare(b.date));
+  deadlineItems = deadlineItems.slice(0,8);
+  const deadlinesHtml = deadlineItems.length ? deadlineItems.map(i=>`
+    <div class="legend-row"><span>${fmtHuman(i.date)} — ${escapeHtml(i.label)}</span><span class="count-pill">${escapeHtml(i.entity||'General')}</span></div>
+  `).join('') : '<div class="empty-note">Nothing on the horizon.</div>';
+
+  // Month snapshot
+  const now = new Date();
+  const monthStr = now.getFullYear()+'-'+pad(now.getMonth()+1);
+  const revLogsThisMonth = [];
+  goals.filter(g=>g.type==='revenue').forEach(g=> (g.logs||[]).forEach(l=>{ if(l.date && l.date.startsWith(monthStr)) revLogsThisMonth.push(Number(l.amount)||0); }));
+  const revenueThisMonth = revLogsThisMonth.reduce((a,b)=>a+b,0);
+  const expensesThisMonth = DB.expenses.filter(e=>passesEntityFilter(e.entity) && e.date && e.date.startsWith(monthStr)).reduce((s,e)=>s+(Number(e.amount)||0),0);
+  const net = revenueThisMonth - expensesThisMonth;
+  const onTrackCount = goals.filter(g=>{const s=goalStatus(g); return s.status==='ontrack'||s.status==='complete';}).length;
+  const behindCount = goals.filter(g=>{const s=goalStatus(g); return s.status==='atrisk'||s.status==='overdue';}).length;
+
+  // Category legend counts (this month, entries)
+  const legendCounts = DB.categories.map(c=>{
+    const count = DB.entries.filter(e=>passesEntityFilter(e.entity) && e.categoryId===c.id && e.date && e.date.startsWith(monthStr)).length;
+    return {c, count};
+  });
+
+  // Today's schedule
+  const todaysShifts = DB.shifts.filter(s=>passesEntityFilter(s.entity) && s.date===today).sort((a,b)=>(a.start||'').localeCompare(b.start||''));
+  const todaysGroups = DB.groups.filter(g=>passesEntityFilter(g.entity) && g.date===today).sort((a,b)=>(a.time||'').localeCompare(b.time||''));
+  const shiftsHtml = todaysShifts.length ? todaysShifts.map(shiftRowHtml).join('') : '<div class="empty-note">No shifts scheduled today.</div>';
+  const groupsHtml = todaysGroups.length ? todaysGroups.map(groupRowHtml).join('') : '<div class="empty-note">No incoming groups today.</div>';
+
+  // Obligations upcoming
+  const oblUpcoming = DB.obligations.filter(o=>passesEntityFilter(o.entity) && !(o.recurrence==='once' && o.completed))
+    .map(o=>({o, next: nextDueDate(o)}))
+    .sort((a,b)=> a.next.localeCompare(b.next))
+    .slice(0,6);
+  const oblHtml = oblUpcoming.length ? oblUpcoming.map(({o,next})=>{
+    const daysLeft = daysBetween(today, next);
+    let cls = 'status-ontrack';
+    if(daysLeft<0) cls='status-overdue'; else if(daysLeft<=7) cls='status-atrisk';
+    return `<div class="legend-row"><span>${fmtHuman(next)} — ${escapeHtml(o.name)} <span class="count-pill">${o.category==='compliance'?'Compliance':'Financial'}</span></span><span class="status-badge ${cls}">${daysLeft<0?'Overdue':(daysLeft+'d')}</span></div>`;
+  }).join('') : '<div class="empty-note">No obligations tracked yet.</div>';
+
+  return `
+  <div class="row">
+    <div class="panel" style="flex:2;min-width:320px;">
+      <h2>Goal Progress</h2>
+      ${goalCards}
+    </div>
+    <div class="panel" style="min-width:280px;">
+      <h2>This Month Snapshot</h2>
+      <div class="snapshot-grid">
+        <div class="snapshot-box"><div class="snapshot-num">${fmtMoney(revenueThisMonth)}</div><div class="snapshot-label">Revenue Logged</div></div>
+        <div class="snapshot-box"><div class="snapshot-num">${fmtMoney(expensesThisMonth)}</div><div class="snapshot-label">Expenses</div></div>
+        <div class="snapshot-box"><div class="snapshot-num">${fmtMoney(net)}</div><div class="snapshot-label">Net Position</div></div>
+        <div class="snapshot-box"><div class="snapshot-num">${onTrackCount}/${goals.length}</div><div class="snapshot-label">Goals On Track</div></div>
+      </div>
+      ${behindCount>0 ? `<div class="inline-msg inline-warn" style="margin-top:10px;">${behindCount} goal(s) at risk or overdue — see Goal Progress.</div>` : ''}
+      <h2 style="margin-top:16px;">Category Legend (this month)</h2>
+      ${legendCounts.map(({c,count})=>`<div class="legend-row"><span><span class="dot" style="background:${c.color}"></span>&nbsp; ${escapeHtml(c.name)}</span><span class="count-pill">${count}</span></div>`).join('')}
+    </div>
+  </div>
+  <div class="row">
+    <div class="panel">
+      <h2>Today's Schedule</h2>
+      <h4>Shifts</h4>
+      ${shiftsHtml}
+      <h4 style="margin-top:10px;">Incoming Groups</h4>
+      ${groupsHtml}
+    </div>
+    <div class="panel">
+      <h2>Upcoming Deadlines</h2>
+      ${deadlinesHtml}
+    </div>
+    <div class="panel">
+      <h2>Obligations &amp; Compliance</h2>
+      ${oblHtml}
+      <button class="btn-sec btn-sm no-print" style="margin-top:8px;" data-open-modal="obligationsManage">Manage Obligations</button>
+    </div>
+  </div>
+  <div class="row no-print">
+    <div class="panel" style="text-align:center;">
+      <button class="btn-sec" data-view="day">Jump to Day</button>
+      <button class="btn-sec" data-view="week">Jump to Week</button>
+      <button class="btn-sec" data-view="month">Jump to Month</button>
+      <button class="btn-sec" data-view="quarter">Jump to Quarter</button>
+      <button class="btn-sec" data-view="year">Jump to Year</button>
+    </div>
+  </div>
+  `;
+}
+
+function goalCardHtml(g){
+  const total = goalTotal(g);
+  const st = goalStatus(g);
+  const color = g.type==='revenue' ? '#059669' : '#7c3aed';
+  const statusCls = 'status-'+st.status;
+  return `
+  <div class="goal-card" data-goal-id="${g.id}">
+    <div class="gc-top">
+      <div>
+        <div class="gc-name">${escapeHtml(g.name)}</div>
+        <div class="gc-meta">${g.type==='revenue'?'Revenue Goal':'KPI Goal'} · ${escapeHtml(g.entity||'General')}${g.dueDate?(' · Due '+fmtHuman(g.dueDate)):''}</div>
+      </div>
+      <span class="status-badge ${statusCls}">${st.label}</span>
+    </div>
+    <div class="progress-track"><div class="progress-fill" style="width:${st.pct}%;background:${color};"></div></div>
+    <div class="gc-nums">
+      <span>${g.type==='revenue'?fmtMoney(total):total.toLocaleString()+' '+(g.unit||'')}</span>
+      <span>Target: ${g.type==='revenue'?fmtMoney(g.target):g.target.toLocaleString()+' '+(g.unit||'')}</span>
+      <span>${st.pct.toFixed(0)}%</span>
+    </div>
+    <div style="margin-top:8px;display:flex;gap:6px;" class="no-print">
+      <button class="btn btn-sm log-goal-btn" data-id="${g.id}">+ Log Actual</button>
+      <button class="btn-sec btn-sm edit-item-btn" data-type="goal" data-id="${g.id}">Edit</button>
+    </div>
+  </div>`;
+}
+
+function shiftRowHtml(s){
+  const unfilled = !s.person || !s.person.trim();
+  return `<div class="legend-row">
+    <span>${timeLabel(s.start)}–${timeLabel(s.end)} — ${unfilled?'<b style="color:var(--danger)">UNFILLED</b>':escapeHtml(s.person)} ${s.role?'('+escapeHtml(s.role)+')':''}</span>
+    <span class="count-pill edit-item-btn" data-type="shift" data-id="${s.id}" style="cursor:pointer;">${escapeHtml(s.entity||'General')}</span>
+  </div>`;
+}
+function groupRowHtml(g){
+  return `<div class="legend-row">
+    <span>${g.time?timeLabel(g.time)+' — ':''}${escapeHtml(g.name)} (${g.size||0} guests) ${g.status==='tentative'?'<i>tentative</i>':''}</span>
+    <span class="count-pill edit-item-btn" data-type="group" data-id="${g.id}" style="cursor:pointer;">${escapeHtml(g.entity||'General')}</span>
+  </div>`;
+}
+
+/* =========================================================
+   DAY VIEW
+   ========================================================= */
+function renderDayView(){
+  const dstr = fmtDate(state.cursorDate);
+  const entries = DB.entries.filter(e=>passesEntityFilter(e.entity) && e.date===dstr).sort((a,b)=>(a.time||'').localeCompare(b.time||''));
+  const shifts = DB.shifts.filter(s=>passesEntityFilter(s.entity) && s.date===dstr).sort((a,b)=>(a.start||'').localeCompare(b.start||''));
+  const groups = DB.groups.filter(g=>passesEntityFilter(g.entity) && g.date===dstr).sort((a,b)=>(a.time||'').localeCompare(b.time||''));
+
+  const cap = DB.settings.capacity;
+  const capUsed = groups.reduce((s,g)=>s+(Number(g.size)||0),0);
+  const capWarn = cap && capUsed > cap;
+
+  const entryHtml = entries.length ? entries.map(e=>`
+    <div class="agenda-item">
+      <div class="agenda-time">${e.time?timeLabel(e.time):''}</div>
+      <div class="agenda-body">
+        <span class="chip" style="background:${catColor(e.categoryId)}">${escapeHtml(catName(e.categoryId))}</span>
+        <div class="agenda-title">${escapeHtml(e.title)}</div>
+        ${e.notes?`<div class="agenda-sub">${escapeHtml(e.notes)}</div>`:''}
+        <div class="agenda-sub">${escapeHtml(e.entity||'General')}</div>
+      </div>
+      <div class="agenda-actions no-print"><button class="btn-sec btn-sm edit-item-btn" data-type="entry" data-id="${e.id}">Edit</button></div>
+    </div>`).join('') : '<div class="agenda-item"><div class="agenda-body empty-note">No calendar entries.</div></div>';
+
+  const shiftHtml = shifts.length ? shifts.map(s=>`
+    <div class="agenda-item">
+      <div class="agenda-time">${timeLabel(s.start)}–${timeLabel(s.end)}</div>
+      <div class="agenda-body">
+        <div class="agenda-title">${!s.person? '<span style="color:var(--danger)">UNFILLED</span>' : escapeHtml(s.person)} ${s.role?'— '+escapeHtml(s.role):''}</div>
+        <div class="agenda-sub">${escapeHtml(s.entity||'General')}${s.notes?' · '+escapeHtml(s.notes):''}</div>
+      </div>
+      <div class="agenda-actions no-print"><button class="btn-sec btn-sm edit-item-btn" data-type="shift" data-id="${s.id}">Edit</button></div>
+    </div>`).join('') : '<div class="agenda-item"><div class="agenda-body empty-note">No shifts scheduled.</div></div>';
+
+  const groupHtml = groups.length ? groups.map(g=>`
+    <div class="agenda-item">
+      <div class="agenda-time">${g.time?timeLabel(g.time):'—'}</div>
+      <div class="agenda-body">
+        <div class="agenda-title">${escapeHtml(g.name)} — ${g.size||0} guests <span class="chip" style="background:${g.status==='confirmed'?'#059669':'#d97706'}">${g.status||'tentative'}</span></div>
+        <div class="agenda-sub">${escapeHtml(g.contact||'')}${g.notes?' · '+escapeHtml(g.notes):''} · ${escapeHtml(g.entity||'General')}</div>
+      </div>
+      <div class="agenda-actions no-print"><button class="btn-sec btn-sm edit-item-btn" data-type="group" data-id="${g.id}">Edit</button></div>
+    </div>`).join('') : '<div class="agenda-item"><div class="agenda-body empty-note">No incoming groups.</div></div>';
+
+  return `
+  <div class="panel">
+    <div class="cal-nav">
+      <button class="btn-sec btn-sm" id="dayPrev">&larr; Prev</button>
+      <div class="cal-title">${DOW_NAMES[state.cursorDate.getDay()]==='Sun'?'Sunday':''}${fmtHuman(dstr)}${dstr===todayStr()?' (Today)':''}</div>
+      <button class="btn-sec btn-sm" id="dayToday">Today</button>
+      <button class="btn-sec btn-sm" id="dayNext">Next &rarr;</button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="panel" style="flex:1.4;">
+      <h3>Calendar Entries</h3>
+      <div class="agenda-list">${entryHtml}</div>
+    </div>
+    <div class="panel">
+      <h3>Shifts</h3>
+      <div class="agenda-list">${shiftHtml}</div>
+      <h3 style="margin-top:14px;">Incoming Groups ${cap?`<span class="count-pill" style="${capWarn?'background:var(--danger-bg);color:var(--danger)':''}">${capUsed}/${cap} capacity</span>`:''}</h3>
+      <div class="agenda-list">${groupHtml}</div>
+    </div>
+  </div>`;
+}
+
+/* =========================================================
+   WEEK VIEW
+   ========================================================= */
+function weekStartFor(d){
+  const ws = DB.settings.weekStart || 0;
+  const day = d.getDay();
+  const diff = (day - ws + 7) % 7;
+  return addDays(d, -diff);
+}
+function renderWeekView(){
+  const start = weekStartFor(state.cursorDate);
+  const days = Array.from({length:7}, (_,i)=>addDays(start,i));
+  const today = todayStr();
+
+  const cols = days.map(d=>{
+    const dstr = fmtDate(d);
+    const entries = DB.entries.filter(e=>passesEntityFilter(e.entity) && e.date===dstr);
+    const shifts = DB.shifts.filter(s=>passesEntityFilter(s.entity) && s.date===dstr);
+    const groups = DB.groups.filter(g=>passesEntityFilter(g.entity) && g.date===dstr);
+    return `
+    <div class="week-day-col">
+      <div class="week-day-head" style="${dstr===today?'color:var(--navy)':''}">${DOW_NAMES[d.getDay()]} ${d.getDate()}</div>
+      <div class="week-day-body">
+        ${entries.map(e=>`<span class="day-chip" style="background:${catColor(e.categoryId)};display:block;cursor:pointer;" data-type="entry" data-id="${e.id}" class="edit-item-btn">${escapeHtml(e.title)}</span>`).join('')}
+        ${shifts.length?`<div class="wk-section-label">Shifts</div>`+shifts.map(s=>`<div class="day-chip" style="background:#0f766e;cursor:pointer;" data-type="shift" data-id="${s.id}">${timeLabel(s.start)} ${escapeHtml(s.person||'UNFILLED')}</div>`).join(''):''}
+        ${groups.length?`<div class="wk-section-label">Groups</div>`+groups.map(g=>`<div class="day-chip" style="background:#b45309;cursor:pointer;" data-type="group" data-id="${g.id}">${escapeHtml(g.name)} (${g.size||0})</div>`).join(''):''}
+        <button class="btn-sec btn-sm no-print" style="width:100%;margin-top:6px;" data-add-date="${dstr}">+ Add</button>
+      </div>
+    </div>`;
+  }).join('');
+
+  return `
+  <div class="panel">
+    <div class="cal-nav">
+      <button class="btn-sec btn-sm" id="weekPrev">&larr; Prev</button>
+      <div class="cal-title">Week of ${fmtHuman(fmtDate(start))}</div>
+      <button class="btn-sec btn-sm" id="weekToday">Today</button>
+      <button class="btn-sec btn-sm" id="weekNext">Next &rarr;</button>
+    </div>
+  </div>
+  <div class="week-grid">${cols}</div>
+  `;
+}
+
+/* =========================================================
+   MONTH VIEW
+   ========================================================= */
+function buildMonthCells(year, month){
+  const ws = DB.settings.weekStart || 0;
+  const first = new Date(year, month, 1);
+  const startOffset = (first.getDay() - ws + 7) % 7;
+  const gridStart = addDays(first, -startOffset);
+  return Array.from({length:42}, (_,i)=>addDays(gridStart, i));
+}
+function renderMonthView(){
+  const year = state.cursorDate.getFullYear();
+  const month = state.cursorDate.getMonth();
+  const cells = buildMonthCells(year, month);
+  const today = todayStr();
+  const ws = DB.settings.weekStart || 0;
+  const dowLabels = Array.from({length:7},(_,i)=>DOW_NAMES[(i+ws)%7]);
+
+  const cellsHtml = cells.map(d=>{
+    const dstr = fmtDate(d);
+    const isOther = d.getMonth()!==month;
+    const entries = DB.entries.filter(e=>passesEntityFilter(e.entity) && e.date===dstr);
+    const shifts = DB.shifts.filter(s=>passesEntityFilter(s.entity) && s.date===dstr);
+    const groups = DB.groups.filter(g=>passesEntityFilter(g.entity) && g.date===dstr);
+    const shown = entries.slice(0,3);
+    const extra = entries.length - shown.length;
+    return `<div class="day-cell ${isOther?'othermonth':''} ${dstr===today?'today':''}" data-date="${dstr}">
+      <div class="day-num">${d.getDate()}</div>
+      ${shown.map(e=>`<span class="day-chip" style="background:${catColor(e.categoryId)}">${escapeHtml(e.title)}</span>`).join('')}
+      ${extra>0?`<div class="day-extra">+${extra} more</div>`:''}
+      <div class="sg-badges">
+        ${shifts.length?`<span class="sg-badge sg-shift">${shifts.length}S</span>`:''}
+        ${groups.length?`<span class="sg-badge sg-group">${groups.length}G</span>`:''}
+      </div>
+    </div>`;
+  }).join('');
+
+  return `
+  <div class="panel">
+    <div class="cal-nav">
+      <button class="btn-sec btn-sm" id="monthPrev">&larr; Prev</button>
+      <div class="cal-title">${MONTH_NAMES[month]} ${year}</div>
+      <button class="btn-sec btn-sm" id="monthToday">Today</button>
+      <button class="btn-sec btn-sm" id="monthNext">Next &rarr;</button>
+    </div>
+  </div>
+  <div class="month-grid">
+    ${dowLabels.map(l=>`<div class="dow">${l}</div>`).join('')}
+    ${cellsHtml}
+  </div>
+  <div class="panel" style="margin-top:10px;">
+    ${DB.categories.map(c=>`<span class="chip" style="background:${c.color};margin-right:6px;">${escapeHtml(c.name)}</span>`).join('')}
+    <span class="chip" style="background:#0f766e;">Shifts (S)</span>
+    <span class="chip" style="background:#b45309;">Groups (G)</span>
+  </div>
+  `;
+}
+
+/* =========================================================
+   MINI MONTH (for Quarter / Year)
+   ========================================================= */
+function renderMiniMonth(year, month){
+  const cells = buildMonthCells(year, month);
+  const today = todayStr();
+  const ws = DB.settings.weekStart || 0;
+  const dowLabels = Array.from({length:7},(_,i)=>DOW_NAMES[(i+ws)%7][0]);
+  const cellsHtml = cells.map(d=>{
+    const dstr = fmtDate(d);
+    const isOther = d.getMonth()!==month;
+    const entries = DB.entries.filter(e=>passesEntityFilter(e.entity) && e.date===dstr);
+    const hasSG = DB.shifts.some(s=>passesEntityFilter(s.entity) && s.date===dstr) || DB.groups.some(g=>passesEntityFilter(g.entity) && g.date===dstr);
+    const dots = entries.slice(0,4).map(e=>`<span class="mini-dot" style="background:${catColor(e.categoryId)}"></span>`).join('');
+    return `<div class="mini-cell ${isOther?'othermonth':''} ${dstr===today?'today':''}" data-date="${dstr}" data-jump-day="1">
+      ${d.getDate()}${hasSG?' •':''}
+      <div class="mini-dots">${dots}</div>
+    </div>`;
+  }).join('');
+  return `<div class="quarter-block">
+    <h3>${MONTH_NAMES[month]} ${year}</h3>
+    <div class="mini-grid">
+      ${dowLabels.map(l=>`<div class="mini-dow">${l}</div>`).join('')}
+      ${cellsHtml}
+    </div>
+  </div>`;
+}
+
+/* =========================================================
+   QUARTER VIEW
+   ========================================================= */
+function renderQuarterView(){
+  const year = state.cursorDate.getFullYear();
+  const month = state.cursorDate.getMonth();
+  const q = Math.floor(month/3);
+  const startMonth = q*3;
+  const qLabel = 'Q'+(q+1)+' '+year;
+  const monthsHtml = [0,1,2].map(i=>renderMiniMonth(year, startMonth+i)).join('');
+
+  const qStartStr = year+'-'+pad(startMonth+1)+'-01';
+  const qEndDate = new Date(year, startMonth+3, 0);
+  const qEndStr = fmtDate(qEndDate);
+
+  const goalsInQ = DB.goals.filter(g=>passesEntityFilter(g.entity) && g.dueDate && g.dueDate>=qStartStr && g.dueDate<=qEndStr);
+  const revLogged = DB.goals.filter(g=>passesEntityFilter(g.entity) && g.type==='revenue')
+    .reduce((sum,g)=> sum + (g.logs||[]).filter(l=>l.date>=qStartStr && l.date<=qEndStr).reduce((s,l)=>s+(Number(l.amount)||0),0), 0);
+
+  return `
+  <div class="panel">
+    <div class="cal-nav">
+      <button class="btn-sec btn-sm" id="quarterPrev">&larr; Prev</button>
+      <div class="cal-title">${qLabel}</div>
+      <button class="btn-sec btn-sm" id="quarterToday">Today</button>
+      <button class="btn-sec btn-sm" id="quarterNext">Next &rarr;</button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="panel" style="flex:2;min-width:340px;">
+      <div class="year-grid-wrap">${monthsHtml}</div>
+    </div>
+    <div class="panel" style="min-width:240px;">
+      <h3>Quarter Summary</h3>
+      <div class="snapshot-grid">
+        <div class="snapshot-box"><div class="snapshot-num">${fmtMoney(revLogged)}</div><div class="snapshot-label">Revenue Logged</div></div>
+        <div class="snapshot-box"><div class="snapshot-num">${goalsInQ.length}</div><div class="snapshot-label">Goals Due This Qtr</div></div>
+      </div>
+      <h4 style="margin-top:12px;">Goals Due</h4>
+      ${goalsInQ.length? goalsInQ.map(g=>`<div class="legend-row"><span>${escapeHtml(g.name)}</span><span class="count-pill">${fmtHuman(g.dueDate)}</span></div>`).join('') : '<div class="empty-note">None this quarter.</div>'}
+    </div>
+  </div>
+  `;
+}
+
+/* =========================================================
+   YEAR VIEW
+   ========================================================= */
+function renderYearView(){
+  const year = state.cursorDate.getFullYear();
+  const monthsHtml = Array.from({length:12},(_,m)=>renderMiniMonth(year, m)).join('');
+
+  const revByMonth = Array.from({length:12},()=>0);
+  DB.goals.filter(g=>passesEntityFilter(g.entity) && g.type==='revenue').forEach(g=>{
+    (g.logs||[]).forEach(l=>{
+      if(l.date && l.date.startsWith(''+year)){
+        const m = parseInt(l.date.split('-')[1],10)-1;
+        revByMonth[m] += Number(l.amount)||0;
+      }
+    });
+  });
+  const maxRev = Math.max(...revByMonth, 1);
+
+  return `
+  <div class="panel">
+    <div class="cal-nav">
+      <button class="btn-sec btn-sm" id="yearPrev">&larr; Prev</button>
+      <div class="cal-title">${year}</div>
+      <button class="btn-sec btn-sm" id="yearToday">Today</button>
+      <button class="btn-sec btn-sm" id="yearNext">Next &rarr;</button>
+    </div>
+  </div>
+  <div class="panel">
+    <h3>Revenue Logged by Month</h3>
+    <div style="display:flex;align-items:flex-end;gap:6px;height:90px;">
+      ${revByMonth.map((v,i)=>`<div style="flex:1;text-align:center;"><div style="background:#059669;height:${Math.max(2,(v/maxRev)*70)}px;border-radius:2px 2px 0 0;"></div><div style="font-size:9px;color:var(--ink-light);margin-top:2px;">${MONTH_NAMES[i].slice(0,3)}</div></div>`).join('')}
+    </div>
+  </div>
+  <div class="year-grid-wrap">${monthsHtml}</div>
+  `;
+}
+
+/* =========================================================
+   REPORTS VIEW (Staffing Sheet + Year-End Summary)
+   ========================================================= */
+function renderReportsView(){
+  const wStart = fmtDate(weekStartFor(state.cursorDate));
+  const year = state.cursorDate.getFullYear();
+
+  return `
+  <div class="panel">
+    <h2>Weekly Staffing Sheet</h2>
+    <div class="field-row no-print" style="max-width:320px;">
+      <div class="field"><label>Week Starting</label><input type="date" id="staffWeekStart" value="${wStart}"></div>
+      <div class="field" style="display:flex;align-items:flex-end;"><button class="btn btn-sm" id="printStaffBtn">Print</button></div>
+    </div>
+    <div id="staffSheetArea"></div>
+  </div>
+  <div class="panel">
+    <h2>Year-End Summary</h2>
+    <div class="field-row no-print" style="max-width:200px;">
+      <div class="field"><label>Year</label><input type="number" id="summaryYear" value="${year}"></div>
+    </div>
+    <div id="yearSummaryArea"></div>
+  </div>
+  `;
+}
+function renderStaffSheet(wStartStr){
+  const start = parseDate(wStartStr);
+  const days = Array.from({length:7},(_,i)=>addDays(start,i));
+  let rows = '<table><tr><th>Day</th><th>Shifts</th><th>Incoming Groups</th></tr>';
+  days.forEach(d=>{
+    const dstr = fmtDate(d);
+    const shifts = DB.shifts.filter(s=>passesEntityFilter(s.entity) && s.date===dstr).sort((a,b)=>(a.start||'').localeCompare(b.start||''));
+    const groups = DB.groups.filter(g=>passesEntityFilter(g.entity) && g.date===dstr).sort((a,b)=>(a.time||'').localeCompare(b.time||''));
+    const shiftCell = shifts.length ? shifts.map(s=>`${timeLabel(s.start)}–${timeLabel(s.end)}: ${s.person||'UNFILLED'}${s.role?' ('+s.role+')':''}`).join('<br>') : '—';
+    const groupCell = groups.length ? groups.map(g=>`${g.time?timeLabel(g.time)+' — ':''}${g.name} (${g.size||0}) [${g.status||'tentative'}]`).join('<br>') : '—';
+    rows += `<tr><td><b>${DOW_NAMES[d.getDay()]} ${MONTH_NAMES[d.getMonth()].slice(0,3)} ${d.getDate()}</b></td><td>${shiftCell}</td><td>${groupCell}</td></tr>`;
+  });
+  rows += '</table>';
+  return rows;
+}
+function renderYearSummary(year){
+  const goals = DB.goals.filter(g=>passesEntityFilter(g.entity));
+  if(!goals.length) return '<div class="empty-note">No goals to summarize.</div>';
+  let html = '<table><tr><th>Goal</th><th>Type</th><th>Target</th><th>Logged in '+year+'</th><th>% of Target</th></tr>';
+  goals.forEach(g=>{
+    const loggedYear = (g.logs||[]).filter(l=>l.date && l.date.startsWith(''+year)).reduce((s,l)=>s+(Number(l.amount)||0),0);
+    const pct = g.target>0 ? ((loggedYear/g.target)*100).toFixed(0) : '0';
+    html += `<tr><td>${escapeHtml(g.name)}</td><td>${g.type==='revenue'?'Revenue':'KPI'}</td><td>${g.type==='revenue'?fmtMoney(g.target):g.target}</td><td>${g.type==='revenue'?fmtMoney(loggedYear):loggedYear}</td><td>${pct}%</td></tr>`;
+  });
+  const totalExpenses = DB.expenses.filter(e=>passesEntityFilter(e.entity) && e.date && e.date.startsWith(''+year)).reduce((s,e)=>s+(Number(e.amount)||0),0);
+  const totalRevenue = DB.goals.filter(g=>passesEntityFilter(g.entity) && g.type==='revenue').reduce((sum,g)=> sum + (g.logs||[]).filter(l=>l.date && l.date.startsWith(''+year)).reduce((s,l)=>s+(Number(l.amount)||0),0), 0);
+  html += `<tr><td colspan="3"><b>Total Revenue Logged</b></td><td colspan="2"><b>${fmtMoney(totalRevenue)}</b></td></tr>`;
+  html += `<tr><td colspan="3"><b>Total Expenses</b></td><td colspan="2"><b>${fmtMoney(totalExpenses)}</b></td></tr>`;
+  html += `<tr><td colspan="3"><b>Net</b></td><td colspan="2"><b>${fmtMoney(totalRevenue-totalExpenses)}</b></td></tr>`;
+  html += '</table>';
+  return html;
+}
+
+/* =========================================================
+   MAIN VIEW EVENT HANDLERS (nav arrows, cell clicks, edit buttons)
+   ========================================================= */
+function attachMainHandlers(){
+  // jump buttons on dashboard
+  document.querySelectorAll('#main [data-view]').forEach(b=>{
+    b.addEventListener('click', ()=>{ state.view = b.dataset.view; renderAll(); });
+  });
+  document.querySelectorAll('#main [data-open-modal]').forEach(b=>{
+    b.addEventListener('click', ()=> openManageModal(b.dataset.openModal));
+  });
+
+  // Day nav
+  if(state.view==='day'){
+    document.getElementById('dayPrev').onclick = ()=>{ state.cursorDate = addDays(state.cursorDate,-1); renderMain(); };
+    document.getElementById('dayNext').onclick = ()=>{ state.cursorDate = addDays(state.cursorDate,1); renderMain(); };
+    document.getElementById('dayToday').onclick = ()=>{ state.cursorDate = new Date(); renderMain(); };
+  }
+  if(state.view==='week'){
+    document.getElementById('weekPrev').onclick = ()=>{ state.cursorDate = addDays(state.cursorDate,-7); renderMain(); };
+    document.getElementById('weekNext').onclick = ()=>{ state.cursorDate = addDays(state.cursorDate,7); renderMain(); };
+    document.getElementById('weekToday').onclick = ()=>{ state.cursorDate = new Date(); renderMain(); };
+    document.querySelectorAll('[data-add-date]').forEach(b=> b.addEventListener('click', ()=> openEntryModal('entry', null, b.dataset.addDate)));
+  }
+  if(state.view==='month'){
+    document.getElementById('monthPrev').onclick = ()=>{ state.cursorDate = addMonths(state.cursorDate,-1); renderMain(); };
+    document.getElementById('monthNext').onclick = ()=>{ state.cursorDate = addMonths(state.cursorDate,1); renderMain(); };
+    document.getElementById('monthToday').onclick = ()=>{ state.cursorDate = new Date(); renderMain(); };
+    document.querySelectorAll('.day-cell').forEach(c=> c.addEventListener('click', ()=>{ state.cursorDate = parseDate(c.dataset.date); state.view='day'; renderAll(); }));
+  }
+  if(state.view==='quarter'){
+    document.getElementById('quarterPrev').onclick = ()=>{ state.cursorDate = addMonths(state.cursorDate,-3); renderMain(); };
+    document.getElementById('quarterNext').onclick = ()=>{ state.cursorDate = addMonths(state.cursorDate,3); renderMain(); };
+    document.getElementById('quarterToday').onclick = ()=>{ state.cursorDate = new Date(); renderMain(); };
+    document.querySelectorAll('.mini-cell').forEach(c=> c.addEventListener('click', ()=>{ state.cursorDate = parseDate(c.dataset.date); state.view='day'; renderAll(); }));
+  }
+  if(state.view==='year'){
+    document.getElementById('yearPrev').onclick = ()=>{ state.cursorDate = addMonths(state.cursorDate,-12); renderMain(); };
+    document.getElementById('yearNext').onclick = ()=>{ state.cursorDate = addMonths(state.cursorDate,12); renderMain(); };
+    document.getElementById('yearToday').onclick = ()=>{ state.cursorDate = new Date(); renderMain(); };
+    document.querySelectorAll('.mini-cell').forEach(c=> c.addEventListener('click', ()=>{ state.cursorDate = parseDate(c.dataset.date); state.view='day'; renderAll(); }));
+  }
+  if(state.view==='reports'){
+    const renderStaff = ()=>{ document.getElementById('staffSheetArea').innerHTML = renderStaffSheet(document.getElementById('staffWeekStart').value); };
+    document.getElementById('staffWeekStart').onchange = renderStaff;
+    document.getElementById('printStaffBtn').onclick = ()=> window.print();
+    renderStaff();
+    const renderSummary = ()=>{ document.getElementById('yearSummaryArea').innerHTML = renderYearSummary(document.getElementById('summaryYear').value); };
+    document.getElementById('summaryYear').onchange = renderSummary;
+    renderSummary();
+  }
+
+  // edit buttons everywhere
+  document.querySelectorAll('.edit-item-btn').forEach(b=>{
+    b.addEventListener('click', (ev)=>{ ev.stopPropagation(); openEntryModal(b.dataset.type, b.dataset.id); });
+  });
+  document.querySelectorAll('.log-goal-btn').forEach(b=>{
+    b.addEventListener('click', (ev)=>{ ev.stopPropagation(); openLogModal(b.dataset.id); });
+  });
+}
+
+/* =========================================================
+   ENTRY MODAL (multi-type add/edit)
+   ========================================================= */
+let currentType = 'entry';
+function entitySelectHtml(id, selected){
+  return `<select id="${id}">${DB.entities.map(e=>`<option value="${escapeHtml(e)}" ${e===selected?'selected':''}>${escapeHtml(e)}</option>`).join('')}</select>`;
+}
+function categorySelectHtml(selected){
+  return `<select id="f_category">${DB.categories.map(c=>`<option value="${c.id}" ${c.id===selected?'selected':''}>${escapeHtml(c.name)}</option>`).join('')}</select>`;
+}
+
+function openEntryModal(type, id, prefillDate){
+  currentType = type;
+  state.editing = id ? {type, id} : null;
+  document.getElementById('entryModalTitle').textContent = id ? 'Edit Item' : 'New Item';
+  document.querySelectorAll('#typeTabs button').forEach(b=>{
+    b.classList.toggle('active', b.dataset.type===type);
+    b.disabled = !!id; // lock type when editing existing item
+  });
+  renderEntryForm(type, id, prefillDate);
+  document.getElementById('deleteItemBtn').classList.toggle('hidden', !id);
+  document.getElementById('entryModal').classList.add('open');
+}
+function closeModals(){
+  document.querySelectorAll('.overlay').forEach(o=>o.classList.remove('open'));
+}
+
+function renderEntryForm(type, id, prefillDate){
+  const area = document.getElementById('entryFormArea');
+  const dateVal = prefillDate || todayStr();
+  let obj = {};
+  if(id){
+    const list = type==='entry'?DB.entries:type==='goal'?DB.goals:type==='shift'?DB.shifts:type==='group'?DB.groups:type==='expense'?DB.expenses:DB.obligations;
+    obj = list.find(x=>x.id===id) || {};
+  }
+  if(type==='entry'){
+    area.innerHTML = `
+      <div class="field"><label>Title</label><input id="f_title" value="${escapeHtml(obj.title||'')}"></div>
+      <div class="field-row">
+        <div class="field"><label>Date</label><input type="date" id="f_date" value="${obj.date||dateVal}"></div>
+        <div class="field"><label>Time (optional)</label><input type="time" id="f_time" value="${obj.time||''}"></div>
+      </div>
+      <div class="field-row">
+        <div class="field"><label>Category</label>${categorySelectHtml(obj.categoryId||'meet')}</div>
+        <div class="field"><label>Entity</label>${entitySelectHtml('f_entity', obj.entity)}</div>
+      </div>
+      <div class="field"><label>Notes</label><textarea id="f_notes">${escapeHtml(obj.notes||'')}</textarea></div>
+    `;
+  } else if(type==='goal'){
+    area.innerHTML = `
+      <div class="field"><label>Goal Name</label><input id="f_name" value="${escapeHtml(obj.name||'')}"></div>
+      <div class="field-row">
+        <div class="field"><label>Type</label>
+          <select id="f_gtype"><option value="revenue" ${obj.type==='revenue'?'selected':''}>Revenue Goal</option><option value="kpi" ${obj.type==='kpi'?'selected':''}>KPI Goal</option></select>
+        </div>
+        <div class="field"><label>Unit (for KPI, e.g. "members")</label><input id="f_unit" value="${escapeHtml(obj.unit||'')}"></div>
+      </div>
+      <div class="field-row">
+        <div class="field"><label>Target</label><input type="number" step="any" id="f_target" value="${obj.target||''}"></div>
+        <div class="field"><label>Due Date</label><input type="date" id="f_due" value="${obj.dueDate||''}"></div>
+      </div>
+      <div class="field"><label>Entity</label>${entitySelectHtml('f_entity', obj.entity)}</div>
+      ${id ? `<div class="field"><label>Logged Total</label><div style="font-weight:600;">${fmtMoney(goalTotal(obj))} — <button type="button" class="btn-sec btn-sm" id="openLogFromEdit">Log Actual / View History</button></div></div>` : ''}
+    `;
+    if(id) setTimeout(()=>{ const b=document.getElementById('openLogFromEdit'); if(b) b.onclick=()=>{ closeModals(); openLogModal(id); }; },0);
+  } else if(type==='shift'){
+    area.innerHTML = `
+      <div class="field-row">
+        <div class="field"><label>Date</label><input type="date" id="f_date" value="${obj.date||dateVal}"></div>
+        <div class="field"><label>Entity</label>${entitySelectHtml('f_entity', obj.entity)}</div>
+      </div>
+      <div class="field-row">
+        <div class="field"><label>Start Time</label><input type="time" id="f_start" value="${obj.start||'09:00'}"></div>
+        <div class="field"><label>End Time</label><input type="time" id="f_end" value="${obj.end||'13:00'}"></div>
+      </div>
+      <div class="field-row">
+        <div class="field"><label>Person (blank = unfilled)</label><input id="f_person" value="${escapeHtml(obj.person||'')}"></div>
+        <div class="field"><label>Role</label><input id="f_role" value="${escapeHtml(obj.role||'')}"></div>
+      </div>
+      <div class="field"><label>Notes</label><input id="f_notes" value="${escapeHtml(obj.notes||'')}"></div>
+      <div id="shiftWarnArea"></div>
+    `;
+  } else if(type==='group'){
+    area.innerHTML = `
+      <div class="field"><label>Group Name</label><input id="f_name" value="${escapeHtml(obj.name||'')}"></div>
+      <div class="field-row">
+        <div class="field"><label>Date</label><input type="date" id="f_date" value="${obj.date||dateVal}"></div>
+        <div class="field"><label>Arrival Time</label><input type="time" id="f_time" value="${obj.time||''}"></div>
+      </div>
+      <div class="field-row">
+        <div class="field"><label>Group Size</label><input type="number" id="f_size" value="${obj.size||''}"></div>
+        <div class="field"><label>Status</label>
+          <select id="f_status"><option value="tentative" ${obj.status==='tentative'?'selected':''}>Tentative</option><option value="confirmed" ${obj.status==='confirmed'?'selected':''}>Confirmed</option></select>
+        </div>
+      </div>
+      <div class="field-row">
+        <div class="field"><label>Contact</label><input id="f_contact" value="${escapeHtml(obj.contact||'')}"></div>
+        <div class="field"><label>Entity</label>${entitySelectHtml('f_entity', obj.entity)}</div>
+      </div>
+      <div class="field"><label>Notes</label><textarea id="f_notes">${escapeHtml(obj.notes||'')}</textarea></div>
+      <div id="capWarnArea"></div>
+    `;
+  } else if(type==='expense'){
+    area.innerHTML = `
+      <div class="field-row">
+        <div class="field"><label>Date</label><input type="date" id="f_date" value="${obj.date||dateVal}"></div>
+        <div class="field"><label>Amount</label><input type="number" step="any" id="f_amount" value="${obj.amount||''}"></div>
+      </div>
+      <div class="field-row">
+        <div class="field"><label>Category</label><input id="f_ecategory" value="${escapeHtml(obj.category||'')}" placeholder="e.g. Rent, Supplies"></div>
+        <div class="field"><label>Entity</label>${entitySelectHtml('f_entity', obj.entity)}</div>
+      </div>
+      <div class="field"><label>Note</label><input id="f_notes" value="${escapeHtml(obj.note||'')}"></div>
+    `;
+  } else if(type==='obligation'){
+    area.innerHTML = `
+      <div class="field"><label>Name</label><input id="f_name" value="${escapeHtml(obj.name||'')}"></div>
+      <div class="field-row">
+        <div class="field"><label>Due Date (first/anchor)</label><input type="date" id="f_due" value="${obj.dueDate||dateVal}"></div>
+        <div class="field"><label>Recurrence</label>
+          <select id="f_recur">
+            <option value="once" ${obj.recurrence==='once'?'selected':''}>One-time</option>
+            <option value="monthly" ${obj.recurrence==='monthly'?'selected':''}>Monthly</option>
+            <option value="quarterly" ${obj.recurrence==='quarterly'?'selected':''}>Quarterly</option>
+            <option value="annual" ${obj.recurrence==='annual'?'selected':''}>Annual</option>
+          </select>
+        </div>
+      </div>
+      <div class="field-row">
+        <div class="field"><label>Category</label>
+          <select id="f_ocategory"><option value="compliance" ${obj.category==='compliance'?'selected':''}>Compliance</option><option value="financial" ${obj.category==='financial'?'selected':''}>Financial</option></select>
+        </div>
+        <div class="field"><label>Entity</label>${entitySelectHtml('f_entity', obj.entity)}</div>
+      </div>
+      <div class="field"><label>Notes</label><textarea id="f_notes">${escapeHtml(obj.notes||'')}</textarea></div>
+    `;
+  }
+}
+
+document.getElementById('typeTabs').addEventListener('click', (e)=>{
+  const b = e.target.closest('button');
+  if(!b || b.disabled) return;
+  document.querySelectorAll('#typeTabs button').forEach(x=>x.classList.remove('active'));
+  b.classList.add('active');
+  currentType = b.dataset.type;
+  renderEntryForm(currentType, null);
+  document.getElementById('deleteItemBtn').classList.add('hidden');
+});
+
+document.getElementById('saveItemBtn').addEventListener('click', ()=>{
+  const type = currentType;
+  const id = state.editing ? state.editing.id : uid();
+  const isNew = !state.editing;
+
+  if(type==='entry'){
+    const obj = {
+      id, date: document.getElementById('f_date').value, time: document.getElementById('f_time').value,
+      title: document.getElementById('f_title').value.trim(), categoryId: document.getElementById('f_category').value,
+      entity: document.getElementById('f_entity').value, notes: document.getElementById('f_notes').value
+    };
+    if(!obj.title || !obj.date){ alert('Title and date are required.'); return; }
+    upsert(DB.entries, obj, isNew);
+  } else if(type==='goal'){
+    const obj = {
+      id, name: document.getElementById('f_name').value.trim(), type: document.getElementById('f_gtype').value,
+      unit: document.getElementById('f_unit').value, target: parseFloat(document.getElementById('f_target').value)||0,
+      dueDate: document.getElementById('f_due').value, entity: document.getElementById('f_entity').value,
+      logs: isNew ? [] : (DB.goals.find(g=>g.id===id)||{}).logs || []
+    };
+    if(!obj.name || !obj.target){ alert('Name and target are required.'); return; }
+    upsert(DB.goals, obj, isNew);
+  } else if(type==='shift'){
+    const obj = {
+      id, date: document.getElementById('f_date').value, start: document.getElementById('f_start').value,
+      end: document.getElementById('f_end').value, person: document.getElementById('f_person').value.trim(),
+      role: document.getElementById('f_role').value, entity: document.getElementById('f_entity').value,
+      notes: document.getElementById('f_notes').value
+    };
+    if(!obj.date || !obj.start || !obj.end){ alert('Date, start, and end time are required.'); return; }
+    const conflict = DB.shifts.find(s=> s.id!==id && s.date===obj.date && s.person && obj.person && s.person===obj.person && timesOverlap(s.start,s.end,obj.start,obj.end));
+    if(conflict && !confirm('This overlaps with an existing shift for '+obj.person+' ('+timeLabel(conflict.start)+'–'+timeLabel(conflict.end)+'). Save anyway?')) return;
+    upsert(DB.shifts, obj, isNew);
+  } else if(type==='group'){
+    const obj = {
+      id, name: document.getElementById('f_name').value.trim(), date: document.getElementById('f_date').value,
+      time: document.getElementById('f_time').value, size: parseInt(document.getElementById('f_size').value)||0,
+      status: document.getElementById('f_status').value, contact: document.getElementById('f_contact').value,
+      entity: document.getElementById('f_entity').value, notes: document.getElementById('f_notes').value
+    };
+    if(!obj.name || !obj.date){ alert('Group name and date are required.'); return; }
+    const cap = DB.settings.capacity;
+    if(cap){
+      const otherSize = DB.groups.filter(g=>g.id!==id && g.date===obj.date).reduce((s,g)=>s+(Number(g.size)||0),0);
+      if(otherSize + obj.size > cap && !confirm('Total bookings for '+obj.date+' would be '+(otherSize+obj.size)+', exceeding capacity of '+cap+'. Save anyway?')) return;
+    }
+    upsert(DB.groups, obj, isNew);
+  } else if(type==='expense'){
+    const obj = {
+      id, date: document.getElementById('f_date').value, amount: parseFloat(document.getElementById('f_amount').value)||0,
+      category: document.getElementById('f_ecategory').value, entity: document.getElementById('f_entity').value,
+      note: document.getElementById('f_notes').value
+    };
+    if(!obj.date || !obj.amount){ alert('Date and amount are required.'); return; }
+    upsert(DB.expenses, obj, isNew);
+  } else if(type==='obligation'){
+    const obj = {
+      id, name: document.getElementById('f_name').value.trim(), dueDate: document.getElementById('f_due').value,
+      recurrence: document.getElementById('f_recur').value, category: document.getElementById('f_ocategory').value,
+      entity: document.getElementById('f_entity').value, notes: document.getElementById('f_notes').value,
+      completed: isNew ? false : (DB.obligations.find(o=>o.id===id)||{}).completed || false
+    };
+    if(!obj.name || !obj.dueDate){ alert('Name and due date are required.'); return; }
+    upsert(DB.obligations, obj, isNew);
+  }
+  save();
+  closeModals();
+  renderAll();
+});
+
+function timesOverlap(s1,e1,s2,e2){
+  return s1 < e2 && s2 < e1;
+}
+function upsert(list, obj, isNew){
+  if(isNew){ list.push(obj); }
+  else{ const idx = list.findIndex(x=>x.id===obj.id); if(idx>-1) list[idx]=obj; else list.push(obj); }
+}
+
+document.getElementById('deleteItemBtn').addEventListener('click', ()=>{
+  if(!state.editing) return;
+  if(!confirm('Delete this item? This cannot be undone.')) return;
+  const {type, id} = state.editing;
+  const list = type==='entry'?DB.entries:type==='goal'?DB.goals:type==='shift'?DB.shifts:type==='group'?DB.groups:type==='expense'?DB.expenses:DB.obligations;
+  const idx = list.findIndex(x=>x.id===id);
+  if(idx>-1) list.splice(idx,1);
+  save();
+  closeModals();
+  renderAll();
+});
+
+/* =========================================================
+   LOG ACTUAL MODAL
+   ========================================================= */
+let currentLogGoalId = null;
+function openLogModal(goalId){
+  currentLogGoalId = goalId;
+  document.getElementById('logDate').value = todayStr();
+  document.getElementById('logAmount').value = '';
+  document.getElementById('logNote').value = '';
+  renderLogHistory();
+  document.getElementById('logModal').classList.add('open');
+}
+function renderLogHistory(){
+  const goal = DB.goals.find(g=>g.id===currentLogGoalId);
+  const box = document.getElementById('logHistoryList');
+  if(!goal || !goal.logs || !goal.logs.length){ box.innerHTML = '<div class="empty-note" style="padding:6px;">No entries logged yet.</div>'; return; }
+  box.innerHTML = goal.logs.slice().sort((a,b)=>b.date.localeCompare(a.date)).map(l=>`
+    <div class="log-history-row">
+      <span>${fmtHuman(l.date)} — ${goal.type==='revenue'?fmtMoney(l.amount):l.amount} ${l.note?('· '+escapeHtml(l.note)):''}</span>
+      <button class="small-x" data-log-id="${l.id}">Remove</button>
+    </div>`).join('');
+  box.querySelectorAll('[data-log-id]').forEach(b=>{
+    b.addEventListener('click', ()=>{
+      goal.logs = goal.logs.filter(l=>l.id!==b.dataset.logId);
+      save(); renderLogHistory(); renderAll();
+    });
+  });
+}
+document.getElementById('saveLogBtn').addEventListener('click', ()=>{
+  const goal = DB.goals.find(g=>g.id===currentLogGoalId);
+  if(!goal) return;
+  const amt = parseFloat(document.getElementById('logAmount').value);
+  const date = document.getElementById('logDate').value;
+  if(!date || isNaN(amt)){ alert('Date and amount are required.'); return; }
+  goal.logs = goal.logs || [];
+  goal.logs.push({id:uid(), date, amount:amt, note:document.getElementById('logNote').value});
+  save();
+  document.getElementById('logAmount').value='';
+  document.getElementById('logNote').value='';
+  renderLogHistory();
+  renderAll();
+});
+
+/* =========================================================
+   MANAGE MODALS: Categories, Entities, Goals list, Templates, Obligations, Settings
+   ========================================================= */
+document.getElementById('manageBtn').addEventListener('click', ()=> document.getElementById('manageMenu').classList.add('open'));
+document.getElementById('manageMenu').addEventListener('click', (e)=>{
+  if(e.target===document.getElementById('manageMenu')) closeModals();
+  const b = e.target.closest('[data-open]');
+  if(b){ closeModals(); openManageModal(b.dataset.open); }
+});
+function openManageModal(name){
+  if(name==='categories') renderCategoriesModal();
+  else if(name==='entities') renderEntitiesModal();
+  else if(name==='goalsManage') renderGoalsManageModal();
+  else if(name==='templates') renderTemplatesModal();
+  else if(name==='obligationsManage') renderObligationsModal();
+  else if(name==='settings') renderSettingsModal();
+}
+
+/* ---- Categories ---- */
+function renderCategoriesModal(){
+  const list = document.getElementById('catList');
+  list.innerHTML = DB.categories.map(c=>`
+    <div class="legend-row">
+      <span><input type="color" value="${c.color}" data-cat-color="${c.id}" style="vertical-align:middle;width:26px;height:20px;border:none;"> &nbsp;<input type="text" value="${escapeHtml(c.name)}" data-cat-name="${c.id}" style="border:1px solid var(--border-strong);border-radius:3px;padding:2px 5px;width:150px;"></span>
+      <button class="small-x" data-cat-del="${c.id}">Delete</button>
+    </div>`).join('');
+  list.querySelectorAll('[data-cat-color]').forEach(el=> el.addEventListener('change', ()=>{ catById(el.dataset.catColor).color = el.value; save(); renderAll(); }));
+  list.querySelectorAll('[data-cat-name]').forEach(el=> el.addEventListener('change', ()=>{ catById(el.dataset.catName).name = el.value; save(); renderAll(); }));
+  list.querySelectorAll('[data-cat-del]').forEach(el=> el.addEventListener('click', ()=>{
+    if(!confirm('Delete this category? Entries using it will show as Uncategorized.')) return;
+    DB.categories = DB.categories.filter(c=>c.id!==el.dataset.catDel);
+    save(); renderCategoriesModal(); renderAll();
+  }));
+  document.getElementById('categoriesModal').classList.add('open');
+}
+document.getElementById('addCatBtn').addEventListener('click', ()=>{
+  const name = document.getElementById('newCatName').value.trim();
+  const color = document.getElementById('newCatColor').value;
+  if(!name) return;
+  DB.categories.push({id:uid(), name, color});
+  document.getElementById('newCatName').value='';
+  save(); renderCategoriesModal(); renderAll();
+});
+
+/* ---- Entities ---- */
+function renderEntitiesModal(){
+  const list = document.getElementById('entList');
+  list.innerHTML = DB.entities.map((e,i)=>`
+    <div class="legend-row"><span>${escapeHtml(e)}</span><button class="small-x" data-ent-del="${i}">Delete</button></div>
+  `).join('');
+  list.querySelectorAll('[data-ent-del]').forEach(el=> el.addEventListener('click', ()=>{
+    DB.entities.splice(parseInt(el.dataset.entDel),1);
+    save(); renderEntitiesModal(); renderAll();
+  }));
+  document.getElementById('entitiesModal').classList.add('open');
+}
+document.getElementById('addEntBtn').addEventListener('click', ()=>{
+  const name = document.getElementById('newEntName').value.trim();
+  if(!name || DB.entities.includes(name)) return;
+  DB.entities.push(name);
+  document.getElementById('newEntName').value='';
+  save(); renderEntitiesModal(); renderAll();
+});
+
+/* ---- Goals manage ---- */
+function renderGoalsManageModal(){
+  const list = document.getElementById('goalsManageList');
+  list.innerHTML = DB.goals.length ? DB.goals.map(goalCardHtml).join('') : '<div class="empty-note">No goals yet.</div>';
+  document.getElementById('goalsManageModal').classList.add('open');
+  list.querySelectorAll('.log-goal-btn').forEach(b=> b.addEventListener('click', ()=>{ closeModals(); openLogModal(b.dataset.id); }));
+  list.querySelectorAll('.edit-item-btn').forEach(b=> b.addEventListener('click', ()=>{ closeModals(); openEntryModal('goal', b.dataset.id); }));
+}
+document.getElementById('newGoalFromManage').addEventListener('click', ()=>{ closeModals(); openEntryModal('goal', null); });
+
+/* ---- Shift Templates ---- */
+function refreshTemplateEntitySelects(){
+  document.getElementById('tplEntity').innerHTML = DB.entities.map(e=>`<option value="${escapeHtml(e)}">${escapeHtml(e)}</option>`).join('');
+}
+function renderTemplatesModal(){
+  refreshTemplateEntitySelects();
+  const list = document.getElementById('templateList');
+  list.innerHTML = DB.shiftTemplates.length ? DB.shiftTemplates.map(t=>`
+    <div class="legend-row">
+      <span>${['Sun','Mon','Tue','Wed','Thu','Fri','Sat'][t.dayOfWeek]} ${timeLabel(t.start)}–${timeLabel(t.end)} — ${escapeHtml(t.name)} (${escapeHtml(t.person||'unassigned')})</span>
+      <button class="small-x" data-tpl-del="${t.id}">Delete</button>
+    </div>`).join('') : '<div class="empty-note">No templates yet.</div>';
+  list.querySelectorAll('[data-tpl-del]').forEach(el=> el.addEventListener('click', ()=>{
+    DB.shiftTemplates = DB.shiftTemplates.filter(t=>t.id!==el.dataset.tplDel);
+    save(); renderTemplatesModal();
+  }));
+  const applySel = document.getElementById('applyTplSel');
+  applySel.innerHTML = DB.shiftTemplates.map(t=>`<option value="${t.id}">${escapeHtml(t.name)} (${['Sun','Mon','Tue','Wed','Thu','Fri','Sat'][t.dayOfWeek]})</option>`).join('');
+  document.getElementById('applyStart').value = todayStr();
+  document.getElementById('applyEnd').value = fmtDate(addDays(new Date(),27));
+  document.getElementById('applyTplMsg').innerHTML = '';
+  document.getElementById('templatesModal').classList.add('open');
+}
+document.getElementById('addTplBtn').addEventListener('click', ()=>{
+  const name = document.getElementById('tplName').value.trim();
+  if(!name){ alert('Template name required.'); return; }
+  DB.shiftTemplates.push({
+    id: uid(), name, dayOfWeek: parseInt(document.getElementById('tplDow').value),
+    start: document.getElementById('tplStart').value, end: document.getElementById('tplEnd').value,
+    person: document.getElementById('tplPerson').value.trim(), role: document.getElementById('tplRole').value,
+    entity: document.getElementById('tplEntity').value
+  });
+  document.getElementById('tplName').value=''; document.getElementById('tplPerson').value=''; document.getElementById('tplRole').value='';
+  save(); renderTemplatesModal();
+});
+document.getElementById('applyTplBtn').addEventListener('click', ()=>{
+  const tpl = DB.shiftTemplates.find(t=>t.id===document.getElementById('applyTplSel').value);
+  if(!tpl){ alert('Add a template first.'); return; }
+  const start = parseDate(document.getElementById('applyStart').value);
+  const end = parseDate(document.getElementById('applyEnd').value);
+  let created = 0;
+  for(let d=new Date(start); d<=end; d=addDays(d,1)){
+    if(d.getDay()===tpl.dayOfWeek){
+      const dstr = fmtDate(d);
+      const exists = DB.shifts.some(s=>s.date===dstr && s.start===tpl.start && s.end===tpl.end && s.person===tpl.person);
+      if(!exists){
+        DB.shifts.push({id:uid(), date:dstr, start:tpl.start, end:tpl.end, person:tpl.person, role:tpl.role, entity:tpl.entity, notes:'Generated from template: '+tpl.name});
+        created++;
+      }
+    }
+  }
+  save();
+  document.getElementById('applyTplMsg').innerHTML = `<div class="inline-msg" style="background:var(--ok-bg);color:var(--ok);">Generated ${created} shift(s).</div>`;
+  renderAll();
+});
+
+/* ---- Obligations manage ---- */
+function renderObligationsModal(){
+  const list = document.getElementById('obligationList');
+  list.innerHTML = DB.obligations.length ? DB.obligations.map(o=>{
+    const next = nextDueDate(o);
+    return `<div class="legend-row">
+      <span>${fmtHuman(next)} — ${escapeHtml(o.name)} <span class="count-pill">${o.category==='compliance'?'Compliance':'Financial'} · ${o.recurrence}</span></span>
+      <span>
+        ${o.recurrence==='once' ? `<label style="font-size:11px;margin-right:8px;"><input type="checkbox" data-obl-done="${o.id}" ${o.completed?'checked':''}> Done</label>` : ''}
+        <button class="btn-sec btn-sm edit-item-btn" data-type="obligation" data-id="${o.id}">Edit</button>
+      </span>
+    </div>`;
+  }).join('') : '<div class="empty-note">No obligations tracked yet.</div>';
+  list.querySelectorAll('[data-obl-done]').forEach(cb=> cb.addEventListener('change', ()=>{
+    const o = DB.obligations.find(x=>x.id===cb.dataset.oblDone); o.completed = cb.checked; save(); renderObligationsModal(); renderAll();
+  }));
+  list.querySelectorAll('.edit-item-btn').forEach(b=> b.addEventListener('click', ()=>{ closeModals(); openEntryModal('obligation', b.dataset.id); }));
+  document.getElementById('obligationsModal').classList.add('open');
+}
+document.getElementById('newOblFromManage').addEventListener('click', ()=>{ closeModals(); openEntryModal('obligation', null); });
+
+/* ---- Settings ---- */
+function renderSettingsModal(){
+  document.getElementById('settingCapacity').value = DB.settings.capacity || '';
+  document.getElementById('settingWeekStart').value = DB.settings.weekStart || 0;
+  document.getElementById('settingsModal').classList.add('open');
+}
+document.getElementById('saveSettingsBtn').addEventListener('click', ()=>{
+  const cap = parseInt(document.getElementById('settingCapacity').value);
+  DB.settings.capacity = isNaN(cap) ? null : cap;
+  DB.settings.weekStart = parseInt(document.getElementById('settingWeekStart').value);
+  save(); closeModals(); renderAll();
+});
+
+/* =========================================================
+   EXPORT / IMPORT
+   ========================================================= */
+document.getElementById('exportBtn').addEventListener('click', ()=>{
+  const blob = new Blob([JSON.stringify(DB, null, 2)], {type:'application/json'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url; a.download = 'business-calendar-backup-'+todayStr()+'.json';
+  a.click();
+  URL.revokeObjectURL(url);
+});
+document.getElementById('importBtn').addEventListener('click', ()=> document.getElementById('importFile').click());
+document.getElementById('importFile').addEventListener('change', (e)=>{
+  const file = e.target.files[0];
+  if(!file) return;
+  const reader = new FileReader();
+  reader.onload = (ev)=>{
+    try{
+      const parsed = JSON.parse(ev.target.result);
+      if(!confirm('Import will replace all current data. Continue?')) return;
+      DB = Object.assign(defaultData(), parsed);
+      save();
+      state = {view:'dashboard', cursorDate:new Date(), entityFilter:'all', editing:null};
+      renderAll();
+    }catch(err){ alert('Could not read this file. Make sure it is a valid export from this calendar.'); }
+  };
+  reader.readAsText(file);
+  e.target.value = '';
+});
+
+/* =========================================================
+   GLOBAL MODAL CLOSE / FAB
+   ========================================================= */
+document.querySelectorAll('[data-close]').forEach(b=> b.addEventListener('click', closeModals));
+document.querySelectorAll('.overlay').forEach(o=> o.addEventListener('click', (e)=>{ if(e.target===o) closeModals(); }));
+document.getElementById('fabBtn').addEventListener('click', ()=>{
+  const prefill = (state.view==='day') ? fmtDate(state.cursorDate) : todayStr();
+  openEntryModal('entry', null, prefill);
+});
+
+/* =========================================================
+   INIT
+   ========================================================= */
+renderAll();
+</script>
+</body>
+</html>

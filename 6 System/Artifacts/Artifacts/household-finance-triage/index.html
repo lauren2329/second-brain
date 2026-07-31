@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<script type="application/json" id="cowork-artifact-meta">
+{
+  "name": "Household Finance Triage",
+  "schemaVersion": 1,
+  "description": "Personal household finance dashboard. Top: editable monthly budget showing income → fixed expenses → what's left, with spending priority order and cancel-these reminders. Bottom: live Gmail scan for billing alerts, subscription status, and upcoming bills. Budget numbers save locally and persist across opens.",
+  "mcpTools": [
+    "mcp__2fe12232-96a6-47f7-ad79-fac634b2ff1e__search_threads"
+  ],
+  "mcpServerNames": [
+    "Gmail"
+  ]
+}
+</script>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Household Finance</title>
+<style>
+:root {
+  color-scheme: light;
+  --bg: #f8fafc;
+  --card: #ffffff;
+  --border: #e2e8f0;
+  --text: #1e293b;
+  --muted: #64748b;
+  --red: #dc2626;
+  --red-bg: #fef2f2;
+  --red-border: #fecaca;
+  --yellow: #b45309;
+  --yellow-bg: #fffbeb;
+  --yellow-border: #fde68a;
+  --green: #059669;
+  --green-bg: #f0fdf4;
+  --green-border: #bbf7d0;
+  --blue: #2563eb;
+  --blue-bg: #eff6ff;
+  --blue-border: #bfdbfe;
+  --gray-bg: #f1f5f9;
+  --gray-text: #475569;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 14px;
+  padding: 16px 16px 40px;
+}
+
+/* Header */
+.header { margin-bottom: 16px; }
+.header h1 { font-size: 18px; font-weight: 700; margin-bottom: 2px; }
+.header .sub { font-size: 12px; color: var(--muted); }
+
+/* Cards */
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px;
+  margin-bottom: 12px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+}
+.section-label {
+  font-size: 11px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.6px;
+  color: var(--muted); margin-bottom: 12px;
+}
+
+/* Big remaining number */
+.remaining-hero {
+  text-align: center;
+  padding: 4px 0 8px;
+}
+.remaining-amount {
+  font-size: 48px;
+  font-weight: 800;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+.remaining-label {
+  font-size: 12px;
+  color: var(--muted);
+  font-weight: 500;
+}
+
+/* Progress bar */
+.progress-wrap { margin: 12px 0 4px; }
+.progress-bar {
+  height: 10px;
+  background: var(--gray-bg);
+  border-radius: 999px;
+  overflow: hidden;
+  margin-bottom: 6px;
+}
+.progress-fill {
+  height: 100%;
+  border-radius: 999px;
+  transition: width 0.4s ease;
+}
+.progress-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  color: var(--muted);
+}
+
+/* Waterfall rows */
+.wf-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 13px;
+}
+.wf-row:last-child { border-bottom: none; }
+.wf-label { color: var(--muted); }
+.wf-amount { font-weight: 600; }
+.wf-amount.minus { color: var(--red); }
+.wf-amount.plus { color: var(--green); }
+.wf-amount.result { color: var(--text); font-size: 15px; }
+.wf-divider {
+  border: none;
+  border-top: 2px solid var(--border);
+  margin: 4px 0;
+}
+.wf-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0 4px;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+/* Edit button */
+.edit-btn {
+  display: inline-block;
+  font-size: 11px;
+  color: var(--blue);
+  cursor: pointer;
+  border: 1px solid var(--blue-border);
+  background: var(--blue-bg);
+  border-radius: 6px;
+  padding: 3px 10px;
+  font-weight: 600;
+  float: right;
+  margin-top: -2px;
+}
+.edit-btn:hover { opacity: 0.8; }
+
+/* Edit mode inputs */
+.edit-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 13px;
+  gap: 8px;
+}
+.edit-row:last-child { border-bottom: none; }
+.edit-row label { flex: 1; color: var(--muted); font-size: 12px; }
+.edit-row input {
+  width: 90px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 4px 8px;
+  font-size: 13px;
+  font-weight: 600;
+  text-align: right;
+  color: var(--text);
+  background: var(--bg);
+}
+.edit-row input:focus { outline: none; border-color: var(--blue); }
+.save-btn {
+  width: 100%;
+  margin-top: 12px;
+  background: var(--blue);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.save-btn:hover { opacity: 0.9; }
+
+/* Priority list */
+.priority-list { list-style: none; }
+.priority-list li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 7px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 13px;
+}
+.priority-list li:last-child { border-bottom: none; }
+.priority-num {
+  width: 22px; height: 22px;
+  border-radius: 50%;
+  background: var(--gray-bg);
+  color: var(--gray-text);
+  font-size: 11px; font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.priority-num.urgent { background: var(--red-bg); color: var(--red); }
+
+/* Cancel nudge */
+.cancel-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 13px;
+}
+.cancel-row:last-child { border-bottom: none; }
+.cancel-name { font-weight: 500; }
+.cancel-amount { color: var(--red); font-weight: 600; }
+.strike { text-decoration: line-through; color: var(--muted); }
+
+/* Divider between sections */
+.section-divider {
+  border: none;
+  border-top: 2px dashed var(--border);
+  margin: 16px 0 12px;
+}
+
+/* Gmail live section */
+.loading {
+  display: flex; flex-direction: column;
+  align-items: center; gap: 10px;
+  padding: 32px; color: var(--muted); font-size: 13px;
+}
+.spinner {
+  width: 24px; height: 24px;
+  border: 3px solid var(--border);
+  border-top-color: var(--blue);
+  border-radius: 50%;
+  animation: spin 0.75s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.alert-item {
+  display: flex; gap: 10px; align-items: flex-start;
+  padding: 11px; border-radius: 8px;
+  margin-bottom: 8px; border: 1px solid;
+}
+.alert-item:last-child { margin-bottom: 0; }
+.alert-item.high { background: var(--red-bg); border-color: var(--red-border); }
+.alert-item.medium { background: var(--yellow-bg); border-color: var(--yellow-border); }
+.alert-icon { font-size: 14px; flex-shrink: 0; margin-top: 2px; }
+.alert-title { font-weight: 600; font-size: 13px; margin-bottom: 2px; }
+.alert-item.high .alert-title { color: var(--red); }
+.alert-item.medium .alert-title { color: var(--yellow); }
+.alert-desc { font-size: 12px; color: var(--muted); line-height: 1.5; }
+
+.sub-row {
+  display: flex; justify-content: space-between;
+  align-items: center; padding: 9px 0;
+  border-bottom: 1px solid var(--border);
+}
+.sub-row:last-child { border-bottom: none; }
+.sub-name { font-weight: 500; font-size: 13px; }
+.sub-note { font-size: 11px; color: var(--muted); margin-top: 1px; }
+.sub-right { display: flex; align-items: center; gap: 7px; flex-shrink: 0; }
+.sub-amount { font-size: 13px; color: var(--muted); }
+
+.badge {
+  display: inline-block; padding: 2px 8px;
+  border-radius: 999px; font-size: 10px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.3px; white-space: nowrap;
+}
+.badge.active  { background: var(--green-bg); color: var(--green); border: 1px solid var(--green-border); }
+.badge.issue   { background: var(--yellow-bg); color: var(--yellow); border: 1px solid var(--yellow-border); }
+.badge.failed  { background: var(--red-bg); color: var(--red); border: 1px solid var(--red-border); }
+.badge.paused  { background: var(--gray-bg); color: var(--gray-text); border: 1px solid var(--border); }
+
+.bill-row {
+  display: flex; justify-content: space-between;
+  align-items: center; padding: 9px 0;
+  border-bottom: 1px solid var(--border);
+}
+.bill-row:last-child { border-bottom: none; }
+.bill-name { font-weight: 500; font-size: 13px; }
+.bill-due { font-size: 11px; color: var(--yellow); margin-top: 1px; font-weight: 600; }
+.bill-amount { font-weight: 700; }
+
+.footer { text-align: center; font-size: 11px; color: #94a3b8; margin-top: 8px; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>💰 Household Finance</h1>
+  <div class="sub" id="date-line"></div>
+</div>
+
+<!-- ═══ BUDGET SECTION (static / editable) ═══ -->
+
+<div class="card" id="budget-card">
+  <div class="section-label">
+    📊 Monthly Budget
+    <span class="edit-btn" onclick="toggleEdit()">Edit</span>
+  </div>
+
+  <!-- View mode -->
+  <div id="budget-view">
+    <div class="remaining-hero">
+      <div class="remaining-amount" id="remaining-display" style="color:var(--green)">—</div>
+      <div class="remaining-label">left after fixed expenses · every month</div>
+    </div>
+
+    <div class="progress-wrap">
+      <div class="progress-bar">
+        <div class="progress-fill" id="progress-fill"></div>
+      </div>
+      <div class="progress-labels">
+        <span>$0</span>
+        <span id="income-label">$2,000 income</span>
+      </div>
+    </div>
+
+    <div id="wf-rows" style="margin-top:12px"></div>
+  </div>
+
+  <!-- Edit mode -->
+  <div id="budget-edit" style="display:none">
+    <div class="edit-row"><label>Monthly income</label><input id="e-income" type="number" step="1"></div>
+    <div class="edit-row"><label>Rent</label><input id="e-rent" type="number" step="1"></div>
+    <div class="edit-row"><label>Renters insurance</label><input id="e-insurance" type="number" step="0.01"></div>
+    <div class="edit-row"><label>BGMU (electric + water)</label><input id="e-bgmu" type="number" step="1"></div>
+    <div class="edit-row"><label>Capital One CC minimum</label><input id="e-cc1" type="number" step="1"></div>
+    <div class="edit-row"><label>Spotify</label><input id="e-spotify" type="number" step="0.01"></div>
+    <div class="edit-row"><label>Other fixed (phone, internet…)</label><input id="e-other" type="number" step="1"></div>
+    <button class="save-btn" onclick="saveBudget()">Save Budget</button>
+  </div>
+</div>
+
+<!-- Priority order -->
+<div class="card">
+  <div class="section-label">🎯 Spending Priority Order</div>
+  <ul class="priority-list">
+    <li><span class="priority-num urgent">1</span> Rent — roof over your head</li>
+    <li><span class="priority-num urgent">2</span> BGMU — lights &amp; water</li>
+    <li><span class="priority-num">3</span> Food — covered by SNAP</li>
+    <li><span class="priority-num">4</span> Phone — communication &amp; work</li>
+    <li><span class="priority-num">5</span> Gas — transportation to work</li>
+    <li><span class="priority-num">6</span> CC minimums — they can't cut power</li>
+    <li><span class="priority-num">7</span> Subscriptions — last of last</li>
+  </ul>
+</div>
+
+<!-- Cancel nudge -->
+<div class="card">
+  <div class="section-label">✂️ Cancel These — Already Failing</div>
+  <div class="cancel-row">
+    <div><div class="cancel-name">Amazon Prime</div><div style="font-size:11px;color:var(--muted)">Paused — payment declined</div></div>
+    <div class="cancel-amount">$14.99/mo</div>
+  </div>
+  <div class="cancel-row">
+    <div><div class="cancel-name">Paramount+</div><div style="font-size:11px;color:var(--muted)">Billing problem</div></div>
+    <div class="cancel-amount">$8.99/mo</div>
+  </div>
+  <div class="cancel-row">
+    <div><div class="cancel-name">Obsidian Sync</div><div style="font-size:11px;color:var(--muted)">Failed to renew</div></div>
+    <div class="cancel-amount">~$9.00/mo</div>
+  </div>
+  <div style="margin-top:12px;padding:10px;background:var(--green-bg);border:1px solid var(--green-border);border-radius:8px;font-size:13px;">
+    ✅ Cancel all three = <strong>~$33/mo freed up</strong> + no more billing anxiety
+  </div>
+</div>
+
+<hr class="section-divider">
+
+<!-- ═══ LIVE GMAIL SECTION ═══ -->
+
+<div class="card">
+  <div class="section-label">⚠️ Live Alerts — from Gmail</div>
+  <div class="loading" id="gmail-loading">
+    <div class="spinner"></div>
+    <div>Checking email for alerts…</div>
+  </div>
+  <div id="alerts-list" style="display:none"></div>
+</div>
+
+<div class="card" id="subs-card" style="display:none">
+  <div class="section-label">📦 Subscription Status — from Gmail</div>
+  <div id="subs-list"></div>
+</div>
+
+<div class="card" id="bills-card" style="display:none">
+  <div class="section-label">📅 Upcoming Bills — from Gmail</div>
+  <div id="bills-list"></div>
+</div>
+
+<div class="footer">Budget saves locally · Alerts refresh on open · Gmail · Last 45 days</div>
+
+<script>
+// ─── DEFAULTS ───────────────────────────────────────────────
+const DEFAULTS = {
+  income: 2000,
+  rent: 1275,
+  insurance: 15,
+  bgmu: 206,
+  cc1: 29,
+  spotify: 17.99,
+  other: 0
+};
+
+const KEYS = ['income','rent','insurance','bgmu','cc1','spotify','other'];
+
+function load() {
+  const saved = {};
+  KEYS.forEach(k => {
+    const v = localStorage.getItem('budget_' + k);
+    saved[k] = v !== null ? parseFloat(v) : DEFAULTS[k];
+  });
+  return saved;
+}
+
+function save(data) {
+  KEYS.forEach(k => localStorage.setItem('budget_' + k, data[k]));
+}
+
+// ─── DATE ────────────────────────────────────────────────────
+document.getElementById('date-line').textContent = new Date().toLocaleDateString('en-US', {
+  weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'
+});
+
+// ─── RENDER BUDGET ───────────────────────────────────────────
+function fmt(n) {
+  return '$' + Math.abs(n).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+}
+
+function renderBudget() {
+  const d = load();
+  const expenses = d.rent + d.insurance + d.bgmu + d.cc1 + d.spotify + d.other;
+  const remaining = d.income - expenses;
+  const pct = Math.min(100, Math.round((expenses / d.income) * 100));
+
+  // Big number
+  const remEl = document.getElementById('remaining-display');
+  remEl.textContent = fmt(remaining);
+  remEl.style.color = remaining >= 300 ? 'var(--green)' : remaining >= 100 ? 'var(--yellow)' : 'var(--red)';
+
+  // Progress bar
+  document.getElementById('income-label').textContent = fmt(d.income) + ' income';
+  const fill = document.getElementById('progress-fill');
+  fill.style.width = pct + '%';
+  fill.style.background = pct > 85 ? 'var(--red)' : pct > 65 ? 'var(--yellow)' : 'var(--green)';
+
+  // Waterfall
+  const rows = [
+    { label: 'Monthly income', amount: d.income, type: 'plus' },
+    { label: 'Rent', amount: -d.rent, type: 'minus' },
+    { label: 'Renters insurance', amount: -d.insurance, type: 'minus' },
+    { label: 'BGMU (electric + water)', amount: -d.bgmu, type: 'minus' },
+    { label: 'Capital One CC (min)', amount: -d.cc1, type: 'minus' },
+    { label: 'Spotify', amount: -d.spotify, type: 'minus' },
+  ];
+  if (d.other > 0) rows.push({ label: 'Other fixed', amount: -d.other, type: 'minus' });
+
+  let html = rows.map(r => `
+    <div class="wf-row">
+      <span class="wf-label">${r.label}</span>
+      <span class="wf-amount ${r.type}">${r.type === 'minus' ? '−' : '+'}${fmt(Math.abs(r.amount))}</span>
+    </div>`).join('');
+
+  html += `<hr class="wf-divider">
+    <div class="wf-total">
+      <span>Left for everything else</span>
+      <span style="color:${remaining >= 300 ? 'var(--green)' : remaining >= 100 ? 'var(--yellow)' : 'var(--red)'}; font-size:16px">${fmt(remaining)}</span>
+    </div>
+    <div style="font-size:11px;color:var(--muted);margin-top:2px;text-align:right">phone · gas · CCs · kids · medical</div>`;
+
+  document.getElementById('wf-rows').innerHTML = html;
+}
+
+// ─── EDIT MODE ───────────────────────────────────────────────
+function toggleEdit() {
+  const view = document.getElementById('budget-view');
+  const edit = document.getElementById('budget-edit');
+  const btn = document.querySelector('.edit-btn');
+  if (edit.style.display === 'none') {
+    const d = load();
+    document.getElementById('e-income').value = d.income;
+    document.getElementById('e-rent').value = d.rent;
+    document.getElementById('e-insurance').value = d.insurance;
+    document.getElementById('e-bgmu').value = d.bgmu;
+    document.getElementById('e-cc1').value = d.cc1;
+    document.getElementById('e-spotify').value = d.spotify;
+    document.getElementById('e-other').value = d.other;
+    view.style.display = 'none';
+    edit.style.display = 'block';
+    btn.textContent = 'Cancel';
+  } else {
+    view.style.display = 'block';
+    edit.style.display = 'none';
+    btn.textContent = 'Edit';
+  }
+}
+
+function saveBudget() {
+  save({
+    income: parseFloat(document.getElementById('e-income').value) || 0,
+    rent: parseFloat(document.getElementById('e-rent').value) || 0,
+    insurance: parseFloat(document.getElementById('e-insurance').value) || 0,
+    bgmu: parseFloat(document.getElementById('e-bgmu').value) || 0,
+    cc1: parseFloat(document.getElementById('e-cc1').value) || 0,
+    spotify: parseFloat(document.getElementById('e-spotify').value) || 0,
+    other: parseFloat(document.getElementById('e-other').value) || 0,
+  });
+  toggleEdit();
+  renderBudget();
+}
+
+// ─── GMAIL LIVE SECTION ──────────────────────────────────────
+function esc(s) {
+  return String(s ?? '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+async function loadGmail() {
+  try {
+    const r = await window.cowork.callMcpTool(
+      'mcp__2fe12232-96a6-47f7-ad79-fac634b2ff1e__search_threads',
+      {
+        query: 'subject:receipt OR subject:"order confirmation" OR subject:invoice OR subject:payment OR subject:"billing problem" OR subject:"payment method" OR subject:paused OR subject:"failed to renew" OR subject:"your order" OR subject:subscription OR subject:"payment is due" OR subject:"payment is scheduled" OR subject:delinquent newer_than:45d',
+        pageSize: 40
+      }
+    );
+
+    let threads = [];
+    try {
+      const raw = r.structuredContent ?? JSON.parse(r.content[0].text);
+      threads = raw.threads ?? [];
+    } catch (_) {}
+
+    const emails = threads.map(t => {
+      const m = t.messages?.[0] ?? {};
+      return {
+        subject: m.subject ?? '',
+        snippet: (m.snippet ?? '').substring(0, 280),
+        sender: m.sender ?? '',
+        date: (m.date ?? '').substring(0, 10)
+      };
+    });
+
+    const raw = await window.cowork.askClaude(
+      `Parse these household finance emails. Return ONLY raw JSON, no markdown fences.
+
+Schema:
+{
+  "alerts": [{"title": string, "description": string, "urgency": "high"|"medium"}],
+  "subscriptions": [{"name": string, "amount": string, "status": "active"|"issue"|"failed"|"paused", "note": string}],
+  "upcoming": [{"name": string, "amount": string, "dueDate": string}]
+}
+
+Rules:
+- alerts: billing failures, past due notices, disconnection threats, declined payments — sorted high urgency first
+- subscriptions: every recurring service found, sorted by status (failed/issue first, then paused, then active)
+- upcoming: bills with explicit due dates mentioned
+- Keep descriptions short and specific.`,
+      [{ type: 'text', text: JSON.stringify(emails) }]
+    );
+
+    let data;
+    try {
+      const cleaned = (raw ?? '').replace(/^```[a-z]*\n?/,'').replace(/\n?```$/,'').trim();
+      data = JSON.parse(cleaned);
+    } catch (_) {
+      data = { alerts: [], subscriptions: [], upcoming: [] };
+    }
+
+    renderGmail(data);
+  } catch (err) {
+    document.getElementById('gmail-loading').innerHTML =
+      `<div style="color:var(--red);text-align:center;font-size:13px">Could not load Gmail alerts</div>`;
+  }
+}
+
+function renderGmail(d) {
+  document.getElementById('gmail-loading').style.display = 'none';
+  const alertsEl = document.getElementById('alerts-list');
+  alertsEl.style.display = 'block';
+
+  const alerts = d.alerts ?? [];
+  const subs = d.subscriptions ?? [];
+  const upcoming = d.upcoming ?? [];
+
+  // Alerts
+  if (alerts.length) {
+    alertsEl.innerHTML = alerts.map(a => `
+      <div class="alert-item ${esc(a.urgency)}">
+        <div class="alert-icon">${a.urgency === 'high' ? '🔴' : '🟡'}</div>
+        <div>
+          <div class="alert-title">${esc(a.title)}</div>
+          <div class="alert-desc">${esc(a.description)}</div>
+        </div>
+      </div>`).join('');
+  } else {
+    alertsEl.innerHTML = '<div style="color:var(--green);font-size:13px;text-align:center;padding:8px">✅ No urgent alerts right now</div>';
+  }
+
+  // Subscriptions
+  if (subs.length) {
+    document.getElementById('subs-card').style.display = 'block';
+    document.getElementById('subs-list').innerHTML = subs.map(s => `
+      <div class="sub-row">
+        <div>
+          <div class="sub-name">${esc(s.name)}</div>
+          ${s.note ? `<div class="sub-note">${esc(s.note)}</div>` : ''}
+        </div>
+        <div class="sub-right">
+          <span class="sub-amount">${esc(s.amount)}</span>
+          <span class="badge ${esc(s.status)}">${esc(s.status)}</span>
+        </div>
+      </div>`).join('');
+  }
+
+  // Upcoming
+  if (upcoming.length) {
+    document.getElementById('bills-card').style.display = 'block';
+    document.getElementById('bills-list').innerHTML = upcoming.map(u => `
+      <div class="bill-row">
+        <div>
+          <div class="bill-name">${esc(u.name)}</div>
+          <div class="bill-due">${esc(u.dueDate)}</div>
+        </div>
+        <div class="bill-amount">${esc(u.amount)}</div>
+      </div>`).join('');
+  }
+}
+
+// ─── INIT ────────────────────────────────────────────────────
+renderBudget();
+loadGmail();
+</script>
+</body>
+</html>

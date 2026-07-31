@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<script type="application/json" id="cowork-artifact-meta">
+{
+  "name": "Week At A Glance",
+  "schemaVersion": 1,
+  "description": "Live week-at-a-glance calendar view pulling events from Google Calendar for the current week (or next week on Fridays).",
+  "mcpTools": [
+    "mcp__fdecf106-fd1a-441d-945a-78524b3ed5bb__list_events"
+  ],
+  "mcpServerNames": [
+    "Google Calendar"
+  ]
+}
+</script>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Week at a Glance</title>
+<style>
+  :root { color-scheme: light; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: #f5f6fa;
+    color: #1a1a2e;
+    padding: 20px;
+    min-height: 100vh;
+  }
+  .header {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+  .header h1 {
+    font-size: 22px;
+    font-weight: 700;
+    color: #1a1a2e;
+  }
+  .header .week-range {
+    font-size: 13px;
+    color: #888;
+    font-weight: 400;
+  }
+  .refresh-btn {
+    margin-left: auto;
+    background: none;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 4px 10px;
+    font-size: 12px;
+    color: #666;
+    cursor: pointer;
+    transition: background 0.15s;
+  }
+  .refresh-btn:hover { background: #eee; }
+
+  .week-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 10px;
+  }
+  .day-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 14px 12px;
+    border: 1px solid #e8e8ee;
+    min-height: 160px;
+    display: flex;
+    flex-direction: column;
+    transition: box-shadow 0.15s;
+  }
+  .day-card:hover { box-shadow: 0 2px 12px rgba(0,0,0,0.07); }
+  .day-card.today {
+    border-color: #6c63ff;
+    background: linear-gradient(135deg, #fdfcff 0%, #f4f2ff 100%);
+  }
+  .day-card.weekend {
+    background: #fafafa;
+  }
+  .day-card.past {
+    opacity: 0.5;
+  }
+  .day-name {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #999;
+    margin-bottom: 2px;
+  }
+  .day-card.today .day-name { color: #6c63ff; }
+  .day-num {
+    font-size: 22px;
+    font-weight: 700;
+    color: #1a1a2e;
+    margin-bottom: 10px;
+    line-height: 1;
+  }
+  .day-card.today .day-num {
+    color: #6c63ff;
+  }
+  .today-badge {
+    display: inline-block;
+    font-size: 9px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    background: #6c63ff;
+    color: #fff;
+    border-radius: 4px;
+    padding: 1px 5px;
+    margin-left: 5px;
+    vertical-align: middle;
+  }
+  .events-area {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .event-pill {
+    background: #ede9ff;
+    border-left: 3px solid #6c63ff;
+    border-radius: 0 6px 6px 0;
+    padding: 6px 8px;
+    font-size: 11px;
+    line-height: 1.4;
+  }
+  .event-pill .event-time {
+    font-weight: 600;
+    color: #6c63ff;
+    display: block;
+    margin-bottom: 1px;
+  }
+  .event-pill .event-title {
+    font-weight: 500;
+    color: #2d2d2d;
+    display: block;
+  }
+  .event-pill .event-loc {
+    color: #888;
+    font-size: 10px;
+    display: block;
+    margin-top: 1px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .clear-label {
+    font-size: 11px;
+    color: #ccc;
+    margin-top: auto;
+    padding-top: 8px;
+    text-align: center;
+  }
+  .day-summary {
+    font-size: 11px;
+    color: #aaa;
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px solid #f0f0f0;
+    font-style: italic;
+  }
+  .loading {
+    text-align: center;
+    color: #aaa;
+    font-size: 14px;
+    padding: 60px;
+  }
+  .error {
+    text-align: center;
+    color: #e55;
+    font-size: 13px;
+    padding: 40px;
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>Week at a Glance</h1>
+  <span class="week-range" id="weekRange">Loading…</span>
+  <button class="refresh-btn" onclick="loadWeek()">↻ Refresh</button>
+</div>
+
+<div id="content" class="loading">Fetching your calendar…</div>
+
+<script>
+const DAYS = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+const DAYS_FULL = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+const MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+const MONTHS_FULL = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+
+function getMondayOfWeek(date) {
+  const d = new Date(date);
+  const day = d.getDay(); // 0=Sun
+  const diff = (day === 0) ? -6 : 1 - day;
+  d.setDate(d.getDate() + diff);
+  d.setHours(0, 0, 0, 0);
+  return d;
+}
+
+function formatTime(isoStr) {
+  if (!isoStr) return '';
+  const d = new Date(isoStr);
+  let h = d.getHours(), m = d.getMinutes();
+  const ampm = h >= 12 ? 'pm' : 'am';
+  h = h % 12 || 12;
+  return `${h}${m ? ':' + String(m).padStart(2,'0') : ''}${ampm}`;
+}
+
+function dayLabel(date) {
+  // Returns e.g. "Apr 27"
+  return `${MONTHS[date.getMonth()]} ${date.getDate()}`;
+}
+
+function getDaySummary(events, isToday, isPast, isWeekend) {
+  if (isPast && !isToday) return null;
+  if (events.length === 0) {
+    if (isWeekend) return 'Weekend';
+    return 'Clear day';
+  }
+  if (events.length === 1) return `1 event`;
+  return `${events.length} events`;
+}
+
+function truncateLoc(loc) {
+  if (!loc) return null;
+  // Show just city/venue, not full address
+  const parts = loc.split(',');
+  return parts[0].trim();
+}
+
+async function loadWeek() {
+  document.getElementById('content').innerHTML = '<div class="loading">Fetching your calendar…</div>';
+
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+
+  // If Friday or later, show next week; otherwise show current week
+  const dayOfWeek = today.getDay(); // 0=Sun, 5=Fri, 6=Sat
+  let monday;
+  if (dayOfWeek >= 5 || dayOfWeek === 0) {
+    // Show next week
+    const nextWeekDate = new Date(today);
+    nextWeekDate.setDate(today.getDate() + (dayOfWeek === 0 ? 1 : 8 - dayOfWeek));
+    monday = getMondayOfWeek(nextWeekDate);
+  } else {
+    monday = getMondayOfWeek(today);
+  }
+
+  const sunday = new Date(monday);
+  sunday.setDate(monday.getDate() + 6);
+  sunday.setHours(23, 59, 59, 0);
+
+  const startISO = monday.toISOString().slice(0, 19);
+  const endISO = sunday.toISOString().slice(0, 19);
+
+  // Update header range
+  document.getElementById('weekRange').textContent =
+    `${MONTHS[monday.getMonth()]} ${monday.getDate()} – ${MONTHS[sunday.getMonth()]} ${sunday.getDate()}, ${sunday.getFullYear()}`;
+
+  let events = [];
+  try {
+    const result = await window.cowork.callMcpTool(
+      'mcp__fdecf106-fd1a-441d-945a-78524b3ed5bb__list_events',
+      { startTime: startISO, endTime: endISO, orderBy: 'startTime', pageSize: 100 }
+    );
+    const parsed = (typeof result === 'string') ? JSON.parse(result) : result;
+    events = parsed.events || [];
+  } catch (e) {
+    document.getElementById('content').innerHTML = `<div class="error">Could not load calendar: ${e.message}</div>`;
+    return;
+  }
+
+  // Build day buckets Mon–Sun
+  const days = [];
+  for (let i = 0; i < 7; i++) {
+    const d = new Date(monday);
+    d.setDate(monday.getDate() + i);
+    days.push({ date: d, events: [] });
+  }
+
+  for (const ev of events) {
+    const startStr = ev.start?.dateTime || ev.start?.date;
+    if (!startStr) continue;
+    const evDate = new Date(startStr);
+    evDate.setHours(0, 0, 0, 0);
+    for (const day of days) {
+      if (day.date.toDateString() === evDate.toDateString()) {
+        day.events.push(ev);
+      }
+    }
+  }
+
+  // Render
+  const grid = document.createElement('div');
+  grid.className = 'week-grid';
+
+  const actualToday = new Date();
+  actualToday.setHours(0, 0, 0, 0);
+
+  for (const day of days) {
+    const isToday = day.date.toDateString() === actualToday.toDateString();
+    const isPast = day.date < actualToday;
+    const isWeekend = day.date.getDay() === 0 || day.date.getDay() === 6;
+
+    const card = document.createElement('div');
+    card.className = 'day-card' +
+      (isToday ? ' today' : '') +
+      (isWeekend ? ' weekend' : '') +
+      (isPast && !isToday ? ' past' : '');
+
+    const dayName = document.createElement('div');
+    dayName.className = 'day-name';
+    dayName.textContent = DAYS[day.date.getDay()];
+    card.appendChild(dayName);
+
+    const dayNum = document.createElement('div');
+    dayNum.className = 'day-num';
+    dayNum.textContent = day.date.getDate();
+    if (isToday) {
+      const badge = document.createElement('span');
+      badge.className = 'today-badge';
+      badge.textContent = 'Today';
+      dayNum.appendChild(badge);
+    }
+    card.appendChild(dayNum);
+
+    const eventsArea = document.createElement('div');
+    eventsArea.className = 'events-area';
+
+    if (day.events.length === 0) {
+      const clear = document.createElement('div');
+      clear.className = 'clear-label';
+      clear.textContent = isWeekend ? '—' : 'No events';
+      eventsArea.appendChild(clear);
+    } else {
+      for (const ev of day.events) {
+        const pill = document.createElement('div');
+        pill.className = 'event-pill';
+
+        const startStr = ev.start?.dateTime;
+        const endStr = ev.end?.dateTime;
+        const isAllDay = !startStr;
+
+        if (!isAllDay) {
+          const timeEl = document.createElement('span');
+          timeEl.className = 'event-time';
+          timeEl.textContent = `${formatTime(startStr)}–${formatTime(endStr)}`;
+          pill.appendChild(timeEl);
+        }
+
+        const titleEl = document.createElement('span');
+        titleEl.className = 'event-title';
+        titleEl.textContent = ev.summary || '(No title)';
+        pill.appendChild(titleEl);
+
+        if (ev.location) {
+          const locEl = document.createElement('span');
+          locEl.className = 'event-loc';
+          locEl.textContent = truncateLoc(ev.location);
+          pill.appendChild(locEl);
+        }
+
+        eventsArea.appendChild(pill);
+      }
+    }
+
+    card.appendChild(eventsArea);
+
+    const summary = getDaySummary(day.events, isToday, isPast, isWeekend);
+    if (summary) {
+      const sumEl = document.createElement('div');
+      sumEl.className = 'day-summary';
+      sumEl.textContent = summary;
+      card.appendChild(sumEl);
+    }
+
+    grid.appendChild(card);
+  }
+
+  document.getElementById('content').replaceWith(grid);
+  grid.id = 'content';
+}
+
+loadWeek();
+</script>
+</body>
+</html>

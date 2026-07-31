@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<script type="application/json" id="cowork-artifact-meta">
+{
+  "name": "Household Finance Triage",
+  "schemaVersion": 1,
+  "description": "Personal household finance triage dashboard. Scans Gmail on every open for the last 45 days of financial emails — receipts, billing alerts, subscription status, payment confirmations. Uses Claude to parse and categorize into: Action Required alerts, subscription tracker with active/failed/issue/paused status, upcoming bills, and recent one-time purchases.",
+  "mcpTools": [
+    "mcp__2fe12232-96a6-47f7-ad79-fac634b2ff1e__search_threads"
+  ],
+  "mcpServerNames": [
+    "Gmail"
+  ]
+}
+</script>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Household Finance Triage</title>
+<style>
+:root {
+  color-scheme: light;
+  --bg: #f8fafc;
+  --card: #ffffff;
+  --border: #e2e8f0;
+  --text: #1e293b;
+  --muted: #64748b;
+  --red: #dc2626;
+  --red-bg: #fef2f2;
+  --red-border: #fecaca;
+  --yellow: #b45309;
+  --yellow-bg: #fffbeb;
+  --yellow-border: #fde68a;
+  --green: #059669;
+  --green-bg: #f0fdf4;
+  --green-border: #bbf7d0;
+  --blue: #2563eb;
+  --gray-bg: #f1f5f9;
+  --gray-text: #475569;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 14px;
+  padding: 20px 16px 32px;
+  min-height: 100vh;
+}
+
+.header { margin-bottom: 18px; }
+.header h1 { font-size: 19px; font-weight: 700; margin-bottom: 3px; }
+.header .sub { font-size: 12px; color: var(--muted); }
+
+/* Loading */
+.loading {
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  padding: 64px 20px; color: var(--muted); gap: 14px;
+  font-size: 13px;
+}
+.spinner {
+  width: 30px; height: 30px;
+  border: 3px solid var(--border);
+  border-top-color: var(--blue);
+  border-radius: 50%;
+  animation: spin 0.75s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* Cards */
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px;
+  margin-bottom: 12px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+}
+
+.section-label {
+  font-size: 11px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.6px;
+  color: var(--muted); margin-bottom: 12px;
+}
+
+/* Stats */
+.stats-row {
+  display: grid; grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px; margin-bottom: 12px;
+}
+.stat {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 10px; padding: 14px 8px; text-align: center;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+}
+.stat-val { font-size: 28px; font-weight: 800; line-height: 1; margin-bottom: 4px; }
+.stat-lbl { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.4px; color: var(--muted); }
+
+/* Alerts */
+.alert-item {
+  display: flex; gap: 11px; align-items: flex-start;
+  padding: 12px; border-radius: 8px;
+  margin-bottom: 8px; border: 1px solid;
+}
+.alert-item:last-child { margin-bottom: 0; }
+.alert-item.high { background: var(--red-bg); border-color: var(--red-border); }
+.alert-item.medium { background: var(--yellow-bg); border-color: var(--yellow-border); }
+.alert-icon { font-size: 15px; flex-shrink: 0; margin-top: 1px; }
+.alert-title { font-weight: 600; font-size: 13px; margin-bottom: 2px; line-height: 1.3; }
+.alert-item.high .alert-title { color: var(--red); }
+.alert-item.medium .alert-title { color: var(--yellow); }
+.alert-desc { font-size: 12px; color: var(--muted); line-height: 1.5; }
+
+/* Subscriptions */
+.sub-row {
+  display: flex; justify-content: space-between;
+  align-items: center; padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+}
+.sub-row:last-child { border-bottom: none; }
+.sub-left { flex: 1; min-width: 0; padding-right: 10px; }
+.sub-name { font-weight: 500; font-size: 13px; }
+.sub-note { font-size: 11px; color: var(--muted); margin-top: 2px; line-height: 1.3; }
+.sub-right { display: flex; align-items: center; gap: 7px; flex-shrink: 0; }
+.sub-amount { font-size: 13px; color: var(--muted); font-weight: 500; }
+
+.badge {
+  display: inline-block; padding: 2px 9px;
+  border-radius: 999px; font-size: 10px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.3px; white-space: nowrap;
+}
+.badge.active  { background: var(--green-bg);  color: var(--green);  border: 1px solid var(--green-border); }
+.badge.issue   { background: var(--yellow-bg); color: var(--yellow); border: 1px solid var(--yellow-border); }
+.badge.failed  { background: var(--red-bg);    color: var(--red);    border: 1px solid var(--red-border); }
+.badge.paused  { background: var(--gray-bg);   color: var(--gray-text); border: 1px solid var(--border); }
+
+/* Upcoming bills */
+.bill-row {
+  display: flex; justify-content: space-between;
+  align-items: center; padding: 9px 0;
+  border-bottom: 1px solid var(--border);
+}
+.bill-row:last-child { border-bottom: none; }
+.bill-name { font-weight: 500; font-size: 13px; }
+.bill-due { font-size: 11px; color: var(--yellow); margin-top: 2px; font-weight: 600; }
+.bill-amount { font-weight: 700; font-size: 14px; }
+
+/* Transactions */
+.tx-row {
+  display: flex; justify-content: space-between;
+  align-items: flex-start; padding: 8px 0;
+  border-bottom: 1px solid var(--border); font-size: 13px;
+}
+.tx-row:last-child { border-bottom: none; }
+.tx-merchant { font-weight: 500; }
+.tx-date { font-size: 11px; color: var(--muted); margin-top: 1px; }
+.tx-amount { font-weight: 600; flex-shrink: 0; margin-left: 8px; }
+
+.footer { text-align: center; font-size: 11px; color: #94a3b8; margin-top: 6px; }
+.error-state { text-align: center; color: var(--red); padding: 40px 20px; font-size: 13px; line-height: 1.6; }
+
+.empty-note { color: var(--muted); font-size: 13px; text-align: center; padding: 8px 0; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>💰 Household Finance Triage</h1>
+  <div class="sub" id="date-line">Loading…</div>
+</div>
+
+<div class="loading" id="loading">
+  <div class="spinner"></div>
+  <div>Scanning Gmail for financial activity…</div>
+</div>
+
+<div id="content" style="display:none">
+
+  <!-- Stats summary -->
+  <div class="stats-row">
+    <div class="stat">
+      <div class="stat-val" id="s-issues" style="color:var(--red)">—</div>
+      <div class="stat-lbl">Needs Fix</div>
+    </div>
+    <div class="stat">
+      <div class="stat-val" id="s-active" style="color:var(--green)">—</div>
+      <div class="stat-lbl">Active Subs</div>
+    </div>
+    <div class="stat">
+      <div class="stat-val" id="s-due" style="color:var(--yellow)">—</div>
+      <div class="stat-lbl">Bills Due</div>
+    </div>
+  </div>
+
+  <!-- Alerts -->
+  <div id="alerts-wrap"></div>
+
+  <!-- Subscriptions -->
+  <div class="card" id="subs-card" style="display:none">
+    <div class="section-label">📦 Subscriptions & Recurring</div>
+    <div id="subs-list"></div>
+  </div>
+
+  <!-- Upcoming bills -->
+  <div class="card" id="upcoming-card" style="display:none">
+    <div class="section-label">📅 Upcoming Bills</div>
+    <div id="upcoming-list"></div>
+  </div>
+
+  <!-- Transactions -->
+  <div class="card" id="tx-card" style="display:none">
+    <div class="section-label">🧾 Recent One-Time Purchases</div>
+    <div id="tx-list"></div>
+  </div>
+
+  <div class="footer">Refreshes on open · Pulled from Gmail · Last 45 days</div>
+</div>
+
+<script>
+// Set date
+document.getElementById('date-line').textContent = new Date().toLocaleDateString('en-US', {
+  weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'
+});
+
+function esc(s) {
+  return String(s ?? '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+async function run() {
+  try {
+    // Pull financial emails from Gmail
+    const r = await window.cowork.callMcpTool(
+      'mcp__2fe12232-96a6-47f7-ad79-fac634b2ff1e__search_threads',
+      {
+        query: 'subject:receipt OR subject:"order confirmation" OR subject:invoice OR subject:payment OR subject:"billing problem" OR subject:"payment method" OR subject:paused OR subject:"failed to renew" OR subject:"your order" OR subject:subscription OR subject:"payment is due" OR subject:"payment is scheduled" newer_than:45d',
+        pageSize: 40
+      }
+    );
+
+    let threads = [];
+    try {
+      const raw = r.structuredContent ?? JSON.parse(r.content[0].text);
+      threads = raw.threads ?? [];
+    } catch (_) {}
+
+    const emails = threads.map(t => {
+      const m = t.messages?.[0] ?? {};
+      return {
+        subject: m.subject ?? '',
+        snippet: (m.snippet ?? '').substring(0, 280),
+        sender: m.sender ?? '',
+        date: (m.date ?? '').substring(0, 10)
+      };
+    });
+
+    // Claude parses the emails into structured financial data
+    const analysisPrompt = `Parse these personal finance emails into a structured JSON object for a household budget dashboard.
+
+Return ONLY a raw JSON object — no markdown, no backticks, no explanation.
+
+Required schema:
+{
+  "alerts": [{"title": string, "description": string, "urgency": "high"|"medium"}],
+  "subscriptions": [{"name": string, "amount": string, "status": "active"|"issue"|"failed"|"paused", "note": string}],
+  "transactions": [{"merchant": string, "amount": string, "date": string}],
+  "upcoming": [{"name": string, "amount": string, "dueDate": string}]
+}
+
+Rules:
+- alerts: billing failures, declined payments, insufficient funds, paused/cancelled services. These need the user to take action NOW.
+- subscriptions: every recurring service/subscription found — include amount (or "?/mo") and honest status. Sort: failed/issue first, then paused, then active.
+- transactions: one-time purchases ONLY (not subscription renewals). Include merchant and amount.
+- upcoming: bills mentioned as due soon or overdue (rent, credit card due dates, etc.)
+- Do not duplicate entries across sections.
+- Be specific and useful. Prefer real names over email addresses as merchant names.`;
+
+    const raw = await window.cowork.askClaude(analysisPrompt, [
+      { type: 'text', text: JSON.stringify(emails) }
+    ]);
+
+    let data;
+    try {
+      const cleaned = (raw ?? '').replace(/^```[a-z]*\n?/,'').replace(/\n?```$/,'').trim();
+      data = JSON.parse(cleaned);
+    } catch (_) {
+      data = { alerts: [], subscriptions: [], transactions: [], upcoming: [] };
+    }
+
+    render(data);
+  } catch (err) {
+    document.getElementById('loading').innerHTML =
+      `<div class="error-state">⚠️ Could not load financial data.<br><small style="color:#94a3b8">${esc(err.message)}</small></div>`;
+  }
+}
+
+function render(d) {
+  document.getElementById('loading').style.display = 'none';
+  document.getElementById('content').style.display = 'block';
+
+  const alerts = d.alerts ?? [];
+  const subs = d.subscriptions ?? [];
+  const txs = d.transactions ?? [];
+  const upcoming = d.upcoming ?? [];
+
+  // Stats
+  const needsFix = alerts.filter(a => a.urgency === 'high').length
+    + subs.filter(s => s.status === 'failed' || s.status === 'issue').length;
+  document.getElementById('s-issues').textContent = needsFix || '0';
+  document.getElementById('s-active').textContent = subs.filter(s => s.status === 'active').length || '0';
+  document.getElementById('s-due').textContent = upcoming.length || '0';
+
+  // Alerts
+  if (alerts.length) {
+    document.getElementById('alerts-wrap').innerHTML = `
+      <div class="card">
+        <div class="section-label">⚠️ Action Required</div>
+        ${alerts.map(a => `
+          <div class="alert-item ${esc(a.urgency)}">
+            <div class="alert-icon">${a.urgency === 'high' ? '🔴' : '🟡'}</div>
+            <div>
+              <div class="alert-title">${esc(a.title)}</div>
+              <div class="alert-desc">${esc(a.description)}</div>
+            </div>
+          </div>`).join('')}
+      </div>`;
+  }
+
+  // Subscriptions
+  if (subs.length) {
+    document.getElementById('subs-card').style.display = 'block';
+    document.getElementById('subs-list').innerHTML = subs.map(s => `
+      <div class="sub-row">
+        <div class="sub-left">
+          <div class="sub-name">${esc(s.name)}</div>
+          ${s.note ? `<div class="sub-note">${esc(s.note)}</div>` : ''}
+        </div>
+        <div class="sub-right">
+          <span class="sub-amount">${esc(s.amount)}</span>
+          <span class="badge ${esc(s.status)}">${esc(s.status)}</span>
+        </div>
+      </div>`).join('');
+  }
+
+  // Upcoming
+  if (upcoming.length) {
+    document.getElementById('upcoming-card').style.display = 'block';
+    document.getElementById('upcoming-list').innerHTML = upcoming.map(u => `
+      <div class="bill-row">
+        <div>
+          <div class="bill-name">${esc(u.name)}</div>
+          <div class="bill-due">${esc(u.dueDate)}</div>
+        </div>
+        <div class="bill-amount">${esc(u.amount)}</div>
+      </div>`).join('');
+  }
+
+  // Transactions
+  if (txs.length) {
+    document.getElementById('tx-card').style.display = 'block';
+    document.getElementById('tx-list').innerHTML = txs.map(tx => `
+      <div class="tx-row">
+        <div>
+          <div class="tx-merchant">${esc(tx.merchant)}</div>
+          <div class="tx-date">${esc(tx.date)}</div>
+        </div>
+        <span class="tx-amount">${esc(tx.amount)}</span>
+      </div>`).join('');
+  }
+}
+
+run();
+</script>
+</body>
+</html>

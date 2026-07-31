@@ -65,3 +65,9 @@ knowledge/wiki/concepts/**
 *.gz
 *.dmg
 *.sqlite
+
+
+
+
+# Ignore Smart Environment folder
+.smart-env

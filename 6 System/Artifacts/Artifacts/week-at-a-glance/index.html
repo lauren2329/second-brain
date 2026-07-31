@@ -1,0 +1,1271 @@
+<!DOCTYPE html>
+<script type="application/json" id="cowork-artifact-meta">
+{
+  "name": "Week At A Glance",
+  "schemaVersion": 1,
+  "description": "Lauren's Digital Planner — 8-tab live dashboard with Gmail, Calendar, iMessages, weather, FlyLady zones, stage health tracking, brain dump, and pages for Health, Finance, Family, Progress, Relationships, and Links.",
+  "mcpTools": [
+    "mcp__2fe12232-96a6-47f7-ad79-fac634b2ff1e__search_threads",
+    "mcp__fdecf106-fd1a-441d-945a-78524b3ed5bb__list_events",
+    "mcp__Read_and_Send_iMessages__get_unread_imessages"
+  ],
+  "mcpServerNames": [
+    "Gmail",
+    "Google Calendar",
+    "Read_and_Send_iMessages"
+  ]
+}
+</script>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Lauren's Digital Planner</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#f4f5f9;--card:#fff;--border:#e2e8f0;
+  --text:#1c1c2e;--muted:#64748b;
+  --red:#dc2626;--red-bg:#fef2f2;
+  --yellow:#b45309;--yellow-bg:#fffbeb;
+  --green:#2caa6e;--green-bg:#f0fdf4;
+  --blue:#2563eb;--blue-bg:#eff6ff;
+  --kynorml:#6c63ff;--personal:#2caa6e;
+  --radius:12px;
+}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--text);font-size:14px;min-height:100vh}
+/* Weather Bar */
+#weather-bar{background:linear-gradient(135deg,#1e3a5f,#2563eb);color:#fff;padding:10px 20px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+#wx-main{font-size:22px;font-weight:700;display:flex;align-items:center;gap:8px}
+#wx-details-bar{font-size:13px;opacity:.85}
+#wx-location{font-size:12px;opacity:.7;margin-left:auto}
+/* Header */
+#header{background:var(--card);border-bottom:1px solid var(--border);padding:12px 20px;display:flex;align-items:center;justify-content:space-between}
+#header h1{font-size:18px;font-weight:700;color:var(--kynorml)}
+#header-date{font-size:13px;color:var(--muted)}
+/* Nav */
+#nav{background:var(--card);border-bottom:2px solid var(--border);display:flex;overflow-x:auto;padding:0 12px}
+.nav-btn{padding:12px 16px;border:none;background:none;cursor:pointer;font-size:13px;font-weight:500;color:var(--muted);border-bottom:3px solid transparent;white-space:nowrap;transition:all .2s}
+.nav-btn.active{color:var(--kynorml);border-bottom-color:var(--kynorml)}
+.nav-btn:hover:not(.active){color:var(--text);background:#f8f9fa}
+/* Tabs */
+.tab{display:none;padding:16px;max-width:1000px;margin:0 auto}
+.tab.active{display:block}
+/* Cards */
+.card{background:var(--card);border-radius:var(--radius);border:1px solid var(--border);padding:16px;margin-bottom:14px}
+.card-title{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin-bottom:12px;display:flex;align-items:center;gap:6px}
+/* Grid */
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:600px){.two-col{grid-template-columns:1fr}}
+/* Brain Dump */
+#brain-dump{width:100%;min-height:100px;border:1.5px solid var(--border);border-radius:8px;padding:10px;font-family:inherit;font-size:14px;resize:vertical;background:#fffef8}
+#brain-dump:focus{outline:none;border-color:var(--kynorml);box-shadow:0 0 0 3px #6c63ff22}
+/* Events */
+.ev-item{display:flex;align-items:flex-start;gap:10px;padding:8px 0;border-bottom:1px solid var(--border)}
+.ev-item:last-child{border-bottom:none}
+.ev-dot{width:10px;height:10px;border-radius:50%;margin-top:3px;flex-shrink:0}
+.ev-time{font-size:12px;color:var(--muted);min-width:70px}
+.ev-title{font-size:13px;font-weight:600}
+.ev-cal{font-size:11px;color:var(--muted)}
+/* Email / iMessage */
+.msg-item{padding:8px 0;border-bottom:1px solid var(--border);cursor:pointer}
+.msg-item:last-child{border-bottom:none}
+.msg-from{font-size:13px;font-weight:600}
+.msg-subject{font-size:12px;color:var(--muted);margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.msg-time{font-size:11px;color:var(--muted);float:right}
+/* Small / loading */
+.small{font-size:12px;color:var(--muted);text-align:center;padding:12px 0}
+.loading{color:var(--muted);font-size:12px;animation:pulse 1.2s infinite}
+@keyframes pulse{0%,100%{opacity:.6}50%{opacity:1}}
+/* NN Grid */
+.nn-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+.nn-group{background:#fafafa;border-radius:8px;padding:12px;border:1px solid var(--border)}
+.nn-group-title{font-size:12px;font-weight:700;color:var(--muted);margin-bottom:8px}
+.nn-item{display:flex;align-items:center;gap:8px;padding:4px 0;font-size:13px}
+.nn-item input[type=checkbox]{width:15px;height:15px;cursor:pointer;accent-color:var(--kynorml)}
+.nn-item label{cursor:pointer}
+/* Week Calendar */
+.week-cal-frame{width:100%;height:500px;border:none;border-radius:8px}
+/* Zone */
+.zone-card{background:var(--yellow-bg);border:1px solid #fde68a;border-radius:8px;padding:12px;margin-bottom:12px}
+.zone-title{font-weight:700;color:var(--yellow);margin-bottom:8px}
+.zone-tasks{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:4px}
+.zone-tasks li{font-size:12px;display:flex;align-items:center;gap:6px}
+.zone-tasks input[type=checkbox]{accent-color:var(--yellow)}
+/* Family sub-page */
+.person-link{color:var(--kynorml);text-decoration:underline;cursor:pointer;font-weight:600}
+#sub-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:100;overflow-y:auto;padding:20px}
+#sub-overlay.active{display:flex;align-items:flex-start;justify-content:center}
+#sub-page{background:var(--bg);border-radius:16px;width:100%;max-width:700px;min-height:60vh;padding:20px;position:relative}
+#sub-close{position:absolute;top:12px;right:16px;background:none;border:none;font-size:20px;cursor:pointer;color:var(--muted)}
+/* Input row */
+.input-row{display:flex;gap:8px;margin-top:8px}
+.input-row input{flex:1;padding:8px 10px;border:1px solid var(--border);border-radius:8px;font-size:13px}
+.input-row input:focus{outline:none;border-color:var(--kynorml)}
+.btn-sm{padding:7px 14px;background:var(--kynorml);color:#fff;border:none;border-radius:8px;font-size:13px;cursor:pointer;white-space:nowrap}
+.btn-sm:hover{opacity:.85}
+/* Textarea */
+.note-area{width:100%;border:1px solid var(--border);border-radius:8px;padding:10px;font-family:inherit;font-size:13px;resize:vertical;min-height:80px}
+.note-area:focus{outline:none;border-color:var(--kynorml)}
+/* AI Council */
+.council-section{background:linear-gradient(135deg,#f5f3ff,#ede9fe);border:1px solid #c4b5fd;border-radius:10px;padding:14px;margin-bottom:12px}
+.council-title{font-weight:700;color:#7c3aed;margin-bottom:8px;font-size:13px}
+/* Links */
+.link-item{display:flex;align-items:center;gap:8px;padding:6px 0;border-bottom:1px solid var(--border)}
+.link-item:last-child{border-bottom:none}
+.link-item a{color:var(--blue);text-decoration:none;font-size:13px}
+.link-item a:hover{text-decoration:underline}
+/* Overlay */
+#overlay{position:fixed;inset:0;background:rgba(255,255,255,.9);z-index:200;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:10px}
+#overlay.hidden{display:none}
+.spin{width:32px;height:32px;border:3px solid var(--border);border-top-color:var(--kynorml);border-radius:50%;animation:spin .8s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+/* Tag */
+.tag{display:inline-block;padding:2px 8px;border-radius:999px;font-size:11px;font-weight:600;margin-right:4px}
+.tag-purple{background:#ede9fe;color:#7c3aed}
+.tag-green{background:var(--green-bg);color:#166534}
+.tag-blue{background:var(--blue-bg);color:var(--blue)}
+/* Save indicator */
+.saved-badge{font-size:11px;color:var(--green);background:var(--green-bg);padding:2px 8px;border-radius:6px;opacity:0;transition:opacity .3s}
+.saved-badge.show{opacity:1}
+/* Finance rows */
+.finance-row{display:flex;justify-content:space-between;align-items:center;padding:7px 0;border-bottom:1px solid var(--border);font-size:13px}
+.finance-row:last-child{border-bottom:none}
+.finance-amount{font-weight:700}
+.finance-amount.red{color:var(--red)}
+.finance-amount.green{color:var(--green)}
+/* Reach-out list */
+.ro-item{display:flex;justify-content:space-between;align-items:center;padding:5px 0;border-bottom:1px solid var(--border);font-size:13px}
+.ro-item:last-child{border-bottom:none}
+.ro-del{background:none;border:none;color:var(--red);cursor:pointer;font-size:16px;padding:0 4px}
+</style>
+</head>
+<body>
+
+<!-- Weather Bar -->
+<div id="weather-bar">
+  <div id="wx-main"><span id="wx-icon">🌡</span><span id="wx-temp">--°F</span></div>
+  <div id="wx-details-bar"><span id="wx-desc">Loading weather...</span></div>
+  <div id="wx-location">📍 Louisville, KY</div>
+</div>
+
+<!-- Header -->
+<div id="header">
+  <h1>Lauren's Digital Planner</h1>
+  <div id="header-date"></div>
+</div>
+
+<!-- Nav -->
+<div id="nav">
+  <button class="nav-btn active" onclick="showTab('today')">📋 Today</button>
+  <button class="nav-btn" onclick="showTab('week')">📅 Week</button>
+  <button class="nav-btn" onclick="showTab('home')">🏠 Home</button>
+  <button class="nav-btn" onclick="showTab('work')">💼 Work</button>
+  <button class="nav-btn" onclick="showTab('health')">❤️ Health</button>
+  <button class="nav-btn" onclick="showTab('finance')">💰 Finance</button>
+  <button class="nav-btn" onclick="showTab('family')">👨‍👩‍👦 Family</button>
+  <button class="nav-btn" onclick="showTab('relationships')">🤝 AI Council</button>
+  <button class="nav-btn" onclick="showTab('links')">🔗 Links</button>
+</div>
+
+<!-- ======================== TODAY TAB ======================== -->
+<div id="tab-today" class="tab active">
+
+  <!-- Brain Dump -->
+  <div class="card">
+    <div class="card-title">🧠 Brain Dump <span class="saved-badge" id="bd-saved">Saved</span></div>
+    <textarea id="brain-dump" placeholder="What's on your mind? Dump it here..."></textarea>
+  </div>
+
+  <div class="two-col">
+    <!-- Today's Calendar -->
+    <div class="card">
+      <div class="card-title">📅 Today's Events</div>
+      <div id="today-events"><div class="loading">Loading events...</div></div>
+    </div>
+
+    <!-- Gmail -->
+    <div class="card">
+      <div class="card-title">📧 Unread Email</div>
+      <div id="email-list"><div class="loading">Loading email...</div></div>
+    </div>
+  </div>
+
+  <!-- iMessages -->
+  <div class="card">
+    <div class="card-title">💬 iMessages</div>
+    <div id="imsg-list"><div class="loading">Loading messages...</div></div>
+  </div>
+
+</div>
+
+<!-- ======================== WEEK TAB ======================== -->
+<div id="tab-week" class="tab">
+
+  <!-- Weekly Calendar Embed -->
+  <div class="card">
+    <div class="card-title">📅 Weekly Calendar</div>
+    <div style="display:flex;gap:8px;margin-bottom:10px">
+      <button class="btn-sm" onclick="showWeekCal('personal')">Personal</button>
+      <button class="btn-sm" onclick="showWeekCal('work')">Work (KYNORML)</button>
+    </div>
+    <iframe id="week-cal-frame" class="week-cal-frame"
+      src="https://calendar.google.com/calendar/embed?src=a.lauren.kie%40gmail.com&ctz=America%2FChicago&mode=WEEK"
+      frameborder="0" scrolling="no" allowfullscreen></iframe>
+  </div>
+
+  <!-- Upcoming Events -->
+  <div class="card">
+    <div class="card-title">🗓 Upcoming 7 Days</div>
+    <div id="week-events"><div class="loading">Loading events...</div></div>
+  </div>
+
+  <!-- Non-Negotiables Grid -->
+  <div class="card">
+    <div class="card-title">✅ Today's Non-Negotiables</div>
+    <div id="nn-grid" class="nn-grid"></div>
+  </div>
+
+  <!-- Reach Out / Follow Up -->
+  <div class="two-col">
+    <div class="card">
+      <div class="card-title">📣 Reach Out</div>
+      <div id="reach-out-list"></div>
+      <div class="input-row">
+        <input id="reach-input" placeholder="Add name..." onkeydown="if(event.key==='Enter')addListItem('reach-out','reach-out-list','reach-input')">
+        <button class="btn-sm" onclick="addListItem('reach-out','reach-out-list','reach-input')">+</button>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">🔁 Follow Up</div>
+      <div id="followup-list"></div>
+      <div class="input-row">
+        <input id="followup-input" placeholder="Add name..." onkeydown="if(event.key==='Enter')addListItem('follow-up','followup-list','followup-input')">
+        <button class="btn-sm" onclick="addListItem('follow-up','followup-list','followup-input')">+</button>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ======================== HOME TAB ======================== -->
+<div id="tab-home" class="tab">
+
+  <!-- Current Zone -->
+  <div class="card">
+    <div class="card-title">🏡 Current FlyLady Zone</div>
+    <div id="current-zone"></div>
+  </div>
+
+  <!-- Daily Routines -->
+  <div class="two-col">
+    <div class="card">
+      <div class="card-title">🌅 Morning Routine</div>
+      <div id="morning-routine"></div>
+    </div>
+    <div class="card">
+      <div class="card-title">🌙 Evening Routine</div>
+      <div id="evening-routine"></div>
+    </div>
+  </div>
+
+  <!-- Zone Detail -->
+  <div class="card">
+    <div class="card-title">🗂 All Zones</div>
+    <div id="all-zones"></div>
+  </div>
+
+  <!-- Home Notes -->
+  <div class="card">
+    <div class="card-title">📝 Home Notes</div>
+    <textarea class="note-area" id="home-notes" placeholder="Home tasks, repairs, projects..." oninput="autoSave('home-notes',this.value)"></textarea>
+  </div>
+
+</div>
+
+<!-- ======================== WORK TAB ======================== -->
+<div id="tab-work" class="tab">
+
+  <!-- Work Calendar Events -->
+  <div class="card">
+    <div class="card-title">💼 Work Events Today</div>
+    <div id="work-events"><div class="loading">Loading...</div></div>
+  </div>
+
+  <!-- Work Tasks -->
+  <div class="card">
+    <div class="card-title">✅ Work Tasks</div>
+    <div id="work-task-list"></div>
+    <div class="input-row">
+      <input id="work-task-input" placeholder="Add task..." onkeydown="if(event.key==='Enter')addListItem('work-tasks','work-task-list','work-task-input')">
+      <button class="btn-sm" onclick="addListItem('work-tasks','work-task-list','work-task-input')">+</button>
+    </div>
+  </div>
+
+  <!-- Project Links -->
+  <div class="card">
+    <div class="card-title">🔗 Project Links</div>
+    <div id="project-link-list"></div>
+    <div class="input-row">
+      <input id="proj-link-name" placeholder="Name" style="max-width:140px">
+      <input id="proj-link-url" placeholder="URL">
+      <button class="btn-sm" onclick="addProjectLink()">+</button>
+    </div>
+  </div>
+
+  <!-- Monday.com Placeholder -->
+  <div class="card" style="background:linear-gradient(135deg,#fff8ed,#fff3d6);border:1px solid #fbbf24">
+    <div class="card-title" style="color:#b45309">⚡ Monday.com Integration</div>
+    <div style="font-size:13px;color:var(--muted);margin-bottom:8px">Connect Monday.com to see your boards here. Integration coming soon via the Monday.com MCP.</div>
+    <div id="monday-preview"><div class="small">Monday.com not yet connected. Add the Monday.com connector in Settings to enable live board view.</div></div>
+  </div>
+
+  <!-- Work Notes -->
+  <div class="card">
+    <div class="card-title">📝 Work Notes</div>
+    <textarea class="note-area" id="work-notes" placeholder="Projects, meeting notes, ideas..." oninput="autoSave('work-notes',this.value)"></textarea>
+  </div>
+
+</div>
+
+<!-- ======================== HEALTH TAB ======================== -->
+<div id="tab-health" class="tab">
+
+  <!-- Health Appointments from Calendar -->
+  <div class="card">
+    <div class="card-title">🏥 Upcoming Health Appointments</div>
+    <div id="health-appts-cal"><div class="loading">Scanning calendar...</div></div>
+  </div>
+
+  <div class="two-col">
+    <!-- Medications -->
+    <div class="card">
+      <div class="card-title">💊 Medications</div>
+      <textarea class="note-area" id="health-meds" placeholder="Medications, dosages, schedules..." oninput="autoSave('health-meds',this.value)"></textarea>
+    </div>
+    <!-- Mental Health -->
+    <div class="card">
+      <div class="card-title">🧠 Mental Health Notes</div>
+      <textarea class="note-area" id="health-mental" placeholder="Mood, therapy notes, reflections..." oninput="autoSave('health-mental',this.value)"></textarea>
+    </div>
+  </div>
+
+  <!-- Health Goals -->
+  <div class="card">
+    <div class="card-title">🎯 Health Goals</div>
+    <div id="health-goal-list"></div>
+    <div class="input-row">
+      <input id="health-goal-input" placeholder="Add goal..." onkeydown="if(event.key==='Enter')addListItem('health-goals','health-goal-list','health-goal-input')">
+      <button class="btn-sm" onclick="addListItem('health-goals','health-goal-list','health-goal-input')">+</button>
+    </div>
+  </div>
+
+</div>
+
+<!-- ======================== FINANCE TAB ======================== -->
+<div id="tab-finance" class="tab">
+
+  <!-- QuickBooks Snapshot (placeholder) -->
+  <div class="card">
+    <div class="card-title">📊 Financial Overview</div>
+    <div id="finance-overview">
+      <div style="font-size:13px;color:var(--muted);margin-bottom:10px">Connect QuickBooks in Settings to see live P&L data. Manual entries below.</div>
+    </div>
+  </div>
+
+  <!-- Bills Tracker -->
+  <div class="card">
+    <div class="card-title">🧾 Bills & Payments</div>
+    <div id="finance-bills-list"></div>
+    <div class="input-row">
+      <input id="bill-name" placeholder="Bill name" style="max-width:160px">
+      <input id="bill-amount" placeholder="Amount" style="max-width:90px">
+      <input id="bill-due" placeholder="Due date" style="max-width:110px">
+      <button class="btn-sm" onclick="addBill()">+</button>
+    </div>
+  </div>
+
+  <!-- Finance Notes -->
+  <div class="card">
+    <div class="card-title">📝 Finance Notes</div>
+    <textarea class="note-area" id="finance-notes" placeholder="Budget notes, goals, observations..." oninput="autoSave('finance-notes',this.value)"></textarea>
+  </div>
+
+</div>
+
+<!-- ======================== FAMILY TAB ======================== -->
+<div id="tab-family" class="tab">
+
+  <!-- Family Overview from Calendar -->
+  <div class="card">
+    <div class="card-title">📅 Upcoming Family Events</div>
+    <div id="family-cal-events"><div class="loading">Loading...</div></div>
+  </div>
+
+  <!-- Family Members -->
+  <div class="two-col">
+    <div class="card">
+      <div class="card-title">👤 Ben</div>
+      <div style="font-size:13px;margin-bottom:8px">
+        <a class="person-link" onclick="openSubPage('ben')">View Ben's Page →</a>
+      </div>
+      <div id="family-ben-preview"><div class="small">Loading Ben's notes...</div></div>
+    </div>
+    <div class="card">
+      <div class="card-title">👤 Matthew</div>
+      <div style="font-size:13px;margin-bottom:8px">
+        <a class="person-link" onclick="openSubPage('matthew')">View Matthew's Page →</a>
+      </div>
+      <div id="family-matthew-preview"><div class="small">Loading Matthew's notes...</div></div>
+    </div>
+  </div>
+
+  <!-- Family Non-Negotiables Summary -->
+  <div class="card">
+    <div class="card-title">✅ Family Non-Negotiables Today</div>
+    <div id="family-nn-summary"></div>
+  </div>
+
+  <!-- Family Notes -->
+  <div class="card">
+    <div class="card-title">📝 Family Notes</div>
+    <textarea class="note-area" id="family-notes" placeholder="Family todos, important info..." oninput="autoSave('family-notes',this.value)"></textarea>
+  </div>
+
+</div>
+
+<!-- ======================== RELATIONSHIPS / AI COUNCIL ======================== -->
+<div id="tab-relationships" class="tab">
+
+  <!-- AI Council Report -->
+  <div class="council-section">
+    <div class="council-title">🤖 AI Council — Daily Report</div>
+    <div id="ai-council-report" class="small">Click "Generate Report" to get AI analysis of your day.</div>
+    <div style="margin-top:10px">
+      <button class="btn-sm" onclick="generateCouncilReport()" style="background:#7c3aed">✨ Generate Report</button>
+    </div>
+  </div>
+
+  <!-- Suggestions -->
+  <div class="card">
+    <div class="card-title">💡 AI Suggestions</div>
+    <div id="ai-suggestions"><div class="small">Generate a report to see personalized suggestions.</div></div>
+  </div>
+
+  <!-- Task Recommendations -->
+  <div class="card">
+    <div class="card-title">📋 Recommended Focus Today</div>
+    <div id="ai-tasks"><div class="small">Generate a report to see task recommendations.</div></div>
+  </div>
+
+  <!-- Council Notes -->
+  <div class="card">
+    <div class="card-title">📝 Council Notes</div>
+    <textarea class="note-area" id="rel-notes" placeholder="Relationship reflections, check-ins to schedule..." oninput="autoSave('rel-notes',this.value)"></textarea>
+  </div>
+
+</div>
+
+<!-- ======================== LINKS TAB ======================== -->
+<div id="tab-links" class="tab">
+
+  <div class="card">
+    <div class="card-title">🔗 Quick Links</div>
+    <div id="links-list"></div>
+    <div class="input-row" style="margin-top:12px">
+      <input id="link-name" placeholder="Name">
+      <input id="link-url" placeholder="URL">
+      <button class="btn-sm" onclick="addLink()">+ Add</button>
+    </div>
+  </div>
+
+  <!-- Calendar Links -->
+  <div class="card">
+    <div class="card-title">📅 Calendars</div>
+    <div class="link-item"><a href="https://calendar.google.com" target="_blank">📅 Google Calendar (All)</a></div>
+    <div class="link-item"><a href="https://calendar.google.com/calendar/embed?src=a.lauren.kie%40gmail.com&ctz=America%2FChicago" target="_blank">🟢 Personal Calendar</a></div>
+    <div class="link-item"><a href="https://calendar.google.com/calendar/embed?src=lauren%40kynorml.org&ctz=America%2FChicago" target="_blank">🟣 KYNORML Calendar</a></div>
+  </div>
+
+</div>
+
+<!-- Sub-page Overlay for Ben / Matthew -->
+<div id="sub-overlay">
+  <div id="sub-page">
+    <button id="sub-close" onclick="closeSubPage()">✕</button>
+    <div id="sub-content"></div>
+  </div>
+</div>
+
+<!-- Loading Overlay -->
+<div id="overlay">
+  <div class="spin"></div>
+  <div style="color:var(--muted);font-size:14px">Loading your planner...</div>
+</div>
+
+<script>
+// ============================================================
+// CONSTANTS
+// ============================================================
+const GMAIL_TOOL  = 'mcp__2fe12232-96a6-47f7-ad79-fac634b2ff1e__search_threads';
+const CAL_TOOL    = 'mcp__fdecf106-fd1a-441d-945a-78524b3ed5bb__list_events';
+const IMSG_TOOL   = 'mcp__Read_and_Send_iMessages__get_unread_imessages';
+const KYNORML_CAL  = 'lauren@kynorml.org';
+const PERSONAL_CAL = 'a.lauren.kie@gmail.com';
+
+const WX_CODES = {
+  0:'☀️',1:'🌤',2:'⛅',3:'☁️',
+  45:'🌫',48:'🌫',
+  51:'🌦',53:'🌦',55:'🌧',
+  61:'🌧',63:'🌧',65:'🌧',
+  71:'❄️',73:'❄️',75:'❄️',
+  80:'🌦',81:'🌧',82:'⛈',
+  95:'⛈',96:'⛈',99:'⛈'
+};
+
+let allEvents = [];
+let todayKey = '';
+
+// ============================================================
+// FLYLADY DATA
+// ============================================================
+const ZONES = [
+  {name:'Zone 1 — Entry, Front Porch & Dining Room',
+   tasks:['Sweep/mop entry','Wipe door handles','Dust entryway furniture','Clean front porch','Vacuum dining room','Wipe dining table & chairs','Dust light fixtures','Clean baseboards in entry','Wipe mirrors','Tidy coat closet']},
+  {name:'Zone 2 — Kitchen',
+   tasks:['Deep clean stove & oven','Wipe inside microwave','Clean refrigerator shelves','Scrub sink','Wipe cabinet fronts','Clean countertops & backsplash','Mop kitchen floor','Empty & clean trash can','Organize pantry','Wipe light switch plates']},
+  {name:'Zone 3 — Main Bathroom & Master Bedroom',
+   tasks:['Scrub toilet','Clean shower/tub','Wipe vanity & mirrors','Mop bathroom floor','Change hand towels','Vacuum master bedroom','Change bedsheets','Dust furniture','Wipe baseboards','Organize nightstands']},
+  {name:'Zone 4 — Living Room & Kids Room',
+   tasks:['Vacuum living room','Dust all surfaces','Fluff & arrange pillows','Clean windows/screens','Vacuum kids room','Dust kids furniture','Sort/organize toys','Wipe light switches','Clean baseboards','Freshen rugs']},
+  {name:'Zone 5 — Whole House Blitz',
+   tasks:['Touch up all zones','Vacuum all rooms','Mop all hard floors','Clean all mirrors','Wipe all switch plates','Freshen bathrooms','Take out all trash','Laundry catch-up','Car interior quick clean','Outdoor quick tidy']},
+];
+
+const MORNING_ROUTINE = [
+  'Make beds','Take medications','Ben morning supervision',
+  'Check master calendar','Quick kitchen tidy','15-min zone task'
+];
+const EVENING_ROUTINE = [
+  'Kitchen close at 9pm','Process email','Check Monday.com',
+  '15-min hot spot clear','Quiet hours 11pm','10-min tidy before bed','Tomorrow prep'
+];
+
+// ============================================================
+// NON-NEGOTIABLES
+// ============================================================
+const NN = [
+  {group:'🌅 Morning', items:[
+    {id:'n1',label:'Ben morning supervision'},
+    {id:'n2',label:'Make beds'},
+    {id:'n3',label:'Take medications'},
+    {id:'n4',label:'Check master calendar'},
+  ]},
+  {group:'☀️ Midday', items:[
+    {id:'n5',label:'Swish & swipe bathroom'},
+    {id:'n6',label:'Clear kitchen sink'},
+    {id:'n7',label:'One load of laundry'},
+  ]},
+  {group:'🌙 Evening', items:[
+    {id:'n8', label:'Kitchen close at 9pm'},
+    {id:'n9', label:'15-min hot spot clear'},
+    {id:'n10',label:'Quiet hours 11pm'},
+    {id:'n11',label:'Process email'},
+    {id:'n12',label:'Check Monday.com'},
+    {id:'n13',label:'10-min tidy before bed'},
+  ]},
+];
+
+// ============================================================
+// UTIL
+// ============================================================
+function getTodayKey() {
+  const d = new Date();
+  return `wag-daily-${d.getFullYear()}-${d.getMonth()+1}-${d.getDate()}`;
+}
+function getWeekKey() {
+  const d = new Date();
+  const mon = new Date(d); mon.setDate(d.getDate() - d.getDay() + 1);
+  return `wag-weekly-${mon.getFullYear()}-${mon.getMonth()+1}-${mon.getDate()}`;
+}
+function autoSave(key, val) {
+  localStorage.setItem(key, val);
+}
+function autoLoad(key) {
+  const el = document.getElementById(key);
+  if(el){ const v = localStorage.getItem(key); if(v) el.value = v; }
+}
+function fmtTime(isoStr) {
+  if(!isoStr) return '';
+  try {
+    const d = new Date(isoStr);
+    if(isNaN(d)) return '';
+    return d.toLocaleTimeString([],{hour:'numeric',minute:'2-digit',hour12:true});
+  } catch(e){ return ''; }
+}
+function fmtDate(isoStr) {
+  if(!isoStr) return '';
+  try {
+    const d = new Date(isoStr);
+    return d.toLocaleDateString([],{weekday:'short',month:'short',day:'numeric'});
+  } catch(e){ return isoStr; }
+}
+function isToday(isoStr) {
+  if(!isoStr) return false;
+  const d = new Date(isoStr);
+  const t = new Date();
+  return d.toDateString() === t.toDateString();
+}
+function isAllDay(ev) {
+  return ev.start && ev.start.date && !ev.start.dateTime;
+}
+
+// ============================================================
+// TAB NAVIGATION
+// ============================================================
+function showTab(name) {
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById('tab-'+name).classList.add('active');
+  const btns = document.querySelectorAll('.nav-btn');
+  btns.forEach(b=>{if(b.textContent.toLowerCase().includes(name)||
+    (name==='relationships'&&b.textContent.includes('Council'))) b.classList.add('active')});
+}
+
+// ============================================================
+// HEADER DATE
+// ============================================================
+function setHeaderDate() {
+  const d = new Date();
+  document.getElementById('header-date').textContent =
+    d.toLocaleDateString([],{weekday:'long',year:'numeric',month:'long',day:'numeric'});
+}
+
+// ============================================================
+// WEATHER
+// ============================================================
+async function loadWeather() {
+  try {
+    const url = 'https://api.open-meteo.com/v1/forecast?latitude=38.2527&longitude=-85.7585&current=temperature_2m,weather_code,wind_speed_10m,relative_humidity_2m&temperature_unit=fahrenheit&wind_speed_unit=mph&timezone=America%2FChicago';
+    const r = await fetch(url);
+    const d = await r.json();
+    const c = d.current;
+    const icon = WX_CODES[c.weather_code] || '🌡';
+    const temp = Math.round(c.temperature_2m);
+    document.getElementById('wx-icon').textContent = icon;
+    document.getElementById('wx-temp').textContent = temp+'°F';
+    document.getElementById('wx-desc').textContent =
+      `Humidity ${c.relative_humidity_2m}% · Wind ${Math.round(c.wind_speed_10m)} mph`;
+  } catch(e) {
+    document.getElementById('wx-desc').textContent = 'Weather unavailable';
+  }
+}
+
+// ============================================================
+// CALENDAR MCP
+// ============================================================
+async function fetchCalendar(calId, daysAhead=7) {
+  try {
+    const now = new Date();
+    const end = new Date(now); end.setDate(now.getDate()+daysAhead);
+    const r = await window.cowork.callMcpTool(CAL_TOOL, {
+      calendar_id: calId,
+      time_min: now.toISOString(),
+      time_max: end.toISOString(),
+      max_results: 50
+    });
+    let raw;
+    if(r.structuredContent) { raw = r.structuredContent; }
+    else {
+      const txt = Array.isArray(r.content) ? r.content[0]?.text : r.content;
+      try { raw = JSON.parse(txt||'{}'); } catch(e){ raw = {}; }
+    }
+    const items = raw.items || raw.events || raw.data || (Array.isArray(raw) ? raw : []);
+    const color = calId===KYNORML_CAL ? 'var(--kynorml)' : 'var(--personal)';
+    return items.map(ev=>({...ev, _calId:calId, _color:color}));
+  } catch(e){ return []; }
+}
+
+function renderEventList(events, elId, showDate=false) {
+  const el = document.getElementById(elId);
+  if(!el) return;
+  if(!events.length){ el.innerHTML='<div class="small">No events found</div>'; return; }
+  el.innerHTML = events.slice(0,20).map(ev=>{
+    const start = ev.start?.dateTime || ev.start?.date || '';
+    const timeStr = isAllDay(ev) ? 'All day' : fmtTime(start);
+    const dateStr = showDate ? fmtDate(start)+' ' : '';
+    const title = ev.summary || ev.title || 'Untitled';
+    const cal = ev._calId === KYNORML_CAL ? 'KYNORML' : 'Personal';
+    return `<div class="ev-item">
+      <div class="ev-dot" style="background:${ev._color||'var(--muted)'}"></div>
+      <div>
+        <div class="ev-title">${dateStr}${title}</div>
+        <div class="ev-cal">${timeStr} · ${cal}</div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+async function loadCalendarEvents() {
+  const [kyEvs, perEvs] = await Promise.all([
+    fetchCalendar(KYNORML_CAL, 7),
+    fetchCalendar(PERSONAL_CAL, 7)
+  ]);
+  allEvents = [...kyEvs, ...perEvs].sort((a,b)=>{
+    const ta = a.start?.dateTime||a.start?.date||'';
+    const tb = b.start?.dateTime||b.start?.date||'';
+    return ta.localeCompare(tb);
+  });
+
+  // Today's events
+  const todayEvs = allEvents.filter(ev=>{
+    const s = ev.start?.dateTime||ev.start?.date||'';
+    return isToday(s);
+  });
+  renderEventList(todayEvs,'today-events');
+
+  // Week events
+  renderEventList(allEvents,'week-events',true);
+
+  // Work events (KYNORML today)
+  const workEvs = kyEvs.filter(ev=>isToday(ev.start?.dateTime||ev.start?.date||''));
+  renderEventList(workEvs,'work-events');
+
+  // Health appointments (scan for health keywords)
+  const healthKeywords = ['doctor','dr.','appointment','appt','therapy','medical','clinic','dentist','vision','eye','health','chiro','counsel','psych'];
+  const healthEvs = allEvents.filter(ev=>{
+    const title = (ev.summary||ev.title||'').toLowerCase();
+    return healthKeywords.some(k=>title.includes(k));
+  });
+  const healthEl = document.getElementById('health-appts-cal');
+  if(healthEl){
+    if(!healthEvs.length){
+      healthEl.innerHTML = '<div class="small">No upcoming health appointments found in calendar</div>';
+    } else {
+      renderEventList(healthEvs,'health-appts-cal',true);
+    }
+  }
+
+  // Family calendar events
+  renderEventList(allEvents,'family-cal-events',true);
+}
+
+// ============================================================
+// GMAIL MCP
+// ============================================================
+async function fetchEmails() {
+  const el = document.getElementById('email-list');
+  try {
+    const r = await window.cowork.callMcpTool(GMAIL_TOOL, {
+      query:'in:inbox is:unread',
+      max_results:10
+    });
+    let raw;
+    if(r.structuredContent){ raw = r.structuredContent; }
+    else {
+      const txt = Array.isArray(r.content) ? r.content[0]?.text : r.content;
+      try { raw = JSON.parse(txt||'{}'); } catch(e){ raw = {}; }
+    }
+    const threads = raw.threads || raw.messages || raw.data || (Array.isArray(raw) ? raw : []);
+    if(!threads.length){ el.innerHTML='<div class="small">📭 No unread email</div>'; return; }
+    el.innerHTML = threads.slice(0,8).map(t=>{
+      const subject = t.subject || t.snippet?.split('\n')[0] || 'No subject';
+      const from = t.from || t.sender || '';
+      const date = t.date || t.internalDate || '';
+      const dateStr = date ? new Date(isNaN(+date)?date:+date).toLocaleTimeString([],{hour:'numeric',minute:'2-digit'}) : '';
+      return `<div class="msg-item">
+        <span class="msg-time">${dateStr}</span>
+        <div class="msg-from">${from}</div>
+        <div class="msg-subject">${subject}</div>
+      </div>`;
+    }).join('');
+  } catch(e) {
+    el.innerHTML='<div class="small" style="color:var(--red)">Gmail unavailable — check connector</div>';
+  }
+}
+
+// ============================================================
+// iMESSAGES MCP
+// ============================================================
+async function fetchMessages() {
+  const el = document.getElementById('imsg-list');
+  try {
+    const r = await window.cowork.callMcpTool(IMSG_TOOL, {});
+    let raw;
+    if(r.structuredContent){ raw = r.structuredContent; }
+    else {
+      const txt = Array.isArray(r.content) ? r.content[0]?.text : r.content;
+      try { raw = JSON.parse(txt||'{}'); } catch(e){ raw = {}; }
+    }
+    const msgs = raw.messages || raw.data || (Array.isArray(raw) ? raw : []);
+    if(!msgs.length){ el.innerHTML='<div class="small">💬 No unread messages</div>'; return; }
+    el.innerHTML = msgs.slice(0,8).map(m=>{
+      const from = m.sender || m.from || m.chat_identifier || 'Unknown';
+      const text = m.text || m.body || m.message || '';
+      const time = m.date || m.timestamp || '';
+      const timeStr = time ? new Date(isNaN(+time)?time:+time*1000).toLocaleTimeString([],{hour:'numeric',minute:'2-digit'}) : '';
+      return `<div class="msg-item">
+        <span class="msg-time">${timeStr}</span>
+        <div class="msg-from">${from}</div>
+        <div class="msg-subject">${text.slice(0,80)}${text.length>80?'...':''}</div>
+      </div>`;
+    }).join('');
+  } catch(e) {
+    el.innerHTML='<div class="small" style="color:var(--red)">iMessages unavailable — check connector</div>';
+  }
+}
+
+// ============================================================
+// NON-NEGOTIABLES
+// ============================================================
+function renderNN(containerId, storagePrefix) {
+  const el = document.getElementById(containerId);
+  if(!el) return;
+  const key = storagePrefix + '-' + getTodayKey();
+  let saved = {};
+  try { saved = JSON.parse(localStorage.getItem(key)||'{}'); } catch(e){}
+  el.innerHTML = NN.map(g=>`
+    <div class="nn-group">
+      <div class="nn-group-title">${g.group}</div>
+      ${g.items.map(it=>`
+        <div class="nn-item">
+          <input type="checkbox" id="${containerId}-${it.id}" ${saved[it.id]?'checked':''} onchange="saveNN('${key}','${containerId}','${it.id}')">
+          <label for="${containerId}-${it.id}">${it.label}</label>
+        </div>`).join('')}
+    </div>`).join('');
+}
+function saveNN(key, pfx, id) {
+  let saved = {};
+  try { saved = JSON.parse(localStorage.getItem(key)||'{}'); } catch(e){}
+  saved[id] = document.getElementById(pfx+'-'+id)?.checked || false;
+  localStorage.setItem(key, JSON.stringify(saved));
+  updateFamilyNNSummary(key);
+}
+function updateFamilyNNSummary(key) {
+  let saved = {};
+  try { saved = JSON.parse(localStorage.getItem(key)||'{}'); } catch(e){}
+  const total = NN.flatMap(g=>g.items).length;
+  const done = Object.values(saved).filter(Boolean).length;
+  const el = document.getElementById('family-nn-summary');
+  if(el) el.innerHTML = `<div style="font-size:14px;font-weight:700;color:var(--green)">${done}/${total} Non-Negotiables Completed Today</div>
+    <div style="height:8px;background:var(--border);border-radius:4px;margin-top:6px">
+      <div style="height:8px;background:var(--green);border-radius:4px;width:${total?Math.round(done/total*100):0}%"></div>
+    </div>`;
+}
+
+// ============================================================
+// BRAIN DUMP
+// ============================================================
+function initBrainDump() {
+  const el = document.getElementById('brain-dump');
+  if(!el) return;
+  const key = 'brain-dump-' + getTodayKey();
+  const saved = localStorage.getItem(key);
+  if(saved) el.value = saved;
+  let timer;
+  el.addEventListener('input', ()=>{
+    clearTimeout(timer);
+    timer = setTimeout(()=>{
+      localStorage.setItem(key, el.value);
+      const badge = document.getElementById('bd-saved');
+      if(badge){ badge.classList.add('show'); setTimeout(()=>badge.classList.remove('show'),1500); }
+    },600);
+  });
+}
+
+// ============================================================
+// FLYLADY ZONE
+// ============================================================
+function getCurrentZoneIndex() {
+  const d = new Date();
+  const day = d.getDate();
+  // Week 1 = zone 1, week 2 = zone 2, etc, week 5+ = zone 5
+  const week = Math.min(4, Math.ceil(day/7));
+  return week - 1;
+}
+function renderCurrentZone() {
+  const el = document.getElementById('current-zone');
+  if(!el) return;
+  const idx = getCurrentZoneIndex();
+  const zone = ZONES[idx];
+  const storageKey = 'zone-tasks-' + getWeekKey();
+  let saved = {};
+  try { saved = JSON.parse(localStorage.getItem(storageKey)||'{}'); } catch(e){}
+  el.innerHTML = `<div class="zone-card">
+    <div class="zone-title">🧹 ${zone.name}</div>
+    <ul class="zone-tasks">
+      ${zone.tasks.map((t,i)=>`
+        <li>
+          <input type="checkbox" id="zt-${i}" ${saved[i]?'checked':''} onchange="saveZoneTask(${i},'${storageKey}')">
+          <span>${t}</span>
+        </li>`).join('')}
+    </ul>
+  </div>`;
+}
+function saveZoneTask(i, key) {
+  let saved = {};
+  try { saved = JSON.parse(localStorage.getItem(key)||'{}'); } catch(e){}
+  saved[i] = document.getElementById('zt-'+i)?.checked || false;
+  localStorage.setItem(key, JSON.stringify(saved));
+}
+function renderRoutine(containerId, items, storageKey) {
+  const el = document.getElementById(containerId);
+  if(!el) return;
+  let saved = {};
+  try { saved = JSON.parse(localStorage.getItem(storageKey)||'{}'); } catch(e){}
+  el.innerHTML = items.map((t,i)=>`
+    <div class="nn-item">
+      <input type="checkbox" id="${containerId}-${i}" ${saved[i]?'checked':''} onchange="saveRoutineTask('${containerId}',${i},'${storageKey}')">
+      <label for="${containerId}-${i}">${t}</label>
+    </div>`).join('');
+}
+function saveRoutineTask(pfx, i, key) {
+  let saved = {};
+  try { saved = JSON.parse(localStorage.getItem(key)||'{}'); } catch(e){}
+  saved[i] = document.getElementById(`${pfx}-${i}`)?.checked||false;
+  localStorage.setItem(key, JSON.stringify(saved));
+}
+function renderAllZones() {
+  const el = document.getElementById('all-zones');
+  if(!el) return;
+  el.innerHTML = ZONES.map((z,zi)=>`
+    <details style="margin-bottom:8px" ${zi===getCurrentZoneIndex()?'open':''}>
+      <summary style="cursor:pointer;font-weight:600;padding:6px 0;font-size:13px">${z.name}</summary>
+      <ul style="margin:6px 0 0 16px;font-size:12px;color:var(--muted)">
+        ${z.tasks.map(t=>`<li>${t}</li>`).join('')}
+      </ul>
+    </details>`).join('');
+}
+
+// ============================================================
+// WEEK CALENDAR
+// ============================================================
+function showWeekCal(which) {
+  const urls = {
+    personal:'https://calendar.google.com/calendar/embed?src=a.lauren.kie%40gmail.com&ctz=America%2FChicago&mode=WEEK',
+    work:'https://calendar.google.com/calendar/embed?src=lauren%40kynorml.org&ctz=America%2FChicago&mode=WEEK'
+  };
+  document.getElementById('week-cal-frame').src = urls[which]||urls.personal;
+}
+
+// ============================================================
+// LIST HELPERS
+// ============================================================
+function addListItem(storageKey, listId, inputId) {
+  const inp = document.getElementById(inputId);
+  if(!inp||!inp.value.trim()) return;
+  let items = [];
+  try { items = JSON.parse(localStorage.getItem(storageKey)||'[]'); } catch(e){}
+  items.push({id:Date.now(),text:inp.value.trim()});
+  localStorage.setItem(storageKey, JSON.stringify(items));
+  inp.value = '';
+  renderList(storageKey, listId);
+}
+function removeListItem(storageKey, listId, id) {
+  let items = [];
+  try { items = JSON.parse(localStorage.getItem(storageKey)||'[]'); } catch(e){}
+  items = items.filter(it=>it.id!==id);
+  localStorage.setItem(storageKey, JSON.stringify(items));
+  renderList(storageKey, listId);
+}
+function renderList(storageKey, listId) {
+  const el = document.getElementById(listId);
+  if(!el) return;
+  let items = [];
+  try { items = JSON.parse(localStorage.getItem(storageKey)||'[]'); } catch(e){}
+  if(!items.length){ el.innerHTML='<div class="small">None yet</div>'; return; }
+  el.innerHTML = items.map(it=>`
+    <div class="ro-item">
+      <span>${it.text}</span>
+      <button class="ro-del" onclick="removeListItem('${storageKey}','${listId}',${it.id})">×</button>
+    </div>`).join('');
+}
+function loadList(storageKey, listId) { renderList(storageKey, listId); }
+
+// ============================================================
+// BILLS
+// ============================================================
+function addBill() {
+  const name = document.getElementById('bill-name')?.value.trim();
+  const amount = document.getElementById('bill-amount')?.value.trim();
+  const due = document.getElementById('bill-due')?.value.trim();
+  if(!name) return;
+  let bills = [];
+  try { bills = JSON.parse(localStorage.getItem('bills')||'[]'); } catch(e){}
+  bills.push({id:Date.now(), name, amount, due});
+  localStorage.setItem('bills', JSON.stringify(bills));
+  document.getElementById('bill-name').value='';
+  document.getElementById('bill-amount').value='';
+  document.getElementById('bill-due').value='';
+  renderBills();
+}
+function removeBill(id) {
+  let bills = [];
+  try { bills = JSON.parse(localStorage.getItem('bills')||'[]'); } catch(e){}
+  bills = bills.filter(b=>b.id!==id);
+  localStorage.setItem('bills', JSON.stringify(bills));
+  renderBills();
+}
+function renderBills() {
+  const el = document.getElementById('finance-bills-list');
+  if(!el) return;
+  let bills = [];
+  try { bills = JSON.parse(localStorage.getItem('bills')||'[]'); } catch(e){}
+  if(!bills.length){ el.innerHTML='<div class="small">No bills added yet</div>'; return; }
+  el.innerHTML = bills.map(b=>`
+    <div class="finance-row">
+      <span>${b.name}${b.due?' <span style="font-size:11px;color:var(--muted)">Due: '+b.due+'</span>':''}</span>
+      <span class="finance-amount red">$${b.amount||'—'} <button class="ro-del" onclick="removeBill(${b.id})">×</button></span>
+    </div>`).join('');
+}
+
+// ============================================================
+// PROJECT LINKS
+// ============================================================
+function addProjectLink() {
+  const name = document.getElementById('proj-link-name')?.value.trim();
+  const url = document.getElementById('proj-link-url')?.value.trim();
+  if(!name||!url) return;
+  let links = [];
+  try { links = JSON.parse(localStorage.getItem('project-links')||'[]'); } catch(e){}
+  links.push({id:Date.now(), name, url});
+  localStorage.setItem('project-links', JSON.stringify(links));
+  document.getElementById('proj-link-name').value='';
+  document.getElementById('proj-link-url').value='';
+  renderProjectLinks();
+}
+function removeProjectLink(id) {
+  let links = [];
+  try { links = JSON.parse(localStorage.getItem('project-links')||'[]'); } catch(e){}
+  links = links.filter(l=>l.id!==id);
+  localStorage.setItem('project-links', JSON.stringify(links));
+  renderProjectLinks();
+}
+function renderProjectLinks() {
+  const el = document.getElementById('project-link-list');
+  if(!el) return;
+  let links = [];
+  try { links = JSON.parse(localStorage.getItem('project-links')||'[]'); } catch(e){}
+  if(!links.length){ el.innerHTML='<div class="small">No project links yet</div>'; return; }
+  el.innerHTML = links.map(l=>`
+    <div class="link-item">
+      <a href="${l.url}" target="_blank">🔗 ${l.name}</a>
+      <button class="ro-del" onclick="removeProjectLink(${l.id})" style="margin-left:auto">×</button>
+    </div>`).join('');
+}
+
+// ============================================================
+// LINKS TAB
+// ============================================================
+function addLink() {
+  const name = document.getElementById('link-name')?.value.trim();
+  const url = document.getElementById('link-url')?.value.trim();
+  if(!name||!url) return;
+  let links = [];
+  try { links = JSON.parse(localStorage.getItem('custom-links')||'[]'); } catch(e){}
+  links.push({id:Date.now(), name, url});
+  localStorage.setItem('custom-links', JSON.stringify(links));
+  document.getElementById('link-name').value='';
+  document.getElementById('link-url').value='';
+  renderLinks();
+}
+function removeLink(id) {
+  let links = [];
+  try { links = JSON.parse(localStorage.getItem('custom-links')||'[]'); } catch(e){}
+  links = links.filter(l=>l.id!==id);
+  localStorage.setItem('custom-links', JSON.stringify(links));
+  renderLinks();
+}
+function renderLinks() {
+  const el = document.getElementById('links-list');
+  if(!el) return;
+  let links = [];
+  try { links = JSON.parse(localStorage.getItem('custom-links')||'[]'); } catch(e){}
+  if(!links.length){ el.innerHTML='<div class="small">No links yet</div>'; return; }
+  el.innerHTML = links.map(l=>`
+    <div class="link-item">
+      <a href="${l.url}" target="_blank">🔗 ${l.name}</a>
+      <button class="ro-del" onclick="removeLink(${l.id})" style="margin-left:auto">×</button>
+    </div>`).join('');
+}
+
+// ============================================================
+// FAMILY SUB-PAGES
+// ============================================================
+function openSubPage(person) {
+  const overlay = document.getElementById('sub-overlay');
+  const content = document.getElementById('sub-content');
+  const name = person === 'ben' ? 'Ben' : 'Matthew';
+  const noteKey = `family-${person}-notes`;
+  const savedNote = localStorage.getItem(noteKey)||'';
+
+  // Render NN for this person
+  const nnKey = `nn-${person}-${getTodayKey()}`;
+  let nnSaved = {};
+  try { nnSaved = JSON.parse(localStorage.getItem(nnKey)||'{}'); } catch(e){}
+  const nnHtml = NN.map(g=>`
+    <div class="nn-group">
+      <div class="nn-group-title">${g.group}</div>
+      ${g.items.map(it=>`
+        <div class="nn-item">
+          <input type="checkbox" id="sub-nn-${it.id}" ${nnSaved[it.id]?'checked':''} onchange="saveSubNN('${nnKey}','${it.id}')">
+          <label for="sub-nn-${it.id}">${it.label}</label>
+        </div>`).join('')}
+    </div>`).join('');
+
+  content.innerHTML = `
+    <h2 style="margin-bottom:16px;font-size:20px">👤 ${name}'s Page</h2>
+    <div class="card">
+      <div class="card-title">✅ Non-Negotiables</div>
+      <div class="nn-grid">${nnHtml}</div>
+    </div>
+    <div class="card">
+      <div class="card-title">📅 ${name}'s Events</div>
+      <div id="sub-events"><div class="small">Loading ${name}'s events...</div></div>
+    </div>
+    <div class="card">
+      <div class="card-title">📝 Notes for ${name}</div>
+      <textarea class="note-area" id="sub-notes" style="min-height:120px" oninput="localStorage.setItem('${noteKey}',this.value)">${savedNote}</textarea>
+    </div>`;
+
+  overlay.classList.add('active');
+
+  // Show events for this person (for Ben use personal cal events, Matthew same)
+  const subEvs = allEvents.filter(ev=>{
+    const title = (ev.summary||ev.title||'').toLowerCase();
+    return title.includes(person.toLowerCase());
+  });
+  const subEl = document.getElementById('sub-events');
+  if(subEl){
+    if(subEvs.length){ renderEventList(subEvs,'sub-events',true); }
+    else { subEl.innerHTML=`<div class="small">No events with "${name}" found</div>`; }
+  }
+}
+function closeSubPage() {
+  document.getElementById('sub-overlay').classList.remove('active');
+}
+function saveSubNN(key, id) {
+  let saved = {};
+  try { saved = JSON.parse(localStorage.getItem(key)||'{}'); } catch(e){}
+  saved[id] = document.getElementById('sub-nn-'+id)?.checked||false;
+  localStorage.setItem(key, JSON.stringify(saved));
+}
+
+// Family previews
+function renderFamilyPreviews() {
+  ['ben','matthew'].forEach(p=>{
+    const el = document.getElementById(`family-${p}-preview`);
+    if(!el) return;
+    const note = localStorage.getItem(`family-${p}-notes`)||'';
+    el.innerHTML = note
+      ? `<div style="font-size:12px;color:var(--muted);white-space:pre-wrap">${note.slice(0,120)}${note.length>120?'...':''}</div>`
+      : `<div class="small">No notes yet</div>`;
+  });
+}
+
+// ============================================================
+// AI COUNCIL
+// ============================================================
+async function generateCouncilReport() {
+  const reportEl = document.getElementById('ai-council-report');
+  const suggestEl = document.getElementById('ai-suggestions');
+  const tasksEl = document.getElementById('ai-tasks');
+  reportEl.innerHTML = '<div class="loading">🤖 Council convening...</div>';
+
+  // Gather context
+  const todayStr = new Date().toLocaleDateString([],{weekday:'long',month:'long',day:'numeric'});
+  const todayEvts = allEvents.filter(ev=>isToday(ev.start?.dateTime||ev.start?.date||''));
+  const eventSummary = todayEvts.map(ev=>ev.summary||ev.title||'').join(', ')||'None found';
+  const brainDump = localStorage.getItem('brain-dump-'+getTodayKey())||'(none)';
+
+  const context = `Today is ${todayStr}. Events: ${eventSummary}. Brain dump: ${brainDump.slice(0,300)}`;
+
+  try {
+    const report = await window.cowork.askClaude(
+      `You are Lauren's AI Council. Given this context: "${context}", generate:
+1. A brief daily assessment (2-3 sentences)
+2. Three specific suggestions for today
+3. Three recommended focus tasks in priority order
+Format as JSON: {"assessment":"...","suggestions":["...","...","..."],"tasks":["...","...","..."]}`,
+      [context]
+    );
+
+    let data;
+    try {
+      const jsonMatch = report.match(/\{[\s\S]*\}/);
+      data = JSON.parse(jsonMatch?.[0]||'{}');
+    } catch(e){ data = {}; }
+
+    reportEl.innerHTML = `<div style="font-size:13px;line-height:1.6">${data.assessment||report.slice(0,300)}</div>`;
+
+    if(suggestEl && data.suggestions?.length){
+      suggestEl.innerHTML = data.suggestions.map(s=>
+        `<div style="padding:6px 0;border-bottom:1px solid var(--border);font-size:13px">💡 ${s}</div>`
+      ).join('');
+    }
+    if(tasksEl && data.tasks?.length){
+      tasksEl.innerHTML = data.tasks.map((t,i)=>
+        `<div style="padding:6px 0;border-bottom:1px solid var(--border);font-size:13px"><span class="tag tag-purple">${i+1}</span>${t}</div>`
+      ).join('');
+    }
+  } catch(e) {
+    reportEl.innerHTML = '<div style="color:var(--red);font-size:12px">Could not generate report. Check AI connection.</div>';
+  }
+}
+
+// ============================================================
+// INIT
+// ============================================================
+async function init() {
+  todayKey = getTodayKey();
+  setHeaderDate();
+  loadWeather();
+  setInterval(loadWeather, 30*60*1000);
+
+  // Brain dump
+  initBrainDump();
+
+  // Non-Negotiables (week tab)
+  renderNN('nn-grid','wag');
+
+  // FlyLady (home tab)
+  renderCurrentZone();
+  renderRoutine('morning-routine', MORNING_ROUTINE, 'morning-'+getTodayKey());
+  renderRoutine('evening-routine', EVENING_ROUTINE, 'evening-'+getTodayKey());
+  renderAllZones();
+
+  // Lists
+  loadList('reach-out','reach-out-list');
+  loadList('follow-up','followup-list');
+  loadList('work-tasks','work-task-list');
+  renderProjectLinks();
+  renderBills();
+  renderLinks();
+
+  // Family
+  renderFamilyPreviews();
+  updateFamilyNNSummary(`wag-${todayKey}`);
+
+  // Saved text areas
+  ['home-notes','work-notes','finance-notes','health-meds','health-mental','family-notes','rel-notes'].forEach(autoLoad);
+
+  // Health goals
+  loadList('health-goals','health-goal-list');
+
+  // Remove loading overlay
+  document.getElementById('overlay').classList.add('hidden');
+
+  // Load calendar events
+  await loadCalendarEvents().catch(()=>{
+    document.getElementById('today-events').innerHTML='<div class="small" style="color:var(--red)">Calendar unavailable</div>';
+    document.getElementById('week-events').innerHTML='<div class="small" style="color:var(--red)">Calendar unavailable</div>';
+  });
+
+  // Load Gmail and iMessages in parallel
+  await Promise.all([fetchEmails(), fetchMessages()]);
+}
+
+init();
+</script>
+</body>
+</html>

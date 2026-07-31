@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Bratcher Family Command Center</title>
+<style>
+:root{--bg:#071522;--p1:#12324f;--p2:#17456f;--p3:#0b2238;--line:#62c7ff;--text:#f4fbff;--muted:#a7c8dc;--green:#39d353;--yellow:#ffd23f;--red:#ff4d4d;--blue:#4db6ff;--purple:#b589ff;--pink:#ff75b7;--orange:#ff9f1c}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui,-apple-system,sans-serif;background:radial-gradient(circle at top,#1c5c8f 0,#071522 42%,#020812 100%);color:var(--text);min-height:100vh;padding:10px}
+button,select,textarea,input{font:inherit;cursor:pointer;border:none}
+.app{max-width:1280px;margin:0 auto;border:2px solid var(--line);border-radius:26px;background:rgba(7,21,34,.93);box-shadow:0 20px 70px rgba(0,0,0,.5);overflow:hidden}
+/* TOP */
+.top{display:flex;justify-content:space-between;align-items:center;background:linear-gradient(180deg,#2373ad,#123a5e);padding:14px 22px;border-bottom:2px solid rgba(255,255,255,.18);flex-wrap:wrap;gap:8px}
+.kicker{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#d6f3ff;font-weight:900}
+.title{font-size:30px;font-weight:1000;text-shadow:0 3px 0 rgba(0,0,0,.25)}
+.clock-time{font-size:36px;font-weight:900;line-height:1;text-align:right}
+.clock-date{font-size:12px;color:#d6f3ff;margin-top:4px;text-align:right}
+/* NAV */
+.nav{display:flex;gap:6px;padding:10px 16px;background:#0b2238;border-bottom:1px solid rgba(98,199,255,.3);flex-wrap:wrap}
+.nav button{border-radius:999px;padding:9px 14px;background:#071522;color:var(--muted);font-weight:900;text-transform:uppercase;font-size:11px;letter-spacing:.07em;border:1px solid transparent}
+.nav button.active{background:linear-gradient(180deg,#61c8ff,#2d84c7);color:#fff}
+/* SCREENS */
+.screen{display:none;padding:16px}.screen.active{display:block}
+/* PANELS */
+.panel{background:linear-gradient(180deg,var(--p1),var(--p3));border:2px solid rgba(98,199,255,.38);border-radius:22px;padding:16px;box-shadow:0 8px 28px rgba(0,0,0,.28),inset 0 0 0 1px rgba(255,255,255,.05);margin-bottom:14px}
+.panel-title{font-size:12px;letter-spacing:.13em;text-transform:uppercase;color:#d6f3ff;font-weight:1000;margin-bottom:10px}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px}
+.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.span2{grid-column:1/-1}
+/* PLUMBOB */
+.plumbob{transform:rotate(45deg);border-radius:4px;animation:pb 2.2s ease-in-out infinite;flex-shrink:0}
+@keyframes pb{0%,100%{filter:brightness(1) drop-shadow(0 0 4px currentColor);transform:rotate(45deg) scale(1)}50%{filter:brightness(1.5) drop-shadow(0 0 14px currentColor);transform:rotate(45deg) scale(1.1)}}
+/* BARS */
+.bar-bg{height:22px;border-radius:999px;background:#06101c;border:2px solid rgba(98,199,255,.25);overflow:hidden;box-shadow:inset 0 2px 8px rgba(0,0,0,.5)}
+.bar-fill{height:100%;border-radius:999px;transition:width .45s}
+.sm-bg{height:8px;border-radius:999px;background:#06101c;border:1px solid rgba(98,199,255,.2);overflow:hidden}
+.sm-fill{height:100%;border-radius:999px;transition:width .4s}
+/* MEMBER STRIP (home) */
+.mrow{display:flex;align-items:center;gap:12px;background:rgba(255,255,255,.055);border:1px solid rgba(98,199,255,.2);border-radius:16px;padding:12px 14px;cursor:pointer;transition:background .15s;margin-bottom:8px}
+.mrow:hover{background:rgba(77,182,255,.13);border-color:rgba(98,199,255,.55)}
+.mrow-left{display:flex;align-items:center;gap:10px;width:155px;flex-shrink:0}
+.mrow-name{font-size:19px;font-weight:1000;line-height:1}
+.mrow-state{font-size:10px;font-weight:900;text-transform:uppercase}
+.mrow-center{flex:1;min-width:0}
+.mrow-nbs{font-size:13px;color:#fff27a;font-weight:800;margin-top:5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.mrow-allowed{font-size:11px;color:var(--muted);margin-top:3px}
+.mrow-pct{font-size:22px;font-weight:1000;min-width:50px;text-align:right}
+/* METRICS */
+.metric{background:rgba(255,255,255,.06);border:1px solid rgba(98,199,255,.22);border-radius:16px;padding:12px}
+.metric-name{font-size:11px;color:var(--muted);font-weight:900;text-transform:uppercase;margin-bottom:5px}
+.metric-val{font-size:24px;font-weight:1000}
+/* ZONES */
+.zone-card{background:rgba(255,255,255,.055);border:1px solid rgba(98,199,255,.2);border-radius:18px;padding:14px}
+.zone-title{font-size:15px;font-weight:1000;margin-bottom:5px}
+.zone-note{font-size:13px;color:var(--muted);line-height:1.4}
+.pill{display:inline-flex;border-radius:999px;background:#071522;border:1px solid rgba(98,199,255,.25);padding:4px 9px;font-size:11px;color:#d6f3ff;font-weight:900;margin:4px 4px 0 0}
+/* FAMILY NBS */
+.nbs-box{background:linear-gradient(180deg,#2d84c7,#176095);border-radius:16px;padding:14px}
+.nbs-head{font-size:10px;color:#d6f3ff;text-transform:uppercase;letter-spacing:.1em;font-weight:1000;margin-bottom:5px}
+.nbs-text{font-size:20px;font-weight:1000;color:#fff27a;line-height:1.2}
+/* PERSON SELECTOR */
+.psel-row{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px}
+.psel-btn{border-radius:999px;padding:9px 16px;font-size:13px;font-weight:1000;background:#071522;border:1.5px solid rgba(98,199,255,.3);color:var(--muted);transition:all .15s}
+.psel-btn.active{background:linear-gradient(180deg,#61c8ff,#2d84c7);color:#fff;border-color:transparent}
+/* DETAIL HERO */
+.hero{display:grid;grid-template-columns:150px 1fr 230px;gap:14px;margin-bottom:14px}
+.sim-card{text-align:center;padding:16px}
+.sim-name{font-size:28px;font-weight:1000;line-height:1;margin-top:8px}
+.sim-sub{font-size:11px;color:var(--muted);font-weight:900;text-transform:uppercase;margin-top:3px}
+.state-label{font-size:26px;font-weight:1000;margin-bottom:6px}
+.allowed-box{background:rgba(255,255,255,.07);border:1px solid rgba(98,199,255,.2);border-radius:12px;padding:10px 12px;margin:8px 0}
+.allowed-head{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;font-weight:900;margin-bottom:3px}
+.allowed-text{font-size:13px;font-weight:800}
+.next-box{background:linear-gradient(180deg,#2d84c7,#176095);border-radius:14px;padding:13px}
+.next-lbl{font-size:10px;color:#d6f3ff;text-transform:uppercase;letter-spacing:.1em;font-weight:1000;margin-bottom:5px}
+.next-text{font-size:21px;font-weight:1000;color:#fff27a;line-height:1.15}
+.xp-row{display:flex;justify-content:space-between;margin-bottom:7px;font-weight:1000;align-items:baseline}
+.xp-level{font-size:22px}
+.xp-num{font-size:12px;color:var(--muted)}
+.stat-mini{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-top:10px}
+.stat-box{background:rgba(255,255,255,.06);border-radius:10px;padding:8px;text-align:center}
+.stat-n{font-size:20px;font-weight:1000}
+.stat-l{font-size:10px;color:var(--muted);text-transform:uppercase;font-weight:900}
+/* NEEDS */
+.needs-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.need-card{background:rgba(255,255,255,.06);border:1px solid rgba(98,199,255,.2);border-radius:14px;padding:10px;text-align:center}
+.need-card.lowest{border-color:var(--red);box-shadow:0 0 14px rgba(255,77,77,.2)}
+.meter{height:68px;background:#06101c;border:1px solid rgba(98,199,255,.15);border-radius:10px;display:flex;align-items:flex-end;overflow:hidden;margin-bottom:6px}
+.meter-fill{width:100%;transition:height .35s}
+.need-label{font-size:11px;font-weight:900;color:var(--muted)}
+.need-val{font-size:13px;font-weight:1000}
+/* WANTS */
+.wants-wrap{display:flex;gap:10px;flex-wrap:wrap}
+.want-card{min-width:105px;min-height:88px;border-radius:22px;background:linear-gradient(180deg,#eefaff,#9edcff);color:#08243a;border:3px solid #fff;box-shadow:0 8px 18px rgba(0,0,0,.28);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:10px;cursor:pointer;font-weight:1000;font-size:13px;transition:transform .15s}
+.want-card:hover:not(.done){transform:scale(1.05)}
+.want-card.done{opacity:.35;pointer-events:none;filter:grayscale(.8)}
+.want-icon{font-size:24px;margin-bottom:4px}
+.want-xp{font-size:11px;color:#1b5c8f;margin-top:3px}
+/* FRICTION */
+.friction-grid{display:grid;grid-template-columns:1fr 1fr;gap:7px}
+.friction-btn{border:1px solid rgba(98,199,255,.24);border-radius:12px;background:rgba(255,255,255,.06);padding:10px;text-align:left;color:var(--text);font-weight:900;font-size:13px;transition:all .15s}
+.friction-btn.active{background:linear-gradient(180deg,#ffd23f,#ff9f1c);color:#341c00;border-color:#fff27a}
+.friction-suggest{background:rgba(255,210,63,.1);border:1px solid var(--yellow);border-radius:12px;padding:12px;font-size:14px;color:var(--text);margin-top:10px;display:none}
+.friction-suggest.show{display:block}
+/* ROUTINES */
+.routine-block{margin-bottom:7px}
+.routine-head{display:grid;grid-template-columns:52px 1fr auto 20px;align-items:center;gap:10px;background:rgba(255,255,255,.07);border:1px solid rgba(98,199,255,.24);border-radius:14px;padding:11px;cursor:pointer;transition:background .15s}
+.routine-head:hover{background:rgba(77,182,255,.12)}
+.r-badge{background:#071522;color:#d6f3ff;border-radius:999px;padding:5px;text-align:center;font-size:11px;font-weight:1000}
+.r-title{font-size:15px;font-weight:1000}
+.r-meta{font-size:12px;font-weight:1000;color:var(--muted);text-align:right}
+.subtasks{display:flex;flex-direction:column;gap:5px;padding:6px 0 2px 12px}
+.rowitem{display:flex;align-items:center;gap:10px;background:rgba(255,255,255,.05);border:1px solid rgba(98,199,255,.17);border-radius:12px;padding:10px;cursor:pointer;transition:background .15s}
+.rowitem:hover:not(.done){background:rgba(77,182,255,.1)}
+.rowitem.done{opacity:.35;pointer-events:none}
+.chkbox{width:21px;height:21px;border-radius:6px;border:2px solid rgba(98,199,255,.4);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:1000;flex-shrink:0}
+.chkbox.on{background:var(--green);border-color:var(--green)}
+.row-text{flex:1;font-size:13px;font-weight:800}
+.row-xp{font-size:11px;color:var(--muted);font-weight:900}
+/* TASKS */
+.cat-label{font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:#d6f3ff;font-weight:1000;margin:10px 0 5px}
+/* SKILLS */
+.skill-2col{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.skill-row{margin-bottom:7px}
+.skill-head{display:flex;justify-content:space-between;font-size:13px;font-weight:1000;margin-bottom:4px}
+/* ASPIRATIONS */
+.asp-title{font-size:16px;font-weight:1000;margin-bottom:3px}
+.asp-desc{font-size:12px;color:var(--muted);margin-bottom:10px}
+.milestone{display:flex;align-items:center;gap:9px;margin:7px 0;font-size:13px;font-weight:800;cursor:pointer}
+.ms-dot{width:18px;height:18px;border-radius:50%;border:2px solid rgba(98,199,255,.4);flex-shrink:0;transition:background .15s}
+.ms-dot.on{background:var(--green);border-color:var(--green)}
+/* TRAITS */
+.trait-card{background:rgba(255,255,255,.06);border:1px solid rgba(98,199,255,.18);border-radius:12px;padding:10px 12px;margin-bottom:7px}
+.trait-name{font-size:13px;font-weight:1000;color:var(--blue);margin-bottom:3px}
+.trait-desc{font-size:12px;color:var(--muted);line-height:1.4}
+/* RELATIONSHIPS */
+.rel-row{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid rgba(98,199,255,.1)}
+.rel-row:last-child{border-bottom:none}
+.rel-names{font-size:13px;font-weight:800;min-width:150px}
+.rel-bars{flex:1}
+.rel-label{font-size:10px;color:var(--muted);font-weight:900;margin-bottom:3px}
+/* REWARDS */
+.reward-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.reward-card{background:rgba(255,255,255,.06);border:1px solid rgba(98,199,255,.18);border-radius:12px;padding:10px;cursor:pointer;transition:background .15s}
+.reward-card:hover{background:rgba(77,182,255,.1)}
+.reward-card.claimed{opacity:.4;pointer-events:none}
+.reward-name{font-size:14px;font-weight:1000}
+.reward-cost{font-size:11px;color:var(--yellow);font-weight:900;margin-top:3px}
+.reward-type{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.07em}
+/* BLOCKS */
+.block-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:14px}
+.block-card{border-radius:16px;padding:14px;border:2px solid transparent;cursor:pointer;transition:all .2s}
+.block-card.active-block{border-color:#fff}
+.block-title{font-size:15px;font-weight:1000;margin-bottom:4px}
+.block-desc{font-size:12px;opacity:.8;line-height:1.4}
+/* SCHEDULE */
+.event-list{display:flex;flex-direction:column;gap:8px}
+.event-item{display:flex;align-items:flex-start;gap:10px;background:rgba(255,255,255,.055);border:1px solid rgba(98,199,255,.18);border-radius:13px;padding:12px}
+.event-dot{width:12px;height:12px;border-radius:50%;background:var(--blue);flex-shrink:0;margin-top:3px}
+.event-name{font-size:14px;font-weight:800}
+.event-sub{font-size:12px;color:var(--muted);margin-top:2px}
+/* MEAL SYSTEM */
+.meal-input-row{display:flex;gap:8px;margin-top:8px}
+.meal-input-row input{flex:1;border-radius:999px;background:#071522;color:var(--text);border:1px solid rgba(98,199,255,.3);padding:9px 14px}
+.meal-input-row button{border-radius:999px;background:var(--blue);color:#fff;font-weight:1000;padding:9px 14px}
+/* COMM BOARD */
+.msg-list{display:flex;flex-direction:column;gap:6px;margin-bottom:10px;max-height:220px;overflow-y:auto}
+.msg-item{display:flex;align-items:flex-start;gap:8px;background:rgba(255,255,255,.055);border:1px solid rgba(98,199,255,.15);border-radius:10px;padding:9px 12px}
+.msg-from{font-size:11px;font-weight:900;min-width:60px;color:var(--blue)}
+.msg-text{font-size:13px;flex:1}
+.msg-del{font-size:11px;color:var(--red);cursor:pointer;flex-shrink:0;padding:0 4px}
+.comm-input{display:flex;gap:6px;flex-wrap:wrap}
+.comm-input select{border-radius:999px;background:#071522;color:var(--text);border:1px solid rgba(98,199,255,.3);padding:8px 12px}
+.comm-input input{flex:1;border-radius:999px;background:#071522;color:var(--text);border:1px solid rgba(98,199,255,.3);padding:8px 12px;min-width:120px}
+.comm-input button{border-radius:999px;background:var(--blue);color:#fff;font-weight:1000;padding:8px 14px}
+/* HUB */
+.hub-section{margin-bottom:14px}
+.hub-field{display:flex;align-items:center;gap:8px;background:rgba(255,255,255,.05);border:1px solid rgba(98,199,255,.15);border-radius:10px;padding:8px 12px;margin-bottom:5px}
+.hub-label{font-size:11px;color:var(--muted);font-weight:900;width:110px;flex-shrink:0}
+.hub-val{font-size:13px;flex:1;background:transparent;color:var(--text);border:none;outline:none}
+/* REPAIR */
+.repair-banner{background:rgba(255,210,63,.1);border:1px solid var(--yellow);border-radius:12px;padding:10px 14px;font-size:13px;color:var(--yellow);margin-bottom:12px;display:none}
+.repair-banner.show{display:block}
+/* XP POP */
+.xp-pop{position:fixed;pointer-events:none;z-index:99;font-size:22px;font-weight:1000;color:var(--green);text-shadow:0 0 12px #39d35388;animation:fu .85s ease-out forwards}
+@keyframes fu{0%{opacity:1;transform:translateY(0)}100%{opacity:0;transform:translateY(-70px)}}
+/* LEVEL POP */
+.lvl-overlay{position:fixed;inset:0;background:rgba(0,0,0,.4);display:none;align-items:center;justify-content:center;z-index:80}
+.lvl-overlay.show{display:flex}
+.lvl-card{background:linear-gradient(180deg,#fff27a,#ffb703);color:#321e00;border:4px solid #fff;border-radius:28px;padding:28px 44px;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,.45)}
+.lvl-title{font-size:48px;font-weight:1000}
+.lvl-sub{font-size:18px;font-weight:900;margin-top:6px}
+/* TOAST */
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:linear-gradient(180deg,#2d84c7,#17496e);border:2px solid rgba(255,255,255,.3);border-radius:999px;padding:12px 22px;font-size:17px;font-weight:1000;opacity:0;transition:.25s;pointer-events:none;z-index:50}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(-4px)}
+/* RESET */
+.reset-btn{width:100%;margin-top:14px;border-radius:16px;background:#071522;color:var(--muted);padding:14px;text-transform:uppercase;letter-spacing:.1em;font-weight:1000;box-shadow:inset 0 0 0 1px rgba(98,199,255,.25)}
+select{background:#071522;border:1px solid rgba(98,199,255,.35);border-radius:10px;color:var(--text);padding:8px;font-weight:900;cursor:pointer}
+textarea{width:100%;border-radius:12px;background:#071522;color:var(--text);border:1px solid rgba(98,199,255,.3);padding:10px;resize:vertical;min-height:70px}
+@media(max-width:900px){.hero,.g2,.g3,.g4{grid-template-columns:1fr}.needs-grid{grid-template-columns:repeat(3,1fr)}.skill-2col,.reward-grid,.friction-grid{grid-template-columns:1fr}.block-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.needs-grid,.block-grid{grid-template-columns:1fr 1fr}.mrow-allowed{display:none}.title{font-size:22px}.clock-time{font-size:26px}}
+</style>
+</head>
+<body>
+<div class="app">
+<div class="top">
+  <div><div class="kicker">Bratcher Family</div><div class="title">Command Center</div></div>
+  <div><div class="clock-time" id="clockTime">--:--</div><div class="clock-date" id="clockDate">--</div></div>
+</div>
+<div class="nav">
+  <button class="active" id="nav-home" onclick="show('home')">Household</button>
+  <button id="nav-schedule" onclick="show('schedule')">Schedule</button>
+  <button id="nav-hub" onclick="show('hub')">Hub</button>
+  <button id="nav-detail" onclick="show('detail')">Details</button>
+</div>
+
+<!-- ══ HOME ══ -->
+<section id="home" class="screen active">
+  <div class="g2" style="margin-bottom:14px">
+    <div class="panel" style="margin-bottom:0">
+      <div class="panel-title">Family Wellbeing</div>
+      <div style="display:flex;align-items:center;gap:14px;margin-bottom:12px">
+        <div class="plumbob" id="famPlumbob" style="width:42px;height:42px;border-radius:7px"></div>
+        <div style="flex:1"><div class="bar-bg"><div class="bar-fill" id="famBar"></div></div></div>
+        <div id="famPct" style="font-size:36px;font-weight:1000;min-width:70px;text-align:right"></div>
+      </div>
+      <div class="nbs-box"><div class="nbs-head">Next Active Block</div><div class="nbs-text" id="famNbs">Loading…</div></div>
+    </div>
+    <div class="panel" style="margin-bottom:0">
+      <div class="panel-title">Active Block</div>
+      <div id="activeBlockDisplay"></div>
+      <div style="margin-top:10px;display:flex;gap:6px;flex-wrap:wrap" id="quickBlockBtns"></div>
+    </div>
+  </div>
+
+
+  <div class="panel">
+    <div class="panel-title">Command Zones</div>
+    <div class="g3" id="zoneGrid"></div>
+  </div>
+</section>
+
+<!-- ══ SCHEDULE ══ -->
+<section id="schedule" class="screen">
+  <div class="nav" style="margin:-16px -16px 14px;border-top:none;border-radius:0">
+    <button id="stab-today" onclick="setSchedTab('today')">Today's Meals</button>
+    <button id="stab-week" onclick="setSchedTab('week')">Weekly Plan</button>
+    <button id="stab-staples" onclick="setSchedTab('staples')">Staples</button>
+    <button id="stab-blocks" onclick="setSchedTab('blocks')">Block Flow</button>
+  </div>
+  <div id="sched-today"></div>
+  <div id="sched-week"></div>
+  <div id="sched-staples"></div>
+  <div id="sched-blocks"></div>
+</section>
+
+<!-- ══ HUB ══ -->
+<section id="hub" class="screen">
+  <div class="g2">
+    <div class="panel">
+      <div class="panel-title">Emergency & Contacts</div>
+      <div class="hub-section" id="hubEmerg"></div>
+    </div>
+    <div class="panel">
+      <div class="panel-title">Medications & Health</div>
+      <div class="hub-section" id="hubMeds"></div>
+    </div>
+    <div class="panel">
+      <div class="panel-title">Access & Logins</div>
+      <div class="hub-section" id="hubAccess"></div>
+    </div>
+    <div class="panel">
+      <div class="panel-title">How-To & Instructions</div>
+      <div class="hub-section" id="hubHow"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ DETAIL ══ -->
+<section id="detail" class="screen">
+  <div class="psel-row" id="pselRow"></div>
+  <div class="repair-banner" id="repairBanner">Repair Mode — one small step is enough. Start with the Next Best Step above.</div>
+  <div class="hero" id="heroArea"></div>
+  <div class="g2">
+    <div class="panel"><div class="panel-title">Needs</div><div class="needs-grid" id="needsGrid"></div></div>
+    <div class="panel"><div class="panel-title">Wants (optional — tap to complete)</div><div class="wants-wrap" id="wantsBox"></div></div>
+    <div class="panel"><div class="panel-title">Friction Points</div><div class="friction-grid" id="frictionGrid"></div><div class="friction-suggest" id="frictionSug"></div></div>
+    <div class="panel"><div class="panel-title">Aspiration</div><div id="aspBox"></div></div>
+    <div class="panel"><div class="panel-title">Non-Negotiable Routines</div><div id="routinesBox"></div></div>
+    <div class="panel"><div class="panel-title">Optional Progress Tasks</div><div id="tasksBox"></div></div>
+    <div class="panel"><div class="panel-title">Traits &amp; Accommodations</div><div id="traitsBox"></div></div>
+    <div class="panel"><div class="panel-title">Rewards</div><div id="rewardsBox"></div></div>
+    <div class="panel span2"><div class="panel-title">Skills</div><div class="skill-2col" id="skillsBox"></div></div>
+    <div class="panel span2"><div class="panel-title">Relationships</div><div id="relsBox"></div></div>
+  </div>
+</section>
+
+<button class="reset-btn" onclick="resetDay()">Start New Day / Repair Mode</button>
+</div>
+<div class="toast" id="toast"></div>
+<div class="lvl-overlay" id="lvlOverlay" onclick="this.classList.remove('show')">
+  <div class="lvl-card"><div class="lvl-title">LEVEL UP!</div><div class="lvl-sub" id="lvlSub"></div></div>
+</div>
+
+<script>
+// ── CONSTANTS ──────────────────────────────────────────────────────
+const NL={hygiene:'Hygiene',hunger:'Hunger',rest:'Rest',social:'Social',fun:'Fun',body:'Body',work:'Work',learning:'Learning',home:'Home'};
+const LEVELS=[0,40,100,200,350,550,800,1100,1500,2000];
+const SKILLS=['Hygiene','Food','Home','Learning','Regulation','Social','Movement','Creativity','Work'];
+const STATES=['Auto','Regulated','Low Energy','Dysregulated','Activated'];
+const ALLOWED_MAP={
+  'Regulated':'Routines, learning block, household task, social connection.',
+  'Low Energy':'Food, water, rest, hygiene minimum. One small step only.',
+  'Dysregulated':'Reduce all demands. Food, water, quiet space only.',
+  'Activated':'Movement, creative project, cleaning sprint, outside time.',
+};
+const FRICTION_MAP={
+  'Too hungry':'Eat something before anything else. Even a snack counts.',
+  'Too tired':'Sit or lie down for 10 minutes. Nothing else right now.',
+  'Too loud':'Move to a quieter space or use headphones.',
+  'Too messy':'Clear one small surface. Just one.',
+  'Task too big':'Do only the very first tiny step.',
+  'Need help starting':'Ask someone to begin it with you. Set a 5-minute timer together.',
+  'Body hurts':'Lower all demands. Do body care and medications only.',
+  'Overwhelmed':'Stop everything. Breathe. Choose the single smallest action.',
+  'Bored':'Pick one want bubble — something that sounds even slightly fun.',
+  'Transition is hard':'Use a timer. Count down from 10 before switching.',
+};
+const BLOCKS=[
+  {id:'reset',label:'Reset Block',desc:'Meals, hygiene, medications, rest. Needs first.',color:'#2d84c7',bg:'rgba(45,132,199,.2)'},
+  {id:'learning',label:'Learning Block',desc:'Homeschool tasks, reading, skill building.',color:'#b589ff',bg:'rgba(181,137,255,.2)'},
+  {id:'home',label:'Home Block',desc:'Cleaning, chores, organizing, maintenance.',color:'#39d353',bg:'rgba(57,211,83,.2)'},
+  {id:'admin',label:'Life Admin',desc:'Appointments, errands, calls, paperwork.',color:'#ffd23f',bg:'rgba(255,210,63,.2)'},
+  {id:'free',label:'Free Block',desc:'Play, creativity, outside time, choice time.',color:'#ff9f1c',bg:'rgba(255,159,28,.2)'},
+  {id:'work',label:'Work Block',desc:'Advocacy, business tasks, projects.',color:'#ff75b7',bg:'rgba(255,117,183,.2)'},
+];
+
+const MEMBERS=[
+  {id:'lauren',name:'Lauren',sub:'Mom',color:'#b589ff',needs:['hygiene','hunger','rest','social','fun','body','home'],
+   traits:[
+    {name:'Chronic Illness',desc:'Body care and rest take priority. Medications are non-negotiable. Energy is variable — match task demands to actual capacity, not ideal capacity.'},
+    {name:'ADHD / Executive Dysfunction',desc:'Use timers, external structure, and body-doubling. Break tasks to single first steps. Visual cues and checklists reduce cognitive load.'},
+    {name:'Disability Advocacy Role',desc:'Professional responsibilities include high-stakes communication. Protect rest before advocacy work, not after.'},
+   ],
+   rewards:[
+    {id:'lr1',name:'1 Hour Uninterrupted Rest',cost:30,type:'Choice Time'},
+    {id:'lr2',name:'Order From Favorite Restaurant',cost:80,type:'Treat'},
+    {id:'lr3',name:'No-Obligation Creative Hour',cost:50,type:'Choice Time'},
+    {id:'lr4',name:'New Planner or Stationery',cost:120,type:'Purchase'},
+   ]},
+  {id:'matthew',name:'Matthew',sub:'Dad',color:'#4db6ff',needs:['hygiene','hunger','rest','social','fun','work','home'],
+   traits:[
+    {name:'Work-From-Home Structure',desc:'Desk time requires clear start and stop. Lunch break away from screen is non-negotiable for regulation. Shutdown routine matters.'},
+    {name:'Paralegal / Legal Thinking',desc:'High cognitive load work — protect attention windows. Complex research belongs in high-energy blocks only.'},
+   ],
+   rewards:[
+    {id:'mr1',name:'Extended Gaming or Hobby Time',cost:40,type:'Choice Time'},
+    {id:'mr2',name:'Solo Errand or Outing',cost:50,type:'Choice Time'},
+    {id:'mr3',name:'Favorite Meal Request',cost:60,type:'Treat'},
+   ]},
+  {id:'colin',name:'Colin',sub:'Age 18',color:'#39d353',needs:['hygiene','hunger','rest','social','fun','learning','home'],
+   traits:[
+    {name:'Emerging Adult',desc:'Building independence systems. Scaffold, do not control. Allow natural consequences where safe.'},
+    {name:'Homeschooled Learner',desc:'Self-directed learning works better than assigned worksheets. Interest-driven blocks are more effective.'},
+   ],
+   rewards:[
+    {id:'cr1',name:'Extended Screen or Game Time',cost:30,type:'Screen Time'},
+    {id:'cr2',name:'Choose Family Dinner',cost:40,type:'Choice'},
+    {id:'cr3',name:'Personal Project Supply Purchase',cost:80,type:'Purchase'},
+    {id:'cr4',name:'Friend Hangout',cost:60,type:'Social'},
+   ]},
+  {id:'lily',name:'Lily',sub:'Age 12',color:'#ff75b7',needs:['hygiene','hunger','rest','social','fun','learning','home'],
+   traits:[
+    {name:'Creative Learner',desc:'Art, stories, and projects drive engagement. Embed learning inside creative work. Rigid worksheet formats cause shutdown.'},
+    {name:'Body Care Independence',desc:'Still building hygiene independence. Visual checklists and routine anchors help. Avoid nagging — use the system.'},
+   ],
+   rewards:[
+    {id:'lir1',name:'Screen Time Bonus',cost:25,type:'Screen Time'},
+    {id:'lir2',name:'Art Supply Purchase',cost:60,type:'Purchase'},
+    {id:'lir3',name:'Choose a Movie Night',cost:35,type:'Choice'},
+    {id:'lir4',name:'Solo Creative Project Time',cost:30,type:'Choice Time'},
+   ]},
+  {id:'ben',name:'Ben',sub:'Age 5-6',color:'#ff9f1c',needs:['hygiene','hunger','rest','social','fun','learning','home'],
+   traits:[
+    {name:'Young Child — High Need',desc:'Rest and food regulate everything else. Transitions are hard. Give advance warnings. Keep instructions one step at a time.'},
+    {name:'Play-Based Learner',desc:'Learning happens through play, stories, and movement. Academic pressure is inappropriate at this age.'},
+   ],
+   rewards:[
+    {id:'br1',name:'Extra Story at Bedtime',cost:10,type:'Treat'},
+    {id:'br2',name:'Choose a Game to Play',cost:15,type:'Choice'},
+    {id:'br3',name:'Special Snack',cost:10,type:'Treat'},
+    {id:'br4',name:'Movie or Show Pick',cost:20,type:'Screen Time'},
+   ]},
+];
+
+const ASP={
+  lauren:{title:'Health Routine',desc:'Build a sustainable daily care system.',m:['Complete AM routine 5 days','Take medications consistently 7 days','Afternoon rest block 3 days','Complete bedtime routine 5 days']},
+  matthew:{title:'Household Cooperation',desc:'Support family systems and home stability.',m:['Support one home reset 5 times','Complete work shutdown routine 3 times','Check in with Lauren daily 3 days','Participate in Weekly Blessing']},
+  colin:{title:'Independence',desc:'Build life skills and personal capability.',m:['Complete morning routine 5 days','Finish 3 learning blocks','Do one house task 3 times','Complete personal project']},
+  lily:{title:'Homeschool Progress',desc:'Build learning habits and creative expression.',m:['Homeschool block 5 days','Read 20 min 5 days','Complete creative project','Help with chore 3 times']},
+  ben:{title:'Life Skills',desc:'Learn basic self-care and family participation.',m:['Brush teeth 5 times','Pick up toys 5 times','Complete bedtime routine 3 times','Story time 5 nights']},
+};
+
+const WANTS={
+  lauren:[{id:'lw1',icon:'✦',text:'Make a useful plan',xp:8,skill:'Work',n:{fun:8}},{id:'lw2',icon:'☕',text:'Quiet reset',xp:6,skill:'Regulation',n:{rest:10}},{id:'lw3',icon:'✉',text:'Encourage someone',xp:7,skill:'Social',n:{social:12}}],
+  matthew:[{id:'mw1',icon:'⚖',text:'Solve one problem',xp:8,skill:'Work',n:{work:10}},{id:'mw2',icon:'☀',text:'Step outside',xp:6,skill:'Movement',n:{rest:8,fun:8}},{id:'mw3',icon:'★',text:'Help someone',xp:7,skill:'Social',n:{social:10}}],
+  colin:[{id:'cw1',icon:'⚙',text:'Build or fix something',xp:8,skill:'Learning',n:{learning:12,fun:8}},{id:'cw2',icon:'↟',text:'Move your body',xp:7,skill:'Movement',n:{fun:10,rest:8}},{id:'cw3',icon:'◇',text:'Personal project',xp:8,skill:'Creativity',n:{fun:12}}],
+  lily:[{id:'liy1',icon:'✎',text:'Make art',xp:7,skill:'Creativity',n:{fun:14}},{id:'liy2',icon:'☼',text:'Outside time',xp:7,skill:'Movement',n:{fun:12,rest:8}},{id:'liy3',icon:'📖',text:'Read for fun',xp:7,skill:'Learning',n:{learning:8,fun:8}}],
+  ben:[{id:'bw1',icon:'▣',text:'Build blocks',xp:5,skill:'Creativity',n:{fun:12}},{id:'bw2',icon:'☼',text:'Play outside',xp:5,skill:'Movement',n:{fun:14}},{id:'bw3',icon:'📖',text:'Story time',xp:5,skill:'Learning',n:{learning:10,social:8}}],
+};
+
+// Relationships — pairs that matter
+const REL_PAIRS=[
+  ['lauren','matthew','Connection','Cooperation'],
+  ['lauren','colin','Connection','Cooperation'],
+  ['lauren','lily','Connection','Cooperation'],
+  ['lauren','ben','Connection','Cooperation'],
+  ['matthew','colin','Connection','Cooperation'],
+  ['matthew','lily','Connection','Cooperation'],
+  ['matthew','ben','Connection','Cooperation'],
+  ['colin','lily','Connection','Cooperation'],
+];
+
+function mkR(id,label,badge,subs){return{id,label,badge,subtasks:subs}}
+function mkS(id,text,xp,n,skill){return{id,text,xp,n,skill}}
+
+const ROUTINES={
+  lauren:[
+    mkR('lmr','Morning Routine','AM',[mkS('lmr1','Get fully dressed to shoes',8,{hygiene:15},'Hygiene'),mkS('lmr2','Brush teeth and wash face',6,{hygiene:20},'Hygiene'),mkS('lmr3','Take morning medications',10,{body:12},'Regulation'),mkS('lmr4','Drink a glass of water',4,{hunger:8},'Food'),mkS('lmr5','Eat breakfast',8,{hunger:20},'Food'),mkS('lmr6','Make bed',5,{home:10},'Home'),mkS('lmr7','Swish and swipe bathroom',6,{home:12},'Home'),mkS('lmr8','Start a load of laundry',5,{home:8},'Home'),mkS('lmr9','Check calendar and set daily focus',5,{fun:5},'Regulation')]),
+    mkR('lpm','Afternoon Routine','PM',[mkS('lpm1','Eat lunch',8,{hunger:20},'Food'),mkS('lpm2','Drink water',4,{hunger:8},'Food'),mkS('lpm3','Move laundry to dryer',4,{home:8},'Home'),mkS('lpm4','Clear and wipe kitchen surfaces',6,{home:12},'Home'),mkS('lpm5','Rest or body care check-in',8,{rest:15,body:8},'Regulation'),mkS('lpm6','15 min declutter — one hot spot',8,{home:15},'Home'),mkS('lpm7','One business or advocacy task',15,{fun:10},'Work')]),
+    mkR('lbd','Before Bed Routine','BED',[mkS('lbd1','Eat dinner',8,{hunger:20},'Food'),mkS('lbd2','Shine the sink',6,{home:12},'Home'),mkS('lbd3','Fold or put away laundry',6,{home:10},'Home'),mkS('lbd4','Lay out clothes for tomorrow',5,{hygiene:8},'Hygiene'),mkS('lbd5','Brush teeth and wash face',6,{hygiene:20},'Hygiene'),mkS('lbd6','Take evening medications',10,{body:12},'Regulation'),mkS('lbd7',"Write tomorrow's top 3",5,{fun:5},'Regulation'),mkS('lbd8','10 min wind-down, no screens',8,{rest:15},'Regulation')]),
+    mkR('lwk','Weekly Home Blessing','WK',[mkS('lwk1','Vacuum all main floors',12,{home:20},'Home'),mkS('lwk2','Mop kitchen and bathroom floors',10,{home:15},'Home'),mkS('lwk3','Wipe mirrors and glass',6,{home:10},'Home'),mkS('lwk4','Empty all trash cans',6,{home:12},'Home'),mkS('lwk5','Change or fluff bed linens',8,{home:12,rest:5},'Home'),mkS('lwk6','Wipe doorknobs and light switches',5,{home:8},'Home'),mkS('lwk7','Quick declutter all hot spots',8,{home:15},'Home')]),
+  ],
+  matthew:[
+    mkR('mmr','Morning Routine','AM',[mkS('mmr1','Get fully dressed',8,{hygiene:15},'Hygiene'),mkS('mmr2','Brush teeth and wash face',6,{hygiene:20},'Hygiene'),mkS('mmr3','Eat breakfast',8,{hunger:20},'Food'),mkS('mmr4','Make bed',5,{home:10},'Home'),mkS('mmr5','Swish and swipe bathroom',6,{home:12},'Home'),mkS('mmr6','Review workday plan',5,{work:8},'Work'),mkS('mmr7','Start a load of laundry',5,{home:8},'Home')]),
+    mkR('mpm','Afternoon Routine','PM',[mkS('mpm1','Eat lunch — away from desk',8,{hunger:20,rest:8},'Food'),mkS('mpm2','Drink water',4,{hunger:8},'Food'),mkS('mpm3','Move laundry to dryer',4,{home:8},'Home'),mkS('mpm4','Wipe kitchen surfaces',5,{home:10},'Home'),mkS('mpm5','5 min stretch or walk break',6,{rest:12,fun:5},'Movement'),mkS('mpm6','15 min declutter — one area',8,{home:12},'Home')]),
+    mkR('mbd','Before Bed Routine','BED',[mkS('mbd1','Eat dinner',8,{hunger:20},'Food'),mkS('mbd2','Shine the sink',6,{home:12},'Home'),mkS('mbd3','Fold or put away laundry',6,{home:10},'Home'),mkS('mbd4','Lay out clothes for tomorrow',5,{hygiene:8},'Hygiene'),mkS('mbd5','Brush teeth',6,{hygiene:20},'Hygiene'),mkS('mbd6','Check in with Lauren',8,{social:15},'Social'),mkS('mbd7','10 min wind-down',8,{rest:15,fun:8},'Regulation')]),
+    mkR('mwk','Weekly Home Blessing','WK',[mkS('mwk1','Vacuum all main floors',12,{home:20},'Home'),mkS('mwk2','Mop kitchen and bathroom floors',10,{home:15},'Home'),mkS('mwk3','Wipe mirrors and glass',6,{home:10},'Home'),mkS('mwk4','Empty all trash cans',6,{home:12},'Home'),mkS('mwk5','Change bed linens',8,{home:12,rest:5},'Home'),mkS('mwk6','Wipe doorknobs and light switches',5,{home:8},'Home'),mkS('mwk7','Quick declutter all hot spots',8,{home:15},'Home')]),
+  ],
+  colin:[
+    mkR('cmr','Morning Routine','AM',[mkS('cmr1','Get fully dressed',7,{hygiene:15},'Hygiene'),mkS('cmr2','Brush teeth and wash face',6,{hygiene:20},'Hygiene'),mkS('cmr3','Eat breakfast',6,{hunger:20},'Food'),mkS('cmr4','Make bed',5,{home:10},'Home'),mkS('cmr5','Swish and swipe bathroom',5,{home:10},'Home'),mkS('cmr6','Check daily learning plan',4,{learning:8},'Regulation')]),
+    mkR('cpm','Afternoon Routine','PM',[mkS('cpm1','Eat lunch',6,{hunger:20},'Food'),mkS('cpm2','Drink water',3,{hunger:8},'Food'),mkS('cpm3','Move laundry if assigned',4,{home:8},'Home'),mkS('cpm4','Tidy shared space — 10 min',6,{home:12},'Home'),mkS('cpm5','Learning or skill block',12,{learning:20},'Learning'),mkS('cpm6','Physical activity or movement',10,{fun:15,rest:8},'Movement')]),
+    mkR('cbd','Before Bed Routine','BED',[mkS('cbd1','Eat dinner',6,{hunger:20},'Food'),mkS('cbd2','Brush teeth and wash face',6,{hygiene:20},'Hygiene'),mkS('cbd3','Lay out clothes for tomorrow',4,{hygiene:8},'Hygiene'),mkS('cbd4','Tidy personal space',5,{home:10},'Home'),mkS('cbd5',"Review tomorrow's goals",5,{learning:8},'Regulation'),mkS('cbd6','Wind down — no screens 20 min',7,{rest:15},'Regulation')]),
+    mkR('cwk','Weekly Home Blessing','WK',[mkS('cwk1','Vacuum assigned rooms',10,{home:18},'Home'),mkS('cwk2','Mop or sweep bathroom floor',8,{home:12},'Home'),mkS('cwk3','Wipe mirrors in bathroom',5,{home:8},'Home'),mkS('cwk4','Empty personal and shared trash',5,{home:10},'Home'),mkS('cwk5','Change own bed linens',7,{home:12,rest:5},'Home'),mkS('cwk6','Declutter personal hot spots',7,{home:12},'Home')]),
+  ],
+  lily:[
+    mkR('limr','Morning Routine','AM',[mkS('limr1','Get fully dressed',6,{hygiene:15},'Hygiene'),mkS('limr2','Brush teeth and wash face',5,{hygiene:20},'Hygiene'),mkS('limr3','Eat breakfast',6,{hunger:20},'Food'),mkS('limr4','Make bed',5,{home:10},'Home'),mkS('limr5','Swish and swipe bathroom',5,{home:10},'Home'),mkS('limr6','Get school materials ready',4,{learning:8},'Regulation')]),
+    mkR('lipm','Afternoon Routine','PM',[mkS('lipm1','Eat lunch',6,{hunger:20},'Food'),mkS('lipm2','Drink water',3,{hunger:8},'Food'),mkS('lipm3','Help move laundry if assigned',4,{home:8},'Home'),mkS('lipm4','Tidy shared space — 10 min',5,{home:10},'Home'),mkS('lipm5','Homeschool lesson block',12,{learning:20},'Learning'),mkS('lipm6','Outside time or creative activity',8,{fun:15,rest:8},'Creativity')]),
+    mkR('libd','Before Bed Routine','BED',[mkS('libd1','Eat dinner',6,{hunger:20},'Food'),mkS('libd2','Brush teeth and wash face',5,{hygiene:20},'Hygiene'),mkS('libd3','Lay out clothes for tomorrow',4,{hygiene:8},'Hygiene'),mkS('libd4','Tidy room — 10 min',5,{home:10},'Home'),mkS('libd5','Reading before sleep — 15 min',6,{fun:10,rest:8,learning:8},'Learning')]),
+    mkR('liwk','Weekly Home Blessing','WK',[mkS('liwk1','Vacuum assigned rooms',10,{home:15},'Home'),mkS('liwk2','Sweep or mop bathroom floor',7,{home:10},'Home'),mkS('liwk3','Wipe bathroom mirror',4,{home:8},'Home'),mkS('liwk4','Empty personal trash',4,{home:8},'Home'),mkS('liwk5','Change own bed linens with help',6,{home:10,rest:5},'Home'),mkS('liwk6','Declutter personal hot spots',6,{home:10},'Home')]),
+  ],
+  ben:[
+    mkR('bemr','Morning Routine','AM',[mkS('bemr1','Get dressed with help',4,{hygiene:12},'Hygiene'),mkS('bemr2','Brush teeth with help',4,{hygiene:18},'Hygiene'),mkS('bemr3','Wash hands and face',3,{hygiene:10},'Hygiene'),mkS('bemr4','Eat breakfast',5,{hunger:25},'Food'),mkS('bemr5','Make bed with help',4,{home:8},'Home'),mkS('bemr6','Pick up toys from yesterday',4,{home:8},'Home')]),
+    mkR('bepm','Afternoon Routine','PM',[mkS('bepm1','Eat lunch',5,{hunger:25},'Food'),mkS('bepm2','Drink water or milk',3,{hunger:8},'Food'),mkS('bepm3','Help put away one thing',3,{home:6},'Home'),mkS('bepm4','Quiet time or nap',7,{rest:25},'Regulation'),mkS('bepm5','Learning activity or story',7,{learning:20,fun:8},'Learning'),mkS('bepm6','Outdoor play',7,{fun:20,rest:8},'Movement')]),
+    mkR('bebd','Before Bed Routine','BED',[mkS('bebd1','Eat dinner',5,{hunger:25},'Food'),mkS('bebd2','Bath or wash-up',5,{hygiene:25},'Hygiene'),mkS('bebd3','Brush teeth with help',4,{hygiene:18},'Hygiene'),mkS('bebd4','Put toys away',4,{home:8},'Home'),mkS('bebd5','Put on pajamas',3,{hygiene:5,rest:5},'Hygiene'),mkS('bebd6','Story time with parent',5,{fun:12,social:10,rest:8},'Social')]),
+    mkR('bewk','Weekly Home Blessing','WK',[mkS('bewk1','Help vacuum one room',6,{home:10},'Home'),mkS('bewk2','Help wipe low surfaces',5,{home:8},'Home'),mkS('bewk3','Empty small trash with help',4,{home:8},'Home'),mkS('bewk4','Help change bed linens',5,{home:8,rest:4},'Home'),mkS('bewk5','Big toy tidy — all areas',5,{home:10},'Home')]),
+  ],
+};
+
+const TASKS={
+  lauren:[{id:'lt1',cat:'Weekly Chores',text:'Deep clean one room',xp:20,n:{home:25},skill:'Home'},{id:'lt2',cat:'Weekly Chores',text:'Grocery shopping or order',xp:15,n:{hunger:10,home:10},skill:'Food'},{id:'lt3',cat:'Home Maintenance',text:'Wipe down appliances',xp:10,n:{home:12},skill:'Home'},{id:'lt4',cat:'Projects',text:'KY NORML blog post draft',xp:25,n:{fun:15},skill:'Work'},{id:'lt5',cat:'Projects',text:'Grant strategy — 30 min block',xp:20,n:{fun:10},skill:'Work'},{id:'lt6',cat:'Outside Responsibilities',text:'Board or advocacy email responses',xp:15,n:{social:15},skill:'Work'},{id:'lt7',cat:'Outside Responsibilities',text:'Medical or admin phone call',xp:12,n:{body:8},skill:'Regulation'},{id:'lt8',cat:'Auto Maintenance',text:'Check tire pressure',xp:8,n:{home:5},skill:'Home'}],
+  matthew:[{id:'mt1',cat:'Weekly Chores',text:'Take out trash and recycling',xp:10,n:{home:15},skill:'Home'},{id:'mt2',cat:'Weekly Chores',text:'Grocery pickup or run',xp:12,n:{home:8,hunger:8},skill:'Food'},{id:'mt3',cat:'Home Maintenance',text:'Yard or exterior walkthrough',xp:10,n:{home:10},skill:'Home'},{id:'mt4',cat:'Auto Maintenance',text:'Check oil and fluid levels',xp:10,n:{home:8},skill:'Home'},{id:'mt5',cat:'Auto Maintenance',text:'Wash vehicle',xp:8,n:{home:5},skill:'Home'},{id:'mt6',cat:'Projects',text:'Legal or paralegal research task',xp:20,n:{work:15},skill:'Work'},{id:'mt7',cat:'Outside Responsibilities',text:'Handle household admin or bills',xp:15,n:{work:10,home:8},skill:'Work'}],
+  colin:[{id:'co1',cat:'Weekly Chores',text:'Take out trash',xp:8,n:{home:12},skill:'Home'},{id:'co2',cat:'Weekly Chores',text:'Wash and put away own dishes',xp:7,n:{home:10},skill:'Home'},{id:'co3',cat:'Weekly Chores',text:'Clean own bathroom',xp:10,n:{home:15,hygiene:8},skill:'Home'},{id:'co4',cat:'Projects',text:'Personal project — 1 hr block',xp:18,n:{learning:20,fun:10},skill:'Creativity'},{id:'co5',cat:'Outside Responsibilities',text:'Run an errand or pickup',xp:10,n:{social:10},skill:'Social'},{id:'co6',cat:'Home Maintenance',text:'Assist with yard or household repair',xp:12,n:{home:12},skill:'Home'}],
+  lily:[{id:'li1',cat:'Weekly Chores',text:'Vacuum living room',xp:8,n:{home:12},skill:'Home'},{id:'li2',cat:'Weekly Chores',text:'Wash and put away own dishes',xp:6,n:{home:10},skill:'Home'},{id:'li3',cat:'Weekly Chores',text:'Clean own bathroom with guidance',xp:8,n:{home:12,hygiene:6},skill:'Home'},{id:'li4',cat:'Projects',text:'Independent creative project',xp:12,n:{fun:20,learning:10},skill:'Creativity'},{id:'li5',cat:'Outside Responsibilities',text:'Help with a family errand',xp:8,n:{social:10},skill:'Social'}],
+  ben:[{id:'be1',cat:'Weekly Chores',text:'Sort laundry by color with help',xp:5,n:{home:8},skill:'Home'},{id:'be2',cat:'Weekly Chores',text:'Set the table for dinner',xp:4,n:{home:6,social:5},skill:'Home'},{id:'be3',cat:'Weekly Chores',text:'Wipe baseboards with a cloth',xp:4,n:{home:6},skill:'Home'},{id:'be4',cat:'Projects',text:'Art or building project',xp:6,n:{fun:15,learning:8},skill:'Creativity'}],
+};
+
+// Hub reference data (editable)
+const HUB_DEFAULTS={
+  emerg:[{label:'Emergency',val:'911'},{label:'Poison Control',val:'1-800-222-1222'},{label:'Family Doctor',val:''},{label:'Nearest ER',val:''},{label:'Lauren cell',val:''},{label:'Matthew cell',val:''}],
+  meds:[{label:'Lauren AM meds',val:''},{label:'Lauren PM meds',val:''},{label:'Matthew meds',val:''},{label:'Colin meds',val:''},{label:'Lily meds',val:''},{label:'Ben meds',val:''}],
+  access:[{label:'WiFi Name',val:''},{label:'WiFi Password',val:''},{label:'School Login',val:''},{label:'Google Family',val:''}],
+  how:[{label:'Morning routine order',val:'Dress → Teeth → Meds → Water → Eat → Bed → Bathroom → Laundry'},{label:'Evening shutdown',val:'Dinner → Sink → Laundry → Clothes → Teeth → Meds → Wind-down'},{label:'Weekly blessing day',val:''}],
+};
+
+// Last synced: May 12, 2026 — no events found May 11–17
+const CAL_EVENTS=[];
+const CAL_SYNC_DATE='May 12, 2026';
+
+let schedTab='today';
+// ── UTILS ──────────────────────────────────────────────────────────
+// Block schedule — time of day → recommended block
+// Before 8am:   Reset (morning routine)
+// 8am–12pm:     Learning
+// 12–1pm:       Reset (lunch)
+// 1–3pm:        Home
+// 3–5pm:        Free
+// 5–7pm:        Reset (dinner + closing shift)
+// 7–9pm:        Free (family / decompression)
+// 9pm+:         Reset (before bed routine)
+function nextActiveBlock(){
+  let h=new Date().getHours();
+  if(h<8) return BLOCKS.find(b=>b.id==='reset');
+  if(h<12)return BLOCKS.find(b=>b.id==='learning');
+  if(h<13)return BLOCKS.find(b=>b.id==='reset');
+  if(h<15)return BLOCKS.find(b=>b.id==='home');
+  if(h<17)return BLOCKS.find(b=>b.id==='free');
+  if(h<19)return BLOCKS.find(b=>b.id==='reset');
+  if(h<21)return BLOCKS.find(b=>b.id==='free');
+  return BLOCKS.find(b=>b.id==='reset');
+}
+function suggestedNextBlock(){
+  let h=new Date().getHours();
+  if(h<8) return BLOCKS.find(b=>b.id==='learning');
+  if(h<12)return BLOCKS.find(b=>b.id==='reset');
+  if(h<13)return BLOCKS.find(b=>b.id==='home');
+  if(h<15)return BLOCKS.find(b=>b.id==='free');
+  if(h<17)return BLOCKS.find(b=>b.id==='reset');
+  if(h<19)return BLOCKS.find(b=>b.id==='free');
+  if(h<21)return BLOCKS.find(b=>b.id==='reset');
+  return BLOCKS.find(b=>b.id==='reset');
+}
+function nc(v){return v>=70?'#39d353':v>=40?'#ffd23f':'#ff4d4d'}
+function sc(s){return s==='Regulated'?'#39d353':s==='Activated'?'#4db6ff':s==='Low Energy'?'#ffd23f':'#ff4d4d'}
+function lvl(xp){for(let i=LEVELS.length-1;i>=0;i--)if(xp>=LEVELS[i])return i+1;return 1}
+function lpct(xp){let l=lvl(xp)-1,b=LEVELS[Math.min(l,LEVELS.length-1)],t=LEVELS[Math.min(l+1,LEVELS.length-1)];return t===b?100:Math.max(0,Math.min(100,Math.round((xp-b)/(t-b)*100)))}
+function mAvg(id){let m=MEMBERS.find(x=>x.id===id),ms=S.members[id];return m.needs.reduce((a,n)=>a+(ms.needs[n]||0),0)/m.needs.length}
+function lowNeed(id){let m=MEMBERS.find(x=>x.id===id),ms=S.members[id];return m.needs.map(n=>[n,ms.needs[n]||0]).sort((a,b)=>a[1]-b[1])[0]}
+function autoState(id){
+  let ms=S.members[id],ln=lowNeed(id),a=mAvg(id);
+  if(ms.manualState&&ms.manualState!=='Auto')return ms.manualState;
+  if((ms.needs.hunger??100)<40||(ms.needs.rest??100)<40)return'Low Energy';
+  if(ln[1]<30)return'Dysregulated';
+  if((ms.needs.fun??0)>72&&(ms.needs.rest??0)>65)return'Activated';
+  return a>=60?'Regulated':a>=40?'Low Energy':'Dysregulated';
+}
+function nextStep(id){
+  let ms=S.members[id],f=ms.friction;
+  if(f&&FRICTION_MAP[f])return FRICTION_MAP[f];
+  let l=lowNeed(id)[0];
+  return l==='hunger'?'Eat something with protein.':l==='rest'?'Rest for 10 minutes.':l==='hygiene'?'Brush teeth, wash face, or change clothes.':l==='social'?'Check in with one person.':l==='fun'?'Do one enjoyable low-effort thing.':l==='home'?'Pick up 5 items from the floor.':l==='learning'?'Do one small learning block.':l==='body'?'Take medications or do body care.':l==='work'?'Pick one work task only.':'Check the next routine item.';
+}
+
+// ── STATE ──────────────────────────────────────────────────────────
+function defaultState(){
+  let s={cur:'lauren',expanded:{},block:'reset',members:{},meals:[],msgs:[],hub:JSON.parse(JSON.stringify(HUB_DEFAULTS)),rels:{}};
+  MEMBERS.forEach(m=>{
+    let needs={};m.needs.forEach(n=>needs[n]=62);
+    let skills={};SKILLS.forEach(k=>skills[k]=0);
+    s.members[m.id]={xp:0,today:0,streak:0,lastDate:'',done:{},rdone:{},wdone:{},asp:{},skills,needs,lastDecay:Date.now(),manualState:'Auto',friction:'',repairMode:false,rewardsClaimed:{}};
+  });
+  REL_PAIRS.forEach(p=>{s.rels[p[0]+'_'+p[1]]={connection:60,cooperation:60}});
+  return s;
+}
+let S;
+try{S=JSON.parse(localStorage.getItem('bfcc3')||'null')||defaultState()}catch{S=defaultState()}
+// Patch
+MEMBERS.forEach(m=>{
+  let ms=S.members[m.id];
+  if(!ms){S.members[m.id]=defaultState().members[m.id];return}
+  if(!ms.skills){let sk={};SKILLS.forEach(k=>sk[k]=0);ms.skills=sk}
+  if(!ms.wdone)ms.wdone={};if(!ms.asp)ms.asp={};if(!ms.repairMode)ms.repairMode=false;
+  if(!ms.friction)ms.friction='';if(!ms.rewardsClaimed)ms.rewardsClaimed={};
+  m.needs.forEach(n=>{if(ms.needs[n]===undefined)ms.needs[n]=62});
+});
+if(!S.meals)S.meals=[];if(!S.msgs)S.msgs=[];if(!S.block)S.block='reset';
+if(!S.hub)S.hub=JSON.parse(JSON.stringify(HUB_DEFAULTS));
+if(!S.rels){S.rels={};REL_PAIRS.forEach(p=>{S.rels[p[0]+'_'+p[1]]={connection:60,cooperation:60}})}
+function save(){try{localStorage.setItem('bfcc3',JSON.stringify(S))}catch{}}
+function ms(id=S.cur){return S.members[id]}
+function md(id=S.cur){return MEMBERS.find(m=>m.id===id)}
+
+// ── CLOCK ──────────────────────────────────────────────────────────
+function updateClock(){
+  let d=new Date(),h=d.getHours(),m=String(d.getMinutes()).padStart(2,'0'),amp=h>=12?'PM':'AM';
+  document.getElementById('clockTime').textContent=`${h%12||12}:${m} ${amp}`;
+  document.getElementById('clockDate').textContent=d.toLocaleDateString(undefined,{weekday:'long',month:'long',day:'numeric',year:'numeric'});
+}
+updateClock();setInterval(updateClock,30000);
+
+// ── DECAY ──────────────────────────────────────────────────────────
+function decay(){
+  let now=Date.now();
+  MEMBERS.forEach(m=>{
+    let mem=ms(m.id),ticks=Math.floor((now-(mem.lastDecay||now))/(4*60*60*1000));
+    if(ticks>0){m.needs.forEach(n=>mem.needs[n]=Math.max(15,(mem.needs[n]||0)-ticks*5));mem.lastDecay=now}
+  });
+  save();render();
+}
+decay();setInterval(decay,4*60*60*1000);
+
+// ── NAV ────────────────────────────────────────────────────────────
+function show(v){
+  ['home','schedule','hub','detail'].forEach(x=>{
+    document.getElementById(x).classList.toggle('active',x===v);
+    document.getElementById('nav-'+x).classList.toggle('active',x===v);
+  });
+  render();
+}
+function openPerson(id){S.cur=id;save();show('detail')}
+
+// ── RENDER HOME ────────────────────────────────────────────────────
+function renderHome(){
+  let fa=MEMBERS.reduce((a,m)=>a+mAvg(m.id),0)/MEMBERS.length,fp=Math.round(fa);
+  let lowest=MEMBERS.map(m=>({id:m.id,a:mAvg(m.id)})).sort((a,b)=>a.a-b.a)[0];
+  document.getElementById('famPct').textContent=fp+'%';
+  document.getElementById('famPct').style.color=nc(fp);
+  let fb=document.getElementById('famBar');fb.style.width=fp+'%';fb.style.background=nc(fp);
+  let fp2=document.getElementById('famPlumbob');fp2.style.background=nc(fp);fp2.style.color=nc(fp);
+  document.getElementById('famNbs').textContent=md(lowest.id).name+': '+nextStep(lowest.id);
+
+  // Next active block
+  let nab=nextActiveBlock();
+  let snb=suggestedNextBlock();
+  let famNbsEl=document.getElementById('famNbs');
+  if(famNbsEl){
+    let curBlock=BLOCKS.find(b=>b.id===S.block)||nab;
+    famNbsEl.innerHTML=`<span style="color:${nab.color};font-size:22px;font-weight:1000">${nab.label}</span><div style="font-size:13px;font-weight:800;color:#d6f3ff;margin-top:4px">${nab.desc}</div><div style="font-size:11px;color:rgba(255,255,255,.45);margin-top:5px">Up next → ${snb.label}</div>`;
+  }
+  // Active block display
+  let ab=BLOCKS.find(b=>b.id===S.block)||BLOCKS[0];
+  document.getElementById('activeBlockDisplay').innerHTML=`<div style="background:${ab.bg};border:2px solid ${ab.color};border-radius:14px;padding:12px 14px"><div style="font-size:14px;font-weight:1000;color:${ab.color}">${ab.label}</div><div style="font-size:13px;color:var(--muted);margin-top:3px">${ab.desc}</div></div>`;
+  document.getElementById('quickBlockBtns').innerHTML=BLOCKS.map(b=>`<button onclick="setBlock('${b.id}')" style="border-radius:999px;padding:7px 12px;font-size:11px;font-weight:900;background:${S.block===b.id?b.color:'rgba(255,255,255,.07)'};color:${S.block===b.id?'#fff':b.color};border:1.5px solid ${b.color};cursor:pointer">${b.label}</button>`).join('');
+
+
+
+  // Metrics
+
+
+  // Zones — each card navigates to the relevant screen/section
+  const ZONE_ACTIONS=[
+    {title:'Scheduling',note:'Calendar, appointments, homeschool, and daily block flow.',pill:'Calendar · Blocks',action:`show('schedule')`},
+    {title:'Task & Chore Management',note:'Routines are the baseline. Tasks are optional progress once stable.',pill:'Routines · Tasks',action:`show('detail')`},
+    {title:'Status Dashboard',note:'You are here. Tap any member name to open their full detail.',pill:'Needs · State · Flags',action:`show('home')`},
+    {title:'Information Hub',note:'Contacts, medications, WiFi, logins, and how-to instructions.',pill:'Reference',action:`show('hub')`},
+    {title:'Communication Board',note:'Use a physical whiteboard, sticky notes, or Slack for family announcements. This keeps digital clutter out of the dashboard.',pill:'Whiteboard · Slack',action:`show('home')`},
+    {title:'Meal & Food System',note:'Meal plan, snacks, grocery list. Add items in the Schedule tab.',pill:'Food decisions',action:`show('schedule');setTimeout(()=>document.getElementById('mealInput')&&document.getElementById('mealInput').focus(),200)`},
+    {title:'Intake Zone',note:'Mail, receipts, papers, and incoming clutter land here first before processing.',pill:'Capture',action:`show('hub')`},
+    {title:'Output Zone',note:'Keys, shoes, bags, paperwork, and event materials stage here before leaving.',pill:'Deployment',action:`show('hub')`},
+    {title:'Routine System',note:'AM, PM, BED, and Weekly Blessing. These run the household.',pill:'FlyLady · Automation',action:`show('detail')`},
+  ];
+  document.getElementById('zoneGrid').innerHTML=ZONE_ACTIONS.map(z=>`<div class="zone-card" onclick="${z.action}" style="cursor:pointer;transition:background .15s" onmouseover="this.style.background='rgba(77,182,255,.1)'" onmouseout="this.style.background=''"><div class="zone-title">${z.title}</div><div class="zone-note">${z.note}</div><span class="pill">${z.pill}</span></div>`).join('');
+}
+
+// ── RENDER SCHEDULE ─────────────────────────────────────────────────
+const MEAL_SLOTS=[
+  {key:'breakfast',label:'Breakfast',icon:'🍳',time:'Morning'},
+  {key:'amsnack',label:'AM Snack',icon:'🍎',time:'Mid-morning'},
+  {key:'lunch',label:'Lunch',icon:'🥗',time:'Midday'},
+  {key:'pmsnack',label:'PM Snack',icon:'🧀',time:'Afternoon'},
+  {key:'dinner',label:'Dinner',icon:'🍽',time:'Evening'},
+];
+const DAYS=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+const SLOT_KEYS=['breakfast','amsnack','lunch','pmsnack','dinner'];
+
+function renderSchedule(){
+  if(document.getElementById('schedule').classList.contains('active')){
+    setSchedTab(schedTab);
+  }
+}
+
+function saveMealSlot(key,val){if(!S.todayMeals)S.todayMeals={};S.todayMeals[key]=val;save()}
+function toggleMealDone(key){if(!S.todayMealsChecked)S.todayMealsChecked={};S.todayMealsChecked[key]=!S.todayMealsChecked[key];save();renderSchedToday()}
+function saveWeekMeal(day,slot,val){if(!S.weekPlan)S.weekPlan={};if(!S.weekPlan[day])S.weekPlan[day]={};S.weekPlan[day][slot]=val;save()}
+function saveStaple(slot,i,val){if(!S.staples)S.staples={};if(!S.staples[slot])S.staples[slot]=[];S.staples[slot][i]=val;save()}
+function addStaple(slot){if(!S.staples)S.staples={};if(!S.staples[slot])S.staples[slot]=[];S.staples[slot].push('');save();renderSchedStaples()}
+function removeStaple(slot,i){S.staples[slot].splice(i,1);save();renderSchedStaples()}
+function fillFromWeekPlan(){
+  let day=DAYS[new Date().getDay()];
+  if(!S.todayMeals)S.todayMeals={};
+  if(S.weekPlan&&S.weekPlan[day]){
+    SLOT_KEYS.forEach(k=>{if(S.weekPlan[day][k])S.todayMeals[k]=S.weekPlan[day][k]});
+    save();renderSchedToday();toast('Today filled from weekly plan.');
+  } else toast('No plan set for '+day+'. Set it in Weekly Plan.');
+}
+function pickStaple(slot,val){if(!S.todayMeals)S.todayMeals={};S.todayMeals[slot]=val;save();renderSchedToday();setSchedTab('today')}
+
+function setSchedTab(t){
+  schedTab=t;
+  ['today','week','staples','blocks'].forEach(x=>{
+    let panel=document.getElementById('sched-'+x);
+    let btn=document.getElementById('stab-'+x);
+    if(panel)panel.style.display=x===t?'block':'none';
+    if(btn){
+      btn.style.background=x===t?'linear-gradient(180deg,#61c8ff,#2d84c7)':'#071522';
+      btn.style.color=x===t?'#fff':'var(--muted)';
+      btn.style.border=x===t?'1px solid transparent':'1px solid rgba(98,199,255,.3)';
+    }
+  });
+  if(t==='today')renderSchedToday();
+  else if(t==='week')renderSchedWeek();
+  else if(t==='staples')renderSchedStaples();
+  else renderSchedBlocks();
+}
+
+function renderSchedToday(){
+  let today=DAYS[new Date().getDay()];
+  if(!S.todayMeals)S.todayMeals={};
+  if(!S.todayMealsChecked)S.todayMealsChecked={};
+  // Auto-fill blanks from weekly plan
+  if(S.weekPlan&&S.weekPlan[today]){
+    SLOT_KEYS.forEach(k=>{if(!S.todayMeals[k]&&S.weekPlan[today][k])S.todayMeals[k]=S.weekPlan[today][k]});
+  }
+  let mealHtml=MEAL_SLOTS.map(slot=>{
+    let val=S.todayMeals[slot.key]||'';
+    let done=!!S.todayMealsChecked[slot.key];
+    let stapleOpts=(S.staples&&S.staples[slot.key]||[]).filter(x=>x);
+    return`<div style="background:rgba(255,255,255,.05);border:1px solid rgba(98,199,255,${done?'.5':'.15'});border-radius:13px;padding:12px;margin-bottom:8px">
+      <div style="display:flex;align-items:center;gap:10px">
+        <div style="font-size:22px;flex-shrink:0">${slot.icon}</div>
+        <div style="flex:1;min-width:0">
+          <div style="font-size:10px;color:var(--muted);font-weight:900;text-transform:uppercase;letter-spacing:.07em">${slot.label} · ${slot.time}</div>
+          <input value="${val.replace(/"/g,'&quot;')}" placeholder="What's the plan?" onchange="saveMealSlot('${slot.key}',this.value)" style="background:transparent;border:none;outline:none;color:var(--text);font-size:15px;font-weight:800;width:100%;margin-top:2px"/>
+        </div>
+        <div onclick="toggleMealDone('${slot.key}')" style="width:24px;height:24px;border-radius:6px;border:2px solid ${done?'var(--green)':'rgba(98,199,255,.4)'};background:${done?'var(--green)':'transparent'};display:flex;align-items:center;justify-content:center;cursor:pointer;flex-shrink:0;font-size:12px;font-weight:1000;color:#fff">${done?'✓':''}</div>
+      </div>
+      ${stapleOpts.length?`<div style="display:flex;gap:5px;flex-wrap:wrap;margin-top:8px">${stapleOpts.map(s=>`<span onclick="pickStaple('${slot.key}','${s.replace(/'/g,"\\'")}');return false" style="font-size:11px;padding:3px 9px;border-radius:999px;background:rgba(77,182,255,.15);border:1px solid rgba(77,182,255,.3);color:var(--blue);cursor:pointer;font-weight:900">${s}</span>`).join('')}</div>`:''}
+    </div>`;
+  }).join('');
+  document.getElementById('sched-today').innerHTML=`
+    <div class="panel">
+      <div class="panel-title">Today's Meals — ${today}</div>
+      <div style="display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap">
+        <button onclick="fillFromWeekPlan()" style="border-radius:999px;padding:7px 13px;font-size:11px;font-weight:900;background:rgba(181,137,255,.2);border:1px solid var(--purple);color:var(--purple);cursor:pointer">↓ Fill from Weekly Plan</button>
+      </div>
+      ${mealHtml}
+      <div style="font-size:11px;color:var(--muted);margin-top:4px">Type or tap a staple to fill. Check off when served.</div>
+    </div>
+    <div class="panel">
+      <div class="panel-title">This Week — Calendar</div>
+      <div class="event-list" id="calList">${CAL_EVENTS.length?CAL_EVENTS.map(e=>`<div class="event-item"><div class="event-dot"></div><div><div class="event-name">${e.name}</div><div class="event-sub">${e.day} · ${e.time}</div></div></div>`).join(''):`<div style="font-size:13px;color:var(--muted);padding:8px 0">No events this week.</div><div style="font-size:11px;color:var(--muted);margin-top:4px">Last synced: ${CAL_SYNC_DATE}. Ask Claude to refresh.</div>`}</div>
+    </div>`;
+}
+
+function renderSchedWeek(){
+  if(!S.weekPlan)S.weekPlan={};
+  let html=`<div class="panel"><div class="panel-title">Weekly Meal Planner — set once, auto-fills daily view</div>`;
+  DAYS.forEach(day=>{
+    let dp=S.weekPlan[day]||{};
+    html+=`<div style="margin-bottom:14px"><div style="font-size:13px;font-weight:1000;color:var(--blue);margin-bottom:6px">${day}</div><div style="display:grid;grid-template-columns:1fr 1fr;gap:6px">`;
+    MEAL_SLOTS.forEach(slot=>{
+      let val=dp[slot.key]||'';
+      html+=`<div style="background:rgba(255,255,255,.05);border:1px solid rgba(98,199,255,.15);border-radius:10px;padding:8px 10px"><div style="font-size:10px;color:var(--muted);font-weight:900;text-transform:uppercase;margin-bottom:3px">${slot.icon} ${slot.label}</div><input value="${val.replace(/"/g,'&quot;')}" placeholder="—" onchange="saveWeekMeal('${day}','${slot.key}',this.value)" style="background:transparent;border:none;outline:none;color:var(--text);font-size:13px;font-weight:800;width:100%"/></div>`;
+    });
+    html+=`</div></div>`;
+  });
+  html+=`</div>`;
+  document.getElementById('sched-week').innerHTML=html;
+}
+
+function renderSchedStaples(){
+  if(!S.staples)S.staples={};
+  let html=`<div class="panel"><div class="panel-title">Household Staples — quick-pick options that appear in the daily view</div>`;
+  MEAL_SLOTS.forEach(slot=>{
+    let items=S.staples[slot.key]||[];
+    html+=`<div style="margin-bottom:14px"><div style="font-size:13px;font-weight:1000;color:var(--orange);margin-bottom:6px">${slot.icon} ${slot.label} staples</div>`;
+    items.forEach((item,i)=>{
+      html+=`<div style="display:flex;align-items:center;gap:8px;margin-bottom:5px"><input value="${item.replace(/"/g,'&quot;')}" placeholder="e.g. Oatmeal with fruit" onchange="saveStaple('${slot.key}',${i},this.value)" style="flex:1;background:rgba(255,255,255,.05);border:1px solid rgba(98,199,255,.2);border-radius:999px;padding:8px 14px;color:var(--text);font-size:13px;font-weight:800;outline:none"/><button onclick="removeStaple('${slot.key}',${i})" style="border-radius:999px;padding:5px 10px;font-size:12px;background:rgba(255,77,77,.15);border:1px solid var(--red);color:var(--red);cursor:pointer">✕</button></div>`;
+    });
+    html+=`<button onclick="addStaple('${slot.key}')" style="border-radius:999px;padding:6px 14px;font-size:11px;font-weight:900;background:rgba(255,159,28,.15);border:1px solid var(--orange);color:var(--orange);cursor:pointer;margin-top:2px">+ Add ${slot.label} staple</button></div>`;
+  });
+  html+=`</div>`;
+  document.getElementById('sched-staples').innerHTML=html;
+}
+
+function renderSchedBlocks(){
+  document.getElementById('sched-blocks').innerHTML=`<div class="panel"><div class="panel-title">Daily Block Flow</div>`+BLOCKS.map(b=>`<div class="event-item" style="margin-bottom:7px"><div class="event-dot" style="background:${b.color}"></div><div><div class="event-name" style="color:${b.color}">${b.label}</div><div class="event-sub">${b.desc}</div></div></div>`).join('')+`</div>`;
+}
+
+// ── RENDER HUB ──────────────────────────────────────────────────────
+function renderHub(){
+  function fields(key,el){
+    document.getElementById(el).innerHTML=(S.hub[key]||[]).map((f,i)=>`<div class="hub-field"><div class="hub-label">${f.label}</div><input class="hub-val" value="${f.val}" placeholder="—" onchange="hubEdit('${key}',${i},this.value)"/></div>`).join('');
+  }
+  fields('emerg','hubEmerg');fields('meds','hubMeds');fields('access','hubAccess');fields('how','hubHow');
+}
+
+// ── RENDER DETAIL ───────────────────────────────────────────────────
+function renderDetail(){
+  let m=md(),mem=ms(),p=Math.round(mAvg(m.id)),s=autoState(m.id),ln=lowNeed(m.id);
+
+  // Person selector
+  document.getElementById('pselRow').innerHTML=MEMBERS.map(mx=>{
+    let active=S.cur===mx.id,px=Math.round(mAvg(mx.id));
+    return`<button class="psel-btn ${active?'active':''}" onclick="openPerson('${mx.id}')">${mx.name}</button>`;
+  }).join('');
+
+  // Repair banner
+  document.getElementById('repairBanner').classList.toggle('show',!!mem.repairMode);
+
+  // Hero
+  document.getElementById('heroArea').innerHTML=`
+    <div class="panel sim-card">
+      <div class="plumbob" style="width:56px;height:56px;border-radius:9px;background:${nc(p)};color:${nc(p)};margin:0 auto"></div>
+      <div class="sim-name" style="color:${m.color}">${m.name}</div>
+      <div class="sim-sub">${m.sub}</div>
+    </div>
+    <div class="panel">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:10px;flex-wrap:wrap">
+        <div><div class="panel-title" style="margin-bottom:3px">Current State</div><div class="state-label" style="color:${sc(s)}">${s}</div></div>
+        <select onchange="setManualState(this.value)">${STATES.map(x=>`<option ${mem.manualState===x?'selected':''}>${x}</option>`).join('')}</select>
+      </div>
+      <div class="allowed-box"><div class="allowed-head">Allowed right now</div><div class="allowed-text" style="color:${sc(s)}">${ALLOWED_MAP[s]||''}</div></div>
+      <div class="next-box"><div class="next-lbl">Next Best Step</div><div class="next-text">${nextStep(m.id)}</div></div>
+    </div>
+    <div class="panel">
+      <div class="xp-row"><div class="xp-level">Lv ${lvl(mem.xp)}</div><div class="xp-num">${mem.xp} XP</div></div>
+      <div class="sm-bg"><div class="sm-fill" style="width:${lpct(mem.xp)}%;background:${m.color}"></div></div>
+      <div class="stat-mini">
+        <div class="stat-box"><div class="stat-n">${mem.today}</div><div class="stat-l">Today</div></div>
+        <div class="stat-box"><div class="stat-n">${mem.streak}</div><div class="stat-l">Streak</div></div>
+      </div>
+    </div>`;
+
+  // Needs
+  document.getElementById('needsGrid').innerHTML=m.needs.map(n=>{
+    let v=Math.round(mem.needs[n]||0),c=nc(v),low=n===ln[0];
+    return`<div class="need-card ${low?'lowest':''}"><div class="meter"><div class="meter-fill" style="height:${v}%;background:${c}"></div></div><div class="need-label">${NL[n]}</div><div class="need-val" style="color:${c}">${v}%</div></div>`;
+  }).join('');
+
+  // Wants
+  document.getElementById('wantsBox').innerHTML=(WANTS[m.id]||[]).map(w=>`<div class="want-card ${mem.wdone[w.id]?'done':''}" onclick="completeWant('${w.id}')"><div class="want-icon">${w.icon}</div><div>${w.text}</div><div class="want-xp">+${w.xp} XP</div></div>`).join('');
+
+  // Friction
+  document.getElementById('frictionGrid').innerHTML=Object.keys(FRICTION_MAP).map(f=>`<button class="friction-btn ${mem.friction===f?'active':''}" onclick="toggleFriction('${f}')">${f}</button>`).join('');
+  let fs=document.getElementById('frictionSug');
+  if(mem.friction&&FRICTION_MAP[mem.friction]){fs.textContent='💡 '+FRICTION_MAP[mem.friction];fs.classList.add('show')}else fs.classList.remove('show');
+
+  // Aspiration
+  let a=ASP[m.id];
+  let aspDone=a.m.filter((_,i)=>mem.asp[i]).length,aspPct=Math.round(aspDone/a.m.length*100);
+  document.getElementById('aspBox').innerHTML=`<div class="asp-title">${a.title}</div><div class="asp-desc">${a.desc}</div><div class="sm-bg" style="margin-bottom:10px"><div class="sm-fill" style="width:${aspPct}%;background:${nc(aspPct)}"></div></div>`+a.m.map((x,i)=>`<div class="milestone" onclick="toggleAsp(${i})"><div class="ms-dot ${mem.asp[i]?'on':''}"></div>${x}</div>`).join('');
+
+  // Routines
+  document.getElementById('routinesBox').innerHTML=(ROUTINES[m.id]||[]).map(r=>{
+    let d=r.subtasks.filter(st=>mem.rdone[st.id]).length,p2=Math.round(d/r.subtasks.length*100),e=S.expanded[r.id];
+    return`<div class="routine-block"><div class="routine-head" onclick="toggleR('${r.id}')"><div class="r-badge">${r.badge}</div><div class="r-title">${r.label}</div><div class="r-meta">${d}/${r.subtasks.length}</div><div>${e?'▲':'▼'}</div></div>${e?`<div class="subtasks">${r.subtasks.map(st=>rowItem(st,!!mem.rdone[st.id],`compR('${r.id}','${st.id}')`)).join('')}</div>`:''}</div>`;
+  }).join('');
+
+  // Tasks
+  let ts=TASKS[m.id]||[],cats=[...new Set(ts.map(t=>t.cat))];
+  document.getElementById('tasksBox').innerHTML=cats.map(c=>`<div class="cat-label">${c}</div>`+ts.filter(t=>t.cat===c).map(t=>rowItem(t,!!mem.done[t.id],`compT('${t.id}')`)).join('')).join('');
+
+  // Traits
+  document.getElementById('traitsBox').innerHTML=(m.traits||[]).map(t=>`<div class="trait-card"><div class="trait-name">${t.name}</div><div class="trait-desc">${t.desc}</div></div>`).join('');
+
+  // Rewards
+  let totalXP=mem.xp,claimedXP=Object.entries(mem.rewardsClaimed||{}).reduce((a,[id,v])=>a+(v?((m.rewards||[]).find(r=>r.id===id)||{cost:0}).cost:0),0);
+  let avail=totalXP-claimedXP;
+  document.getElementById('rewardsBox').innerHTML=`<div style="font-size:13px;color:var(--yellow);font-weight:900;margin-bottom:10px">Available XP: ${avail} / ${totalXP} total</div><div class="reward-grid">`+(m.rewards||[]).map(r=>{
+    let claimed=!!mem.rewardsClaimed[r.id];
+    return`<div class="reward-card ${claimed?'claimed':''}" onclick="claimReward('${r.id}')"><div class="reward-name">${r.name}</div><div class="reward-cost">${r.cost} XP</div><div class="reward-type">${r.type}${claimed?' · Claimed':''}</div></div>`;
+  }).join('')+'</div>';
+
+  // Skills
+  document.getElementById('skillsBox').innerHTML=SKILLS.map(k=>{let v=mem.skills[k]||0;return`<div class="skill-row"><div class="skill-head"><span>${k}</span><span style="color:${v>=70?'#39d353':v>=35?'#ffd23f':'#4db6ff'}">${v} XP</span></div><div class="sm-bg"><div class="sm-fill" style="width:${Math.min(100,v)}%;background:${v>=70?'#39d353':v>=35?'#ffd23f':'#4db6ff'}"></div></div></div>`}).join('');
+
+  // Relationships
+  document.getElementById('relsBox').innerHTML=REL_PAIRS.filter(p=>p[0]===m.id||p[1]===m.id).map(p=>{
+    let key=p[0]+'_'+p[1],rel=S.rels[key]||{connection:60,cooperation:60};
+    let other=p[0]===m.id?p[1]:p[0],otherM=MEMBERS.find(x=>x.id===other);
+    return`<div class="rel-row"><div class="rel-names" style="color:${otherM.color}">${m.name} ↔ ${otherM.name}</div><div class="rel-bars"><div class="rel-label">Connection</div><div class="sm-bg"><div class="sm-fill" style="width:${rel.connection}%;background:${nc(rel.connection)}"></div></div><div class="rel-label" style="margin-top:4px">Cooperation</div><div class="sm-bg"><div class="sm-fill" style="width:${rel.cooperation}%;background:${nc(rel.cooperation)}"></div></div></div><button onclick="boostRel('${key}')" style="border-radius:999px;padding:6px 12px;font-size:11px;font-weight:900;background:rgba(77,182,255,.2);color:var(--blue);border:1px solid var(--blue);cursor:pointer">+Connect</button></div>`;
+  }).join('');
+}
+
+function rowItem(x,done,fn){return`<div class="rowitem ${done?'done':''}" onclick="${fn}"><div class="chkbox ${done?'on':''}">${done?'✓':''}</div><div class="row-text">${x.text}</div><div class="row-xp">+${x.xp}</div></div>`}
+
+// ── RENDER ──────────────────────────────────────────────────────────
+function render(){renderHome();renderSchedule();renderHub();renderDetail()}
+
+// ── ACTIONS ─────────────────────────────────────────────────────────
+function setBlock(id){S.block=id;save();render()}
+function setManualState(v){ms().manualState=v;save();render()}
+function toggleFriction(f){let m=ms();m.friction=m.friction===f?'':f;save();renderDetail();renderHome()}
+function toggleR(id){S.expanded[id]=!S.expanded[id];save();renderDetail()}
+function hubEdit(key,i,v){S.hub[key][i].val=v;save()}
+
+function gain(x,id=S.cur){
+  let m=ms(id),before=lvl(m.xp);
+  m.xp+=x.xp;m.today++;
+  Object.entries(x.n||{}).forEach(([k,v])=>{if(m.needs[k]!=null)m.needs[k]=Math.min(100,m.needs[k]+v)});
+  if(x.skill)m.skills[x.skill]=(m.skills[x.skill]||0)+x.xp;
+  m.repairMode=false;
+  if(lvl(m.xp)>before){document.getElementById('lvlSub').textContent=md(id).name+' reached Level '+lvl(m.xp);document.getElementById('lvlOverlay').classList.add('show');setTimeout(()=>document.getElementById('lvlOverlay').classList.remove('show'),1800)}
+  // Relationship bonus on social/connection tasks
+  if(x.skill==='Social'){REL_PAIRS.filter(p=>p[0]===id||p[1]===id).forEach(p=>{let key=p[0]+'_'+p[1];if(S.rels[key])S.rels[key].connection=Math.min(100,S.rels[key].connection+3)})}
+}
+
+function compR(rid,sid){
+  let m=ms();if(m.rdone[sid])return;
+  let r=ROUTINES[S.cur].find(x=>x.id===rid),x=r.subtasks.find(y=>y.id===sid);
+  m.rdone[sid]=true;gain(x);save();xpPop(x.xp);render();toast(md().name+' +'+x.xp+' XP — '+x.text.split(' ').slice(0,3).join(' '));
+}
+function compT(id){
+  let m=ms();if(m.done[id])return;
+  let x=TASKS[S.cur].find(t=>t.id===id);m.done[id]=true;gain(x);save();xpPop(x.xp);render();toast(md().name+' +'+x.xp+' XP');
+}
+function completeWant(id){
+  let m=ms();if(m.wdone[id])return;
+  let x=(WANTS[S.cur]||[]).find(w=>w.id===id);m.wdone[id]=true;gain(x);save();xpPop(x.xp);render();toast('Want complete +'+x.xp+' XP');
+}
+function toggleAsp(i){
+  let m=ms();m.asp[i]=!m.asp[i];
+  if(m.asp[i]){m.xp+=15;m.today++;m.skills.Regulation=(m.skills.Regulation||0)+10}
+  save();render();toast('Aspiration milestone +15 XP');
+}
+function claimReward(id){
+  let m=ms(),rewards=md().rewards||[],r=rewards.find(x=>x.id===id);if(!r)return;
+  let claimed=Object.entries(m.rewardsClaimed||{}).reduce((a,[rid,v])=>a+(v?((md().rewards||[]).find(x=>x.id===rid)||{cost:0}).cost:0),0);
+  let avail=m.xp-claimed;
+  if(avail<r.cost){toast('Not enough XP. Need '+r.cost+', have '+avail+'.');return}
+  m.rewardsClaimed[id]=true;save();render();toast(r.name+' claimed!');
+}
+function boostRel(key){
+  if(!S.rels[key])S.rels[key]={connection:60,cooperation:60};
+  S.rels[key].connection=Math.min(100,S.rels[key].connection+8);
+  S.rels[key].cooperation=Math.min(100,S.rels[key].cooperation+6);
+  save();renderDetail();toast('+Connection +8, Cooperation +6');
+}
+function addMeal(){let v=document.getElementById('mealInput').value.trim();if(!v)return;S.meals.push(v);document.getElementById('mealInput').value='';save();renderSchedule()}
+function removeMeal(i){S.meals.splice(i,1);save();renderSchedule()}
+function addMsg(){
+  let from=document.getElementById('msgFrom').value,text=document.getElementById('msgText').value.trim();
+  if(!text)return;S.msgs.unshift({from,text,ts:Date.now()});document.getElementById('msgText').value='';save();renderSchedule();
+}
+function removeMsg(i){S.msgs.splice(i,1);save();renderSchedule()}
+
+// Soft reset — repair mode only
+function resetDay(){
+  let today=new Date().toDateString();
+  MEMBERS.forEach(m=>{
+    let mem=S.members[m.id],core=Object.keys(mem.rdone).length;
+    if(core>0&&mem.lastDate!==today)mem.streak++;
+    else if(core===0&&mem.streak>0)mem.streak=Math.max(0,mem.streak-1);
+    mem.lastDate=today;
+    let missedCount=(ROUTINES[m.id]||[]).reduce((a,r)=>a+r.subtasks.filter(st=>!mem.rdone[st.id]).length,0);
+    mem.repairMode=missedCount>6;
+    // Gentle need decay only — never zero
+    Object.keys(mem.needs).forEach(n=>mem.needs[n]=Math.max(15,(mem.needs[n]||0)-Math.min(6,missedCount*0.4)));
+    mem.done={};mem.rdone={};mem.wdone={};mem.friction='';mem.today=0;mem.lastDecay=Date.now();
+    // Relationship — small daily cooperation boost for resetting
+    REL_PAIRS.filter(p=>p[0]===m.id||p[1]===m.id).forEach(p=>{let key=p[0]+'_'+p[1];if(S.rels[key])S.rels[key].cooperation=Math.max(0,S.rels[key].cooperation-1)});
+  });
+  S.expanded={};S.todayMealsChecked={};S.todayMeals={};save();render();toast('New day started. Missed items moved to repair mode.');
+}
+
+function xpPop(xp){let el=document.createElement('div');el.className='xp-pop';el.textContent='+'+xp+' XP';el.style.cssText=`left:${Math.random()*60+20}%;top:${Math.random()*30+30}%`;document.body.appendChild(el);setTimeout(()=>el.remove(),900)}
+function toast(t){let e=document.getElementById('toast');e.textContent=t;e.classList.add('show');setTimeout(()=>e.classList.remove('show'),2600)}
+render();
+</script>
+</body>
+</html>

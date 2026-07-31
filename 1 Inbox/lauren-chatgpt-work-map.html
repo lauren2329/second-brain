@@ -1,0 +1,106 @@
+<section id="lauren-work-map">
+  <div class="viz-controls" aria-label="Choose a view">
+    <button class="btn btn-primary" type="button" data-view="cycle" aria-pressed="true">Work cycle</button>
+    <button class="btn" type="button" data-view="themes" aria-pressed="false">Themes</button>
+    <button class="btn" type="button" data-view="patterns" aria-pressed="false">Collaboration style</button>
+  </div>
+
+  <div class="viz-grid" id="lwm-stats" aria-label="Usage summary"></div>
+  <div id="lwm-visual" aria-live="polite"></div>
+  <div class="card" id="lwm-detail" aria-live="polite"></div>
+
+  <style>
+    #lauren-work-map { display: grid; gap: 16px; color: var(--foreground); }
+    #lauren-work-map .viz-controls { margin-bottom: 2px; }
+    #lwm-stats { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    #lwm-visual { display: grid; gap: 10px; }
+    .lwm-flow { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); align-items: stretch; gap: 8px; }
+    .lwm-node { min-width: 0; padding: 12px 8px; border: 1px solid var(--border); border-radius: 12px; background: color-mix(in srgb, var(--viz-series-1) 10%, transparent); color: var(--foreground); cursor: pointer; text-align: left; }
+    .lwm-node[aria-pressed="true"] { background: var(--primary); color: var(--primary-foreground); }
+    .lwm-node span { display: block; margin-top: 5px; color: inherit; opacity: .78; }
+    .lwm-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+    .lwm-tile { min-width: 0; min-height: 94px; padding: 12px; border: 1px solid var(--border); border-radius: 12px; background: color-mix(in srgb, var(--tile-color) 11%, transparent); color: var(--foreground); cursor: pointer; text-align: left; }
+    .lwm-tile[aria-pressed="true"] { outline: 2px solid var(--ring); outline-offset: 1px; }
+    .lwm-tile span { display: block; margin-top: 6px; color: var(--muted-foreground); }
+    #lwm-detail { min-height: 76px; }
+    #lwm-detail h3 { margin: 0 0 6px; }
+    #lwm-detail p { margin: 0; }
+    @media (max-width: 620px) {
+      #lwm-stats, .lwm-grid { grid-template-columns: 1fr; }
+      .lwm-flow { grid-template-columns: 1fr; }
+    }
+  </style>
+
+  <script>
+    (() => {
+      const root = document.getElementById("lauren-work-map");
+      const stats = root.querySelector("#lwm-stats");
+      const visual = root.querySelector("#lwm-visual");
+      const detail = root.querySelector("#lwm-detail");
+      const views = {
+        cycle: {
+          stats: [["Default mode", "Active collaborator", "You use ChatGPT as a working partner"], ["Typical start", "Real-world problem", "Usually concrete, immediate, and constraint-heavy"], ["Desired finish", "Usable output", "A plan, document, design, decision, or next action"]],
+          items: [
+            ["Show", "Photos, files, dimensions, history", "You begin by bringing the messy real situation into the conversation—often through pictures, documents, measurements, or accumulated context."],
+            ["Clarify", "Correct assumptions fast", "You refine the model by rejecting what does not match reality. Accuracy matters more to you than politeness or preserving a weak first draft."],
+            ["Shape", "Compare practical options", "You explore alternatives, but only while they remain grounded in your budget, materials, legal structure, family needs, or actual space."],
+            ["Build", "Turn the idea into something", "You want the answer converted into a blueprint, checklist, business paragraph, schedule, spreadsheet, visual mockup, or finished document."],
+            ["Refine", "Simplify until it fits", "You remove excess detail, unnecessary formality, wasted space, expensive hardware, or anything that makes the result harder to use."]
+          ]
+        },
+        themes: {
+          stats: [["Strongest cluster", "Build + operate", "Nonprofit, business, events, compliance"], ["Second cluster", "Home + spatial", "DIY, floor plans, accessibility, gardens"], ["Cross-cutting need", "Reduce friction", "Make complex work visible and actionable"]],
+          items: [
+            ["Nonprofit operations", "CGN, KY NORML, governance, licensing", "You use ChatGPT to translate regulations and organizational complexity into workable roles, documents, and decisions."],
+            ["Business creation", "Golden Door, plans, branding, revenue", "You move between vision and operations: naming, atmosphere, staffing, ads, financial structure, and business-plan language."],
+            ["Spatial problem-solving", "Floor plans, screens, patios, ADA", "You reason visually and materially. You expect designs to respect every wall, opening, object, measurement, and piece already on hand."],
+            ["Family systems", "Custody, school, routines, benefits", "You use ChatGPT to make emotionally and administratively complicated situations easier to see and manage."],
+            ["Health exploration", "Symptoms, patterns, possible mechanisms", "You want collaborative hypothesis-building that respects lived observation while distinguishing possibilities from conclusions."],
+            ["Everyday decisions", "Food, errands, purchases, repairs", "You also use ChatGPT as an on-demand practical brain for small decisions where speed and specificity matter."]
+          ]
+        },
+        patterns: {
+          stats: [["Thinking style", "Pattern-first", "You spot relationships before formal explanations"], ["Quality test", "Does it fit reality?", "Generic correctness is not enough"], ["Best response shape", "Simple + visual", "Concrete, editable, and easy to act on"]],
+          items: [
+            ["Context accumulates", "Each turn sharpens the model", "Your conversations are iterative. The useful answer often emerges after you add constraints, correct geometry, or define what is actually important."],
+            ["You challenge drift", "You notice when the answer stops listening", "Repeated explanations, invented constraints, generic warnings, and unnecessary expansion quickly break trust."],
+            ["Frugality is design input", "Use what exists first", "In home and operational work, you prefer practical reuse, lighter systems, and the cheapest credible solution—not aspirational shopping lists."],
+            ["Visual proof matters", "Show it in the actual situation", "For physical layouts and branding, words are rarely enough. You want the proposal mapped onto the real photo, dimensions, or structure."],
+            ["You simplify aggressively", "Complexity must earn its place", "You regularly strip away investor language, long reports, extra roles, formalities, or steps that do not serve the immediate goal."],
+            ["You use ChatGPT as capacity", "External working memory + momentum", "The recurring function is not merely getting answers. It is holding many constraints at once, organizing them, and carrying work across the finish line."]
+          ]
+        }
+      };
+
+      function selectItem(button) {
+        visual.querySelectorAll("button").forEach(b => b.setAttribute("aria-pressed", String(b === button)));
+        const item = JSON.parse(button.dataset.item);
+        detail.innerHTML = "<h3>" + item[0] + "</h3><p>" + item[2] + "</p>";
+      }
+
+      function render(viewName) {
+        const view = views[viewName];
+        stats.innerHTML = view.stats.map(s => "<div class=\"card viz-stat\"><div class=\"text-muted\">" + s[0] + "</div><div class=\"viz-stat-value\">" + s[1] + "</div><div class=\"text-small\">" + s[2] + "</div></div>").join("");
+        const flow = viewName === "cycle";
+        visual.className = flow ? "lwm-flow" : "lwm-grid";
+        visual.innerHTML = view.items.map((item, i) => {
+          const cls = flow ? "lwm-node" : "lwm-tile";
+          const color = "var(--viz-series-" + ((i % 6) + 1) + ")";
+          return "<button type=\"button\" class=\"" + cls + "\" style=\"--tile-color:" + color + "\" aria-pressed=\"" + (i === 0) + "\" data-item='" + JSON.stringify(item).replace(/'/g, "&#39;") + "'><strong>" + item[0] + "</strong><span>" + item[1] + "</span></button>";
+        }).join("");
+        visual.querySelectorAll("button").forEach(b => b.addEventListener("click", () => selectItem(b)));
+        selectItem(visual.querySelector("button"));
+      }
+
+      root.querySelectorAll("[data-view]").forEach(button => button.addEventListener("click", () => {
+        root.querySelectorAll("[data-view]").forEach(b => {
+          const active = b === button;
+          b.setAttribute("aria-pressed", String(active));
+          b.classList.toggle("btn-primary", active);
+        });
+        render(button.dataset.view);
+      }));
+      render("cycle");
+    })();
+  </script>
+</section>

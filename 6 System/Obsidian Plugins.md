@@ -1,0 +1,18 @@
+
+- Daily Notes
+- Unique Notes
+- Calendar
+- Excalidraw
+- Spaced Repetition
+- Advanced Slides
+- Templater
+- Iconize
+- Smart Typography
+- Homepage
+- Recent Files
+- Completr
+- Paste URL Into Selection
+- Text Format
+- Tag Wrangler
+- Settings Search
+- Importer

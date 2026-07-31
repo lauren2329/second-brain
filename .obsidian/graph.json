@@ -1,0 +1,58 @@
+{
+  "collapse-filter": false,
+  "search": "",
+  "showTags": false,
+  "showAttachments": true,
+  "hideUnresolved": true,
+  "showOrphans": false,
+  "collapse-color-groups": false,
+  "colorGroups": [
+    {
+      "query": "path:Business  ",
+      "color": {
+        "a": 1,
+        "rgb": 2346303
+      }
+    },
+    {
+      "query": "path:Home  ",
+      "color": {
+        "a": 1,
+        "rgb": 16580403
+      }
+    },
+    {
+      "query": "path:Personal",
+      "color": {
+        "a": 1,
+        "rgb": 9902546
+      }
+    },
+    {
+      "query": "path:Resources  ",
+      "color": {
+        "a": 1,
+        "rgb": 15143762
+      }
+    },
+    {
+      "query": "path:System  ",
+      "color": {
+        "a": 1,
+        "rgb": 6084269
+      }
+    }
+  ],
+  "collapse-display": false,
+  "showArrow": true,
+  "textFadeMultiplier": -1.9,
+  "nodeSizeMultiplier": 1.07553385416667,
+  "lineSizeMultiplier": 1.42601996527778,
+  "collapse-forces": false,
+  "centerStrength": 0.206293402777778,
+  "repelStrength": 9.84722222222222,
+  "linkStrength": 0.0879774305555556,
+  "linkDistance": 30,
+  "scale": 0.5976468441667603,
+  "close": false
+}

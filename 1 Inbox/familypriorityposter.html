@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Family Priority System</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: #fff;
+    color: #1a1a2e;
+    width: 8.5in;
+    min-height: 11in;
+    margin: 0 auto;
+    padding: 0.35in 0.4in;
+  }
+
+  /* ── HEADER ── */
+  .header {
+    text-align: center;
+    margin-bottom: 18px;
+    position: relative;
+  }
+  .header-stars {
+    font-size: 1.4rem;
+    letter-spacing: 4px;
+    color: #f7b731;
+  }
+  .header h1 {
+    font-family: 'Fredoka One', cursive;
+    font-size: 2.8rem;
+    background: linear-gradient(135deg, #e74c3c 0%, #f39c12 35%, #27ae60 65%, #8e44ad 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1.1;
+    letter-spacing: 1px;
+  }
+  .header .subtitle {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #666;
+    margin-top: 3px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  /* ── PYRAMID ── */
+  .pyramid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    margin-bottom: 16px;
+  }
+  .tier {
+    width: 100%;
+    display: flex;
+    border-radius: 14px;
+    overflow: hidden;
+    margin-bottom: 7px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+    min-height: 120px;
+  }
+
+  /* colour bands */
+  .tier-1 { background: linear-gradient(135deg, #ff4757 0%, #ff6b81 100%); }
+  .tier-2 { background: linear-gradient(135deg, #ffa502 0%, #ffcc02 100%); }
+  .tier-3 { background: linear-gradient(135deg, #2ed573 0%, #1e9c52 100%); }
+  .tier-4 { background: linear-gradient(135deg, #5352ed 0%, #a29bfe 100%); }
+
+  .tier-badge {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 16px;
+    min-width: 130px;
+    color: #fff;
+    text-shadow: 0 1px 4px rgba(0,0,0,0.25);
+  }
+  .tier-badge .num {
+    font-family: 'Fredoka One', cursive;
+    font-size: 2.6rem;
+    line-height: 1;
+  }
+  .tier-badge .emoji { font-size: 1.7rem; margin: 3px 0; }
+  .tier-badge .label {
+    font-family: 'Fredoka One', cursive;
+    font-size: 1.25rem;
+    letter-spacing: 1px;
+  }
+
+  .tier-body {
+    flex: 1;
+    background: rgba(255,255,255,0.18);
+    backdrop-filter: blur(2px);
+    padding: 12px 16px;
+    display: flex;
+    gap: 12px;
+  }
+  .tier-body .desc {
+    flex: 1;
+  }
+  .tier-body .tagline {
+    font-weight: 900;
+    font-size: 0.95rem;
+    color: rgba(255,255,255,0.95);
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .examples {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+  .chip {
+    background: rgba(255,255,255,0.25);
+    color: #fff;
+    border-radius: 20px;
+    padding: 2px 9px;
+    font-size: 0.74rem;
+    font-weight: 700;
+    white-space: nowrap;
+  }
+  .tier-pct {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-width: 62px;
+  }
+  .pct-circle {
+    background: rgba(255,255,255,0.3);
+    border-radius: 50%;
+    width: 56px;
+    height: 56px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.2);
+  }
+  .pct-circle .pct-num {
+    font-family: 'Fredoka One', cursive;
+    font-size: 1.2rem;
+    line-height: 1;
+  }
+  .pct-circle .pct-label {
+    font-size: 0.6rem;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    opacity: 0.9;
+  }
+
+  /* ── FLOW ARROW ── */
+  .flow {
+    text-align: center;
+    margin: 8px 0 14px;
+    font-family: 'Fredoka One', cursive;
+    font-size: 1.05rem;
+    letter-spacing: 3px;
+    color: #444;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+  .flow .arrow-box {
+    background: linear-gradient(90deg, #ff4757, #ffa502, #2ed573, #5352ed);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-size: 1.3rem;
+  }
+
+  /* ── BOTTOM ROW ── */
+  .bottom-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 14px;
+  }
+
+  /* ── TIME CARD ── */
+  .card {
+    border-radius: 14px;
+    padding: 14px 16px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+  }
+  .card h3 {
+    font-family: 'Fredoka One', cursive;
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+  }
+  .time-card { background: #fff8e7; border: 2.5px solid #f7b731; }
+  .time-card h3 { color: #e67e22; }
+  .time-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5px;
+    font-size: 0.78rem;
+  }
+  .time-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    background: #fff;
+    border-radius: 8px;
+    padding: 4px 7px;
+    font-weight: 700;
+  }
+  .dot {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .dot-1 { background: #ff4757; }
+  .dot-2 { background: #ffa502; }
+  .dot-3 { background: #2ed573; }
+  .dot-4 { background: #5352ed; }
+
+  /* ── RULE CARD ── */
+  .rule-card { background: #f0f0ff; border: 2.5px solid #5352ed; }
+  .rule-card h3 { color: #5352ed; }
+  .question-box {
+    background: #fff;
+    border-radius: 10px;
+    padding: 8px 11px;
+    font-weight: 800;
+    font-size: 0.85rem;
+    color: #333;
+    margin-bottom: 8px;
+    border-left: 4px solid #5352ed;
+    font-style: italic;
+  }
+  .rule-steps { display: flex; flex-direction: column; gap: 5px; }
+  .rule-step {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.8rem;
+    font-weight: 700;
+  }
+  .rule-step .step-badge {
+    border-radius: 20px;
+    padding: 2px 10px;
+    color: #fff;
+    font-size: 0.72rem;
+    font-weight: 800;
+    white-space: nowrap;
+  }
+  .b1 { background: #ff4757; }
+  .b2 { background: #ffa502; }
+  .b3 { background: #2ed573; }
+  .b4 { background: #5352ed; }
+
+  /* ── MANTRA ── */
+  .mantra {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    border-radius: 16px;
+    padding: 16px 20px;
+    text-align: center;
+    color: #fff;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+  }
+  .mantra .flow-big {
+    font-family: 'Fredoka One', cursive;
+    font-size: 1.7rem;
+    letter-spacing: 4px;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .mantra .flow-big .s { color: #ff6b81; }
+  .mantra .flow-big .st { color: #ffcc02; }
+  .mantra .flow-big .g { color: #2ed573; }
+  .mantra .flow-big .e { color: #a29bfe; }
+  .mantra .flow-big .arr { color: #888; font-size: 1.2rem; }
+  .mantra p {
+    font-size: 0.88rem;
+    color: #ccc;
+    line-height: 1.5;
+    max-width: 580px;
+    margin: 0 auto;
+    font-weight: 600;
+  }
+  .mantra p em {
+    color: #fff;
+    font-style: normal;
+    font-weight: 800;
+  }
+
+  /* ── PRINT ── */
+  @media print {
+    body { padding: 0.3in 0.35in; }
+    * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="header-stars">★ ★ ★ ★ ★</div>
+  <h1>Our Family Priority System</h1>
+  <div class="subtitle">When life gets overwhelming — start at the bottom &amp; work up</div>
+</div>
+
+<!-- PYRAMID TIERS -->
+<div class="pyramid">
+
+  <!-- TIER 1: SURVIVE -->
+  <div class="tier tier-1">
+    <div class="tier-badge">
+      <span class="num">1</span>
+      <span class="emoji">🔥</span>
+      <span class="label">SURVIVE</span>
+    </div>
+    <div class="tier-body">
+      <div class="desc">
+        <div class="tagline">Must happen — health, safety &amp; income at stake</div>
+        <div class="examples">
+          <span class="chip">💊 Meds</span>
+          <span class="chip">💧 Water</span>
+          <span class="chip">🍽️ Meals</span>
+          <span class="chip">😴 Sleep</span>
+          <span class="chip">🚿 Hygiene</span>
+          <span class="chip">🧦 Clean clothes for tomorrow</span>
+          <span class="chip">🚽 Working toilet/shower</span>
+          <span class="chip">💡 Essential bills</span>
+          <span class="chip">🚶 Walk/stretch</span>
+          <span class="chip">☀️ Sunlight</span>
+          <span class="chip">🍳 Dishes for next meal</span>
+          <span class="chip">📚 Homeschool minimum</span>
+        </div>
+      </div>
+      <div class="tier-pct">
+        <div class="pct-circle">
+          <span class="pct-num">50–60%</span>
+          <span class="pct-label">daily</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TIER 2: STABILIZE -->
+  <div class="tier tier-2">
+    <div class="tier-badge">
+      <span class="num">2</span>
+      <span class="emoji">⚖️</span>
+      <span class="label">STABILIZE</span>
+    </div>
+    <div class="tier-body">
+      <div class="desc">
+        <div class="tagline">Prevents tomorrow's crisis — keeps systems running</div>
+        <div class="examples">
+          <span class="chip">🧺 Routine laundry</span>
+          <span class="chip">🍽️ Routine dishes</span>
+          <span class="chip">🗑️ Trash</span>
+          <span class="chip">📬 Mail</span>
+          <span class="chip">📋 Paperwork</span>
+          <span class="chip">🏥 Appointments</span>
+          <span class="chip">🧹 Functional spaces</span>
+          <span class="chip">📅 Scheduling</span>
+          <span class="chip">🥗 Meal planning</span>
+          <span class="chip">💰 Budget tracking</span>
+          <span class="chip">📧 Important emails</span>
+          <span class="chip">📱 Screen boundaries</span>
+        </div>
+      </div>
+      <div class="tier-pct">
+        <div class="pct-circle">
+          <span class="pct-num">20–30%</span>
+          <span class="pct-label">daily</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TIER 3: GROW -->
+  <div class="tier tier-3">
+    <div class="tier-badge">
+      <span class="num">3</span>
+      <span class="emoji">🌱</span>
+      <span class="label">GROW</span>
+    </div>
+    <div class="tier-body">
+      <div class="desc">
+        <div class="tagline">Improves the future — invest in yourself &amp; each other</div>
+        <div class="examples">
+          <span class="chip">🏃 Exercise</span>
+          <span class="chip">📖 Reading</span>
+          <span class="chip">🎓 Certifications</span>
+          <span class="chip">🏫 Homeschool enrichment</span>
+          <span class="chip">💼 Business building</span>
+          <span class="chip">🛠️ New skills</span>
+          <span class="chip">🌿 Nature time</span>
+          <span class="chip">🧠 Therapy homework</span>
+          <span class="chip">🤝 Independence skills</span>
+        </div>
+      </div>
+      <div class="tier-pct">
+        <div class="pct-circle">
+          <span class="pct-num">10–20%</span>
+          <span class="pct-label">daily</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TIER 4: ENJOY -->
+  <div class="tier tier-4">
+    <div class="tier-badge">
+      <span class="num">4</span>
+      <span class="emoji">🎉</span>
+      <span class="label">ENJOY</span>
+    </div>
+    <div class="tier-body">
+      <div class="desc">
+        <div class="tagline">Makes life worth living — rest &amp; play are not optional</div>
+        <div class="examples">
+          <span class="chip">🎮 Gaming</span>
+          <span class="chip">🎨 Art &amp; crafts</span>
+          <span class="chip">🎵 Music</span>
+          <span class="chip">📺 Movies/TV</span>
+          <span class="chip">🏕️ Camping</span>
+          <span class="chip">🎲 Board games</span>
+          <span class="chip">📚 Library trips</span>
+          <span class="chip">🌳 Fun outings</span>
+          <span class="chip">🧶 Hobbies</span>
+          <span class="chip">🎠 Recreation</span>
+        </div>
+      </div>
+      <div class="tier-pct">
+        <div class="pct-circle">
+          <span class="pct-num">~10%</span>
+          <span class="pct-label">daily</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- FLOW -->
+<div class="flow">
+  <span class="arrow-box">SURVIVE → STABILIZE → GROW → ENJOY</span>
+</div>
+
+<!-- BOTTOM ROW -->
+<div class="bottom-row">
+
+  <!-- TIME CARD -->
+  <div class="card time-card">
+    <h3>⏱️ Daily Time Guide</h3>
+    <div class="time-row">
+      <div class="time-item"><div class="dot dot-1"></div> 🔥 Survive: 8–10 hrs</div>
+      <div class="time-item"><div class="dot dot-2"></div> ⚖️ Stabilize: 3–5 hrs</div>
+      <div class="time-item"><div class="dot dot-3"></div> 🌱 Grow: 1–3 hrs</div>
+      <div class="time-item"><div class="dot dot-4"></div> 🎉 Enjoy: 1–2 hrs</div>
+    </div>
+    <div style="margin-top:8px; font-size:0.75rem; font-weight:700; color:#888; line-height:1.4;">
+      Some days you never leave Survive. That is not failure.<br>
+      That is where your energy needed to be.
+    </div>
+  </div>
+
+  <!-- RULE CARD -->
+  <div class="card rule-card">
+    <h3>🧠 The One Rule</h3>
+    <div class="question-box">
+      "What is the lowest level that is currently unmet?"
+    </div>
+    <div class="rule-steps">
+      <div class="rule-step">
+        <span class="step-badge b1">No clean underwear</span>
+        → Work on <strong>SURVIVE</strong> 🔥
+      </div>
+      <div class="rule-step">
+        <span class="step-badge b2">Sink overflowing</span>
+        → Work on <strong>STABILIZE</strong> ⚖️
+      </div>
+      <div class="rule-step">
+        <span class="step-badge b3">Want a certification</span>
+        → Work on <strong>GROW</strong> 🌱
+      </div>
+      <div class="rule-step">
+        <span class="step-badge b4">Want to play Minecraft</span>
+        → Work on <strong>ENJOY</strong> 🎉
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- MANTRA -->
+<div class="mantra">
+  <div class="flow-big">
+    <span class="s">SURVIVE</span>
+    <span class="arr">→</span>
+    <span class="st">STABILIZE</span>
+    <span class="arr">→</span>
+    <span class="g">GROW</span>
+    <span class="arr">→</span>
+    <span class="e">ENJOY</span>
+  </div>
+  <p>
+    Today's goal is <em>not</em> to reach the top.<br>
+    Today's goal is to <em>strengthen the lowest level that needs attention.</em>
+  </p>
+</div>
+
+</body>
+</html>

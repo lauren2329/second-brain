@@ -1,0 +1,1033 @@
+<!DOCTYPE html>
+<script type="application/json" id="cowork-artifact-meta">
+{
+  "name": "Week At A Glance",
+  "schemaVersion": 1,
+  "description": "Lauren's Digital Planner — 8-tab live dashboard with Gmail, Calendar, iMessages, weather, FlyLady zones, stage health tracking, brain dump, and pages for Health, Finance, Family, Progress, Relationships, and Links.",
+  "mcpTools": [
+    "mcp__2fe12232-96a6-47f7-ad79-fac634b2ff1e__search_threads",
+    "mcp__fdecf106-fd1a-441d-945a-78524b3ed5bb__list_events",
+    "mcp__Read_and_Send_iMessages__get_unread_imessages"
+  ],
+  "mcpServerNames": [
+    "Gmail",
+    "Google Calendar",
+    "Read_and_Send_iMessages"
+  ]
+}
+</script>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lauren's Digital Planner</title>
+<style>
+  :root {
+    --bg:#f4f5f9; --card:#ffffff; --border:#e2e8f0;
+    --text:#1c1c2e; --muted:#64748b;
+    --red:#dc2626; --red-bg:#fef2f2;
+    --yellow:#b45309; --yellow-bg:#fffbeb;
+    --green:#2caa6e; --green-bg:#f0fdf4;
+    --blue:#2563eb; --blue-bg:#eff6ff;
+    --kynorml:#6c63ff; --personal:#2caa6e;
+    --radius:12px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;}
+  /* NAV */
+  .nav{display:flex;gap:4px;padding:12px 16px 0;background:var(--card);border-bottom:1px solid var(--border);flex-wrap:wrap;}
+  .nav-btn{padding:8px 16px;border:none;background:transparent;cursor:pointer;font-size:13px;font-weight:500;color:var(--muted);border-radius:8px 8px 0 0;transition:all .2s;}
+  .nav-btn:hover{background:var(--bg);color:var(--text);}
+  .nav-btn.active{background:var(--bg);color:var(--kynorml);border-bottom:2px solid var(--kynorml);font-weight:600;}
+  /* HEADER */
+  .planner-header{padding:16px 20px 8px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;}
+  .planner-header h1{font-size:22px;font-weight:700;color:var(--text);}
+  .header-date{font-size:13px;color:var(--muted);}
+  /* TABS */
+  .tab{display:none;padding:12px 16px;}
+  .tab.active{display:block;}
+  /* GRID LAYOUT */
+  .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+  .grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;}
+  @media(max-width:900px){.grid-3{grid-template-columns:1fr 1fr;}}
+  @media(max-width:600px){.grid-2,.grid-3{grid-template-columns:1fr;}}
+  /* CARDS */
+  .card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:14px;}
+  .card-title{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:10px;display:flex;align-items:center;gap:6px;}
+  .card-title .dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
+  /* OVERLAY */
+  #overlay{position:fixed;inset:0;background:rgba(0,0,0,.4);display:flex;align-items:center;justify-content:center;z-index:999;font-size:16px;color:#fff;font-weight:600;}
+  #overlay.hidden{display:none;}
+  /* CHECKLIST */
+  .check-item{display:flex;align-items:flex-start;gap:8px;padding:5px 0;border-bottom:1px solid var(--border);cursor:pointer;}
+  .check-item:last-child{border-bottom:none;}
+  .check-item input[type=checkbox]{width:16px;height:16px;cursor:pointer;accent-color:var(--kynorml);flex-shrink:0;margin-top:1px;}
+  .check-item label{font-size:13px;cursor:pointer;line-height:1.4;}
+  .check-item.done label{text-decoration:line-through;color:var(--muted);}
+  /* EVENTS */
+  .event-dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:5px;flex-shrink:0;}
+  .event-item{display:flex;align-items:flex-start;gap:6px;padding:5px 0;border-bottom:1px solid var(--border);font-size:12px;}
+  .event-item:last-child{border-bottom:none;}
+  .event-time{color:var(--muted);min-width:45px;flex-shrink:0;}
+  /* WEEK GRID */
+  .week-grid{display:grid;grid-template-columns:180px repeat(7,1fr);gap:0;border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;background:var(--card);font-size:11px;}
+  .wg-header{background:var(--bg);font-weight:700;padding:6px 4px;text-align:center;border-bottom:1px solid var(--border);border-right:1px solid var(--border);}
+  .wg-header:last-child{border-right:none;}
+  .wg-label{padding:5px 8px;border-bottom:1px solid var(--border);border-right:1px solid var(--border);font-size:11px;color:var(--muted);background:var(--bg);}
+  .wg-cell{padding:3px 4px;border-bottom:1px solid var(--border);border-right:1px solid var(--border);min-height:28px;}
+  .wg-cell:last-child{border-right:none;}
+  .wg-check{display:flex;align-items:center;gap:4px;}
+  .wg-check input{width:13px;height:13px;accent-color:var(--kynorml);}
+  /* INBOX */
+  .inbox-item{padding:8px 0;border-bottom:1px solid var(--border);font-size:12px;}
+  .inbox-item:last-child{border-bottom:none;}
+  .inbox-sender{font-weight:600;font-size:11px;}
+  .inbox-subj{color:var(--muted);margin-top:2px;}
+  /* QUICK ADD */
+  .quick-add{display:flex;gap:6px;margin-bottom:8px;}
+  .quick-add input{flex:1;padding:7px 10px;border:1px solid var(--border);border-radius:8px;font-size:13px;outline:none;}
+  .quick-add input:focus{border-color:var(--kynorml);}
+  .quick-add button,.btn{padding:7px 14px;background:var(--kynorml);color:#fff;border:none;border-radius:8px;cursor:pointer;font-size:13px;font-weight:500;}
+  .btn-sm{padding:4px 10px;font-size:12px;}
+  .btn-outline{background:transparent;border:1px solid var(--border);color:var(--text);}
+  /* ACTION ITEMS */
+  .action-item{display:flex;align-items:flex-start;gap:8px;padding:6px 0;border-bottom:1px solid var(--border);}
+  .action-item:last-child{border-bottom:none;}
+  .action-tag{font-size:10px;padding:2px 6px;border-radius:4px;font-weight:600;flex-shrink:0;}
+  .tag-today{background:var(--red-bg);color:var(--red);}
+  .tag-soon{background:var(--yellow-bg);color:var(--yellow);}
+  .tag-later{background:var(--green-bg);color:var(--green);}
+  /* STAGE HEALTH */
+  .stage-btns{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px;}
+  .stage-btn{padding:8px 14px;border:2px solid transparent;border-radius:8px;cursor:pointer;font-size:12px;font-weight:600;transition:all .2s;}
+  .stage-survive{background:var(--red-bg);color:var(--red);}
+  .stage-survive.active{border-color:var(--red);}
+  .stage-function{background:var(--yellow-bg);color:var(--yellow);}
+  .stage-function.active{border-color:var(--yellow);}
+  .stage-grow{background:var(--blue-bg);color:var(--blue);}
+  .stage-grow.active{border-color:var(--blue);}
+  .stage-thrive{background:var(--green-bg);color:var(--green);}
+  .stage-thrive.active{border-color:var(--green);}
+  .stage-history-item{font-size:11px;padding:3px 0;border-bottom:1px solid var(--border);color:var(--muted);}
+  /* WEATHER */
+  .weather-widget{display:flex;align-items:center;gap:16px;padding:10px;}
+  .weather-icon{font-size:36px;}
+  .weather-temp{font-size:28px;font-weight:700;}
+  .weather-details{font-size:12px;color:var(--muted);}
+  /* BRAIN DUMP */
+  #brain-dump-text{width:100%;min-height:120px;padding:10px;border:1px solid var(--border);border-radius:8px;font-size:13px;resize:vertical;outline:none;font-family:inherit;}
+  #brain-dump-text:focus{border-color:var(--kynorml);}
+  /* TEXTAREA LIST */
+  .list-textarea{width:100%;min-height:80px;padding:8px;border:1px solid var(--border);border-radius:8px;font-size:12px;resize:vertical;outline:none;font-family:inherit;}
+  .list-textarea:focus{border-color:var(--kynorml);}
+  /* TODAY FOCUS */
+  .focus-item{padding:5px 0;font-size:13px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:8px;}
+  .focus-item:last-child{border-bottom:none;}
+  .focus-bullet{width:6px;height:6px;border-radius:50%;background:var(--kynorml);flex-shrink:0;}
+  /* CAL SELECTOR */
+  .cal-selector{display:flex;gap:6px;margin-bottom:8px;}
+  .cal-btn{padding:5px 12px;border:1px solid var(--border);border-radius:6px;cursor:pointer;font-size:12px;background:var(--card);}
+  .cal-btn.active{background:var(--kynorml);color:#fff;border-color:var(--kynorml);}
+  /* ZONE */
+  .zone-badge{display:inline-block;padding:3px 10px;border-radius:20px;font-size:11px;font-weight:700;background:var(--kynorml);color:#fff;margin-bottom:8px;}
+  .zone-group{margin-bottom:8px;}
+  .zone-group-title{font-size:11px;font-weight:600;color:var(--muted);text-transform:uppercase;margin-bottom:4px;}
+  /* SECTION HEADER */
+  .section-header{font-size:13px;font-weight:600;color:var(--kynorml);margin:10px 0 6px;border-bottom:1px solid var(--border);padding-bottom:4px;}
+  /* LINKS */
+  .link-item{display:flex;align-items:center;gap:8px;padding:6px 0;border-bottom:1px solid var(--border);font-size:13px;}
+  .link-item:last-child{border-bottom:none;}
+  .link-item a{color:var(--blue);text-decoration:none;}
+  .link-item a:hover{text-decoration:underline;}
+  .link-item .link-cat{font-size:10px;padding:2px 6px;border-radius:4px;background:var(--bg);color:var(--muted);font-weight:600;}
+  /* FULL SPAN */
+  .full-span{grid-column:1/-1;}
+  .mt-8{margin-top:8px;}
+  .small{font-size:11px;color:var(--muted);}
+</style>
+</head>
+<body>
+
+<div id="overlay">Loading your planner…</div>
+
+<div class="planner-header">
+  <div>
+    <h1>Lauren's Digital Planner</h1>
+    <div class="header-date" id="header-date"></div>
+  </div>
+  <div id="weather-header" style="font-size:13px;color:var(--muted);">🌤 Loading weather…</div>
+</div>
+
+<nav class="nav">
+  <button class="nav-btn active" onclick="showTab('today',this)">📋 Today</button>
+  <button class="nav-btn" onclick="showTab('week',this)">📅 Week</button>
+  <button class="nav-btn" onclick="showTab('health',this)">💊 Health</button>
+  <button class="nav-btn" onclick="showTab('finance',this)">💰 Finance</button>
+  <button class="nav-btn" onclick="showTab('family',this)">👨‍👩‍👦 Family</button>
+  <button class="nav-btn" onclick="showTab('progress',this)">🎯 Progress</button>
+  <button class="nav-btn" onclick="showTab('relationships',this)">🤝 Relationships</button>
+  <button class="nav-btn" onclick="showTab('links',this)">🔗 Links</button>
+</nav>
+
+<!-- ===================== TODAY TAB ===================== -->
+<div class="tab active" id="tab-today">
+  <div class="grid-3">
+
+    <!-- TODAY FOCUS (read-only display) -->
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--kynorml)"></span>Today's Focus</div>
+      <div id="today-focus-display"></div>
+    </div>
+
+    <!-- WEATHER + STAGE HEALTH -->
+    <div style="display:flex;flex-direction:column;gap:12px;">
+      <div class="card">
+        <div class="card-title"><span class="dot" style="background:var(--yellow)"></span>Weather · Louisville</div>
+        <div class="weather-widget">
+          <div class="weather-icon" id="wx-icon">🌤</div>
+          <div>
+            <div class="weather-temp" id="wx-temp">--°F</div>
+            <div class="weather-details" id="wx-details">Loading…</div>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-title"><span class="dot" style="background:var(--red)"></span>Stage Health Check</div>
+        <div class="stage-btns">
+          <button class="stage-btn stage-survive" onclick="setStage('survive')">🆘 Survive</button>
+          <button class="stage-btn stage-function" onclick="setStage('function')">⚙️ Function</button>
+          <button class="stage-btn stage-grow" onclick="setStage('grow')">🌱 Grow</button>
+          <button class="stage-btn stage-thrive" onclick="setStage('thrive')">✨ Thrive</button>
+        </div>
+        <div id="stage-desc" class="small" style="margin-bottom:8px;"></div>
+        <div id="stage-history"></div>
+      </div>
+    </div>
+
+    <!-- INBOX: EMAIL -->
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--blue)"></span>Gmail Inbox</div>
+      <div id="email-list"><div class="small">Loading…</div></div>
+    </div>
+
+    <!-- TODAY EVENTS -->
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--green)"></span>Today's Events</div>
+      <div id="today-events"><div class="small">Loading…</div></div>
+    </div>
+
+    <!-- IMESSAGE -->
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--green)"></span>iMessages</div>
+      <div id="imsg-list"><div class="small">Loading…</div></div>
+    </div>
+
+    <!-- ACTIONABLE ITEMS -->
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--red)"></span>Action Items</div>
+      <div class="quick-add">
+        <input id="action-input" type="text" placeholder="New action item…" onkeydown="if(event.key==='Enter')addAction()">
+        <select id="action-tag" style="padding:6px;border:1px solid var(--border);border-radius:8px;font-size:12px;">
+          <option value="today">Today</option>
+          <option value="soon">Soon</option>
+          <option value="later">Later</option>
+        </select>
+        <button onclick="addAction()">Add</button>
+      </div>
+      <div id="action-list"></div>
+    </div>
+
+    <!-- BRAIN DUMP -->
+    <div class="card full-span">
+      <div class="card-title"><span class="dot" style="background:var(--muted)"></span>Brain Dump</div>
+      <textarea id="brain-dump-text" placeholder="Get it all out…"></textarea>
+      <div style="display:flex;justify-content:flex-end;gap:6px;margin-top:6px;">
+        <button class="btn btn-outline btn-sm" onclick="clearBrainDump()">Clear</button>
+        <button class="btn btn-sm" onclick="saveBrainDump()">Save</button>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- NON-NEGOTIABLES -->
+  <div class="card mt-8">
+    <div class="card-title"><span class="dot" style="background:var(--kynorml)"></span>Daily Non-Negotiables</div>
+    <div class="grid-3" id="nn-grid"></div>
+  </div>
+
+</div><!-- /today -->
+
+<!-- ===================== WEEK TAB ===================== -->
+<div class="tab" id="tab-week">
+  <div class="card" style="margin-bottom:12px;overflow-x:auto;">
+    <div class="card-title"><span class="dot" style="background:var(--kynorml)"></span>Week at a Glance · Non-Negotiables</div>
+    <div class="week-grid" id="nn-week-grid"></div>
+  </div>
+
+  <div class="card" style="margin-bottom:12px;">
+    <div class="card-title"><span class="dot" style="background:var(--kynorml)"></span>FlyLady Zones</div>
+    <div class="zone-badge" id="zone-label"></div>
+    <div id="zone-tasks" class="grid-2"></div>
+  </div>
+
+  <div class="card" style="margin-bottom:12px;overflow-x:auto;">
+    <div class="card-title"><span class="dot" style="background:var(--blue)"></span>Calendar</div>
+    <div class="cal-selector">
+      <button class="cal-btn active" onclick="switchCal('personal',this)">Personal</button>
+      <button class="cal-btn" onclick="switchCal('work',this)">KYNORML</button>
+      <button class="cal-btn" onclick="switchCal('matthew',this)">Matthew</button>
+    </div>
+    <iframe id="cal-iframe" src="https://calendar.google.com/calendar/embed?src=a.lauren.kie%40gmail.com&ctz=America%2FChicago" style="border:0;width:100%;height:480px;border-radius:8px;" frameborder="0" scrolling="no"></iframe>
+  </div>
+
+  <!-- Reach out / Follow up -->
+  <div class="grid-2" style="margin-bottom:12px;">
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--green)"></span>Reach Out This Week</div>
+      <div class="quick-add">
+        <input id="reach-input" type="text" placeholder="Name…" onkeydown="if(event.key==='Enter')addReachOut()">
+        <button onclick="addReachOut()">Add</button>
+      </div>
+      <div id="reach-out-list"></div>
+    </div>
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--yellow)"></span>Follow-Ups</div>
+      <div class="quick-add">
+        <input id="followup-input" type="text" placeholder="Item…" onkeydown="if(event.key==='Enter')addFollowUp()">
+        <button onclick="addFollowUp()">Add</button>
+      </div>
+      <div id="followup-list"></div>
+    </div>
+  </div>
+</div><!-- /week -->
+
+<!-- ===================== HEALTH TAB ===================== -->
+<div class="tab" id="tab-health">
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--red)"></span>Medications</div>
+      <textarea id="health-meds" class="list-textarea" placeholder="Daily medications, doses…"></textarea>
+      <button class="btn btn-sm mt-8" onclick="autoSave('health-meds')">Save</button>
+    </div>
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--blue)"></span>Appointments</div>
+      <textarea id="health-appts" class="list-textarea" placeholder="Upcoming appointments…"></textarea>
+      <button class="btn btn-sm mt-8" onclick="autoSave('health-appts')">Save</button>
+    </div>
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--yellow)"></span>Mental Health Notes</div>
+      <textarea id="health-mental" class="list-textarea" placeholder="Mood, therapy notes…"></textarea>
+      <button class="btn btn-sm mt-8" onclick="autoSave('health-mental')">Save</button>
+    </div>
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--green)"></span>Health Goals</div>
+      <textarea id="health-goals" class="list-textarea" placeholder="Goals, habits to build…"></textarea>
+      <button class="btn btn-sm mt-8" onclick="autoSave('health-goals')">Save</button>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== FINANCE TAB ===================== -->
+<div class="tab" id="tab-finance">
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--red)"></span>Bills &amp; Expenses</div>
+      <textarea id="finance-bills" class="list-textarea" placeholder="Upcoming bills, due dates…"></textarea>
+      <button class="btn btn-sm mt-8" onclick="autoSave('finance-bills')">Save</button>
+    </div>
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--green)"></span>Budget Notes</div>
+      <textarea id="finance-notes" class="list-textarea" placeholder="Budget notes, goals…"></textarea>
+      <button class="btn btn-sm mt-8" onclick="autoSave('finance-notes')">Save</button>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== FAMILY TAB ===================== -->
+<div class="tab" id="tab-family">
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--blue)"></span>Ben</div>
+      <textarea id="family-ben" class="list-textarea" placeholder="Ben's schedule, needs, notes…"></textarea>
+      <button class="btn btn-sm mt-8" onclick="autoSave('family-ben')">Save</button>
+    </div>
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--kynorml)"></span>Matthew</div>
+      <textarea id="family-matthew" class="list-textarea" placeholder="Matthew's schedule, notes…"></textarea>
+      <button class="btn btn-sm mt-8" onclick="autoSave('family-matthew')">Save</button>
+    </div>
+    <div class="card full-span">
+      <div class="card-title"><span class="dot" style="background:var(--green)"></span>Family Notes</div>
+      <textarea id="family-notes" class="list-textarea" placeholder="Family priorities, upcoming events…" style="min-height:120px;"></textarea>
+      <button class="btn btn-sm mt-8" onclick="autoSave('family-notes')">Save</button>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== PROGRESS TAB ===================== -->
+<div class="tab" id="tab-progress">
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--kynorml)"></span>Goals</div>
+      <textarea id="progress-goals" class="list-textarea" placeholder="Current goals…" style="min-height:120px;"></textarea>
+      <button class="btn btn-sm mt-8" onclick="autoSave('progress-goals')">Save</button>
+    </div>
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--green)"></span>Wins</div>
+      <textarea id="progress-wins" class="list-textarea" placeholder="Recent wins, celebrations…" style="min-height:120px;"></textarea>
+      <button class="btn btn-sm mt-8" onclick="autoSave('progress-wins')">Save</button>
+    </div>
+    <div class="card full-span">
+      <div class="card-title"><span class="dot" style="background:var(--yellow)"></span>Lessons Learned</div>
+      <textarea id="progress-lessons" class="list-textarea" placeholder="What I learned this week…" style="min-height:100px;"></textarea>
+      <button class="btn btn-sm mt-8" onclick="autoSave('progress-lessons')">Save</button>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== RELATIONSHIPS TAB ===================== -->
+<div class="tab" id="tab-relationships">
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--kynorml)"></span>Inner Council</div>
+      <textarea id="rel-council" class="list-textarea" placeholder="Key people, check-in notes…" style="min-height:120px;"></textarea>
+      <button class="btn btn-sm mt-8" onclick="autoSave('rel-council')">Save</button>
+    </div>
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--green)"></span>Relationship Notes</div>
+      <textarea id="rel-notes" class="list-textarea" placeholder="Relationship goals, notes…" style="min-height:120px;"></textarea>
+      <button class="btn btn-sm mt-8" onclick="autoSave('rel-notes')">Save</button>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== LINKS TAB ===================== -->
+<div class="tab" id="tab-links">
+  <div class="card">
+    <div class="card-title"><span class="dot" style="background:var(--blue)"></span>Quick Links</div>
+    <div class="quick-add">
+      <input id="link-url" type="text" placeholder="https://…" style="flex:2;">
+      <input id="link-label" type="text" placeholder="Label" style="flex:1;">
+      <input id="link-cat" type="text" placeholder="Category">
+      <button onclick="addLink()">Add</button>
+    </div>
+    <div id="link-list" style="margin-top:8px;"></div>
+  </div>
+</div>
+
+<script>
+// ─── CONSTANTS ─────────────────────────────────────────────────────────────
+const GMAIL_TOOL  = 'mcp__2fe12232-96a6-47f7-ad79-fac634b2ff1e__search_threads';
+const CAL_TOOL    = 'mcp__fdecf106-fd1a-441d-945a-78524b3ed5bb__list_events';
+const IMSG_TOOL   = 'mcp__Read_and_Send_iMessages__get_unread_imessages';
+const KYNORML_CAL  = 'lauren@kynorml.org';
+const PERSONAL_CAL = 'a.lauren.kie@gmail.com';
+
+const TODAY = new Date();
+const DOW   = TODAY.getDay(); // 0=Sun
+const DAYS  = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+const MONTHS = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+
+// Daily reset IDs (n1-n13)
+const DAILY_IDS = new Set(['n1','n2','n3','n4','n5','n6','n7','n8','n9','n10','n11','n12','n13']);
+
+// ─── STORAGE ────────────────────────────────────────────────────────────────
+function todayKey() {
+  return 'wag-daily-'+TODAY.getFullYear()+'-'+(TODAY.getMonth()+1)+'-'+TODAY.getDate();
+}
+function weekKey() {
+  const mon = new Date(TODAY);
+  mon.setDate(TODAY.getDate() - ((DOW+6)%7));
+  return 'wag-weekly-'+mon.getFullYear()+'-'+(mon.getMonth()+1)+'-'+mon.getDate();
+}
+function saveState(id, checked) {
+  const key = DAILY_IDS.has(id) ? todayKey() : weekKey();
+  const s = JSON.parse(localStorage.getItem(key)||'{}');
+  s[id] = checked;
+  localStorage.setItem(key, JSON.stringify(s));
+}
+function loadState(id) {
+  const key = DAILY_IDS.has(id) ? todayKey() : weekKey();
+  const s = JSON.parse(localStorage.getItem(key)||'{}');
+  return !!s[id];
+}
+function saveWeekState(dayIdx, id, checked) {
+  const keys = weekKeys();
+  const key = keys[dayIdx];
+  const s = JSON.parse(localStorage.getItem(key)||'{}');
+  s[id] = checked;
+  localStorage.setItem(key, JSON.stringify(s));
+}
+function loadWeekState(dayIdx, id) {
+  const keys = weekKeys();
+  const s = JSON.parse(localStorage.getItem(keys[dayIdx])||'{}');
+  return !!s[id];
+}
+function weekKeys() {
+  const mon = new Date(TODAY);
+  mon.setDate(TODAY.getDate() - ((DOW+6)%7));
+  return Array.from({length:7}, (_,i) => {
+    const d = new Date(mon);
+    d.setDate(mon.getDate()+i);
+    return 'wag-daily-'+d.getFullYear()+'-'+(d.getMonth()+1)+'-'+d.getDate();
+  });
+}
+
+// ─── TAB NAV ────────────────────────────────────────────────────────────────
+function showTab(id, btn) {
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById('tab-'+id).classList.add('active');
+  if(btn) btn.classList.add('active');
+}
+
+// ─── HEADER DATE ────────────────────────────────────────────────────────────
+function setHeaderDate() {
+  const el = document.getElementById('header-date');
+  if(el) el.textContent = DAYS[DOW]+', '+MONTHS[TODAY.getMonth()]+' '+TODAY.getDate()+', '+TODAY.getFullYear();
+}
+
+// ─── NON-NEGOTIABLES DATA ───────────────────────────────────────────────────
+const NN = [
+  {group:'🌅 Morning', items:[
+    {id:'n1', label:'Ben morning supervision'},
+    {id:'n2', label:'Make beds'},
+    {id:'n3', label:'Take medications'},
+    {id:'n4', label:'Check master calendar'},
+  ]},
+  {group:'☀️ Midday', items:[
+    {id:'n5', label:'Swish & swipe bathroom'},
+    {id:'n6', label:'Clear kitchen sink'},
+    {id:'n7', label:'One load of laundry'},
+  ]},
+  {group:'🌙 Evening', items:[
+    {id:'n8',  label:'Kitchen close at 9pm'},
+    {id:'n9',  label:'15-min hot spot clear'},
+    {id:'n10', label:'Quiet hours 11pm'},
+    {id:'n11', label:'Process email'},
+    {id:'n12', label:'Check Monday.com'},
+    {id:'n13', label:'10-min tidy before bed'},
+  ]},
+];
+
+// ─── TODAY FOCUS (read-only display) ────────────────────────────────────────
+function renderTodayFocus() {
+  const el = document.getElementById('today-focus-display');
+  if(!el) return;
+  const items = [
+    'Ben morning supervision','Make beds','Take medications',
+    'Swish & swipe bathroom','Clear kitchen sink',
+    'Kitchen close at 9pm','10-min tidy before bed'
+  ];
+  el.innerHTML = items.map(it=>`
+    <div class="focus-item">
+      <div class="focus-bullet"></div>
+      <span>${it}</span>
+    </div>`).join('');
+}
+
+// ─── NON-NEGOTIABLES: TODAY GRID ────────────────────────────────────────────
+function renderNonNegotiables() {
+  const grid = document.getElementById('nn-grid');
+  if(!grid) return;
+  grid.innerHTML = NN.map(g=>`
+    <div>
+      <div class="section-header">${g.group}</div>
+      ${g.items.map(it=>{
+        const checked = loadState(it.id);
+        return `<div class="check-item${checked?' done':''}" id="wrap-${it.id}">
+          <input type="checkbox" id="${it.id}" ${checked?'checked':''} onchange="toggleNN('${it.id}',this)">
+          <label for="${it.id}">${it.label}</label>
+        </div>`;
+      }).join('')}
+    </div>`).join('');
+}
+function toggleNN(id, cb) {
+  saveState(id, cb.checked);
+  const wrap = document.getElementById('wrap-'+id);
+  if(wrap) wrap.classList.toggle('done', cb.checked);
+}
+
+// ─── WEEK GRID ───────────────────────────────────────────────────────────────
+function renderWeekNNGrid() {
+  const grid = document.getElementById('nn-week-grid');
+  if(!grid) return;
+  const mon = new Date(TODAY);
+  mon.setDate(TODAY.getDate() - ((DOW+6)%7));
+  const dayLabels = Array.from({length:7},(_,i)=>{
+    const d=new Date(mon); d.setDate(mon.getDate()+i);
+    const isToday = d.toDateString()===TODAY.toDateString();
+    return `<div class="wg-header" style="${isToday?'color:var(--kynorml);':''}">
+      ${DAYS[d.getDay()]}<br><span style="font-weight:400;font-size:10px;">${d.getDate()}</span>
+    </div>`;
+  });
+  let html = `<div class="wg-header"></div>${dayLabels.join('')}`;
+  NN.forEach(g=>{
+    html += `<div class="wg-label" style="grid-column:1/-1;font-weight:700;background:#f0f0f8;">${g.group}</div>`;
+    g.items.forEach(it=>{
+      html += `<div class="wg-label">${it.label}</div>`;
+      for(let d=0;d<7;d++){
+        const checked = loadWeekState(d, it.id);
+        const uid = `wg-${d}-${it.id}`;
+        html += `<div class="wg-cell">
+          <div class="wg-check">
+            <input type="checkbox" id="${uid}" ${checked?'checked':''}
+              onchange="saveWeekState(${d},'${it.id}',this.checked);document.getElementById('${uid}').checked=this.checked;">
+          </div>
+        </div>`;
+      }
+    });
+  });
+  grid.innerHTML = html;
+}
+
+// ─── FLYLADY ZONES ──────────────────────────────────────────────────────────
+const ZONES = [
+  {
+    name:'Zone 1 — Entry, Outdoor & Vehicle',
+    groups:[
+      {title:'Entry & Porch', items:[
+        {id:'z1a1',label:'Wipe down front door & handle'},
+        {id:'z1a2',label:'Sweep/clean entry rug'},
+        {id:'z1a3',label:'Clear entry table/hooks'},
+      ]},
+      {title:'Outdoor', items:[
+        {id:'z1b1',label:'Sweep porch/patio'},
+        {id:'z1b2',label:'Tidy outdoor furniture'},
+      ]},
+      {title:'Vehicle', items:[
+        {id:'z1c1',label:'Clear out car trash'},
+        {id:'z1c2',label:'Wipe dash & cup holders'},
+      ]},
+    ]
+  },
+  {
+    name:'Zone 2 — Kitchen',
+    groups:[
+      {title:'Deep Clean', items:[
+        {id:'z2a1',label:'Clean stovetop & knobs'},
+        {id:'z2a2',label:'Wipe down all counters'},
+        {id:'z2a3',label:'Clean microwave inside'},
+      ]},
+      {title:'Organization', items:[
+        {id:'z2b1',label:'Wipe cabinet fronts'},
+        {id:'z2b2',label:'Clean out fridge'},
+        {id:'z2b3',label:'Mop kitchen floor'},
+      ]},
+    ]
+  },
+  {
+    name:'Zone 3 — Bathrooms & Master',
+    groups:[
+      {title:'Bathrooms', items:[
+        {id:'z3a1',label:'Scrub toilets'},
+        {id:'z3a2',label:'Clean sinks & faucets'},
+        {id:'z3a3',label:'Wipe mirrors'},
+        {id:'z3a4',label:'Mop bathroom floors'},
+      ]},
+      {title:'Master Bedroom', items:[
+        {id:'z3b1',label:'Declutter nightstands'},
+        {id:'z3b2',label:'Vacuum/mop floor'},
+        {id:'z3b3',label:'Change bed linens'},
+      ]},
+    ]
+  },
+  {
+    name:'Zone 4 — Living Room & Kids Room',
+    groups:[
+      {title:'Living Room', items:[
+        {id:'z4a1',label:'Dust surfaces'},
+        {id:'z4a2',label:'Vacuum furniture & floor'},
+        {id:'z4a3',label:'Declutter surfaces'},
+      ]},
+      {title:"Ben's Room", items:[
+        {id:'z4b1',label:'Pick up toys/clutter'},
+        {id:'z4b2',label:'Wipe surfaces'},
+        {id:'z4b3',label:'Vacuum floor'},
+      ]},
+    ]
+  },
+  {
+    name:'Zone 5 — Whole House Blitz',
+    groups:[
+      {title:'Paper & Admin', items:[
+        {id:'z5a1',label:'Process mail pile'},
+        {id:'z5a2',label:'File or shred papers'},
+      ]},
+      {title:'Reset Everything', items:[
+        {id:'z5b1',label:'Quick declutter every room'},
+        {id:'z5b2',label:'Take out all trash'},
+        {id:'z5b3',label:'Mop/vacuum main areas'},
+        {id:'z5b4',label:'Wipe all light switches'},
+      ]},
+    ]
+  }
+];
+
+function renderZone() {
+  const mon = new Date(TODAY);
+  mon.setDate(TODAY.getDate() - ((DOW+6)%7));
+  const zoneIdx = Math.min(4, Math.ceil(mon.getDate() / 7));
+  const zone = ZONES[zoneIdx];
+  const label = document.getElementById('zone-label');
+  const tasks = document.getElementById('zone-tasks');
+  if(!label||!tasks) return;
+  label.textContent = zone.name;
+  tasks.innerHTML = zone.groups.map(g=>`
+    <div class="zone-group">
+      <div class="zone-group-title">${g.title}</div>
+      ${g.items.map(it=>{
+        const checked = loadState(it.id);
+        return `<div class="check-item${checked?' done':''}" id="wrap-${it.id}">
+          <input type="checkbox" id="${it.id}" ${checked?'checked':''}
+            onchange="saveState('${it.id}',this.checked);document.getElementById('wrap-${it.id}').classList.toggle('done',this.checked)">
+          <label for="${it.id}">${it.label}</label>
+        </div>`;
+      }).join('')}
+    </div>`).join('');
+}
+
+// ─── WEATHER ────────────────────────────────────────────────────────────────
+const WX_CODES = {
+  0:'☀️',1:'🌤',2:'⛅',3:'☁️',
+  45:'🌫',48:'🌫',51:'🌦',53:'🌦',55:'🌧',
+  61:'🌧',63:'🌧',65:'🌧',71:'❄️',73:'❄️',75:'❄️',
+  80:'🌦',81:'🌧',82:'⛈',95:'⛈',96:'⛈',99:'⛈'
+};
+async function loadWeather() {
+  try {
+    const url = 'https://api.open-meteo.com/v1/forecast?latitude=38.2527&longitude=-85.7585&current=temperature_2m,weather_code,wind_speed_10m,relative_humidity_2m&temperature_unit=fahrenheit&wind_speed_unit=mph&timezone=America%2FChicago';
+    const r = await fetch(url);
+    const d = await r.json();
+    const c = d.current;
+    const icon = WX_CODES[c.weather_code]||'🌡';
+    const temp = Math.round(c.temperature_2m);
+    const desc = `Humidity ${c.relative_humidity_2m}% · Wind ${Math.round(c.wind_speed_10m)} mph`;
+    document.getElementById('wx-icon').textContent = icon;
+    document.getElementById('wx-temp').textContent = temp+'°F';
+    document.getElementById('wx-details').textContent = desc;
+    document.getElementById('weather-header').textContent = icon+' '+temp+'°F Louisville';
+  } catch(e) {
+    document.getElementById('weather-header').textContent = '🌡 Weather unavailable';
+  }
+}
+
+// ─── STAGE HEALTH ───────────────────────────────────────────────────────────
+const STAGE_DESCS = {
+  survive:  '🆘 Just getting through it. Bare minimum is enough.',
+  function: '⚙️ Running on routine. Systems keeping things afloat.',
+  grow:     '🌱 Making intentional progress. Energy for improvement.',
+  thrive:   '✨ Firing on all cylinders. Thriving and expanding.'
+};
+function initStageHealth() {
+  const current = localStorage.getItem('stage-health-current');
+  if(current) {
+    document.querySelectorAll('.stage-btn').forEach(b=>b.classList.remove('active'));
+    const btn = document.querySelector('.stage-'+current);
+    if(btn) btn.classList.add('active');
+    const desc = document.getElementById('stage-desc');
+    if(desc) desc.textContent = STAGE_DESCS[current]||'';
+  }
+}
+function setStage(stage) {
+  document.querySelectorAll('.stage-btn').forEach(b=>b.classList.remove('active'));
+  const btn = document.querySelector('.stage-'+stage);
+  if(btn) btn.classList.add('active');
+  const desc = document.getElementById('stage-desc');
+  if(desc) desc.textContent = STAGE_DESCS[stage]||'';
+  localStorage.setItem('stage-health-current', stage);
+  // Log history
+  const hist = JSON.parse(localStorage.getItem('stage-history')||'[]');
+  hist.unshift({stage, date:TODAY.toLocaleDateString()});
+  if(hist.length>10) hist.pop();
+  localStorage.setItem('stage-history', JSON.stringify(hist));
+  renderStageHistory();
+}
+function renderStageHistory() {
+  const el = document.getElementById('stage-history');
+  if(!el) return;
+  const hist = JSON.parse(localStorage.getItem('stage-history')||'[]');
+  if(!hist.length) { el.innerHTML=''; return; }
+  el.innerHTML = hist.slice(0,5).map(h=>`
+    <div class="stage-history-item">${h.date} — ${h.stage.charAt(0).toUpperCase()+h.stage.slice(1)}</div>`).join('');
+}
+
+// ─── BRAIN DUMP ─────────────────────────────────────────────────────────────
+function initBrainDump() {
+  const key = 'brain-dump-'+TODAY.toDateString();
+  const ta = document.getElementById('brain-dump-text');
+  if(ta) ta.value = localStorage.getItem(key)||'';
+}
+function saveBrainDump() {
+  const key = 'brain-dump-'+TODAY.toDateString();
+  const ta = document.getElementById('brain-dump-text');
+  if(ta) localStorage.setItem(key, ta.value);
+}
+function clearBrainDump() {
+  const ta = document.getElementById('brain-dump-text');
+  if(ta) ta.value='';
+  saveBrainDump();
+}
+
+// ─── ACTION ITEMS ────────────────────────────────────────────────────────────
+function loadActionItems() {
+  const items = JSON.parse(localStorage.getItem('action-items')||'[]');
+  renderActions(items);
+}
+function addAction() {
+  const inp = document.getElementById('action-input');
+  const tag = document.getElementById('action-tag');
+  if(!inp||!inp.value.trim()) return;
+  const items = JSON.parse(localStorage.getItem('action-items')||'[]');
+  items.unshift({text:inp.value.trim(), tag:tag.value, id:Date.now()});
+  localStorage.setItem('action-items', JSON.stringify(items));
+  inp.value='';
+  renderActions(items);
+}
+function removeAction(id) {
+  const items = JSON.parse(localStorage.getItem('action-items')||'[]').filter(i=>i.id!==id);
+  localStorage.setItem('action-items', JSON.stringify(items));
+  renderActions(items);
+}
+function renderActions(items) {
+  const el = document.getElementById('action-list');
+  if(!el) return;
+  if(!items.length) { el.innerHTML='<div class="small">No action items yet.</div>'; return; }
+  el.innerHTML = items.map(it=>`
+    <div class="action-item">
+      <span class="action-tag tag-${it.tag}">${it.tag}</span>
+      <span style="flex:1;font-size:13px;">${it.text}</span>
+      <button class="btn btn-outline btn-sm" onclick="removeAction(${it.id})">✕</button>
+    </div>`).join('');
+}
+
+// ─── REACH OUT / FOLLOW UP ───────────────────────────────────────────────────
+function makeListFns(storageKey, listId, inputId) {
+  function load() {
+    const items = JSON.parse(localStorage.getItem(storageKey)||'[]');
+    const el = document.getElementById(listId);
+    if(!el) return;
+    el.innerHTML = items.map((it,i)=>`
+      <div class="check-item">
+        <input type="checkbox" onchange="this.parentElement.querySelector('label').style.textDecoration=this.checked?'line-through':'none'">
+        <label>${it}</label>
+        <button class="btn btn-outline btn-sm" style="margin-left:auto;" onclick="removeListItem('${storageKey}','${listId}','${inputId}',${i})">✕</button>
+      </div>`).join('');
+  }
+  return {load};
+}
+function addReachOut() {
+  const inp = document.getElementById('reach-input');
+  if(!inp||!inp.value.trim()) return;
+  const items = JSON.parse(localStorage.getItem('reach-out')||'[]');
+  items.push(inp.value.trim());
+  localStorage.setItem('reach-out', JSON.stringify(items));
+  inp.value='';
+  makeListFns('reach-out','reach-out-list','reach-input').load();
+}
+function addFollowUp() {
+  const inp = document.getElementById('followup-input');
+  if(!inp||!inp.value.trim()) return;
+  const items = JSON.parse(localStorage.getItem('follow-up')||'[]');
+  items.push(inp.value.trim());
+  localStorage.setItem('follow-up', JSON.stringify(items));
+  inp.value='';
+  makeListFns('follow-up','followup-list','followup-input').load();
+}
+function removeListItem(storageKey, listId, inputId, idx) {
+  const items = JSON.parse(localStorage.getItem(storageKey)||'[]');
+  items.splice(idx,1);
+  localStorage.setItem(storageKey, JSON.stringify(items));
+  makeListFns(storageKey, listId, inputId).load();
+}
+
+// ─── AUTO SAVE TEXTAREAS ──────────────────────────────────────────────────────
+function autoSave(id) {
+  const el = document.getElementById(id);
+  if(el) localStorage.setItem('field-'+id, el.value);
+}
+function autoLoad(id) {
+  const el = document.getElementById(id);
+  if(el) el.value = localStorage.getItem('field-'+id)||'';
+}
+function loadFinancials() {
+  ['finance-bills','finance-notes'].forEach(autoLoad);
+}
+
+// ─── CUSTOM LINKS ────────────────────────────────────────────────────────────
+function loadCustomLinks() {
+  const links = JSON.parse(localStorage.getItem('custom-links')||'[]');
+  renderLinks(links);
+}
+function addLink() {
+  const url   = document.getElementById('link-url');
+  const label = document.getElementById('link-label');
+  const cat   = document.getElementById('link-cat');
+  if(!url||!url.value.trim()) return;
+  let href = url.value.trim();
+  if(!/^https?:\/\//i.test(href)) href='https://'+href;
+  const links = JSON.parse(localStorage.getItem('custom-links')||'[]');
+  links.push({href, label:label.value||href, cat:cat.value||'General', id:Date.now()});
+  localStorage.setItem('custom-links', JSON.stringify(links));
+  url.value=''; label.value=''; cat.value='';
+  renderLinks(links);
+}
+function removeLink(id) {
+  const links = JSON.parse(localStorage.getItem('custom-links')||'[]').filter(l=>l.id!==id);
+  localStorage.setItem('custom-links', JSON.stringify(links));
+  renderLinks(links);
+}
+function renderLinks(links) {
+  const el = document.getElementById('link-list');
+  if(!el) return;
+  if(!links.length) { el.innerHTML='<div class="small">No links yet. Add one above.</div>'; return; }
+  // Group by category
+  const cats = {};
+  links.forEach(l=>{ if(!cats[l.cat]) cats[l.cat]=[]; cats[l.cat].push(l); });
+  el.innerHTML = Object.entries(cats).map(([cat,items])=>`
+    <div class="section-header">${cat}</div>
+    ${items.map(l=>`
+      <div class="link-item">
+        <span class="link-cat">${cat}</span>
+        <a href="${l.href}" target="_blank" rel="noopener">${l.label}</a>
+        <button class="btn btn-outline btn-sm" style="margin-left:auto;" onclick="removeLink(${l.id})">✕</button>
+      </div>`).join('')}
+  `).join('');
+}
+
+// ─── CALENDAR IFRAME SWITCH ──────────────────────────────────────────────────
+const CAL_URLS = {
+  personal:'https://calendar.google.com/calendar/embed?src=a.lauren.kie%40gmail.com&ctz=America%2FChicago',
+  work:    'https://calendar.google.com/calendar/embed?src=lauren%40kynorml.org&ctz=America%2FChicago',
+  matthew: 'https://calendar.google.com/calendar/embed?src=matthew%40kynorml.org&ctz=America%2FChicago'
+};
+function switchCal(key, btn) {
+  document.querySelectorAll('.cal-btn').forEach(b=>b.classList.remove('active'));
+  if(btn) btn.classList.add('active');
+  const iframe = document.getElementById('cal-iframe');
+  if(iframe) iframe.src = CAL_URLS[key];
+}
+
+// ─── MCP: CALENDAR ───────────────────────────────────────────────────────────
+let allEvents = [];
+async function fetchCalendar(calId) {
+  try {
+    const now = new Date();
+    const end = new Date(now); end.setDate(now.getDate()+7);
+    const r = await window.cowork.callMcpTool(CAL_TOOL, {
+      calendar_id: calId,
+      time_min: now.toISOString(),
+      time_max: end.toISOString(),
+      max_results: 30
+    });
+    const raw = r.structuredContent ?? JSON.parse(r.content?.[0]?.text ?? '{}');
+    const items = raw.items || raw.events || [];
+    return items.map(ev=>({
+      ...ev,
+      _calId: calId,
+      _color: calId===KYNORML_CAL ? 'var(--kynorml)' : 'var(--personal)'
+    }));
+  } catch(e){ return []; }
+}
+function renderTodayEvents(events) {
+  const el = document.getElementById('today-events');
+  if(!el) return;
+  const todayStr = TODAY.toDateString();
+  const todayEvs = events.filter(ev=>{
+    const start = ev.start?.dateTime || ev.start?.date;
+    if(!start) return false;
+    return new Date(start).toDateString()===todayStr;
+  }).sort((a,b)=>{
+    const ta = new Date(a.start?.dateTime||a.start?.date);
+    const tb = new Date(b.start?.dateTime||b.start?.date);
+    return ta-tb;
+  });
+  if(!todayEvs.length){ el.innerHTML='<div class="small">No events today.</div>'; return; }
+  el.innerHTML = todayEvs.map(ev=>{
+    const start = ev.start?.dateTime;
+    const time  = start ? new Date(start).toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'}) : 'All day';
+    return `<div class="event-item">
+      <span class="event-dot" style="background:${ev._color};margin-top:4px;"></span>
+      <span class="event-time">${time}</span>
+      <span>${ev.summary||'(No title)'}</span>
+    </div>`;
+  }).join('');
+}
+async function renderWeekGrid(events) { /* grid already rendered statically */ }
+
+// ─── MCP: GMAIL ──────────────────────────────────────────────────────────────
+async function fetchEmails() {
+  const el = document.getElementById('email-list');
+  try {
+    const r = await window.cowork.callMcpTool(GMAIL_TOOL, {
+      query:'in:inbox is:unread',
+      max_results:8
+    });
+    const raw = r.structuredContent ?? JSON.parse(r.content?.[0]?.text ?? '{}');
+    const threads = raw.threads || raw || [];
+    if(!threads.length){ el.innerHTML='<div class="small">Inbox empty 🎉</div>'; return; }
+    el.innerHTML = threads.slice(0,8).map(t=>`
+      <div class="inbox-item">
+        <div class="inbox-sender">${t.messages?.[0]?.from || t.snippet?.slice(0,30)||'Email'}</div>
+        <div class="inbox-subj">${t.snippet||t.subject||''}</div>
+      </div>`).join('');
+  } catch(e){
+    if(el) el.innerHTML='<div class="small" style="color:var(--red)">Gmail unavailable</div>';
+  }
+}
+
+// ─── MCP: IMESSAGE ───────────────────────────────────────────────────────────
+async function fetchMessages() {
+  const el = document.getElementById('imsg-list');
+  try {
+    const r = await window.cowork.callMcpTool(IMSG_TOOL, {});
+    const raw = r.structuredContent ?? JSON.parse(r.content?.[0]?.text ?? '{}');
+    const msgs = raw.messages || raw || [];
+    if(!msgs.length){ el.innerHTML='<div class="small">No unread messages 🎉</div>'; return; }
+    el.innerHTML = msgs.slice(0,6).map(m=>`
+      <div class="inbox-item">
+        <div class="inbox-sender">${m.sender||m.from||'Unknown'}</div>
+        <div class="inbox-subj">${(m.text||m.body||'').slice(0,80)}</div>
+      </div>`).join('');
+  } catch(e){
+    if(el) el.innerHTML='<div class="small" style="color:var(--red)">iMessage unavailable</div>';
+  }
+}
+
+// ─── INIT ─────────────────────────────────────────────────────────────────────
+async function init() {
+  setHeaderDate();
+  renderTodayFocus();
+  renderNonNegotiables();
+  renderWeekNNGrid();
+  renderZone();
+  loadActionItems();
+  initBrainDump();
+  initStageHealth();
+  renderStageHistory();
+  loadFinancials();
+  loadCustomLinks();
+  makeListFns('reach-out','reach-out-list','reach-input').load();
+  makeListFns('follow-up','followup-list','followup-input').load();
+  ['health-meds','health-appts','health-mental','health-goals',
+   'finance-bills','finance-notes',
+   'family-ben','family-matthew','family-notes',
+   'rel-council','rel-notes',
+   'progress-goals','progress-wins','progress-lessons'].forEach(autoLoad);
+  loadWeather();
+  setInterval(loadWeather, 30*60*1000);
+  try {
+    const [kyEvs, perEvs] = await Promise.all([
+      fetchCalendar(KYNORML_CAL),
+      fetchCalendar(PERSONAL_CAL)
+    ]);
+    allEvents = [...kyEvs, ...perEvs];
+    renderTodayEvents(allEvents);
+  } catch(e){}
+  document.getElementById('overlay').classList.add('hidden');
+  await Promise.all([fetchEmails(), fetchMessages()]);
+}
+init();
+</script>
+</body>
+</html>

@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<script type="application/json" id="cowork-artifact-meta">
+{
+  "name": "Week At A Glance",
+  "schemaVersion": 1,
+  "description": "Live week-at-a-glance calendar view pulling events from Google Calendar for the current week (or next week on Fridays).",
+  "mcpTools": [
+    "mcp__fdecf106-fd1a-441d-945a-78524b3ed5bb__list_events"
+  ],
+  "mcpServerNames": [
+    "Google Calendar"
+  ]
+}
+</script>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Week at a Glance</title>
+<style>
+  :root { color-scheme: light; }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    background: #f4f5f9;
+    color: #1c1c2e;
+    padding: 24px 20px;
+  }
+
+  header {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    margin-bottom: 4px;
+  }
+  header h1 { font-size: 20px; font-weight: 700; }
+  header .range { font-size: 13px; color: #999; }
+  .fetched { font-size: 11px; color: #bbb; margin-bottom: 18px; }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 10px;
+  }
+
+  .day {
+    background: #fff;
+    border: 1px solid #e4e4ef;
+    border-radius: 12px;
+    padding: 13px 11px 12px;
+    display: flex;
+    flex-direction: column;
+    min-height: 170px;
+  }
+  .day.today  { border-color: #6c63ff; background: #faf9ff; }
+  .day.past   { opacity: 0.38; }
+  .day.weekend { background: #fafafa; }
+
+  .dow {
+    font-size: 10.5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .09em;
+    color: #c0bfd8;
+    margin-bottom: 2px;
+  }
+  .today .dow { color: #6c63ff; }
+
+  .date-num {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1;
+    color: #1c1c2e;
+    margin-bottom: 11px;
+  }
+  .today .date-num { color: #6c63ff; }
+
+  .badge {
+    display: inline-block;
+    font-size: 9px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .05em;
+    background: #6c63ff;
+    color: #fff;
+    border-radius: 4px;
+    padding: 1px 5px;
+    vertical-align: middle;
+    margin-left: 5px;
+    position: relative;
+    top: -2px;
+  }
+
+  .events { flex: 1; display: flex; flex-direction: column; gap: 7px; }
+
+  .event {
+    background: #eeebff;
+    border-left: 3px solid #6c63ff;
+    border-radius: 0 7px 7px 0;
+    padding: 6px 8px;
+    font-size: 11px;
+    line-height: 1.45;
+  }
+  .event.external {
+    background: #e6f2fc;
+    border-left-color: #3a8fd8;
+  }
+
+  .ev-time {
+    display: block;
+    font-weight: 700;
+    color: #6c63ff;
+    font-size: 10.5px;
+    margin-bottom: 1px;
+  }
+  .event.external .ev-time { color: #3a8fd8; }
+
+  .ev-title {
+    display: block;
+    font-weight: 600;
+    color: #222;
+  }
+  .ev-loc {
+    display: block;
+    font-size: 10px;
+    color: #999;
+    margin-top: 2px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .empty {
+    flex: 1;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding-bottom: 4px;
+  }
+  .empty span {
+    font-size: 11px;
+    color: #ddd;
+  }
+
+  .day-note {
+    margin-top: 9px;
+    padding-top: 8px;
+    border-top: 1px solid #f0f0f0;
+    font-size: 10.5px;
+    font-style: italic;
+    color: #c0bfd8;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Week at a Glance</h1>
+  <span class="range">Jun 1 – 7, 2026</span>
+</header>
+<p class="fetched">Last updated Jun 2, 2026</p>
+
+<div class="grid">
+
+  <!-- MON Jun 1 — past, no events -->
+  <div class="day past weekend">
+    <div class="dow">Mon</div>
+    <div class="date-num">1</div>
+    <div class="events">
+      <div class="empty"><span>No events</span></div>
+    </div>
+  </div>
+
+  <!-- TUE Jun 2 — TODAY -->
+  <div class="day today">
+    <div class="dow">Tue</div>
+    <div class="date-num">2 <span class="badge">Today</span></div>
+    <div class="events">
+      <div class="event">
+        <span class="ev-time">12:00–12:15pm</span>
+        <span class="ev-title">WEiC Networking Sesh</span>
+        <span class="ev-loc">Zoom (Women in Cannabis)</span>
+      </div>
+      <div class="event external">
+        <span class="ev-time">2:20–3:20pm</span>
+        <span class="ev-title">Appointment with Emily Cash</span>
+        <span class="ev-loc">351 Pascoe Blvd, Bowling Green KY</span>
+      </div>
+    </div>
+    <div class="day-note">2 events</div>
+  </div>
+
+  <!-- WED Jun 3 — clear -->
+  <div class="day">
+    <div class="dow">Wed</div>
+    <div class="date-num">3</div>
+    <div class="events">
+      <div class="empty"><span>No events</span></div>
+    </div>
+    <div class="day-note">Clear day</div>
+  </div>
+
+  <!-- THU Jun 4 — 2 events -->
+  <div class="day">
+    <div class="dow">Thu</div>
+    <div class="date-num">4</div>
+    <div class="events">
+      <div class="event">
+        <span class="ev-time">12:00–1:00pm</span>
+        <span class="ev-title">Ben Psych Eval for SSA</span>
+      </div>
+      <div class="event">
+        <span class="ev-time">3:00–4:00pm</span>
+        <span class="ev-title">Ben Appt – Dr. Whitcher</span>
+      </div>
+    </div>
+    <div class="day-note">2 events</div>
+  </div>
+
+  <!-- FRI Jun 5 — clear -->
+  <div class="day">
+    <div class="dow">Fri</div>
+    <div class="date-num">5</div>
+    <div class="events">
+      <div class="empty"><span>No events</span></div>
+    </div>
+    <div class="day-note">Clear day</div>
+  </div>
+
+  <!-- SAT Jun 6 -->
+  <div class="day weekend">
+    <div class="dow">Sat</div>
+    <div class="date-num">6</div>
+    <div class="events">
+      <div class="empty"><span>—</span></div>
+    </div>
+    <div class="day-note">Weekend</div>
+  </div>
+
+  <!-- SUN Jun 7 -->
+  <div class="day weekend">
+    <div class="dow">Sun</div>
+    <div class="date-num">7</div>
+    <div class="events">
+      <div class="empty"><span>—</span></div>
+    </div>
+    <div class="day-note">Weekend</div>
+  </div>
+
+</div>
+</body>
+</html>
