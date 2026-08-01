@@ -1,10 +1,13 @@
 ---
 tags: 
 - recipe 
+- meal-planning
 created: 2019-03-13T12:39:46+00:00
 author: Amanda
 url: https://mindfulavocado.com/kale-and-sweet-potato-quinoa-bowls/ 
 ---
+
+Related: [[Lauren Meal Planning Playbook]]
 
 # [Kale and Sweet Potato Quinoa Bowls](https://mindfulavocado.com/kale-and-sweet-potato-quinoa-bowls/)
 

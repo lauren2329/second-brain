@@ -4,6 +4,8 @@
 
 This document consolidates the major meal-planning, nutrition, cooking, grocery, and recipe discussions from our conversations.
 
+**Recipe notes:** [[Kale and Sweet Potato Quinoa Bowls]] · [[Quinoa Buddha Bowl]] (see also `3 Home/Recipes/` for PDF recipes)
+
 ---
 
 # Nutrition Goals

@@ -1,10 +1,13 @@
 ---
 tags: 
 - recipe 
+- meal-planning
 created: 2021-01-06T10:32:59+00:00
 author: 
 url: https://feelgoodfoodie.net/recipe/vegan-buddha-bowl/ 
 ---
+
+Related: [[Lauren Meal Planning Playbook]]
 
 # [Quinoa Buddha Bowl](https://feelgoodfoodie.net/recipe/vegan-buddha-bowl/)
 
