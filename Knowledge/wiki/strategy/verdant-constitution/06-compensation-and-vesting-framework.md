@@ -10,349 +10,347 @@ tags: [verdant, constitution, compensation, vesting, equity, compliance]
 
 ## Purpose
 
-This framework explains how people and organizations may be compensated within the Verdant Enterprise Network and how future participation, incentives, profit-sharing, equity, or vesting concepts should be handled.
+This framework explains how compensation, advancement, preferred-provider status, strategic partnership, and future vesting or equity participation may be handled inside the Verdant Enterprise Network.
 
-The purpose is to create opportunity without creating confusion, entitlement, tax risk, nonprofit compliance problems, labor classification problems, or false promises.
+The purpose is to create opportunity without making promises the network is not ready or legally able to keep.
 
-This is a planning document. It is not an employment agreement, contractor agreement, equity agreement, profit-sharing plan, retirement plan, or securities offering. Attorney and CPA review are required before implementation.
+This is a planning document. It is not an employment agreement, contractor agreement, equity plan, profit-sharing plan, securities offering, partnership agreement, or legal promise of ownership. Any actual compensation, bonus, vesting, equity, or ownership arrangement must be created through proper legal documents and reviewed by an attorney and CPA.
 
 ## Master Principle
 
-> Pay people for real work now. Discuss ownership later only when the legal structure can support it.
+> Compensation must be earned through real work, documented contribution, and lawful structure.
 
-## Compensation Philosophy
-
-The network should compensate people fairly for real work while helping providers build long-term capacity.
-
-Compensation should support:
-
-- Household stability
-- Business development
-- Clean records
-- Professional growth
-- Compliance
-- Retention
-- Trust
-- Mission impact
-
-Compensation should not be used to:
-
-- Hide income
-- Disguise gifts
-- Avoid payroll taxes
-- Avoid contractor rules
-- Move nonprofit money to insiders improperly
-- Promise equity without legal documents
-- Create expectations the network cannot honor
+Future opportunity is possible, but it is not automatic.
 
 ## Compensation Categories
 
-### Employee Wages
+Participants may be compensated in different ways depending on their legal role.
 
-Used when the worker is directed and controlled by the employer.
+| Category | Description | Typical Payment Method | Notes |
+|---|---|---|---|
+| Employee | Works under direction and control of employer | Payroll | Must follow wage, tax, and employment rules |
+| Contractor | Performs defined work independently | Invoice / 1099 where appropriate | Must not be misclassified if they function as employee |
+| Vendor | Provides goods or services | Invoice | Should have contract, receipt, or purchase record |
+| Service provider business | Independent business serving VMP or clients | Contracted service payment | Should maintain business records and separate bank account |
+| Owner | Owns part of a business entity | Draws, distributions, salary, or guaranteed payments depending on structure | Requires CPA guidance |
+| Volunteer | Supports nonprofit mission without compensation | No payment | Must not replace paid labor where wages are legally required |
+| Strategic partner | Provides significant long-term value | Contract, bonus, revenue share, equity, or other structure if legally created | No automatic rights without agreement |
 
-Examples:
+## Real Work Requirement
 
-- Set schedule
-- Employer provides tools
-- Employer controls method of work
-- Worker is integrated into ordinary operations
-- Worker reports to a manager
+No person or company should be paid unless there is a legitimate basis for payment.
 
-Requirements:
+Examples of legitimate basis:
 
-- Payroll setup
-- Tax withholding
-- Time tracking where applicable
-- Job description
-- Wage compliance
-- Workers' compensation review
-- Benefits review if applicable
+- Hours worked
+- Deliverables completed
+- Management services provided
+- Administrative services provided
+- Products supplied
+- Event work performed
+- Professional services rendered
+- Reimbursable business expense documented by receipt
+- Lawful owner distribution
 
-### Contractor Payments
+Payments should not be used for:
 
-Used when an independent person or business performs defined services with more control over how the work is done.
+- Gifts disguised as wages
+- Family support disguised as contractor payments
+- Nonprofit funds routed for private benefit
+- Fake invoices
+- Paying people for work not performed
+- Moving money only to affect benefits eligibility
+- Avoiding payroll taxes or employment classification rules
 
-Requirements:
+## Compensation Standards
 
-- Written scope of work
-- W-9 or appropriate tax documentation
-- Invoice
-- Payment record
-- Deliverable record
-- Contractor classification review
+Compensation should be:
 
-### Vendor Payments
-
-Used for businesses providing goods or defined services.
-
-Examples:
-
-- Catering
-- Supplies
-- Marketing services
-- Technology services
-- Repairs
-- Cleaning
-- Professional services
-
-Requirements:
-
-- Vendor agreement or invoice
-- Receipt or deliverable
-- Payment record
-- Conflict disclosure if related party
-
-### Reimbursements
-
-Used when someone pays an approved business expense personally and is repaid by the correct entity.
-
-Requirements:
-
-- Receipt
-- Business purpose
-- Date
-- Entity responsible
-- Approval
-- Reimbursement record
-
-### Owner Draws or Distributions
-
-Used only when allowed by the entity type, ownership structure, tax treatment, operating agreement, and available cash.
-
-Owner distributions are not a substitute for wages when payroll is legally required.
-
-### Nonprofit Compensation
-
-Nonprofit compensation must be reasonable, documented, and tied to real services.
-
-Extra care is required when the person being paid is:
-
-- A founder
-- Officer
-- Board member
-- Family member
-- Related-party vendor
-- Insider-controlled company
-
-Nonprofit compensation may require:
-
-- Board approval
-- Conflict disclosure
-- Comparable compensation support
-- Meeting minutes
-- Written agreement
-- Clear deliverables
-
-### Charitable Gaming-Related Compensation
-
-Any compensation connected to charitable gaming must follow applicable charitable gaming law, license requirements, nonprofit rules, and regulatory guidance.
-
-Do not assume ordinary business compensation rules apply to gaming revenue.
+- Reasonable
+- Documented
+- Approved by the proper authority
+- Paid by the correct entity
+- Tied to a real role or deliverable
+- Reported correctly for tax and benefits purposes
+- Reviewed when related parties are involved
 
 ## Related-Party Compensation
 
-Related-party compensation is allowed only when it is legitimate, documented, reasonable, and approved through the proper process.
+Related-party compensation requires extra care.
 
-Related-party examples:
+Related parties may include:
 
-- VMP paying Verdant Ventures LLC
-- CGN paying VMP
-- CGN paying a family-owned vendor
-- VMP paying a family member
-- A nonprofit paying a board member's business
+- Lauren
+- Matthew
+- Mandy
+- Family members
+- Companies owned by family members
+- Companies owned by close collaborators
+- Board members
+- Officers
+- Key insiders
 
-Required safeguards:
+Related-party compensation should include:
 
-1. Disclose the relationship.
-2. Define the service.
-3. Confirm the service is needed.
-4. Document pricing.
-5. Approve through the correct authority.
-6. Record the approval.
-7. Keep invoices and deliverables.
-8. Review periodically.
-
-## Provider Development Value
-
-The network should help service providers build value beyond immediate compensation.
-
-A provider may gain:
-
-- Business revenue history
-- Bank statements
-- Tax records
-- Invoicing habits
-- Bookkeeping records
-- Client references
-- Operating procedures
-- Business credit readiness
-- Insurance readiness
-- Loan or grant readiness
-- Professional reputation
-
-Even if a provider leaves the network after one year, the goal is for that provider to leave with stronger records and more credibility than they had before joining.
+1. Written role or scope.
+2. Compensation rate.
+3. Explanation of reasonableness.
+4. Conflict disclosure.
+5. Approval by disinterested decision-makers where required.
+6. Timesheets, deliverables, or invoices.
+7. Payment records.
+8. Periodic review.
 
 ## Prosperity Ladder
 
-The compensation structure should support movement through the prosperity ladder.
+The Verdant Enterprise Network should create pathways for people to grow over time.
 
-| Level | Role | Compensation Type | Notes |
-|---|---|---|---|
-| 1 | Volunteer | No pay | Only for lawful volunteer roles, usually nonprofit mission work |
-| 2 | Helper / task worker | Stipend or hourly pay if lawful | Must not replace required wages |
-| 3 | Employee | Payroll wages | Use when employer controls the work |
-| 4 | Contractor | Invoice-based pay | Use only when classification is legitimate |
-| 5 | Service provider business | Vendor or service agreement | Provider builds business records |
-| 6 | Preferred provider | Recurring contracts | Based on reliability, quality, and compliance |
-| 7 | Strategic partner | Deeper collaboration | Requires written agreement |
-| 8 | Future equity / participation candidate | To be determined | No promise without legal structure |
-| 9 | Mentor / sponsor | Contract, stipend, or leadership role | Supports development of others |
+Possible ladder:
 
-Movement through the ladder is not automatic.
+1. Volunteer or helper
+2. Paid task worker
+3. Part-time employee
+4. Contractor
+5. Independent service provider
+6. Preferred provider
+7. Strategic partner
+8. Future equity or vesting participant where legally appropriate
+9. Mentor / sponsor for new providers
 
-## Vesting Philosophy
+Movement up the ladder is based on readiness, reliability, contribution, compliance, documentation, and the needs of the network.
 
-Vesting should be treated as a future possibility, not a current promise.
+No level guarantees the next level.
 
-The word "vesting" should not be used casually with workers, family members, contractors, or partners unless there is a real written plan.
+## Provider Development Milestones
 
-Possible future vesting structures may include:
+A provider may become stronger and more credible by building:
 
-- Equity in a for-profit entity
-- Profit-sharing plan
-- Phantom equity
-- Bonus pool
-- Revenue-share agreement
-- Performance-based contract
-- Long-term incentive plan
-- Strategic partner participation agreement
+- Legal business formation where appropriate
+- EIN
+- Business bank account
+- Invoicing system
+- Bookkeeping records
+- Tax records
+- Insurance
+- Service menu
+- Pricing sheet
+- Standard operating procedures
+- Client references
+- Portfolio of completed work
+- Business credit profile
+- Additional clients outside VMP
 
-Each option has different tax, securities, labor, nonprofit, and governance consequences.
+These milestones matter because a provider should be able to leave the network stronger than when they entered.
 
-## No Promise Rule
+## Preferred Provider Status
 
-Until a formal written agreement is approved and signed:
+Preferred provider status may be granted when a service provider consistently demonstrates:
 
-- No one is promised equity.
-- No one is promised ownership.
-- No one is promised profit sharing.
-- No one is promised a payout at exit.
-- No one is promised a permanent role.
-
-Use this language:
-
-> Future strategic participation may be considered based on contribution, performance, legal structure, and the needs of the network. No ownership, equity, vesting, or exit participation is promised unless documented in a signed written agreement.
-
-## Future Equity Participation Criteria
-
-If future equity or vesting becomes appropriate, candidates may be evaluated based on:
-
-- Length of contribution
-- Quality of work
-- Reliability
-- Leadership
-- Revenue contribution
-- Client development
-- Mission alignment
-- Compliance record
-- Documentation habits
-- Financial responsibility
+- Reliable delivery
+- Clean invoicing
+- Good communication
+- Strong client service
+- Appropriate records
+- Compliance awareness
+- Fair pricing
 - Ability to work independently
-- Ability to strengthen the network
-- Willingness to mentor others
+- Ability to solve problems without creating unnecessary risk
+
+Preferred provider status is not ownership. It is not guaranteed work. It is a trust and quality designation.
+
+Preferred providers may receive:
+
+- First consideration for suitable projects
+- More complex scopes of work
+- Longer-term contracts
+- Referrals
+- Training or systems support
+- Invitation to strategic planning conversations
+
+## Strategic Partner Status
+
+Strategic partner status is deeper than preferred provider status.
+
+A strategic partner contributes materially to growth, operations, reputation, funding, programs, client relationships, or long-term network development.
+
+Strategic partner status may be based on:
+
+- Sustained contribution
+- Leadership
+- Revenue development
+- Mission alignment
+- Problem-solving
+- Institutional knowledge
+- Trustworthiness
+- Ability to build systems
+- Ability to mentor others
+- Clean recordkeeping and compliance behavior
+
+Strategic partner status must be documented in writing.
+
+It should not be granted casually.
+
+## Future Vesting Concepts
+
+Vesting may be considered later, once the network has:
+
+- Stable legal entities
+- Clear ownership structure
+- Clean books
+- Consistent revenue
+- CPA-reviewed compensation practices
+- Attorney-reviewed equity documents
+- A clear reason for equity participation
+- Defined performance milestones
+- Exit or succession planning needs
+
+Possible vesting structures may include:
+
+- Equity in a specific for-profit entity
+- Phantom equity
+- Profit interest
+- Bonus pool
+- Revenue share
+- Commission structure
+- Long-term incentive plan
+- Advisory equity
+- Project-based success fee
+
+Each option has different legal, tax, securities, employment, and benefits implications.
+
+Do not promise vesting casually.
+
+## What Vesting Should Reward
+
+Future vesting should reward durable value, not just proximity or family relationship.
+
+Possible criteria:
+
+- Years of service
+- Revenue created
+- Systems built
+- Clients retained
+- Programs launched
+- Risk reduced
+- Team developed
+- Capital raised
+- Intellectual property created
+- Leadership performed
+- Compliance protected
+
+## What Vesting Should Not Reward
+
+Vesting should not reward:
+
+- Family status alone
+- Informal loyalty without performance
+- Undocumented labor
+- Private benefit from nonprofit funds
+- Manipulation of public benefits
+- Work that creates compliance risk
+- Entitlement without contribution
+
+## Nonprofit Restriction
+
+Nonprofits do not have owners.
+
+A nonprofit cannot issue equity.
+
+A nonprofit cannot be used to create private ownership rights for insiders.
+
+People may be paid reasonable compensation for real services to a nonprofit, but they cannot vest into ownership of the nonprofit.
+
+Any future equity or vesting plan must be connected to a proper for-profit entity, not to Common Good Network or another nonprofit organization.
+
+## Golden Door Restriction
+
+If Golden Door operates as a charitable gaming program of Common Good Network, then any compensation, management fees, vendor payments, or related-party payments connected to Golden Door must be reviewed under charitable gaming rules, nonprofit law, and conflict-of-interest standards.
+
+Do not tie informal ownership promises to Golden Door if the program is legally housed inside CGN.
+
+## Verdant Holdings Future Role
+
+Verdant Holdings LLC may later hold assets, equity, intellectual property, acquisition interests, or exit-planning interests.
+
+Potential future uses:
+
+- Holding equity in operating companies
+- Holding IP or brand assets
+- Supporting acquisition strategy
+- Preparing for a sale or exit
+- Separating long-term assets from operating risk
+- Supporting succession planning
+
+Do not use Verdant Holdings as a shortcut for compensation or concealment.
 
 ## Bonus and Incentive Options
 
-Before equity, consider simpler incentive structures:
+Before true equity exists, the network may consider simpler incentive structures.
+
+Possible options:
 
 - Project completion bonus
+- Revenue development bonus
 - Client retention bonus
-- Revenue milestone bonus
 - Performance bonus
-- Referral bonus
-- Profitability bonus
-- Leadership stipend
-- Training stipend
-- Preferred provider status
+- Referral fee where legal
+- Profit-sharing arrangement in a for-profit entity
+- Contractor milestone bonus
 
-Bonuses must still be documented, reasonable, and paid by the correct entity.
+Each incentive must be:
 
-## Exit Planning
+- Written
+- Measurable
+- Lawful
+- Approved
+- Tax-reported properly
+- Not funded by restricted nonprofit money unless legally permitted
 
-Exit planning should be handled through Verdant Holdings or another properly designed structure only when the network has real assets, revenue, contracts, intellectual property, or acquisition interest.
+## Documentation Checklist
 
-Before any exit plan is discussed externally, clarify:
+Before paying compensation or granting incentive rights, confirm:
 
-- What entity owns what
-- Who has authority to sell
-- What contracts are assignable
-- Who owns IP
-- Whether nonprofits are involved
-- Whether any assets are restricted
-- Whether any participants have signed rights
-- Tax consequences
-- Securities issues
-- Employment consequences
+- Who is paying?
+- Who is receiving?
+- What entity is involved?
+- What work was done?
+- What rate or formula applies?
+- Who approved it?
+- Is there a conflict of interest?
+- Is the payment reasonable?
+- Is the payment allowed by the funding source?
+- Is the person an employee, contractor, vendor, owner, or volunteer?
+- How will it be reported for tax and benefits purposes?
+- Are records stored in the correct entity file?
 
-## Compensation Review Rhythm
+## No Implied Promise
 
-### Monthly
+Participation in the network does not automatically create:
 
-- Review payroll.
-- Review contractor payments.
-- Review related-party payments.
-- Review reimbursements.
-- Review unpaid invoices.
+- Employment
+- Ownership
+- Partnership
+- Equity
+- Vesting
+- Profit share
+- Bonus rights
+- Permanent work
+- Board seat
+- Management authority
+- Right to future acquisition proceeds
 
-### Quarterly
-
-- Review provider performance.
-- Review pay rates.
-- Review classification risk.
-- Review bonus eligibility.
-- Review budget impact.
-
-### Annually
-
-- Review compensation philosophy.
-- Review market rates.
-- Review contracts.
-- Review nonprofit compensation records.
-- Review strategic partner status.
-- Review whether any future incentive plan is ready for legal design.
-
-## Forbidden Practices
-
-Do not:
-
-- Promise equity casually.
-- Pay people without records.
-- Treat employees as contractors just to avoid payroll.
-- Use nonprofit funds for private benefit.
-- Use charitable gaming funds outside permitted purposes.
-- Pay family members for work not performed.
-- Use inflated invoices to move money.
-- Hide household income from benefits agencies.
-- Use trusts or LLCs to conceal income or assets.
-- Create a bonus or vesting plan without legal and tax review.
+Any such rights must be created in writing by the proper entity.
 
 ## Plain-English Summary
 
-Pay people clearly for the work they do now.
+Pay people for real work.
 
-Help providers build real businesses with real records.
+Document everything.
 
-Use bonuses and preferred-provider status before jumping to equity.
+Do not promise ownership before the legal structure exists.
 
-Do not promise ownership or exit money until the structure exists and the paperwork is real.
+Nonprofits cannot have equity owners.
 
-The safest path is:
+Future vesting should reward long-term value, not family status or informal loyalty alone.
 
-1. Real work.
-2. Clean pay.
-3. Strong records.
-4. Reliable performance.
-5. Strategic partnership.
-6. Legal review.
-7. Written incentive or ownership plan if appropriate.
+The goal is to create opportunity while protecting the network, the mission, the people, and the records.
